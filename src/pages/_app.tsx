@@ -1,8 +1,9 @@
-import { ChakraProvider } from "@chakra-ui/react";
-import type { AppProps } from "next/app";
+import { AppProps } from "next/app";
+import Head from "next/head";
+import { MantineProvider } from "@mantine/core";
+
 import { Provider as URQLProvider } from "urql";
 
-import { customTheme } from "theming";
 import { URQLClient } from "lib/client";
 import Fonts from "theming/fonts";
 
@@ -10,12 +11,25 @@ const client = URQLClient();
 
 const FairpayApp = ({ Component, pageProps }: AppProps) => {
   return (
-    <URQLProvider value={client}>
-      <ChakraProvider resetCSS theme={customTheme}>
-        <Fonts />
-        <Component {...pageProps} />
-      </ChakraProvider>
-    </URQLProvider>
+    <>
+      <Head>
+        <title>Minsky | Open Innovation</title>
+        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+      </Head>
+      <URQLProvider value={client}>
+        <MantineProvider
+          withGlobalStyles
+          withNormalizeCSS
+          theme={{
+            /** Put your mantine theme override here */
+            colorScheme: "dark",
+          }}
+        >
+          <Fonts />
+          <Component {...pageProps} />
+        </MantineProvider>
+      </URQLProvider>
+    </>
   );
 };
 

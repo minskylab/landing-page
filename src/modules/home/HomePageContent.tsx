@@ -1,17 +1,27 @@
-import { Box, Flex } from "@chakra-ui/react";
-import { HelloWorld } from "components/ui/HelloWorld";
+import { Container, Grid } from "@mantine/core";
+import { MinskyLandingHeader } from "components/ui/Header";
 import { ListUsers } from "modules/users/ListUsers";
 
 const HomePageContent = () => {
   return (
-    <Flex h="100vh" alignItems={"center"}>
-      <Flex justifyContent={"center"} w={"100%"}>
-        <Box maxWidth={72}>
-          <HelloWorld />
-          <ListUsers />
-        </Box>
-      </Flex>
-    </Flex>
+    <>
+      <MinskyLandingHeader
+        links={[
+          { label: "Welcome", link: "home" },
+          { label: "Organization", link: "organization" },
+        ]}
+      ></MinskyLandingHeader>
+      <Container>
+        <Grid grow gutter={"md"}>
+          <Grid.Col span={12}> 1</Grid.Col>
+          <Grid.Col span={3}> 2</Grid.Col>
+          <Grid.Col span={3}> 3</Grid.Col>
+          <Grid.Col span={3}> 3</Grid.Col>
+          <Grid.Col span={3}> 3</Grid.Col>
+          <Grid.Col span={3}> 3</Grid.Col>
+        </Grid>
+      </Container>
+    </>
   );
 };
 
