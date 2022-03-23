@@ -116,7 +116,7 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
           {items}
         </Group>
         <Button radius="xl" sx={{ height: 30 }}>
-          Get early access
+          Contact Us
         </Button>
       </Container>
     </Header>

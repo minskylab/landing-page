@@ -6,6 +6,7 @@ import { Provider as URQLProvider } from "urql";
 
 import { URQLClient } from "lib/client";
 import Fonts from "theming/fonts";
+import { minskyBrandSwatch } from "theming";
 
 const client = URQLClient();
 
@@ -23,6 +24,10 @@ const FairpayApp = ({ Component, pageProps }: AppProps) => {
           theme={{
             /** Put your mantine theme override here */
             colorScheme: "dark",
+            colors: {
+              brand: minskyBrandSwatch,
+            },
+            primaryColor: "brand",
           }}
         >
           <Fonts />
