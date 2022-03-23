@@ -1,4 +1,3 @@
-import React from "react";
 import {
   createStyles,
   Menu,
@@ -115,8 +114,8 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>
-        <Button radius="xl" sx={{ height: 30 }}>
-          Contact Us
+        <Button radius="lg" sx={{ height: 30 }}>
+          Contact
         </Button>
       </Container>
     </Header>
