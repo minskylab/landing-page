@@ -5123,10 +5123,10 @@ sync-fetch@0.3.1, sync-fetch@^0.3.1:
     buffer "^5.7.0"
     node-fetch "^2.6.1"
 
-tabler-icons-react@^1.40.0:
-  version "1.40.0"
-  resolved "https://registry.yarnpkg.com/tabler-icons-react/-/tabler-icons-react-1.40.0.tgz#1d4b7298de83d8eea0facfc6ac6cc540148f21ea"
-  integrity sha512-TuJogbJB0Pw64O/WAajl5K0VaDtuanPa8N/1ncGOGRH1V+G6mjVN/VTj+UEviOew2bI6CtcQMHt1IcHgR/HY/w==
+tabler-icons-react@1.41.0:
+  version "1.41.0"
+  resolved "https://registry.yarnpkg.com/tabler-icons-react/-/tabler-icons-react-1.41.0.tgz#e6c7df60b30ffe4ab7701818deaa9d8fe550822f"
+  integrity sha512-A/ESVwCfPuH1hAgoaLJV3Kl+eTS3TbJLP1H+w4ztMajjHkQJIrMPJt6JJq3VlB1f86F7UgBw2PxlT7gfcjmTXA==
 
 text-table@^0.2.0:
   version "0.2.0"
