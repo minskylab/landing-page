@@ -6,6 +6,7 @@ import {
   Environment,
   MeshDistortMaterial,
   ContactShadows,
+  useAspect,
 } from "@react-three/drei";
 import { useSpring } from "@react-spring/core";
 import { a } from "@react-spring/three";
@@ -21,6 +22,20 @@ export default function BlobOfLife({}) {
   const [mode, setMode] = useState(false);
   const [down, setDown] = useState(false);
   const [hovered, setHovered] = useState(false);
+
+  const size = useAspect(1800, 1000);
+
+  const [video] = useState(() => {
+    const vid = document.createElement("video");
+    vid.src = "/MinskyAutomata.mp4";
+    vid.crossOrigin = "Anonymous";
+    vid.loop = true;
+    vid.muted = true;
+    // video.autoplay = true;
+    return vid;
+  });
+
+  useEffect(() => void video.play(), [video]);
 
   // Change cursor on hovered state
   // useEffect(() => {
@@ -95,10 +110,13 @@ export default function BlobOfLife({}) {
           <AnimatedMaterial
             color={color}
             envMapIntensity={env}
-            clearcoat={coat}
+            clearcoat={0.01}
             clearcoatRoughness={0}
             metalness={0.1}
-          />
+            toneMapped={false}
+          >
+            <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
+          </AnimatedMaterial>
         </a.mesh>
         <Environment preset="warehouse" />
         <ContactShadows

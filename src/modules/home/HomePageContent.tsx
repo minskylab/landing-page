@@ -38,6 +38,18 @@ const useStyles = createStyles(theme => ({
     //   height: 300,
     // },
   },
+  blobWrapper: {
+    marginBottom: 80,
+    [theme.fn.smallerThan("sm")]: {
+      marginBottom: 12,
+    },
+  },
+  features: {
+    marginTop: 92,
+    [theme.fn.smallerThan("sm")]: {
+      marginTop: 12,
+    },
+  },
 }));
 
 const HomePageContent = () => {
@@ -67,7 +79,7 @@ const HomePageContent = () => {
           Sorry, your browser {"doesn't"} support embedded videos.
         </video>
       </div> */}
-      <Container size={"xl"}>
+      <Container size={"xl"} className={classes.blobWrapper}>
         <a.main>
           <Canvas dpr={[1, 2]} style={{ maxHeight: 520, height: "40vh" }}>
             <BlobOfLife />
@@ -83,7 +95,7 @@ const HomePageContent = () => {
       <Container size={"xl"} className={classes.hero}>
         <MinskyHeroTitle />
       </Container>
-      <Container size={"xl"}>
+      <Container size={"xl"} className={classes.features}>
         <MinskyFeaturesGrid
           title="Who We Are?, What We Are?"
           description="Mollit dolor nulla do aliqua sit ullamco proident sunt. Cillum nostrud incididunt deserunt qui excepteur magna labore adipisicing consequat cillum magna ut nostrud."

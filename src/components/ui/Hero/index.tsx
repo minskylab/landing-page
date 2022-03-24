@@ -27,7 +27,7 @@ const useStyles = createStyles(theme => ({
   inner: {
     position: "relative",
     // paddingTop: 42,
-    paddingBottom: 60,
+    // paddingBottom: 60,
     maxWidth: 700,
 
     // marginLeft: 32,
