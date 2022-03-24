@@ -47,7 +47,7 @@ const useStyles = createStyles(theme => ({
   },
 
   title: {
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    fontFamily: `${theme.fontFamily}`,
     fontWeight: 900,
     marginBottom: theme.spacing.md,
     textAlign: "center",

@@ -1,16 +1,21 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { MantineProvider } from "@mantine/core";
+import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
 
 import { Provider as URQLProvider } from "urql";
 
 import { URQLClient } from "lib/client";
 import Fonts from "theming/fonts";
 import { minskyBrandDark, minskyBrandPrimary } from "theming";
+import { NotificationsProvider } from "@mantine/notifications";
+import { useState } from "react";
 
 const client = URQLClient();
 
 const FairpayApp = ({ Component, pageProps }: AppProps) => {
+  const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
+  const toggleColorScheme = (value?: ColorScheme) =>
+    setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
   return (
     <>
       <Head>
@@ -18,24 +23,27 @@ const FairpayApp = ({ Component, pageProps }: AppProps) => {
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
       <URQLProvider value={client}>
-        <MantineProvider
-          withGlobalStyles
-          withNormalizeCSS
-          theme={{
-            /** Put your mantine theme override here */
-            colorScheme: "dark",
-            fontFamily: "Open Sans",
-            fontFamilyMonospace: "Ubuntu Mono",
-            colors: {
-              brand: minskyBrandPrimary,
-              dark: minskyBrandDark,
-            },
-            primaryColor: "brand",
-          }}
-        >
-          <Fonts />
-          <Component {...pageProps} />
-        </MantineProvider>
+        <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
+          <MantineProvider
+            withGlobalStyles
+            withNormalizeCSS
+            theme={{
+              colorScheme: colorScheme,
+              fontFamily: "Open Sans",
+              fontFamilyMonospace: "Ubuntu Mono",
+              colors: {
+                brand: minskyBrandPrimary,
+                dark: minskyBrandDark,
+              },
+              primaryColor: "brand",
+            }}
+          >
+            <NotificationsProvider position="top-right">
+              <Fonts />
+              <Component {...pageProps} />
+            </NotificationsProvider>
+          </MantineProvider>
+        </ColorSchemeProvider>
       </URQLProvider>
     </>
   );

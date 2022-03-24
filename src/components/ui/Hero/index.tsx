@@ -6,6 +6,7 @@ import {
   Group,
   useMantineTheme,
   Center,
+  Tooltip,
 } from "@mantine/core";
 import Image from "next/image";
 
@@ -56,7 +57,7 @@ const useStyles = createStyles(theme => ({
   },
 
   description: {
-    marginTop: theme.spacing.xl,
+    marginTop: theme.spacing.md,
     fontSize: 24,
 
     [BREAKPOINT]: {
@@ -119,8 +120,9 @@ export const MinskyHeroTitle = () => {
             for your ideas.
           </h1>
           <Text className={classes.description} color="dimmed">
-            At Minsky, we design and build digital solutions that generate value for clients and
-            society, both.
+            We are Minsky, we design and build{" "}
+            <Tooltip label={<Text>Technology</Text>}>digital solutions</Tooltip> to generate value
+            in our clients and society.
           </Text>
 
           {/* <Group className={classes.controls}>

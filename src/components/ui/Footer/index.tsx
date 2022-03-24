@@ -1,5 +1,12 @@
 import React from "react";
-import { createStyles, Text, Container, ActionIcon, Group } from "@mantine/core";
+import {
+  createStyles,
+  Text,
+  Container,
+  ActionIcon,
+  Group,
+  useMantineColorScheme,
+} from "@mantine/core";
 import { BrandTwitter, BrandYoutube, BrandInstagram, BrandGithub } from "tabler-icons-react";
 import MinskyLogotype from "../MinskyLogo";
 
@@ -108,6 +115,8 @@ interface FooterLinksProps {
 
 export function MinskyFooter({ data }: FooterLinksProps) {
   const { classes } = useStyles();
+  const { colorScheme } = useMantineColorScheme();
+
   const groups = data.map(group => {
     const links = group.links?.map((link, index) => (
       <Text<"a">
@@ -132,7 +141,7 @@ export function MinskyFooter({ data }: FooterLinksProps) {
     <footer className={classes.footer}>
       <Container className={classes.inner}>
         <div className={classes.logo}>
-          <MinskyLogotype fillColor="white" />
+          <MinskyLogotype fillColor={colorScheme === "dark" ? "white" : "#060607"} />
           <Text size="xs" color="dimmed" className={classes.description}>
             We are a community disguised as a company
           </Text>
