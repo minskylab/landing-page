@@ -24,6 +24,8 @@ const FairpayApp = ({ Component, pageProps }: AppProps) => {
           theme={{
             /** Put your mantine theme override here */
             colorScheme: "dark",
+            fontFamily: "Open Sans",
+            fontFamilyMonospace: "Ubuntu Mono",
             colors: {
               brand: minskyBrandPrimary,
               dark: minskyBrandDark,

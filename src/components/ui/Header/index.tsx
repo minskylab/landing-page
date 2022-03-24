@@ -13,6 +13,7 @@ import { ChevronDown } from "tabler-icons-react";
 import MinskyLogotype from "../MinskyLogo";
 
 const HEADER_HEIGHT = 60;
+const BREAKPOINT = "@media (max-width: 755px)";
 
 const useStyles = createStyles(theme => ({
   inner: {
@@ -50,7 +51,16 @@ const useStyles = createStyles(theme => ({
   },
 
   linkLabel: {
+    fontFamily: `${theme.fontFamily}`,
     marginRight: 5,
+  },
+
+  header: {
+    marginBottom: 80,
+    borderBottom: 0,
+    [theme.fn.smallerThan("sm")]: {
+      marginBottom: 12,
+    },
   },
 }));
 
@@ -100,7 +110,7 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
   });
 
   return (
-    <Header height={HEADER_HEIGHT} sx={{ borderBottom: 0 }} mb={120}>
+    <Header height={HEADER_HEIGHT} className={classes.header}>
       <Container className={classes.inner} fluid>
         <Group>
           <Burger
@@ -108,6 +118,7 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
             onClick={() => toggleOpened()}
             className={classes.burger}
             size="sm"
+            mr={"sm"}
           />
           <MinskyLogotype />
         </Group>

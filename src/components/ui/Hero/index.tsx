@@ -13,20 +13,20 @@ const BREAKPOINT = "@media (max-width: 755px)";
 
 const useStyles = createStyles(theme => ({
   wrapper: {
-    position: "absolute",
+    // position: "absolute",
     boxSizing: "border-box",
     // left: 64,
-    bottom: 64,
+    // bottom: 64,
     // backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.white,
-    [BREAKPOINT]: {
-      left: 16,
-      bottom: 16,
-    },
+    // [BREAKPOINT]: {
+    //   left: 16,
+    //   bottom: 16,
+    // },
   },
 
   inner: {
     position: "relative",
-    paddingTop: 100,
+    // paddingTop: 42,
     paddingBottom: 60,
     maxWidth: 700,
 
@@ -34,17 +34,17 @@ const useStyles = createStyles(theme => ({
 
     [BREAKPOINT]: {
       paddingBottom: 80,
-      paddingTop: 80,
-      paddingRight: 28,
-      paddingLeft: 28,
+      // paddingTop: 80,
+      // paddingRight: 28,
+      // paddingLeft: 28,
     },
   },
 
   title: {
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    fontFamily: `${theme.fontFamily}`,
     fontSize: 64,
     fontWeight: 900,
-    lineHeight: 1.1,
+    lineHeight: 1.2,
     margin: 0,
     padding: 0,
     color: theme.colorScheme === "dark" ? theme.white : theme.black,
@@ -98,7 +98,7 @@ const useStyles = createStyles(theme => ({
   },
 }));
 
-export function MinskyHeroTitle() {
+export const MinskyHeroTitle = () => {
   const { classes, cx } = useStyles();
   const theme = useMantineTheme();
 
@@ -118,7 +118,6 @@ export function MinskyHeroTitle() {
             </Text>{" "}
             for your ideas.
           </h1>
-
           <Text className={classes.description} color="dimmed">
             At Minsky, we design and build digital solutions that generate value for clients and
             society, both.
@@ -149,4 +148,4 @@ export function MinskyHeroTitle() {
       </Container>
     </>
   );
-}
+};

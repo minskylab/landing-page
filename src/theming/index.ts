@@ -14,9 +14,9 @@ export const minskyBrandPrimary: Tuple<string, 10> = [
 ];
 
 export const minskyBrandDark: Tuple<string, 10> = [
-  "#87878A",
-  "#5A5A5D",
-  "#3C3C3F",
+  "#CBCBCD",
+  "#97979B",
+  "#505053",
   "#28282A",
   "#1B1B1D",
   "#121213",
