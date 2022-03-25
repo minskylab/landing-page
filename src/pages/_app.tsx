@@ -54,7 +54,7 @@ const FairpayApp = ({ Component, pageProps }: AppProps) => {
               <Fonts />
               <DefaultSeo
                 title="Minsky | Open Technology Innovation"
-                description=""
+                description="We are Minsky, we design and build digital solutions to generate value in our clients and society."
                 canonical="https://minsky.cc/"
                 openGraph={{
                   type: "website",
