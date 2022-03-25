@@ -11,6 +11,7 @@ import {
   useMantineColorScheme,
   ColorSchemeProvider,
   Drawer,
+  Text,
 } from "@mantine/core";
 import { useBooleanToggle } from "@mantine/hooks";
 import { ChevronDown, MoonStars, Sun } from "tabler-icons-react";
@@ -126,44 +127,61 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
       <Drawer
         opened={opened}
         onClose={() => toggleOpened(false)}
-        title="Navigation"
+        title={
+          <Text size="lg" weight={"bold"}>
+            Navigation & Settings
+          </Text>
+        }
+        padding={"md"}
         // padding="xl"
-        // size="xl"
+        size="sm"
         position="top"
       >
-        {/* Drawer content */}
+        {/* <h1 id="drawer-title">Title</h1>
+        <div id="drawer-body">Body</div> */}
+        <Group>
+          <Text>Change theme:</Text>
+          <ActionIcon
+            onClick={() => toggleColorScheme()}
+            size="lg"
+            variant="default"
+            // className={classes.colorSchemaToggler}
+          >
+            {colorScheme === "dark" ? <Sun size={18} /> : <MoonStars size={18} />}
+          </ActionIcon>
+        </Group>
       </Drawer>
 
-      <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-        <Header height={HEADER_HEIGHT} className={classes.header}>
-          <Container className={classes.inner} fluid>
-            <Group>
-              <Burger
-                opened={opened}
-                onClick={() => toggleOpened()}
-                className={classes.burger}
-                size="sm"
-                mr={"sm"}
-              />
-              <MinskyLogotype typographyColor={colorScheme === "dark" ? "white" : undefined} />
-            </Group>
-            <Group spacing={5} className={classes.links}>
-              {items}
-            </Group>
-            <Group position="center" my="xl">
-              <ActionIcon
-                onClick={() => toggleColorScheme()}
-                size="lg"
-                variant="default"
-                className={classes.colorSchemaToggler}
-              >
-                {colorScheme === "dark" ? <Sun size={18} /> : <MoonStars size={18} />}
-              </ActionIcon>
-              <Button radius="md">Contact</Button>
-            </Group>
-          </Container>
-        </Header>
-      </ColorSchemeProvider>
+      {/* <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}> */}
+      <Header height={HEADER_HEIGHT} className={classes.header}>
+        <Container className={classes.inner} fluid>
+          <Group>
+            <Burger
+              opened={opened}
+              onClick={() => toggleOpened()}
+              className={classes.burger}
+              size="sm"
+              mr={"sm"}
+            />
+            <MinskyLogotype typographyColor={colorScheme === "dark" ? "white" : undefined} />
+          </Group>
+          <Group spacing={5} className={classes.links}>
+            {items}
+          </Group>
+          <Group position="center" my="xl">
+            <ActionIcon
+              onClick={() => toggleColorScheme()}
+              size="lg"
+              variant="default"
+              className={classes.colorSchemaToggler}
+            >
+              {colorScheme === "dark" ? <Sun size={18} /> : <MoonStars size={18} />}
+            </ActionIcon>
+            <Button radius="md">Contact</Button>
+          </Group>
+        </Container>
+      </Header>
+      {/* </ColorSchemeProvider> */}
     </>
   );
 }

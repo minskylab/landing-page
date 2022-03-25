@@ -46,6 +46,7 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
       setTapCount(0);
       onTap?.();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tapCount, tapCountToOverflow]);
 
   useFrame(state => {

@@ -12,7 +12,7 @@
   "dependencies": {
     "@mantine/core": "^4.0.8",
     "@mantine/hooks": "^4.0.8",
-    "@mantine/next": "^4.0.7",
+    "@mantine/next": "^4.0.8",
     "@mantine/notifications": "^4.0.8",
     "@react-spring/core": "^9.4.4",
     "@react-spring/three": "^9.4.4",
