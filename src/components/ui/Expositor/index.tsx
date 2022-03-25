@@ -1,9 +1,10 @@
 import { useNotifications } from "@mantine/notifications";
+import { Anchor } from "@mantine/core";
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import LivingIdeaBlob from "components/future/LivingBlob";
 import React from "react";
-import { Anchor, Bulb } from "tabler-icons-react";
+import { Bulb } from "tabler-icons-react";
 
 const AVAILABLE_CA = [132, 133, 142, 244, 262, 263, 264, 271].map(
   num => `/MinskyVideo${num}WithOpacity.mp4`

@@ -8,7 +8,7 @@ import {
   useMantineColorScheme,
 } from "@mantine/core";
 import { BrandTwitter, BrandYoutube, BrandInstagram, BrandGithub } from "tabler-icons-react";
-import MinskyLogotype from "../MinskyLogo";
+import MinskyLogotype from "../../future/MinskyLogo";
 
 const useStyles = createStyles(theme => ({
   footer: {

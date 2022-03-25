@@ -15,7 +15,7 @@ import {
 } from "@mantine/core";
 import { useBooleanToggle } from "@mantine/hooks";
 import { ChevronDown, MoonStars, Sun } from "tabler-icons-react";
-import MinskyLogotype from "../MinskyLogo";
+import MinskyLogotype from "../../future/MinskyLogo";
 
 const HEADER_HEIGHT = 60;
 const BREAKPOINT = "@media (max-width: 755px)";
