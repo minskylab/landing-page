@@ -175,7 +175,19 @@ const HomePageContent = () => {
         </Center>
       </Container>
 
-      <Container mt={60}>
+      <Container
+        mt={60}
+        sx={theme => ({
+          [theme.fn.smallerThan("sm")]: {
+            paddingLeft: 16,
+            paddingRight: 16,
+          },
+          [theme.fn.smallerThan("md")]: {
+            paddingLeft: 42,
+            paddingRight: 42,
+          },
+        })}
+      >
         <Grid>
           <Grid.Col sm={12} md={5}>
             <Group sx={{ justifyContent: "flex-start" }} m={6}>
@@ -268,8 +280,8 @@ const HomePageContent = () => {
                   })}
                 >
                   Actually, we are working with our partners and academy to develop and launch
-                  software products. We are also open job opportunities for our local developers
-                  community, improving the experience and pleasure of craft thinks.
+                  software products. We are also openning job opportunities for our local developers
+                  community, improving the experience and pleasure of craft software.
                 </Text>
                 <Text
                   sx={theme => ({
@@ -291,9 +303,10 @@ const HomePageContent = () => {
           </Grid.Col>
         </Grid>
       </Container>
-      <Container size={"xl"} className={classes.features}>
+      {/* <Container size={"xl"} className={classes.features}>
         <Box style={{ height: 70 }} />
-      </Container>
+      </Container> */}
+      <Space h={62}></Space>
       <Container>
         <MinskySimpleFAQ />
       </Container>

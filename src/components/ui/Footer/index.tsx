@@ -143,7 +143,7 @@ export function MinskyFooter({ data }: FooterLinksProps) {
         <div className={classes.logo}>
           <MinskyLogotype fillColor={colorScheme === "dark" ? "white" : "#060607"} />
           <Text size="xs" color="dimmed" className={classes.description}>
-            We are a community disguised as a company
+            We are a company, a community, and a living system of people.
           </Text>
         </div>
         <div className={classes.groups}>{groups}</div>
