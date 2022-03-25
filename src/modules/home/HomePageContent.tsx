@@ -13,6 +13,7 @@ import {
   SimpleGrid,
   Space,
   Text,
+  Title,
   Tooltip,
   Transition,
   useMantineColorScheme,
@@ -199,16 +200,16 @@ const HomePageContent = () => {
                 sx={{ justifyContent: "flex-start", maxWidth: 380, marginTop: 12 }}
                 spacing={"md"}
               >
-                <Text
+                <Title
                   sx={theme => ({
-                    fontSize: 42,
-                    fontWeight: 800,
+                    // fontSize: 42,
+                    fontWeight: 900,
                     fontFamily: "Open Sans",
                     textAlign: "start",
                   })}
                 >
                   Who We Are?
-                </Text>
+                </Title>
                 <Text
                   sx={theme => ({
                     // maxWidth: 320,
@@ -261,16 +262,16 @@ const HomePageContent = () => {
                 // position="right"
                 spacing={"md"}
               >
-                <Text
+                <Title
                   sx={theme => ({
-                    fontSize: 42,
-                    fontWeight: 800,
+                    // fontSize: 42,
+                    fontWeight: 900,
                     fontFamily: "Open Sans",
                     textAlign: "end",
                   })}
                 >
                   What We Do?
-                </Text>
+                </Title>
                 <Text
                   sx={theme => ({
                     // maxWidth: 320,
