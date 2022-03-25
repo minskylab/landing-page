@@ -10,6 +10,9 @@ import {
   Grid,
   Group,
   Loader,
+  SimpleGrid,
+  Space,
+  Text,
   Tooltip,
   Transition,
   useMantineColorScheme,
@@ -22,11 +25,13 @@ import { MinskyLandingHeader } from "components/ui/Header";
 import { MinskyHeroTitle } from "components/ui/Hero";
 import dynamic, { noSSR } from "next/dynamic";
 import { useMediaQuery } from "@mantine/hooks";
-import { Bulb, QuestionMark } from "tabler-icons-react";
+import { BrandGithub, Bulb, QuestionMark } from "tabler-icons-react";
 import { useEffect, useState } from "react";
 import { useNotifications } from "@mantine/notifications";
 import { MinskyGetInTouch } from "components/ui/ContactCard";
 import TensionLine from "components/ui/TensionLine";
+import { SymbolsIllustration, SystemIllustration } from "components/future/illustrations";
+import { MinskySimpleFAQ } from "components/ui/Faq";
 
 const LivingIdeaBlob = dynamic(() => import("components/future/LivingBlob"), {
   ssr: false,
@@ -169,12 +174,128 @@ const HomePageContent = () => {
           <TensionLine />
         </Center>
       </Container>
+
+      <Container mt={60}>
+        <Grid>
+          <Grid.Col sm={12} md={5}>
+            <Group sx={{ justifyContent: "flex-start" }} m={6}>
+              <SymbolsIllustration scale={0.62} />
+            </Group>
+            <Group position="left">
+              <Group
+                sx={{ justifyContent: "flex-start", maxWidth: 380, marginTop: 12 }}
+                spacing={"md"}
+              >
+                <Text
+                  sx={theme => ({
+                    fontSize: 42,
+                    fontWeight: 800,
+                    fontFamily: "Open Sans",
+                    textAlign: "start",
+                  })}
+                >
+                  Who We Are?
+                </Text>
+                <Text
+                  sx={theme => ({
+                    // maxWidth: 320,
+                    // marginTop: 12,
+                    lineHeight: 1.68,
+                    // fontSize: 18,
+                  })}
+                >
+                  {/* Somos una organizacion que busca ser un brazo tecnologico de alta calidad para la
+              sociedad. Tomando un camino holistico y con una visión integral, disenamos e
+              implementamos soluciones tecnologicas. */}
+                  We are an organization that seeks offers a high-quality technology to the society.
+                  Taking a holistic path and with a comprehensive vision, we design and implement
+                  technological solutions supported by Open Source on shoulders of giants.
+                </Text>
+                <Text
+                  sx={theme => ({
+                    // marginTop: 18,
+                    // maxWidth: 320,
+                    lineHeight: 1.68,
+                    // fontSize: 18,
+                  })}
+                >
+                  We are a team of people who are passionate about software development in
+                  particular, and technology in general.
+                </Text>
+                <Button>Our Dream Team</Button>
+              </Group>
+            </Group>
+          </Grid.Col>
+          <Grid.Col sm={12} md={7}>
+            <Space h="xl" />
+            {/* 2 */}
+          </Grid.Col>
+          <Grid.Col sm={12} md={7}>
+            {/* 3 */}
+            <Space h="xl" />
+          </Grid.Col>
+          <Grid.Col sm={12} md={5}>
+            <Group sx={{ justifyContent: "flex-end" }} m={6}>
+              <SystemIllustration scale={0.68} />
+            </Group>
+            <Group position="right">
+              <Group
+                sx={{
+                  justifyContent: "flex-end",
+                  maxWidth: 380,
+                  marginTop: 12,
+                }}
+                // position="right"
+                spacing={"md"}
+              >
+                <Text
+                  sx={theme => ({
+                    fontSize: 42,
+                    fontWeight: 800,
+                    fontFamily: "Open Sans",
+                    textAlign: "end",
+                  })}
+                >
+                  What We Do?
+                </Text>
+                <Text
+                  sx={theme => ({
+                    // maxWidth: 320,
+                    // marginTop: 12,
+                    lineHeight: 1.68,
+                    textAlign: "end",
+                    // fontSize: 18,
+                  })}
+                >
+                  Actually, we are working with our partners and academy to develop and launch
+                  software products. We are also open job opportunities for our local developers
+                  community, improving the experience and pleasure of craft thinks.
+                </Text>
+                <Text
+                  sx={theme => ({
+                    // marginTop: 18,
+                    // maxWidth: 320,
+                    lineHeight: 1.68,
+                    textAlign: "end",
+                    // fontSize: 18,
+                  })}
+                >
+                  We love to create pieces of software that are useful for all of us. All our
+                  exploration and proposals are open to the public in our repositories.
+                </Text>
+                <Button color="dark" leftIcon={<BrandGithub />}>
+                  Our GitHub
+                </Button>
+              </Group>
+            </Group>
+          </Grid.Col>
+        </Grid>
+      </Container>
       <Container size={"xl"} className={classes.features}>
-        <Box style={{ height: 700 }} />
-        {/* <MinskyFeaturesGrid
-          title="Who We Are?, What We do?"
-          description="Mollit dolor nulla do aliqua sit ullamco proident sunt. Cillum nostrud incididunt deserunt qui excepteur magna labore adipisicing consequat cillum magna ut nostrud."
-        /> */}
+        <Box style={{ height: 70 }} />
+      </Container>
+      <Container>
+        <MinskySimpleFAQ />
       </Container>
       <Container>
         <MinskyGetInTouch />

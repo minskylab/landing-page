@@ -118,7 +118,7 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
           </AnimatedMaterial>
         </a.mesh>
         <Environment preset="warehouse" />
-        <ContactShadows
+        {/* <ContactShadows
           rotation={[Math.PI / 2, 0, 0]}
           position={[0, -1.6, 0]}
           opacity={mode ? 0.8 : 0.4}
@@ -126,7 +126,7 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
           height={15}
           blur={2.5}
           far={1.6}
-        />
+        /> */}
       </Suspense>
     </>
   );
