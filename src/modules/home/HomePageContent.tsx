@@ -150,6 +150,7 @@ const HomePageContent = () => {
                         <Anchor href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" size="sm">
                           watch this video
                         </Anchor>
+                        .
                       </div>
                     ),
                     icon: <Bulb />,
@@ -219,9 +220,9 @@ const HomePageContent = () => {
                   {/* Somos una organizacion que busca ser un brazo tecnologico de alta calidad para la
               sociedad. Tomando un camino holistico y con una visión integral, disenamos e
               implementamos soluciones tecnologicas. */}
-                  We are an organization that seeks offers a high-quality technology to the society.
+                  We are an organization that seeks to offer high-quality technology to society.
                   Taking a holistic path and with a comprehensive vision, we design and implement
-                  technological solutions supported by Open Source on shoulders of giants.
+                  technological solutions supported by Open Source on the shoulders of giants.
                 </Text>
                 <Text
                   sx={theme => ({
@@ -232,7 +233,7 @@ const HomePageContent = () => {
                   })}
                 >
                   We are a team of people who are passionate about software development in
-                  particular, and technology in general.
+                  particular and technology in general.
                 </Text>
                 <Button>Our Dream Team</Button>
               </Group>
@@ -279,9 +280,10 @@ const HomePageContent = () => {
                     // fontSize: 18,
                   })}
                 >
-                  Actually, we are working with our partners and academy to develop and launch
-                  software products. We are also openning job opportunities for our local developers
-                  community, improving the experience and pleasure of craft software.
+                  Actually, we are working with our partners and the academy to develop and launch
+                  software products. We are also opening job opportunities for our local developers
+                  {"'"}
+                  community, improving their experience and pleasure of crafting software.
                 </Text>
                 <Text
                   sx={theme => ({
