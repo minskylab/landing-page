@@ -34,19 +34,19 @@ import TensionLine from "components/ui/TensionLine";
 import { SymbolsIllustration, SystemIllustration } from "components/future/illustrations";
 import { MinskySimpleFAQ } from "components/ui/Faq";
 
-const LivingIdeaBlob = dynamic(() => import("components/future/LivingBlob"), {
+const MinskyExpositor = dynamic(() => import("components/ui/Expositor"), {
   ssr: false,
   // suspense: true,
-  // loading: () => {
-  //   return <Loader />;
-  // },
+  loading: () => {
+    return (
+      <Center style={{ maxHeight: 520, height: "35vh" }}>
+        <Loader />
+      </Center>
+    );
+  },
 });
 
 const BREAKPOINT = "@media (max-width: 755px)";
-
-const AVAILABLE_CA = [132, 133, 142, 244, 262, 263, 264, 271].map(
-  num => `/MinskyVideo${num}WithOpacity.mp4`
-);
 
 const useStyles = createStyles(theme => ({
   hero: {
@@ -57,12 +57,7 @@ const useStyles = createStyles(theme => ({
       marginTop: "6vh",
     },
   },
-  canvas: {
-    height: 500,
-    // [BREAKPOINT]: {
-    //   height: 300,
-    // },
-  },
+
   blobWrapper: {
     marginBottom: 80,
     [theme.fn.smallerThan("sm")]: {
@@ -88,17 +83,12 @@ const HomePageContent = () => {
   const { classes } = useStyles();
 
   // const [sceneLoaded, setSceneLoaded] = useState(false);
-  const notifications = useNotifications();
 
   // console.log("LivingIdeaBlob: ", );
   // useEffect(() => {
   //   console.log(LivingIdeaBlob);
   //   setSceneLoaded(true);
   // }, []);
-
-  const randomBlobVideoSrc = (): string => {
-    return AVAILABLE_CA[(Math.random() * AVAILABLE_CA.length) | 0];
-  };
 
   return (
     <>
@@ -133,40 +123,7 @@ const HomePageContent = () => {
             );
           }}
         </Transition> */}
-        <Canvas dpr={[1, 2]} style={{ maxHeight: 520, height: "40vh" }}>
-          <LivingIdeaBlob
-            videoSrc={randomBlobVideoSrc()} // "/MinskyVideo244WithOpacity.mp4"
-            onTap={() => {
-              // notifications.cleanQueue();
-              notifications.clean();
-              setTimeout(
-                () =>
-                  notifications.showNotification({
-                    title: "What is that?",
-                    // autoClose: false,
-                    message: (
-                      <div>
-                        I represent an <b>idea</b>, a mental object. If you want to know more about
-                        me, you can{" "}
-                        <Anchor href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" size="sm">
-                          watch this video
-                        </Anchor>
-                        .
-                      </div>
-                    ),
-                    icon: <Bulb />,
-                  }),
-                100
-              );
-            }}
-          />
-          <OrbitControls
-            enablePan={false}
-            enableZoom={false}
-            maxPolarAngle={Math.PI / 2}
-            minPolarAngle={Math.PI / 2}
-          />
-        </Canvas>
+        <MinskyExpositor />
       </Container>
       <Container size={"xl"} className={classes.hero}>
         <MinskyHeroTitle />
