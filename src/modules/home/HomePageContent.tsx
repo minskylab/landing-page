@@ -1,6 +1,7 @@
 import {
   ActionIcon,
   Anchor,
+  Box,
   Button,
   Center,
   Container,
@@ -25,6 +26,7 @@ import { Bulb, QuestionMark } from "tabler-icons-react";
 import { useEffect, useState } from "react";
 import { useNotifications } from "@mantine/notifications";
 import { MinskyGetInTouch } from "components/ui/ContactCard";
+import TensionLine from "components/ui/TensionLine";
 
 const LivingIdeaBlob = dynamic(() => import("components/future/LivingBlob"), {
   ssr: false,
@@ -36,23 +38,18 @@ const LivingIdeaBlob = dynamic(() => import("components/future/LivingBlob"), {
 
 const BREAKPOINT = "@media (max-width: 755px)";
 
+const AVAILABLE_CA = [132, 133, 142, 244, 262, 263, 264, 271].map(
+  num => `/MinskyVideo${num}WithOpacity.mp4`
+);
+
 const useStyles = createStyles(theme => ({
-  video: {
-    position: "absolute",
-    display: "flex",
-    justifyContent: "center",
-    top: 98,
-    width: "100%",
-    // left: 0,
-    // width: "100vw",
-    // height: "100vh",
-    // height: 100,
-    opacity: 0.06,
-  },
   hero: {
     // position: "relative",
     // height: "100vh",
     // bottom: 32,
+    [theme.fn.smallerThan("sm")]: {
+      marginTop: "6vh",
+    },
   },
   canvas: {
     height: 500,
@@ -72,20 +69,30 @@ const useStyles = createStyles(theme => ({
       marginTop: 12,
     },
   },
+
+  tensionLine: {
+    marginTop: 180,
+    [theme.fn.smallerThan("sm")]: {
+      marginTop: 110,
+    },
+  },
 }));
 
 const HomePageContent = () => {
   const { classes } = useStyles();
-  const isSmall = useMediaQuery(BREAKPOINT);
 
-  const [sceneLoaded, setSceneLoaded] = useState(false);
+  // const [sceneLoaded, setSceneLoaded] = useState(false);
   const notifications = useNotifications();
 
   // console.log("LivingIdeaBlob: ", );
-  useEffect(() => {
-    console.log(LivingIdeaBlob);
-    setSceneLoaded(true);
-  }, []);
+  // useEffect(() => {
+  //   console.log(LivingIdeaBlob);
+  //   setSceneLoaded(true);
+  // }, []);
+
+  const randomBlobVideoSrc = (): string => {
+    return AVAILABLE_CA[(Math.random() * AVAILABLE_CA.length) | 0];
+  };
 
   return (
     <>
@@ -100,78 +107,74 @@ const HomePageContent = () => {
           ]}
         />
       </Container>
-
-      {/* <Center>
-        <Image src="/minimal_automata.png" alt="hero-ca" width={520} height={520}></Image>
-      </Center> */}
-      {/* <div className={classes.video}>
-        <video width="100%" autoPlay muted loop>
-          <source src="/minimal_automata.png" type="image/png" />
-          <source src="/MinskyAutomata.mp4" type="video/mp4" />
-          Sorry, your browser {"doesn't"} support embedded videos.
-        </video>
-      </div> */}
       <Container
         size={"xl"}
         className={classes.blobWrapper}
-        style={{ maxHeight: 520, height: "40vh" }}
+        style={{ maxHeight: 520, height: "35vh" }}
       >
         {/* <a.main></a.main> */}
-        <Transition mounted={!sceneLoaded} transition={"fade"} duration={200} timingFunction="ease">
+        {/* <Transition mounted={!sceneLoaded} transition={"fade"} duration={200} timingFunction="ease">
           {styles => (
             <Center style={styles}>
               <Loader />
             </Center>
           )}
-        </Transition>
-        <Transition mounted={sceneLoaded} transition={"fade"} duration={200} timingFunction="ease">
+        </Transition> */}
+        {/* <Transition mounted={sceneLoaded} transition={"fade"} duration={200} timingFunction="ease">
           {styles => {
             return (
-              <Canvas dpr={[1, 2]} style={{ maxHeight: 520, height: "40vh", ...styles }}>
-                <LivingIdeaBlob
-                  videoSrc="/MinskyAutomata.mp4"
-                  onTap={() => {
-                    // notifications.cleanQueue();
-                    notifications.clean();
-                    setTimeout(
-                      () =>
-                        notifications.showNotification({
-                          title: "What is that?",
-                          // autoClose: false,
-                          message: (
-                            <div>
-                              I represent an <b>idea</b>, a mental object. If you want to know more
-                              about me, you can{" "}
-                              <Anchor href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" size="sm">
-                                watch this video
-                              </Anchor>
-                            </div>
-                          ),
-                          icon: <Bulb />,
-                        }),
-                      100
-                    );
-                  }}
-                />
-                <OrbitControls
-                  enablePan={false}
-                  enableZoom={false}
-                  maxPolarAngle={Math.PI / 2}
-                  minPolarAngle={Math.PI / 2}
-                />
-              </Canvas>
+              
             );
           }}
-        </Transition>
+        </Transition> */}
+        <Canvas dpr={[1, 2]} style={{ maxHeight: 520, height: "40vh" }}>
+          <LivingIdeaBlob
+            videoSrc={randomBlobVideoSrc()} // "/MinskyVideo244WithOpacity.mp4"
+            onTap={() => {
+              // notifications.cleanQueue();
+              notifications.clean();
+              setTimeout(
+                () =>
+                  notifications.showNotification({
+                    title: "What is that?",
+                    // autoClose: false,
+                    message: (
+                      <div>
+                        I represent an <b>idea</b>, a mental object. If you want to know more about
+                        me, you can{" "}
+                        <Anchor href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" size="sm">
+                          watch this video
+                        </Anchor>
+                      </div>
+                    ),
+                    icon: <Bulb />,
+                  }),
+                100
+              );
+            }}
+          />
+          <OrbitControls
+            enablePan={false}
+            enableZoom={false}
+            maxPolarAngle={Math.PI / 2}
+            minPolarAngle={Math.PI / 2}
+          />
+        </Canvas>
       </Container>
       <Container size={"xl"} className={classes.hero}>
         <MinskyHeroTitle />
       </Container>
+      <Container className={classes.tensionLine}>
+        <Center>
+          <TensionLine />
+        </Center>
+      </Container>
       <Container size={"xl"} className={classes.features}>
-        <MinskyFeaturesGrid
+        <Box style={{ height: 700 }} />
+        {/* <MinskyFeaturesGrid
           title="Who We Are?, What We do?"
           description="Mollit dolor nulla do aliqua sit ullamco proident sunt. Cillum nostrud incididunt deserunt qui excepteur magna labore adipisicing consequat cillum magna ut nostrud."
-        />
+        /> */}
       </Container>
       <Container>
         <MinskyGetInTouch />
@@ -196,18 +199,6 @@ const HomePageContent = () => {
               { label: "Future", link: "future" },
             ],
           },
-          // {
-          //   title: "Platform",
-          // },
-          // {
-          //   title: "Partners",
-          // },
-          // {
-          //   title: "Academy",
-          // },
-          // {
-          //   title: "Developers",
-          // },
         ]}
       />
     </>

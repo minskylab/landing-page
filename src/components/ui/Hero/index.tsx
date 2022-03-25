@@ -10,35 +10,18 @@ import {
 } from "@mantine/core";
 import Image from "next/image";
 
-const BREAKPOINT = "@media (max-width: 755px)";
-
 const useStyles = createStyles(theme => ({
   wrapper: {
-    // position: "absolute",
     boxSizing: "border-box",
-    // left: 64,
-    // bottom: 64,
-    // backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.white,
-    // [BREAKPOINT]: {
-    //   left: 16,
-    //   bottom: 16,
-    // },
+    maxWidth: 700,
+
+    [theme.fn.smallerThan("md")]: {
+      maxWidth: 520,
+    },
   },
 
   inner: {
     position: "relative",
-    // paddingTop: 42,
-    // paddingBottom: 60,
-    maxWidth: 700,
-
-    // marginLeft: 32,
-
-    [BREAKPOINT]: {
-      paddingBottom: 80,
-      // paddingTop: 80,
-      // paddingRight: 28,
-      // paddingLeft: 28,
-    },
   },
 
   title: {
@@ -50,8 +33,8 @@ const useStyles = createStyles(theme => ({
     padding: 0,
     color: theme.colorScheme === "dark" ? theme.white : theme.black,
 
-    [BREAKPOINT]: {
-      fontSize: 42,
+    [theme.fn.smallerThan("sm")]: {
+      fontSize: 38,
       lineHeight: 1.2,
     },
   },
@@ -60,7 +43,8 @@ const useStyles = createStyles(theme => ({
     marginTop: theme.spacing.md,
     fontSize: 24,
 
-    [BREAKPOINT]: {
+    [theme.fn.smallerThan("sm")]: {
+      maxWidth: 400,
       fontSize: 18,
     },
   },
@@ -68,7 +52,7 @@ const useStyles = createStyles(theme => ({
   controls: {
     marginTop: theme.spacing.xl * 2,
 
-    [BREAKPOINT]: {
+    [theme.fn.smallerThan("sm")]: {
       marginTop: theme.spacing.xl,
     },
   },
@@ -78,7 +62,7 @@ const useStyles = createStyles(theme => ({
     paddingLeft: 38,
     paddingRight: 38,
 
-    [BREAKPOINT]: {
+    [theme.fn.smallerThan("sm")]: {
       height: 54,
       paddingLeft: 18,
       paddingRight: 18,
@@ -124,28 +108,6 @@ export const MinskyHeroTitle = () => {
             <Tooltip label={<Text>Technology</Text>}>digital solutions</Tooltip> to generate value
             in our clients and society.
           </Text>
-
-          {/* <Group className={classes.controls}>
-            <Button
-              size="xl"
-              className={classes.control}
-              variant="gradient"
-              gradient={{ from: "blue", to: "cyan" }}
-            >
-              Get started
-            </Button>
-
-            <Button
-              component="a"
-              href="https://github.com/mantinedev/mantine"
-              size="xl"
-              variant="outline"
-              className={cx(classes.control, classes.githubControl)}
-              color={theme.colorScheme === "dark" ? "gray" : "dark"}
-            >
-              GitHub
-            </Button>
-          </Group> */}
         </Group>
       </Container>
     </>

@@ -82,7 +82,7 @@ const MOCKDATA = [
   { title: "Email", description: "hello@minsky.cc", icon: At },
   { title: "Phone", description: "+51 924 122 969", icon: Phone },
   { title: "Address", description: "Jr. Rosendo Vidaurre 641, Lima, Barranco", icon: MapPin },
-  { title: "Working hours", description: "8:00 to 18:00.", icon: Sun },
+  { title: "Working hours", description: "08:00 to 18:00.", icon: Sun },
 ];
 
 export function ContactIconsList({ data = MOCKDATA, variant }: ContactIconsListProps) {
