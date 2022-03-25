@@ -9,11 +9,16 @@ import Fonts from "theming/fonts";
 import { minskyBrandDark, minskyBrandPrimary } from "theming";
 import { NotificationsProvider } from "@mantine/notifications";
 import { useState } from "react";
+import { useLocalStorage } from "@mantine/hooks";
 
 const client = URQLClient();
 
 const FairpayApp = ({ Component, pageProps }: AppProps) => {
-  const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
+  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
+    key: "color-scheme",
+    defaultValue: "light",
+  });
+
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
   return (
