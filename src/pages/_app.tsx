@@ -10,6 +10,7 @@ import { minskyBrandDark, minskyBrandPrimary } from "theming";
 import { NotificationsProvider } from "@mantine/notifications";
 import { useState } from "react";
 import { useLocalStorage } from "@mantine/hooks";
+import { DefaultSeo } from "next-seo";
 
 const client = URQLClient();
 
@@ -24,7 +25,7 @@ const FairpayApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
-        <title>Minsky | Open Innovation</title>
+        <title>Minsky | Open Technology Innovation</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
         <script
           async
@@ -51,6 +52,36 @@ const FairpayApp = ({ Component, pageProps }: AppProps) => {
           >
             <NotificationsProvider position="top-right">
               <Fonts />
+              <DefaultSeo
+                title="Minsky | Open Technology Innovation"
+                description=""
+                canonical="https://minsky.cc/"
+                openGraph={{
+                  type: "website",
+                  locale: "es_PE",
+                  url: "https://minsky.cc/",
+                  site_name: "Minsky Lab",
+                  images: [
+                    {
+                      url: "/minsky_square_dark.png",
+                      alt: "Minsky",
+                      width: 512,
+                      height: 512,
+                    },
+                    {
+                      url: "/minsky_banner_dark.png",
+                      alt: "Minsky",
+                      width: 1140,
+                      height: 600,
+                    },
+                  ],
+                }}
+                twitter={{
+                  handle: "@MinskyLab",
+                  site: "@MinskyLab",
+                  cardType: "summary_large_image",
+                }}
+              />
               <Component {...pageProps} />
             </NotificationsProvider>
           </MantineProvider>
