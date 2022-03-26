@@ -154,16 +154,16 @@ export function MinskyFooter({ data }: FooterLinksProps) {
         </Text>
 
         <Group spacing={0} className={classes.social} position="right" noWrap>
-          <ActionIcon size="lg">
+          <ActionIcon size="lg" onClick={() => window.open("https://github.com/minskylab", "_blank")}>
             <BrandGithub size={18} />
           </ActionIcon>
-          <ActionIcon size="lg">
+          <ActionIcon size="lg"  onClick={() => window.open("https://twitter.com/minskylab", "_blank")}>
             <BrandTwitter size={18} />
           </ActionIcon>
-          <ActionIcon size="lg">
+          <ActionIcon size="lg"  onClick={() => window.open("https://www.instagram.com/minskylab/", "_blank")}>
             <BrandInstagram size={18} />
           </ActionIcon>
-          <ActionIcon size="lg">
+          <ActionIcon size="lg"  onClick={() => window.open("https://www.youtube.com/channel/UCKJaMhGpxh_ffzZY7iXYiJw", "_blank")}>
             <BrandYoutube size={18} />
           </ActionIcon>
         </Group>
