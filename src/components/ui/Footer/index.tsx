@@ -150,7 +150,7 @@ export function MinskyFooter({ data }: FooterLinksProps) {
       </Container>
       <Container className={classes.afterFooter}>
         <Text color="dimmed" size="sm">
-          © 2022 Minsky SAC. All rights reserved.
+          © 2020 Minsky S.A.C. All rights reserved.
         </Text>
 
         <Group spacing={0} className={classes.social} position="right" noWrap>

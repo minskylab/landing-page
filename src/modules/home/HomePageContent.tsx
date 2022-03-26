@@ -165,7 +165,7 @@ const HomePageContent = () => {
                     textAlign: "start",
                   })}
                 >
-                  Who We Are?
+                  Who we are?
                 </Title>
                 <Text
                   sx={theme => ({
@@ -179,8 +179,7 @@ const HomePageContent = () => {
               sociedad. Tomando un camino holistico y con una visión integral, disenamos e
               implementamos soluciones tecnologicas. */}
                   We are an organization that seeks to offer high-quality technology to society.
-                  Taking a holistic path and with a comprehensive vision, we design and implement
-                  technological solutions supported by Open Source on the shoulders of giants.
+                  We design and implement technological solutions to Academy and Companies, supported by Open Source on the shoulders of giants.
                 </Text>
                 <Text
                   sx={theme => ({
@@ -191,7 +190,7 @@ const HomePageContent = () => {
                   })}
                 >
                   We are a team of people who are passionate about software development in
-                  particular and technology in general.
+                  particular, and technology in general.
                 </Text>
                 <Button>Our Dream Team</Button>
               </Group>
@@ -227,7 +226,7 @@ const HomePageContent = () => {
                     textAlign: "end",
                   })}
                 >
-                  What We Do?
+                  What do we do?
                 </Title>
                 <Text
                   sx={theme => ({
@@ -238,10 +237,10 @@ const HomePageContent = () => {
                     // fontSize: 18,
                   })}
                 >
-                  Actually, we are working with our partners and the academy to develop and launch
-                  software products. We are also opening job opportunities for our local developers
-                  {"'"}
-                  community, improving their experience and pleasure of crafting software.
+                  We are working with partners and the academy to develop and launch
+                  software products, taking into consideration a holistic path and a comprehensive vision. 
+                  Further, we have <a href="">job opportunities</a> for local developers (Peru), 
+                  improving their experience and pleasure of crafting software.
                 </Text>
                 <Text
                   sx={theme => ({
