@@ -150,20 +150,34 @@ export function MinskyFooter({ data }: FooterLinksProps) {
       </Container>
       <Container className={classes.afterFooter}>
         <Text color="dimmed" size="sm">
-          © 2020 Minsky S.A.C. All rights reserved.
+          2022 Minsky S.A.C.
         </Text>
 
         <Group spacing={0} className={classes.social} position="right" noWrap>
-          <ActionIcon size="lg" onClick={() => window.open("https://github.com/minskylab", "_blank")}>
+          <ActionIcon
+            size="lg"
+            onClick={() => window.open("https://github.com/minskylab", "_blank")}
+          >
             <BrandGithub size={18} />
           </ActionIcon>
-          <ActionIcon size="lg"  onClick={() => window.open("https://twitter.com/minskylab", "_blank")}>
+          <ActionIcon
+            size="lg"
+            onClick={() => window.open("https://twitter.com/minskylab", "_blank")}
+          >
             <BrandTwitter size={18} />
           </ActionIcon>
-          <ActionIcon size="lg"  onClick={() => window.open("https://www.instagram.com/minskylab/", "_blank")}>
+          <ActionIcon
+            size="lg"
+            onClick={() => window.open("https://www.instagram.com/minskylab/", "_blank")}
+          >
             <BrandInstagram size={18} />
           </ActionIcon>
-          <ActionIcon size="lg"  onClick={() => window.open("https://www.youtube.com/channel/UCKJaMhGpxh_ffzZY7iXYiJw", "_blank")}>
+          <ActionIcon
+            size="lg"
+            onClick={() =>
+              window.open("https://www.youtube.com/channel/UCKJaMhGpxh_ffzZY7iXYiJw", "_blank")
+            }
+          >
             <BrandYoutube size={18} />
           </ActionIcon>
         </Group>
