@@ -1010,7 +1010,7 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@mantine/core@^4.0.8":
+"@mantine/core@4.0.8":
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/@mantine/core/-/core-4.0.8.tgz#f870df4f78e8d40a33d573aaee895cc75f800f32"
   integrity sha512-AjiTWYn4MvFIvPZeaEg8yWNicaE8Qus0Sqmpj/wFsuTcd2pDz/duZqqt6476q6uNRU7Satoog5QpI9FpT/FPXg==
@@ -1022,19 +1022,19 @@
     react-popper "^2.2.5"
     react-textarea-autosize "^8.3.2"
 
-"@mantine/hooks@^4.0.8":
+"@mantine/hooks@4.0.8":
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-4.0.8.tgz#4b3c62e8a136de45fafbda8c3845dbdd63860d11"
   integrity sha512-f9DNbLB0KjVdTGxVeas/+9fNSiniv//Pm3SAm7NtaeCNX1EU3WECnjph+bnQx0YVwINCRVlLbyWwpkI64m132w==
 
-"@mantine/next@^4.0.8":
+"@mantine/next@4.0.8":
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/@mantine/next/-/next-4.0.8.tgz#39e13bf6c195040fea3262167c10f12b73d49bd8"
   integrity sha512-0g//29lx2fPk4n1PLOmS9hQxLO6x+srcvFZ7mNduwB9HmD5YMAVBlfKqOMDNdbZ5hQvxjEsJNQRiOfrqiwWIlg==
   dependencies:
     "@mantine/ssr" "4.0.8"
 
-"@mantine/notifications@^4.0.8":
+"@mantine/notifications@4.0.8":
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/@mantine/notifications/-/notifications-4.0.8.tgz#745f11d838eaf4d5bdd63a2c1510159b87b498d8"
   integrity sha512-b23+cvn69AZMZZ5WUBxq4X6SioqmL1y2XG7rtX0cQYiYzlInHiswoeERaEFnaF/hlVr6bIfAiLG8ExIPJIPWoA==
@@ -1264,7 +1264,7 @@
     "@react-spring/shared" "~9.4.4"
     "@react-spring/types" "~9.4.4"
 
-"@react-spring/core@^9.4.4", "@react-spring/core@~9.4.4":
+"@react-spring/core@9.4.4", "@react-spring/core@~9.4.4":
   version "9.4.4"
   resolved "https://registry.yarnpkg.com/@react-spring/core/-/core-9.4.4.tgz#7730988cec7302ba6e0977cf4c08c30249d95622"
   integrity sha512-llgb0ljFyjMB0JhWsaFHOi9XFT8n1jBMVs1IFY2ipIBerWIRWrgUmIpakLPHTa4c4jwqTaDSwX90s2a0iN7dxQ==
@@ -1287,7 +1287,7 @@
     "@react-spring/rafz" "~9.4.4"
     "@react-spring/types" "~9.4.4"
 
-"@react-spring/three@^9.3.1", "@react-spring/three@^9.4.4":
+"@react-spring/three@9.4.4", "@react-spring/three@^9.3.1":
   version "9.4.4"
   resolved "https://registry.yarnpkg.com/@react-spring/three/-/three-9.4.4.tgz#a26de44854e166184ddba57313bfc52efce67368"
   integrity sha512-z77ohxg8zG0CcZJojzfoJTTrjSbIyefNz2RlId68/4IypnOs1p8kB2Q1p+wX4KyWORpLg8ivsPcjtwBjGwfDtg==
@@ -1302,7 +1302,7 @@
   resolved "https://registry.yarnpkg.com/@react-spring/types/-/types-9.4.4.tgz#97c69881788e624d7cc68d4385fdaa9b5fd20642"
   integrity sha512-KpxKt/D//q/t/6FBcde/RE36LKp8PpWu7kFEMLwpzMGl9RpcexunmYOQJWwmJWtkQjgE1YRr7DzBMryz6La1cQ==
 
-"@react-spring/web@^9.4.4":
+"@react-spring/web@9.4.4":
   version "9.4.4"
   resolved "https://registry.yarnpkg.com/@react-spring/web/-/web-9.4.4.tgz#0d13356e61c1d47e83a36112e19e5db691f3fbe5"
   integrity sha512-iJmOLdhcuizriUlu/xqBc5y8KaFts+UI+iC+GxyTwBtzxA9czKiSAZW2ESuhG8stafa3jncwjfTQQp84KN36cw==
@@ -1312,7 +1312,7 @@
     "@react-spring/shared" "~9.4.4"
     "@react-spring/types" "~9.4.4"
 
-"@react-three/drei@^8.18.10":
+"@react-three/drei@8.18.10":
   version "8.18.10"
   resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-8.18.10.tgz#fd4b15c149c3c6ec4bf418cf20b55aa1efdbae28"
   integrity sha512-frlJ6JEERIxj5NftUEbIHuerXUHvBXi34dF/MT4tfDUSOkNnfQr5eZyA72+Kbow75Lluq3jL65unyIxV+pJeFw==
@@ -1335,7 +1335,7 @@
     utility-types "^3.10.0"
     zustand "^3.5.13"
 
-"@react-three/fiber@^7.0.26":
+"@react-three/fiber@7.0.26":
   version "7.0.26"
   resolved "https://registry.yarnpkg.com/@react-three/fiber/-/fiber-7.0.26.tgz#36ec19fa7bff00738a7dd368d37d81fed912dd52"
   integrity sha512-46NBais4fQIGcMGLBbOf84lp8y/cg73jOEVmAQQJqWX6iOVeNg29jYd15LBuCW2qPD1qDRU0rOfLbMDgwr/vxQ==
@@ -1431,7 +1431,7 @@
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
   integrity sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
 
-"@types/three@^0.138.0":
+"@types/three@0.138.0":
   version "0.138.0"
   resolved "https://registry.yarnpkg.com/@types/three/-/three-0.138.0.tgz#ec9f1d1fd8dffea2e0572f9d815ff5a35cf4dc6b"
   integrity sha512-D8AoV7h2kbCfrv/DcebHOFh1WDwyus3HdooBkAwcBikXArdqnsQ38PQ85JCunnvun160oA9jz53GszF3zch3tg==
@@ -4017,7 +4017,7 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-next-seo@^5.2.0:
+next-seo@5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-5.2.0.tgz#d847fadc637b4b2778d46822357a3682bbdf3221"
   integrity sha512-IJNKzYH4ARKHxN6YTN7AYj3CEpZLpL/o6FlDZqWJ/HaOnpjpvLHpQlI57be/N92iafmYwYE+jOU0SQ6T9DIo/Q==
@@ -5154,7 +5154,7 @@ sync-fetch@0.3.1, sync-fetch@^0.3.1:
     buffer "^5.7.0"
     node-fetch "^2.6.1"
 
-tabler-icons-react@^1.40.0:
+tabler-icons-react@1.40.0:
   version "1.40.0"
   resolved "https://registry.yarnpkg.com/tabler-icons-react/-/tabler-icons-react-1.40.0.tgz#1d4b7298de83d8eea0facfc6ac6cc540148f21ea"
   integrity sha512-TuJogbJB0Pw64O/WAajl5K0VaDtuanPa8N/1ncGOGRH1V+G6mjVN/VTj+UEviOew2bI6CtcQMHt1IcHgR/HY/w==
@@ -5185,7 +5185,7 @@ three-stdlib@^2.8.7:
     potpack "^1.0.1"
     zstddec "^0.0.2"
 
-three@^0.138.3:
+three@0.138.3:
   version "0.138.3"
   resolved "https://registry.yarnpkg.com/three/-/three-0.138.3.tgz#7be5153d79dcbf9e9baad82e7faf8c29edda4ed0"
   integrity sha512-4t1cKC8gimNyJChJbaklg8W/qj3PpsLJUIFm5LIuAy/hVxxNm1ru2FGTSfbTSsuHmC/7ipsyuGKqrSAKLNtkzg==
