@@ -10,7 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@directus/sdk": "^9.7.1",
+    "@directus/sdk": "9.7.1",
     "@mantine/core": "4.0.8",
     "@mantine/hooks": "4.0.8",
     "@mantine/next": "4.0.8",
