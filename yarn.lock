@@ -504,7 +504,7 @@
   resolved "https://registry.yarnpkg.com/@chevrotain/utils/-/utils-10.1.2.tgz#d2fb7b968141139e5c2419553e5295382c265e7d"
   integrity sha512-bbZIpW6fdyf7FMaeDmw3cBbkTqsecxEkwlVKgVfqqXWBPLH6azxhPA2V9F7OhoZSVrsnMYw7QuyK6qutXPjEew==
 
-"@directus/sdk@^9.7.1":
+"@directus/sdk@9.7.1":
   version "9.7.1"
   resolved "https://registry.yarnpkg.com/@directus/sdk/-/sdk-9.7.1.tgz#36a3906faa2398d138c3cab736522781ae7ff7ce"
   integrity sha512-aDnnavKlA0E1W/VihvFf2P0VWifZmtYMmljGswgLd5ism+x8w8qPKEMueamJnL7cV/OB0/E/Vvji9AgpAojA6g==
