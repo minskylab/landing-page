@@ -36,7 +36,6 @@ import { MinskySimpleFAQ } from "components/ui/Faq";
 
 const MinskyExpositor = dynamic(() => import("components/ui/Expositor"), {
   ssr: false,
-  // suspense: true,
   loading: () => {
     return (
       <Center style={{ maxHeight: 520, height: "35vh" }}>
@@ -46,13 +45,8 @@ const MinskyExpositor = dynamic(() => import("components/ui/Expositor"), {
   },
 });
 
-const BREAKPOINT = "@media (max-width: 755px)";
-
 const useStyles = createStyles(theme => ({
   hero: {
-    // position: "relative",
-    // height: "100vh",
-    // bottom: 32,
     [theme.fn.smallerThan("sm")]: {
       marginTop: "6vh",
     },
@@ -178,8 +172,9 @@ const HomePageContent = () => {
                   {/* Somos una organizacion que busca ser un brazo tecnologico de alta calidad para la
               sociedad. Tomando un camino holistico y con una visión integral, disenamos e
               implementamos soluciones tecnologicas. */}
-                  We are an organization that seeks to offer high-quality technology to society.
-                  We design and implement technological solutions to Academy and Companies, supported by Open Source on the shoulders of giants.
+                  We are an organization that seeks to offer high-quality technology to society. We
+                  design and implement technological solutions to Academy and Companies, supported
+                  by Open Source on the shoulders of giants.
                 </Text>
                 <Text
                   sx={theme => ({
@@ -237,9 +232,9 @@ const HomePageContent = () => {
                     // fontSize: 18,
                   })}
                 >
-                  We are working with partners and the academy to develop and launch
-                  software products, taking into consideration a holistic path and a comprehensive vision. 
-                  Further, we have <a href="">job opportunities</a> for local developers (Peru), 
+                  We are working with partners and the academy to develop and launch software
+                  products, taking into consideration a holistic path and a comprehensive vision.
+                  Further, we have <a href="">job opportunities</a> for local developers (Peru),
                   improving their experience and pleasure of crafting software.
                 </Text>
                 <Text

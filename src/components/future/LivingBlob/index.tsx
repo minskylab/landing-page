@@ -61,6 +61,7 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
         hovered ? state.mouse.x / 2 : 0,
         0.2
       );
+
       sphere.current.position.y = THREE.MathUtils.lerp(
         sphere.current.position.y,
         Math.sin(state.clock.elapsedTime / 1.5) / 6 + (hovered ? state.mouse.y / 2 : 0),
