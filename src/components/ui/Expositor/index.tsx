@@ -16,6 +16,7 @@ const randomBlobVideoSrc = (): string => {
 
 export default function MinskyExpositor() {
   const notifications = useNotifications();
+
   return (
     <Canvas dpr={[1, 2]} style={{ maxHeight: 520, height: "40vh" }}>
       <LivingIdeaBlob

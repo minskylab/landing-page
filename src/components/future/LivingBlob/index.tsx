@@ -61,6 +61,7 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
         hovered ? state.mouse.x / 2 : 0,
         0.2
       );
+
       sphere.current.position.y = THREE.MathUtils.lerp(
         sphere.current.position.y,
         Math.sin(state.clock.elapsedTime / 1.5) / 6 + (hovered ? state.mouse.y / 2 : 0),
@@ -118,7 +119,7 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
             <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
           </AnimatedMaterial>
         </a.mesh>
-        <Environment preset="warehouse" />
+        <Environment preset="studio" />
         {/* <ContactShadows
           rotation={[Math.PI / 2, 0, 0]}
           position={[0, -1.6, 0]}
