@@ -1,41 +1,18 @@
-import {
-  ActionIcon,
-  Anchor,
-  Box,
-  Button,
-  Center,
-  Container,
-  createStyles,
-  Drawer,
-  Grid,
-  Group,
-  Loader,
-  SimpleGrid,
-  Space,
-  Text,
-  Title,
-  Tooltip,
-  Transition,
-  useMantineColorScheme,
-} from "@mantine/core";
-import { OrbitControls } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
-import { MinskyFeaturesGrid } from "components/ui/Features";
+import { Center, Container, Loader, Space } from "@mantine/core";
 import { MinskyFooter } from "components/ui/Footer";
 import { MinskyLandingHeader } from "components/ui/Header";
 import { MinskyHeroTitle } from "components/ui/Hero";
-import dynamic, { noSSR } from "next/dynamic";
-import { useMediaQuery } from "@mantine/hooks";
-import { BrandGithub, Bulb, Check, QuestionMark } from "tabler-icons-react";
-import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+import { Check } from "tabler-icons-react";
+import { useState } from "react";
 import { useNotifications } from "@mantine/notifications";
 import { MinskyGetInTouch } from "components/ui/ContactCard";
 import TensionLine from "components/ui/TensionLine";
-import { SymbolsIllustration, SystemIllustration } from "components/future/illustrations";
 import { MinskySimpleFAQ } from "components/ui/Faq";
 
 import { Directus } from "@directus/sdk";
 import { MinskyPlatformTypes, Subscriber } from "lib/platform/types";
+import { MinskyLandingSections } from "components/ui/Information";
 
 const directus = new Directus<MinskyPlatformTypes>("https://self.internal.minsky.cc");
 
@@ -54,46 +31,9 @@ const MinskyExpositor = dynamic(() => import("components/ui/Expositor"), {
   },
 });
 
-const useStyles = createStyles(theme => ({
-  hero: {
-    [theme.fn.smallerThan("sm")]: {
-      marginTop: "6vh",
-    },
-  },
-
-  blobWrapper: {
-    marginBottom: 80,
-    [theme.fn.smallerThan("sm")]: {
-      marginBottom: 12,
-    },
-  },
-  features: {
-    marginTop: 120,
-    [theme.fn.smallerThan("sm")]: {
-      marginTop: 12,
-    },
-  },
-
-  tensionLine: {
-    marginTop: 180,
-    [theme.fn.smallerThan("sm")]: {
-      marginTop: 110,
-    },
-  },
-}));
-
 const HomePageContent = () => {
-  const { classes } = useStyles();
   const [loading, setLoading] = useState<boolean>(false);
   const notifications = useNotifications();
-
-  // const [sceneLoaded, setSceneLoaded] = useState(false);
-
-  // console.log("LivingIdeaBlob: ", );
-  // useEffect(() => {
-  //   console.log(LivingIdeaBlob);
-  //   setSceneLoaded(true);
-  // }, []);
 
   return (
     <>
@@ -110,30 +50,35 @@ const HomePageContent = () => {
       </Container>
       <Container
         size={"xl"}
-        className={classes.blobWrapper}
-        style={{ maxHeight: 520, height: "35vh" }}
+        sx={theme => ({
+          marginBottom: 80,
+          maxHeight: 520,
+          height: "35vh",
+          [theme.fn.smallerThan("sm")]: {
+            marginBottom: 12,
+          },
+        })}
       >
-        {/* <a.main></a.main> */}
-        {/* <Transition mounted={!sceneLoaded} transition={"fade"} duration={200} timingFunction="ease">
-          {styles => (
-            <Center style={styles}>
-              <Loader />
-            </Center>
-          )}
-        </Transition> */}
-        {/* <Transition mounted={sceneLoaded} transition={"fade"} duration={200} timingFunction="ease">
-          {styles => {
-            return (
-              
-            );
-          }}
-        </Transition> */}
         <MinskyExpositor />
       </Container>
-      <Container size={"xl"} className={classes.hero}>
+      <Container
+        size={"xl"}
+        sx={theme => ({
+          [theme.fn.smallerThan("sm")]: {
+            marginTop: "6vh",
+          },
+        })}
+      >
         <MinskyHeroTitle />
       </Container>
-      <Container className={classes.tensionLine}>
+      <Container
+        sx={theme => ({
+          marginTop: 180,
+          [theme.fn.smallerThan("sm")]: {
+            marginTop: 110,
+          },
+        })}
+      >
         <Center>
           <TensionLine />
         </Center>
@@ -152,125 +97,8 @@ const HomePageContent = () => {
           },
         })}
       >
-        <Grid>
-          <Grid.Col sm={12} md={5}>
-            <Group sx={{ justifyContent: "flex-start" }} m={6}>
-              <SymbolsIllustration scale={0.62} />
-            </Group>
-            <Group position="left">
-              <Group
-                sx={{ justifyContent: "flex-start", maxWidth: 380, marginTop: 12 }}
-                spacing={"md"}
-              >
-                <Title
-                  sx={theme => ({
-                    // fontSize: 42,
-                    fontWeight: 900,
-                    fontFamily: "Open Sans",
-                    textAlign: "start",
-                  })}
-                >
-                  Who we are?
-                </Title>
-                <Text
-                  sx={theme => ({
-                    // maxWidth: 320,
-                    // marginTop: 12,
-                    lineHeight: 1.68,
-                    // fontSize: 18,
-                  })}
-                >
-                  {/* Somos una organizacion que busca ser un brazo tecnologico de alta calidad para la
-              sociedad. Tomando un camino holistico y con una visión integral, disenamos e
-              implementamos soluciones tecnologicas. */}
-                  We are an organization that seeks to offer high-quality technology to society. We
-                  design and implement technological solutions to Academy and Companies, supported
-                  by Open Source on the shoulders of giants.
-                </Text>
-                <Text
-                  sx={theme => ({
-                    // marginTop: 18,
-                    // maxWidth: 320,
-                    lineHeight: 1.68,
-                    // fontSize: 18,
-                  })}
-                >
-                  We are a team of people who are passionate about software development in
-                  particular, and technology in general.
-                </Text>
-                <Button>Our Dream Team</Button>
-              </Group>
-            </Group>
-          </Grid.Col>
-          <Grid.Col sm={12} md={7}>
-            <Space h="xl" />
-            {/* 2 */}
-          </Grid.Col>
-          <Grid.Col sm={12} md={7}>
-            {/* 3 */}
-            <Space h="xl" />
-          </Grid.Col>
-          <Grid.Col sm={12} md={5}>
-            <Group sx={{ justifyContent: "flex-end" }} m={6}>
-              <SystemIllustration scale={0.68} />
-            </Group>
-            <Group position="right">
-              <Group
-                sx={{
-                  justifyContent: "flex-end",
-                  maxWidth: 380,
-                  marginTop: 12,
-                }}
-                // position="right"
-                spacing={"md"}
-              >
-                <Title
-                  sx={theme => ({
-                    // fontSize: 42,
-                    fontWeight: 900,
-                    fontFamily: "Open Sans",
-                    textAlign: "end",
-                  })}
-                >
-                  What do we do?
-                </Title>
-                <Text
-                  sx={theme => ({
-                    // maxWidth: 320,
-                    // marginTop: 12,
-                    lineHeight: 1.68,
-                    textAlign: "end",
-                    // fontSize: 18,
-                  })}
-                >
-                  We are working with partners and the academy to develop and launch software
-                  products, taking into consideration a holistic path and a comprehensive vision.
-                  Further, we have <a href="">job opportunities</a> for local developers (Peru),
-                  improving their experience and pleasure of crafting software.
-                </Text>
-                <Text
-                  sx={theme => ({
-                    // marginTop: 18,
-                    // maxWidth: 320,
-                    lineHeight: 1.68,
-                    textAlign: "end",
-                    // fontSize: 18,
-                  })}
-                >
-                  We love to create pieces of software that are useful for all of us. All our
-                  exploration and proposals are open to the public in our repositories.
-                </Text>
-                <Button color="dark" leftIcon={<BrandGithub />}>
-                  Our GitHub
-                </Button>
-              </Group>
-            </Group>
-          </Grid.Col>
-        </Grid>
+        <MinskyLandingSections />
       </Container>
-      {/* <Container size={"xl"} className={classes.features}>
-        <Box style={{ height: 70 }} />
-      </Container> */}
       <Space h={62}></Space>
       <Container>
         <MinskySimpleFAQ />
