@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Paper,
   Text,
@@ -10,6 +10,8 @@ import {
   createStyles,
 } from "@mantine/core";
 import { ContactIconsList } from "./contact";
+import { NULL_SUBSCRIBER, Subscriber } from "lib/platform/types";
+import { Mail } from "tabler-icons-react";
 // import bg from "./bg.svg";
 
 const useStyles = createStyles(theme => {
@@ -103,8 +105,18 @@ const useStyles = createStyles(theme => {
   };
 });
 
-export function MinskyGetInTouch() {
+type MinskyGetInTouchProps = {
+  onSubmitNewSubscriber: (values: Subscriber) => Promise<boolean>;
+  loading?: boolean;
+};
+
+export function MinskyGetInTouch({
+  onSubmitNewSubscriber,
+  loading = false,
+}: MinskyGetInTouchProps) {
   const { classes } = useStyles();
+
+  const [formState, setFormState] = useState<Subscriber>(NULL_SUBSCRIBER);
 
   return (
     <Paper shadow="md" radius="lg">
@@ -117,28 +129,63 @@ export function MinskyGetInTouch() {
           <ContactIconsList variant="white" />
         </div>
 
-        <form className={classes.form} onSubmit={event => event.preventDefault()}>
+        <form
+          className={classes.form}
+          onSubmit={async event => {
+            event.preventDefault();
+            const reset = await onSubmitNewSubscriber(formState);
+
+            if (reset) {
+              setFormState(NULL_SUBSCRIBER);
+            }
+          }}
+        >
           <Text size="lg" weight={700} className={classes.title}>
             Get in touch
           </Text>
 
           <div className={classes.fields}>
             <SimpleGrid cols={2} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
-              <TextInput label="Your name" placeholder="Your name" />
-              <TextInput label="Your email" placeholder="hello@mantine.dev" required />
+              <TextInput
+                label="Your name"
+                placeholder="Your name"
+                value={formState.name}
+                disabled={loading}
+                onChange={e => setFormState({ ...formState, name: e.target.value })}
+              />
+              <TextInput
+                label="Your email"
+                placeholder="hello@example.com"
+                required
+                value={formState.email}
+                disabled={loading}
+                onChange={e => setFormState({ ...formState, email: e.target.value })}
+              />
             </SimpleGrid>
 
-            <TextInput mt="md" label="Subject" placeholder="Subject" required />
+            <TextInput
+              mt="md"
+              label="Subject"
+              placeholder="Subject"
+              required
+              value={formState.subject}
+              disabled={loading}
+              onChange={e => setFormState({ ...formState, subject: e.target.value })}
+            />
 
             <Textarea
               mt="md"
               label="Your message"
               placeholder="Please include all relevant information"
               minRows={3}
+              value={formState.message}
+              onChange={e => setFormState({ ...formState, message: e.target.value })}
             />
 
             <Group position="right" mt="md">
-              <Button type="submit">Send message</Button>
+              <Button type="submit" loading={loading} leftIcon={<Mail size={14} />}>
+                Send message
+              </Button>
             </Group>
           </div>
         </form>

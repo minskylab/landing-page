@@ -26,13 +26,22 @@ import { MinskyLandingHeader } from "components/ui/Header";
 import { MinskyHeroTitle } from "components/ui/Hero";
 import dynamic, { noSSR } from "next/dynamic";
 import { useMediaQuery } from "@mantine/hooks";
-import { BrandGithub, Bulb, QuestionMark } from "tabler-icons-react";
+import { BrandGithub, Bulb, Check, QuestionMark } from "tabler-icons-react";
 import { useEffect, useState } from "react";
 import { useNotifications } from "@mantine/notifications";
 import { MinskyGetInTouch } from "components/ui/ContactCard";
 import TensionLine from "components/ui/TensionLine";
 import { SymbolsIllustration, SystemIllustration } from "components/future/illustrations";
 import { MinskySimpleFAQ } from "components/ui/Faq";
+
+import { Directus } from "@directus/sdk";
+import { MinskyPlatformTypes, Subscriber } from "lib/platform/types";
+
+const directus = new Directus<MinskyPlatformTypes>("https://self.internal.minsky.cc");
+
+const createNewSubscriber = async (sub: Subscriber) => {
+  return directus.items("Subscribers").createOne(sub);
+};
 
 const MinskyExpositor = dynamic(() => import("components/ui/Expositor"), {
   ssr: false,
@@ -75,6 +84,8 @@ const useStyles = createStyles(theme => ({
 
 const HomePageContent = () => {
   const { classes } = useStyles();
+  const [loading, setLoading] = useState<boolean>(false);
+  const notifications = useNotifications();
 
   // const [sceneLoaded, setSceneLoaded] = useState(false);
 
@@ -265,7 +276,22 @@ const HomePageContent = () => {
         <MinskySimpleFAQ />
       </Container>
       <Container>
-        <MinskyGetInTouch />
+        <MinskyGetInTouch
+          loading={loading}
+          onSubmitNewSubscriber={async sub => {
+            setLoading(true);
+            const item = await createNewSubscriber(sub);
+            setLoading(false);
+            console.log(`created new subscriber: ${item}`);
+            notifications.showNotification({
+              title: "Subscription successful",
+              color: "green",
+              icon: <Check />,
+              message: "We will contact you as soon as possible.",
+            });
+            return true;
+          }}
+        />
       </Container>
       <MinskyFooter
         data={[

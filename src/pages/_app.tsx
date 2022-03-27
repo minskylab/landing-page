@@ -8,6 +8,7 @@ import { NotificationsProvider } from "@mantine/notifications";
 import { useState } from "react";
 import { useLocalStorage } from "@mantine/hooks";
 import { DefaultSeo } from "next-seo";
+import Script from "next/script";
 
 // const client = URQLClient();
 
@@ -24,14 +25,14 @@ const FairpayApp = ({ Component, pageProps }: AppProps) => {
       <Head>
         <title>Minsky | Open Technology Innovation</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-        <script
-          async
-          src="https://analytics.internal.minsky.cc/tracker.js"
-          data-ackee-server="https://analytics.internal.minsky.cc"
-          data-ackee-domain-id="27dc13a2-fcf6-494a-99b6-dc40a0795946"
-        ></script>
-        <script defer data-domain="minsky.cc" src="https://plausible.io/js/plausible.js"></script>
       </Head>
+      <Script
+        async
+        src="https://analytics.internal.minsky.cc/tracker.js"
+        data-ackee-server="https://analytics.internal.minsky.cc"
+        data-ackee-domain-id="27dc13a2-fcf6-494a-99b6-dc40a0795946"
+      />
+      <Script defer data-domain="minsky.cc" src="https://plausible.io/js/plausible.js" />
 
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
         <MantineProvider

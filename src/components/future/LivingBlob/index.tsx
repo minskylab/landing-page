@@ -119,7 +119,7 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
             <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
           </AnimatedMaterial>
         </a.mesh>
-        <Environment preset="warehouse" />
+        <Environment preset="studio" />
         {/* <ContactShadows
           rotation={[Math.PI / 2, 0, 0]}
           position={[0, -1.6, 0]}
