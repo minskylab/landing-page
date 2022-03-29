@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Title, Accordion, createStyles } from "@mantine/core";
+import { MinskyFAQ } from "lib/landing/structure";
 
 const useStyles = createStyles((theme, _params, getRef) => {
   const control = getRef("control");
@@ -42,14 +43,17 @@ const useStyles = createStyles((theme, _params, getRef) => {
   };
 });
 
-const placeholder = "We're currently working on a new FAQ page. Please check back soon. Sorry :(";
+type MinskySimpleFAQProps = {
+  title: string;
+  faqs: MinskyFAQ[];
+};
 
-export function MinskySimpleFAQ() {
+export function MinskySimpleFAQ({ title, faqs }: MinskySimpleFAQProps) {
   const { classes } = useStyles();
   return (
     <Container size="sm" className={classes.wrapper}>
       <Title align="center" className={classes.title}>
-        Frequently Asked Questions
+        {title}
       </Title>
 
       <Accordion
@@ -60,15 +64,11 @@ export function MinskySimpleFAQ() {
           control: classes.control,
         }}
       >
-        <Accordion.Item label="Where are your pricing system?">{placeholder}</Accordion.Item>
-        <Accordion.Item label="Can you develop my web/mobile app?">{placeholder}</Accordion.Item>
-        <Accordion.Item label="What's the experience of your team?">{placeholder}</Accordion.Item>
-        <Accordion.Item label="Do you have any kind of quality certification?">
-          {placeholder}
-        </Accordion.Item>
-        <Accordion.Item label="I'm a developer, how can I work at Minsky?">
-          {placeholder}
-        </Accordion.Item>
+        {faqs.map(faq => (
+          <Accordion.Item key={faq.answer} label={faq.question}>
+            {faq.answer}
+          </Accordion.Item>
+        ))}
       </Accordion>
     </Container>
   );
