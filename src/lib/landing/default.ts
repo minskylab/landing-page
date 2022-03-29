@@ -18,7 +18,7 @@ export const defaultMinskyLanding = <MinskyLandingData>{
       type: "about-us",
       title: "Who we are?",
       description: [
-        "We are an organization that seeks to offer high-quality technology to society. We design and implement technological solutions to Academy and Companies, supported by Open Source on the shoulders of giants.",
+        "We are an organization that seeks to offer high-quality technology to society. We design and implement technological solutions to Academy and Companies, supported by Open Source and Cloud technologies.",
         "We are a team of people who are passionate about software development in particular, and technology in general.",
       ],
       artType: "illustration",
