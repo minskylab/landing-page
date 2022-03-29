@@ -1036,10 +1036,10 @@
   dependencies:
     "@mantine/ssr" "4.1.0"
 
-"@mantine/notifications@4.0.8":
-  version "4.0.8"
-  resolved "https://registry.yarnpkg.com/@mantine/notifications/-/notifications-4.0.8.tgz#745f11d838eaf4d5bdd63a2c1510159b87b498d8"
-  integrity sha512-b23+cvn69AZMZZ5WUBxq4X6SioqmL1y2XG7rtX0cQYiYzlInHiswoeERaEFnaF/hlVr6bIfAiLG8ExIPJIPWoA==
+"@mantine/notifications@4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@mantine/notifications/-/notifications-4.1.0.tgz#5f0291a72f2056ca783f9072d61bfedb2b2da194"
+  integrity sha512-2pdRiK4UVDSHeCcHLSY7GFyXXn4t9HkoVqypXPwybWDBeT6tSOry+5l/+/HKhOpSPktxWykr+4OACUhtBYn5dg==
   dependencies:
     clsx "^1.1.1"
     react-transition-group "^4.4.2"
@@ -1057,18 +1057,6 @@
     "@mantine/styles" "4.1.0"
     csstype "^3.0.9"
     html-react-parser "^1.3.0"
-
-"@mantine/styles@4.0.8":
-  version "4.0.8"
-  resolved "https://registry.yarnpkg.com/@mantine/styles/-/styles-4.0.8.tgz#bfe7e8dda1daf031d95d999f02ccb6a099674487"
-  integrity sha512-DRS7F/GZmXEwhv3QwZDSFSA+/bK2Q8ohIrw/oroCY6yKkniFLwOIngTnhm9njrNYmfOz5r02VTppH4577yWvaQ==
-  dependencies:
-    "@emotion/cache" "^11.7.1"
-    "@emotion/react" "^11.7.1"
-    "@emotion/serialize" "^1.0.2"
-    "@emotion/utils" "^1.0.0"
-    clsx "^1.1.1"
-    csstype "^3.0.9"
 
 "@mantine/styles@4.1.0":
   version "4.1.0"
