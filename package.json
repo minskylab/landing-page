@@ -26,7 +26,7 @@
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "tabler-icons-react": "1.42.0",
-    "three": "0.139.0"
+    "three": "0.139.1"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "2.6.2",
