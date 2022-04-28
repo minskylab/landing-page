@@ -12,7 +12,7 @@ export const defaultMinskyLanding = <MinskyLandingData>{
   headlineHighlight: "technological perspective",
   // minimalDescription: "We are a team of creative and talented people who are passionate about creating digital products.",
   minimalDescription:
-    "We design and build digital solutions to generate value in our clients and society.",
+    "We design and build digital solutions to generate value in our clients and community.",
   sections: [
     {
       type: "about-us",
