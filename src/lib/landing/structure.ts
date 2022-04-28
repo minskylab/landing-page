@@ -1,5 +1,5 @@
-export type MinskyArtType = "illustration" | "video" | "organism" | "system";
-export type MinskySectionType = "about-us" | "our-work" | "our-team" | "contact-us";
+export type MinskyArtType = "illustration" | "video" | "organism" | "system"; 
+export type MinskySectionType = "about-us" | "our-work" | "our-team" | "contact-us"; 
 
 export type MinskyLabelLink = {
   link: string;
@@ -37,7 +37,7 @@ export type MinskyFooterSection = {
   links?: MinskyLabelLink[];
 };
 
-export type MinskySocialNetworkKind = "github" | "twitter" | "instagram" | "youtube";
+export type MinskySocialNetworkKind = "github" | "twitter" | "instagram" | "youtube"; 
 
 export type MinskySocialNetwork = {
   kind: MinskySocialNetworkKind;

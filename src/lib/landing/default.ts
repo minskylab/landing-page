@@ -87,7 +87,7 @@ export const defaultMinskyLanding = <MinskyLandingData>{
         links: [
           { label: "Philosophy", link: "philosophy" },
           { label: "Technology", link: "technology" },
-          { label: "Community", link: "future" },
+          { label: "Community", link: "community" },
           { label: "Future", link: "future" },
         ],
       },
