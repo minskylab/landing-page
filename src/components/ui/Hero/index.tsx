@@ -7,6 +7,7 @@ import {
   useMantineTheme,
   Center,
   Tooltip,
+  Highlight,
 } from "@mantine/core";
 import Image from "next/image";
 
@@ -22,21 +23,6 @@ const useStyles = createStyles(theme => ({
 
   inner: {
     position: "relative",
-  },
-
-  title: {
-    fontFamily: `${theme.fontFamily}`,
-    fontSize: 64,
-    fontWeight: 900,
-    lineHeight: 1.2,
-    margin: 0,
-    padding: 0,
-    color: theme.colorScheme === "dark" ? theme.white : theme.black,
-
-    [theme.fn.smallerThan("sm")]: {
-      fontSize: 38,
-      lineHeight: 1.2,
-    },
   },
 
   description: {
@@ -83,7 +69,17 @@ const useStyles = createStyles(theme => ({
   },
 }));
 
-export const MinskyHeroTitle = () => {
+type MinskyHeroTitleProps = {
+  headline: string;
+  headlineHighlight: string | string[];
+  minimalDescription: string;
+};
+
+export const MinskyHeroTitle = ({
+  headline,
+  headlineHighlight,
+  minimalDescription,
+}: MinskyHeroTitleProps) => {
   const { classes, cx } = useStyles();
   const theme = useMantineTheme();
 
@@ -91,22 +87,36 @@ export const MinskyHeroTitle = () => {
     <>
       <Container className={classes.wrapper}>
         <Group className={classes.inner}>
-          <h1 className={classes.title}>
-            A{" "}
-            <Text
-              component="span"
-              variant="gradient"
-              gradient={{ from: "orange", to: "red" }}
-              inherit
-            >
-              new technological perspective
-            </Text>{" "}
-            for your ideas.
-          </h1>
-          <Text className={classes.description} color="dimmed">
-            We are Minsky, we design and build{" "}
-            <Tooltip label={<Text>Technology</Text>}>digital solutions</Tooltip> to generate value
-            in our clients and society.
+          <Highlight
+            highlight={headlineHighlight}
+            highlightStyles={{
+              backgroundImage: theme.fn.linearGradient(
+                45,
+                theme.colors.orange[6],
+                theme.colors.red[6]
+              ),
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+            sx={theme => ({
+              fontFamily: `${theme.fontFamily}`,
+              fontSize: 64,
+              fontWeight: 900,
+              lineHeight: 1.2,
+              margin: 0,
+              padding: 0,
+              color: theme.colorScheme === "dark" ? theme.white : theme.black,
+
+              [theme.fn.smallerThan("sm")]: {
+                fontSize: 38,
+                lineHeight: 1.2,
+              },
+            })}
+          >
+            {headline}
+          </Highlight>
+          <Text className={classes.description} color="gray">
+            {minimalDescription}
           </Text>
         </Group>
       </Container>

@@ -1,8 +1,32 @@
 import { Button, Grid, Group, Space, Text, Title } from "@mantine/core";
 import { SymbolsIllustration, SystemIllustration } from "components/future/illustrations";
+import { MinskyLandingSection } from "lib/landing/structure";
 import { BrandGithub } from "tabler-icons-react";
 
-export function MinskyLandingSections() {
+type MinskyLandingSections = {
+  sections: MinskyLandingSection[];
+};
+
+export function MinskyLandingSections({ sections }: MinskyLandingSections) {
+  let aboutUsSection: MinskyLandingSection | undefined;
+  let ourWorkSection: MinskyLandingSection | undefined;
+
+  sections.forEach(section => {
+    if (section.type === "about-us") {
+      aboutUsSection = section;
+      // if (typeof aboutUsSection.description === "string") {
+      //   aboutUsSection.description = [aboutUsSection.description];
+      // }
+    }
+
+    if (section.type === "our-work") {
+      ourWorkSection = section;
+      if (typeof ourWorkSection.description === "string") {
+        ourWorkSection.description = [ourWorkSection.description];
+      }
+    }
+  });
+
   return (
     <Grid>
       <Grid.Col sm={12} md={5}>
@@ -19,28 +43,25 @@ export function MinskyLandingSections() {
                 textAlign: "start",
               })}
             >
-              Who we are?
+              {aboutUsSection?.title}
             </Title>
-            <Text
-              sx={theme => ({
-                // maxWidth: 320,
-                // marginTop: 12,
-                lineHeight: 1.68,
-                // fontSize: 18,
-              })}
-            >
-              We are an organization that seeks to offer high-quality technology to society. We
-              design and implement technological solutions to Academy and Companies, supported by
-              Open Source on the shoulders of giants.
-            </Text>
-            <Text
-              sx={{
-                lineHeight: 1.68,
-              }}
-            >
-              We are a team of people who are passionate about software development in particular,
-              and technology in general.
-            </Text>
+            {(typeof aboutUsSection?.description === "string"
+              ? [aboutUsSection?.description]
+              : aboutUsSection?.description
+            )?.map(paragraph => (
+              <Text
+                key={paragraph}
+                sx={theme => ({
+                  // maxWidth: 320,
+                  // marginTop: 12,
+                  lineHeight: 1.68,
+                  // fontSize: 18,
+                })}
+              >
+                {paragraph}
+              </Text>
+            ))}
+
             <Button>Our Dream Team</Button>
           </Group>
         </Group>
@@ -77,32 +98,24 @@ export function MinskyLandingSections() {
             >
               What do we do?
             </Title>
-            <Text
-              sx={{
-                // maxWidth: 320,
-                // marginTop: 12,
-                lineHeight: 1.68,
-                textAlign: "end",
-                // fontSize: 18,
-              }}
-            >
-              We are working with partners and the academy to develop and launch software products,
-              taking into consideration a holistic path and a comprehensive vision. Further, we have{" "}
-              <a href="">job opportunities</a> for local developers (Peru), improving their
-              experience and pleasure of crafting software.
-            </Text>
-            <Text
-              sx={theme => ({
-                // marginTop: 18,
-                // maxWidth: 320,
-                lineHeight: 1.68,
-                textAlign: "end",
-                // fontSize: 18,
-              })}
-            >
-              We love to create pieces of software that are useful for all of us. All our
-              exploration and proposals are open to the public in our repositories.
-            </Text>
+            {(typeof ourWorkSection?.description === "string"
+              ? [ourWorkSection?.description]
+              : ourWorkSection?.description
+            )?.map(paragraph => (
+              <Text
+                key={paragraph}
+                sx={{
+                  // maxWidth: 320,
+                  // marginTop: 12,
+                  lineHeight: 1.68,
+                  textAlign: "end",
+                  // fontSize: 18,
+                }}
+              >
+                {paragraph}
+              </Text>
+            ))}
+
             <Button color="dark" leftIcon={<BrandGithub />}>
               Our GitHub
             </Button>

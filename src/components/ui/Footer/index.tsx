@@ -9,6 +9,7 @@ import {
 } from "@mantine/core";
 import { BrandTwitter, BrandYoutube, BrandInstagram, BrandGithub } from "tabler-icons-react";
 import MinskyLogotype from "../../future/MinskyLogo";
+import { MinskyFooterSection } from "lib/landing/structure";
 
 const useStyles = createStyles(theme => ({
   footer: {
@@ -107,17 +108,16 @@ const useStyles = createStyles(theme => ({
 }));
 
 interface FooterLinksProps {
-  data: {
-    title: string;
-    links?: { label: string; link: string }[];
-  }[];
+  sections: MinskyFooterSection[];
+  tagline: string;
+  brandTrademark: string;
 }
 
-export function MinskyFooter({ data }: FooterLinksProps) {
+export function MinskyFooter({ sections, tagline, brandTrademark }: FooterLinksProps) {
   const { classes } = useStyles();
   const { colorScheme } = useMantineColorScheme();
 
-  const groups = data.map(group => {
+  const groups = sections.map(group => {
     const links = group.links?.map((link, index) => (
       <Text<"a">
         key={index}
@@ -137,20 +137,21 @@ export function MinskyFooter({ data }: FooterLinksProps) {
       </div>
     );
   });
+
   return (
     <footer className={classes.footer}>
       <Container className={classes.inner}>
         <div className={classes.logo}>
           <MinskyLogotype fillColor={colorScheme === "dark" ? "white" : "#060607"} />
           <Text size="xs" color="dimmed" className={classes.description}>
-            We are a company, a community, and a living system of people.
+            {tagline}
           </Text>
         </div>
         <div className={classes.groups}>{groups}</div>
       </Container>
       <Container className={classes.afterFooter}>
         <Text color="dimmed" size="sm">
-          2022 Minsky S.A.C.
+          {brandTrademark}
         </Text>
 
         <Group spacing={0} className={classes.social} position="right" noWrap>

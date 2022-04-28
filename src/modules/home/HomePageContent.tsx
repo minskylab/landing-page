@@ -13,6 +13,7 @@ import { MinskySimpleFAQ } from "components/ui/Faq";
 import { Directus } from "@directus/sdk";
 import { MinskyPlatformTypes, Subscriber } from "lib/platform/types";
 import { MinskyLandingSections } from "components/ui/Information";
+import { useMinskyLandingContent } from "./content";
 
 const directus = new Directus<MinskyPlatformTypes>("https://self.internal.minsky.cc");
 
@@ -34,19 +35,20 @@ const MinskyExpositor = dynamic(() => import("components/ui/Expositor"), {
 const HomePageContent = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const notifications = useNotifications();
+  const {
+    headerTopics,
+    footerInformation,
+    headline,
+    headlineHighlight,
+    minimalDescription,
+    sections,
+    faqs,
+  } = useMinskyLandingContent();
 
   return (
     <>
       <Container mt="lg" size={"xl"}>
-        <MinskyLandingHeader
-          links={[
-            // { label: "Welcome", link: "home" },
-            { label: "Platform", link: "platform" },
-            { label: "Partners", link: "partners" },
-            { label: "Academy", link: "academy" },
-            { label: "Developers", link: "developers" },
-          ]}
-        />
+        <MinskyLandingHeader links={headerTopics} />
       </Container>
       <Container
         size={"xl"}
@@ -69,7 +71,11 @@ const HomePageContent = () => {
           },
         })}
       >
-        <MinskyHeroTitle />
+        <MinskyHeroTitle
+          headline={headline}
+          headlineHighlight={headlineHighlight}
+          minimalDescription={minimalDescription}
+        />
       </Container>
       <Container
         sx={theme => ({
@@ -97,11 +103,11 @@ const HomePageContent = () => {
           },
         })}
       >
-        <MinskyLandingSections />
+        <MinskyLandingSections sections={sections} />
       </Container>
       <Space h={62}></Space>
       <Container>
-        <MinskySimpleFAQ />
+        <MinskySimpleFAQ title={"Frequently Asked Questions"} faqs={faqs} />
       </Container>
       <Container>
         <MinskyGetInTouch
@@ -122,41 +128,12 @@ const HomePageContent = () => {
         />
       </Container>
       <MinskyFooter
-        data={[
-          {
-            title: "Minsky",
-            links: [
-              { label: "About", link: "about" },
-              { label: "Careers", link: "careers" },
-              { label: "Team", link: "team" },
-              { label: "Contact", link: "contact" },
-            ],
-          },
-          {
-            title: "Vision",
-            links: [
-              { label: "Philosophy", link: "philosophy" },
-              { label: "Technology", link: "technology" },
-              { label: "Community", link: "future" },
-              { label: "Future", link: "future" },
-            ],
-          },
-        ]}
+        sections={footerInformation.sections}
+        tagline={footerInformation.tagline}
+        brandTrademark={footerInformation.brandTrademark}
       />
     </>
   );
 };
 
 export { HomePageContent };
-
-// Nosotros
-
-// Filosofía
-
-// Tecnología
-
-// Servicios
-
-// Equipo
-
-// Contactos
