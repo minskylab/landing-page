@@ -1,18 +1,18 @@
-export type MinskyArtType = "illustration" | "video" | "organism" | "system"; // Settings y Content Listo
-export type MinskySectionType = "about-us" | "our-work" | "our-team" | "contact-us"; // Settings y Content Listo
+export type MinskyArtType = "illustration" | "video" | "organism" | "system"; 
+export type MinskySectionType = "about-us" | "our-work" | "our-team" | "contact-us"; 
 
-export type MinskyLabelLink = { // Settings y Content Listo
+export type MinskyLabelLink = {
   link: string;
   label: string;
 };
 
-export type MinskyHeaderTopic = { // Settings y Content Listo
+export type MinskyHeaderTopic = {
   link: string;
   label: string;
   links?: MinskyLabelLink[];
 };
 
-export type MinskyLandingSection = { // Settings y Content Listo
+export type MinskyLandingSection = {
   type: MinskySectionType;
   title: string;
   description: string | string[];
@@ -20,37 +20,37 @@ export type MinskyLandingSection = { // Settings y Content Listo
   artType?: MinskyArtType;
 };
 
-export type MinskyFAQ = { // Settings y Content Listo
+export type MinskyFAQ = {
   question: string;
   answer: string;
 };
 
-export type MinskyContactInformation = { // Settings y Content Listo
+export type MinskyContactInformation = {
   email: string;
   phone: string;
   address: string;
   workingHours: string;
 };
 
-export type MinskyFooterSection = { // Settings y Content Listo
+export type MinskyFooterSection = {
   title: string;
   links?: MinskyLabelLink[];
 };
 
-export type MinskySocialNetworkKind = "github" | "twitter" | "instagram" | "youtube"; // Settings y Content Listo
+export type MinskySocialNetworkKind = "github" | "twitter" | "instagram" | "youtube"; 
 
-export type MinskySocialNetwork = { // Settings y Content Listo
+export type MinskySocialNetwork = {
   kind: MinskySocialNetworkKind;
   link: string;
 };
 
-export type MinskyFooterInformation = { // Settings y Content Listo
+export type MinskyFooterInformation = {
   tagline: string;
   sections: MinskyFooterSection[];
   brandTrademark: string;
 };
 
-export type MinskyLandingData = { // Settings y Content Listo
+export type MinskyLandingData = {
   headerTopics: MinskyHeaderTopic[];
   headline: string;
   headlineHighlight: string | string[];
