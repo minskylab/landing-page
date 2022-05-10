@@ -15,6 +15,7 @@ import {
 } from "@mantine/core";
 import { useBooleanToggle, useWindowScroll } from "@mantine/hooks";
 import { ChevronDown, MoonStars, Sun } from "tabler-icons-react";
+import { useRouter } from 'next/router';
 import MinskyLogotype from "../../future/MinskyLogo";
 
 const HEADER_HEIGHT = 60;
@@ -84,6 +85,7 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
   const [opened, toggleOpened] = useBooleanToggle(false);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const [ scroll, scrollTo] = useWindowScroll();
+  const router = useRouter();
 
   const items = links.map(link => {
     const menuItems = link.links?.map(item => <Menu.Item key={item.link}>{item.label}</Menu.Item>);
@@ -98,7 +100,7 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
           placement="end"
           gutter={1}
           control={
-            <a href={link.link} className={classes.link} onClick={event => event.preventDefault()}>
+            <a href={link.link} className={classes.link} onClick={() => router.push(`/${link.link}`)}>
               <Center>
                 <span className={classes.linkLabel}>{link.label}</span>
                 <ChevronDown size={12} />
@@ -116,7 +118,7 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
         key={link.label}
         href={link.link}
         className={classes.link}
-        onClick={event => event.preventDefault()}
+        onClick={() => router.push(`/${link.link}`)}
       >
         {link.label}
       </a>
