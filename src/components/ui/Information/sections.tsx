@@ -118,7 +118,7 @@ export function MinskyLandingSections({ sections }: MinskyLandingSections) {
               </Text>
             ))}
 
-            <Button color="dark" leftIcon={<BrandGithub />}>
+            <Button color="dark" leftIcon={<BrandGithub />} onClick={() => window.open("https://github.com/minskylab", "_blank")}>
               Our GitHub
             </Button>
           </Group>
