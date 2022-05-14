@@ -3,13 +3,13 @@ import MinskyAlertPageUnderConstruction from "../../components/ui/AlertPageUnder
 
 const AcademyPageContent = () => {
 
-    return (
-        <>
-            <Container>
-                <MinskyAlertPageUnderConstruction />
-            </Container>
-        </>
-    )
+  return (
+    <>
+      <Container>
+        <MinskyAlertPageUnderConstruction />
+      </Container>
+    </>
+  )
 }
 
 export default AcademyPageContent;
