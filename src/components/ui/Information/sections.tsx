@@ -2,7 +2,6 @@ import { Button, Grid, Group, Space, Text, Title } from "@mantine/core";
 import { SymbolsIllustration, SystemIllustration } from "components/future/illustrations";
 import { MinskyLandingSection } from "lib/landing/structure";
 import { BrandGithub } from "tabler-icons-react";
-import { useRouter } from 'next/router';
 import Link from "next/link";
 
 type MinskyLandingSections = {
@@ -12,7 +11,6 @@ type MinskyLandingSections = {
 export function MinskyLandingSections({ sections }: MinskyLandingSections) {
   let aboutUsSection: MinskyLandingSection | undefined;
   let ourWorkSection: MinskyLandingSection | undefined;
-  const router = useRouter();
 
   sections.forEach(section => {
     if (section.type === "about-us") {
@@ -65,7 +63,6 @@ export function MinskyLandingSections({ sections }: MinskyLandingSections) {
               </Text>
             ))}
             <Link href={"/team"}><a><Button>Our Dream Team</Button></a></Link>
-            {/* <Button onClick={() => router.push("/team")}>Our Dream Team</Button> */}
           </Group>
         </Group>
       </Grid.Col>
@@ -118,7 +115,6 @@ export function MinskyLandingSections({ sections }: MinskyLandingSections) {
                 {paragraph}
               </Text>
             ))}
-
             <Button color="dark" leftIcon={<BrandGithub />} onClick={() => window.open("https://github.com/minskylab", "_blank")}>
               Our GitHub
             </Button>

@@ -1,4 +1,4 @@
-import { Container, Center, Text, useMantineColorScheme, createStyles } from "@mantine/core";
+import { Center, Text, useMantineColorScheme, createStyles } from "@mantine/core";
 import MinskyLogotype from "../../future/MinskyLogo";
 
 const useStyles = createStyles(theme => {
