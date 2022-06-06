@@ -3,6 +3,7 @@ import { SymbolsIllustration, SystemIllustration } from "components/future/illus
 import { MinskyLandingSection } from "lib/landing/structure";
 import { BrandGithub } from "tabler-icons-react";
 import { useRouter } from 'next/router';
+import Link from "next/link";
 
 type MinskyLandingSections = {
   sections: MinskyLandingSection[];
@@ -63,8 +64,8 @@ export function MinskyLandingSections({ sections }: MinskyLandingSections) {
                 {paragraph}
               </Text>
             ))}
-
-            <Button onClick={() => router.push("/team")}>Our Dream Team</Button>
+            <Link href={"/team"}><a><Button>Our Dream Team</Button></a></Link>
+            {/* <Button onClick={() => router.push("/team")}>Our Dream Team</Button> */}
           </Group>
         </Group>
       </Grid.Col>
