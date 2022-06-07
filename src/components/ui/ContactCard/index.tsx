@@ -119,7 +119,7 @@ export function MinskyGetInTouch({
   const [formState, setFormState] = useState<Subscriber>(NULL_SUBSCRIBER);
 
   return (
-    <Paper shadow="md" radius="lg">
+    <Paper id="contact" shadow="md" radius="lg">
       <div className={classes.wrapper}>
         <div className={classes.contacts}>
           <Text size="lg" weight={700} className={classes.title} sx={{ color: "#fff" }}>

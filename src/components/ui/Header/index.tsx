@@ -13,7 +13,7 @@ import {
   Drawer,
   Text,
 } from "@mantine/core";
-import { useBooleanToggle, useWindowScroll } from "@mantine/hooks";
+import { useBooleanToggle } from "@mantine/hooks";
 import { ChevronDown, MoonStars, Sun } from "tabler-icons-react";
 import Link from "next/link";
 import MinskyLogotype from "../../future/MinskyLogo";
@@ -84,7 +84,6 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
   const { classes } = useStyles();
   const [opened, toggleOpened] = useBooleanToggle(false);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-  const [scroll, scrollTo] = useWindowScroll();
 
   const items = links.map(link => {
     const menuItems = link.links?.map(item => <Menu.Item key={item.link}>{item.label}</Menu.Item>);
@@ -182,7 +181,7 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
             >
               {colorScheme === "dark" ? <Sun size={18} /> : <MoonStars size={18} />}
             </ActionIcon>
-            <Button radius="md" onClick={() => scrollTo({ y: 3229 })}>Contact</Button>
+            <Link href="#contact"><a><Button radius="md" >Contact</Button></a></Link>
           </Group>
         </Container>
       </Header>

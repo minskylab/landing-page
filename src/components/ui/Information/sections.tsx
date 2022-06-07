@@ -3,6 +3,7 @@ import { SymbolsIllustration, SystemIllustration } from "components/future/illus
 import { MinskyLandingSection } from "lib/landing/structure";
 import { BrandGithub } from "tabler-icons-react";
 import Link from "next/link";
+import { useCallback } from "react";
 
 type MinskyLandingSections = {
   sections: MinskyLandingSection[];
@@ -11,6 +12,7 @@ type MinskyLandingSections = {
 export function MinskyLandingSections({ sections }: MinskyLandingSections) {
   let aboutUsSection: MinskyLandingSection | undefined;
   let ourWorkSection: MinskyLandingSection | undefined;
+  const handleClickExternalURL = useCallback(() => { window.open("https://github.com/minskylab", "_blank") }, [])
 
   sections.forEach(section => {
     if (section.type === "about-us") {
@@ -115,7 +117,7 @@ export function MinskyLandingSections({ sections }: MinskyLandingSections) {
                 {paragraph}
               </Text>
             ))}
-            <Button color="dark" leftIcon={<BrandGithub />} onClick={() => window.open("https://github.com/minskylab", "_blank")}>
+            <Button color="dark" leftIcon={<BrandGithub />} onClick={handleClickExternalURL}>
               Our GitHub
             </Button>
           </Group>
