@@ -172,7 +172,7 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
             >
               {colorScheme === "dark" ? <Sun size={18} /> : <MoonStars size={18} />}
             </ActionIcon>
-            <Button<'a'> component="a" href="#contact">Contact</Button>
+            <Button component="a" href="#contact">Contact</Button>
           </Group>
         </Container>
       </Header>
