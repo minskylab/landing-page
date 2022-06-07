@@ -64,7 +64,11 @@ export function MinskyLandingSections({ sections }: MinskyLandingSections) {
                 {paragraph}
               </Text>
             ))}
-            <Link href={"/team"}><a><Button>Our Dream Team</Button></a></Link>
+            <Link href={"/team"}>
+              <a>
+                <Button>Our Dream Team</Button>
+              </a>
+            </Link>
           </Group>
         </Group>
       </Grid.Col>

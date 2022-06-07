@@ -14,7 +14,7 @@ import {
   Text,
 } from "@mantine/core";
 import { useBooleanToggle } from "@mantine/hooks";
-import { ChevronDown, MoonStars, Sun } from "tabler-icons-react";
+import { MoonStars, Sun } from "tabler-icons-react";
 import Link from "next/link";
 import MinskyLogotype from "../../future/MinskyLogo";
 
@@ -100,10 +100,7 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
           control={
             <Link href={`/${link.link}`}>
               <a href={link.link} className={classes.link}>
-                <Center>
-                  <span className={classes.linkLabel}>{link.label}</span>
-                  <ChevronDown size={12} />
-                </Center>
+                <span className={classes.linkLabel}>{link.label}</span>
               </a>
             </Link>
           }
@@ -175,7 +172,11 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
             >
               {colorScheme === "dark" ? <Sun size={18} /> : <MoonStars size={18} />}
             </ActionIcon>
-            <Link href="#contact"><a><Button radius="md" >Contact</Button></a></Link>
+            <Link href="#contact">
+              <a>
+                <Button radius="md" >Contact</Button>
+              </a>
+            </Link>
           </Group>
         </Container>
       </Header>

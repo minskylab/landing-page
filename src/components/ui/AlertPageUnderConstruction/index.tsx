@@ -5,6 +5,12 @@ const useStyles = createStyles(theme => {
     const BREAKPOINT = theme.fn.smallerThan("md");
 
     return {
+        container: {
+            height: "100vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center"
+        },
         wrapper: {
             display: "flex",
             boxSizing: "border-box",
@@ -36,11 +42,13 @@ export default function MinskyAlertPageUnderConstruction() {
     const { classes } = useStyles();
 
     return (
-        <Center style={{ height: "100vh" }}>
+        <div className={classes.container}>
             <div className={classes.wrapper}>
                 <MinskyLogotype scale={0.3} typographyColor={colorScheme === "dark" ? "white" : undefined} />
-                <Text className={classes.text}>PAGE UNDER CONSTRUCTION</Text>
+                <div className={classes.text}>
+                    <span>PAGE UNDER CONSTRUCTION</span>
+                </div>
             </div>
-        </Center>
+        </div>
     )
 }
