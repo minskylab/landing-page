@@ -1,7 +1,7 @@
 import { Container } from "@mantine/core";
 import MinskyAlertPageUnderConstruction from "../../components/ui/AlertPageUnderConstruction/index";
 
-const TeamPageContent = () => {
+export default function TeamPageContent() {
 
   return (
     <Container>
@@ -9,5 +9,3 @@ const TeamPageContent = () => {
     </Container>
   )
 }
-
-export default TeamPageContent;

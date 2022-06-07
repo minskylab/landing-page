@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Paper,
   Text,
@@ -23,9 +23,8 @@ const useStyles = createStyles(theme => {
       backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.white,
       borderRadius: theme.radius.lg,
       padding: 4,
-      border: `1px solid ${
-        theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.colors.gray[2]
-      }`,
+      border: `1px solid ${theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.colors.gray[2]
+        }`,
 
       [BREAKPOINT]: {
         flexDirection: "column",

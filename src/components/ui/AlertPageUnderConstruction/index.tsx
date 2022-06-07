@@ -31,7 +31,7 @@ const useStyles = createStyles(theme => {
     };
 });
 
-const MinskyAlertPageUnderConstruction = () => {
+export default function MinskyAlertPageUnderConstruction() {
     const { colorScheme } = useMantineColorScheme();
     const { classes } = useStyles();
 
@@ -44,5 +44,3 @@ const MinskyAlertPageUnderConstruction = () => {
         </Center>
     )
 }
-
-export default MinskyAlertPageUnderConstruction;

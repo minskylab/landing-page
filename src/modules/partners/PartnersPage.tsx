@@ -1,7 +1,7 @@
 import { Container } from "@mantine/core";
 import MinskyAlertPageUnderConstruction from "../../components/ui/AlertPageUnderConstruction/index";
 
-const PartnersPageContent = () => {
+export default function PartnersPageContent() {
 
   return (
     <Container>
@@ -9,5 +9,3 @@ const PartnersPageContent = () => {
     </Container>
   )
 }
-
-export default PartnersPageContent;
