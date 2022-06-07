@@ -4,11 +4,9 @@ import MinskyAlertPageUnderConstruction from "../../components/ui/AlertPageUnder
 const DevelopersPageContent = () => {
 
   return (
-    <>
-      <Container>
-        <MinskyAlertPageUnderConstruction />
-      </Container>
-    </>
+    <Container>
+      <MinskyAlertPageUnderConstruction />
+    </Container>
   )
 }
 

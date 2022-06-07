@@ -36,14 +36,12 @@ const MinskyAlertPageUnderConstruction = () => {
     const { classes } = useStyles();
 
     return (
-        <>
-            <Center style={{ height: "100vh" }}>
-                <div className={classes.wrapper}>
-                    <MinskyLogotype scale={0.3} typographyColor={colorScheme === "dark" ? "white" : undefined} />
-                    <Text className={classes.text}>PAGE UNDER CONSTRUCTION</Text>
-                </div>
-            </Center>
-        </>
+        <Center style={{ height: "100vh" }}>
+            <div className={classes.wrapper}>
+                <MinskyLogotype scale={0.3} typographyColor={colorScheme === "dark" ? "white" : undefined} />
+                <Text className={classes.text}>PAGE UNDER CONSTRUCTION</Text>
+            </div>
+        </Center>
     )
 }
 

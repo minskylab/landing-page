@@ -114,14 +114,8 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
     }
 
     return (
-      <Link href={`/${link.link}`}>
-        <a
-          key={link.label}
-          href={link.link}
-          className={classes.link}
-        >
-          {link.label}
-        </a>
+      <Link key={link.label} href={`/${link.link}`}>
+        <a className={classes.link}>{link.label}</a>
       </Link>
     );
   });

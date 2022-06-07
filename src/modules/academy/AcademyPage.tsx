@@ -4,11 +4,9 @@ import MinskyAlertPageUnderConstruction from "../../components/ui/AlertPageUnder
 const AcademyPageContent = () => {
 
   return (
-    <>
-      <Container>
-        <MinskyAlertPageUnderConstruction />
-      </Container>
-    </>
+    <Container>
+      <MinskyAlertPageUnderConstruction />
+    </Container>
   )
 }
 
