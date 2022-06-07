@@ -32,6 +32,7 @@ const useStyles = createStyles(theme => {
             [BREAKPOINT]: {
                 align: "center",
                 marginTop: 30,
+                marginLeft: 0
             },
         },
     };
@@ -45,9 +46,7 @@ export default function MinskyAlertPageUnderConstruction() {
         <div className={classes.container}>
             <div className={classes.wrapper}>
                 <MinskyLogotype scale={0.3} typographyColor={colorScheme === "dark" ? "white" : undefined} />
-                <div className={classes.text}>
-                    <span>PAGE UNDER CONSTRUCTION</span>
-                </div>
+                <span className={classes.text}>PAGE UNDER CONSTRUCTION</span>
             </div>
         </div>
     )

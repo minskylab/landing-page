@@ -53,6 +53,7 @@ const useStyles = createStyles(theme => ({
     borderRadius: theme.radius.sm,
     textDecoration: "none",
     color: theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.colors.gray[7],
+    fontFamily: `${theme.fontFamily}`,
     fontSize: theme.fontSizes.sm,
     fontWeight: 500,
 
@@ -61,10 +62,10 @@ const useStyles = createStyles(theme => ({
     },
   },
 
-  linkLabel: {
-    fontFamily: `${theme.fontFamily}`,
-    marginRight: 5,
-  },
+  /*   linkLabel: {
+      fontFamily: `${theme.fontFamily}`,
+      marginRight: 5,
+    }, */
 
   header: {
     marginBottom: 80,
@@ -99,7 +100,7 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
           control={
             <Link href={`/${link.link}`}>
               <a href={link.link} className={classes.link}>
-                <span className={classes.linkLabel}>{link.label}</span>
+                {link.label}
               </a>
             </Link>
           }
@@ -171,11 +172,7 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
             >
               {colorScheme === "dark" ? <Sun size={18} /> : <MoonStars size={18} />}
             </ActionIcon>
-            <Link href="#contact">
-              <a>
-                <Button radius="md" >Contact</Button>
-              </a>
-            </Link>
+            <Button<'a'> component="a" href="#contact">Contact</Button>
           </Group>
         </Container>
       </Header>

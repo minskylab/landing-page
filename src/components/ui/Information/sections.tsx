@@ -64,10 +64,8 @@ export function MinskyLandingSections({ sections }: MinskyLandingSections) {
                 {paragraph}
               </Text>
             ))}
-            <Link href={"/team"}>
-              <a>
-                <Button>Our Dream Team</Button>
-              </a>
+            <Link href="/team" passHref>
+              <Button component="a">Our Dream Team</Button>
             </Link>
           </Group>
         </Group>
