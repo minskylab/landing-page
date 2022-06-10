@@ -9,7 +9,6 @@ import { useNotifications } from "@mantine/notifications";
 import { MinskyGetInTouch } from "components/ui/ContactCard";
 import TensionLine from "components/ui/TensionLine";
 import { MinskySimpleFAQ } from "components/ui/Faq";
-
 import { Directus } from "@directus/sdk";
 import { MinskyPlatformTypes, Subscriber } from "lib/platform/types";
 import { MinskyLandingSections } from "components/ui/Information";

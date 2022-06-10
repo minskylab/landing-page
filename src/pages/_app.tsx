@@ -1,25 +1,29 @@
+import { GetServerSidePropsContext } from 'next';
+import { useState } from 'react';
+import { getCookie, setCookies } from 'cookies-next';
 import { AppProps } from "next/app";
 import Head from "next/head";
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
-
 import Fonts from "theming/fonts";
 import { minskyBrandDark, minskyBrandPrimary } from "theming";
 import { NotificationsProvider } from "@mantine/notifications";
-import { useState } from "react";
 import { useLocalStorage } from "@mantine/hooks";
 import { DefaultSeo } from "next-seo";
 import Script from "next/script";
 
 // const client = URQLClient();
 
-const FairpayApp = ({ Component, pageProps }: AppProps) => {
-  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
-    key: "color-scheme",
-    defaultValue: "light",
-  });
+const FairpayApp = (props: AppProps & { colorScheme: ColorScheme }) => {
+  const { Component, pageProps } = props;
+  const [colorScheme, setColorScheme] = useState<ColorScheme>(props.colorScheme);
 
-  const toggleColorScheme = (value?: ColorScheme) =>
-    setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
+  const toggleColorScheme = (value?: ColorScheme) => {
+    const nextColorScheme = value || (colorScheme === 'dark' ? 'light' : 'dark');
+    setColorScheme(nextColorScheme);
+    // when color scheme is updated save it to cookie
+    setCookies('mantine-color-scheme', nextColorScheme, { maxAge: 60 * 60 * 24 * 30 });
+  }
+
   return (
     <>
       <Head>
@@ -90,5 +94,10 @@ const FairpayApp = ({ Component, pageProps }: AppProps) => {
     </>
   );
 };
+
+FairpayApp.getInitialProps = ({ ctx }: { ctx: GetServerSidePropsContext }) => ({
+  // get color scheme from cookie
+  colorScheme: getCookie('mantine-color-scheme', ctx) || 'light',
+});
 
 export default FairpayApp;
