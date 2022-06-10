@@ -1,7 +1,6 @@
 import {
   createStyles,
   Menu,
-  Center,
   Header,
   Container,
   Group,
@@ -14,7 +13,8 @@ import {
   Text,
 } from "@mantine/core";
 import { useBooleanToggle } from "@mantine/hooks";
-import { ChevronDown, MoonStars, Sun } from "tabler-icons-react";
+import { MoonStars, Sun } from "tabler-icons-react";
+import Link from "next/link";
 import MinskyLogotype from "../../future/MinskyLogo";
 
 const HEADER_HEIGHT = 60;
@@ -53,6 +53,7 @@ const useStyles = createStyles(theme => ({
     borderRadius: theme.radius.sm,
     textDecoration: "none",
     color: theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.colors.gray[7],
+    fontFamily: `${theme.fontFamily}`,
     fontSize: theme.fontSizes.sm,
     fontWeight: 500,
 
@@ -61,10 +62,10 @@ const useStyles = createStyles(theme => ({
     },
   },
 
-  linkLabel: {
-    fontFamily: `${theme.fontFamily}`,
-    marginRight: 5,
-  },
+  /*   linkLabel: {
+      fontFamily: `${theme.fontFamily}`,
+      marginRight: 5,
+    }, */
 
   header: {
     marginBottom: 80,
@@ -97,12 +98,11 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
           placement="end"
           gutter={1}
           control={
-            <a href={link.link} className={classes.link} onClick={event => event.preventDefault()}>
-              <Center>
-                <span className={classes.linkLabel}>{link.label}</span>
-                <ChevronDown size={12} />
-              </Center>
-            </a>
+            <Link href={`/${link.link}`}>
+              <a href={link.link} className={classes.link}>
+                {link.label}
+              </a>
+            </Link>
           }
         >
           {menuItems}
@@ -111,14 +111,9 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
     }
 
     return (
-      <a
-        key={link.label}
-        href={link.link}
-        className={classes.link}
-        onClick={event => event.preventDefault()}
-      >
-        {link.label}
-      </a>
+      <Link key={link.label} href={`/${link.link}`}>
+        <a className={classes.link}>{link.label}</a>
+      </Link>
     );
   });
 
@@ -145,7 +140,7 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
             onClick={() => toggleColorScheme()}
             size="lg"
             variant="default"
-            // className={classes.colorSchemaToggler}
+          // className={classes.colorSchemaToggler}
           >
             {colorScheme === "dark" ? <Sun size={18} /> : <MoonStars size={18} />}
           </ActionIcon>
@@ -177,7 +172,7 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
             >
               {colorScheme === "dark" ? <Sun size={18} /> : <MoonStars size={18} />}
             </ActionIcon>
-            <Button radius="md">Contact</Button>
+            <Button component="a" href="#contact">Contact</Button>
           </Group>
         </Container>
       </Header>
