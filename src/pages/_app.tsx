@@ -7,7 +7,6 @@ import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core
 import Fonts from "theming/fonts";
 import { minskyBrandDark, minskyBrandPrimary } from "theming";
 import { NotificationsProvider } from "@mantine/notifications";
-import { useLocalStorage } from "@mantine/hooks";
 import { DefaultSeo } from "next-seo";
 import Script from "next/script";
 
