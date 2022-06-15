@@ -20,7 +20,7 @@ const createNewSubscriber = async (sub: Subscriber) => {
   return directus.items("Subscribers").createOne(sub);
 };
 
-const MinskyExpositor = dynamic<{}>(() => import("components/ui/Expositor"), {
+const MinskyExpositor = dynamic(() => import("components/ui/Expositor"), {
   ssr: false,
   loading: () => {
     return (

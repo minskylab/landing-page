@@ -11,11 +11,13 @@ import {
   ColorSchemeProvider,
   Drawer,
   Text,
+  Select
 } from "@mantine/core";
 import { useBooleanToggle } from "@mantine/hooks";
-import { MoonStars, Sun } from "tabler-icons-react";
+import { MoonStars, Sun, World, ChevronDown } from "tabler-icons-react";
 import Link from "next/link";
 import MinskyLogotype from "../../future/MinskyLogo";
+import { useTranslation, declareComponentKeys, useLang } from "i18n";
 
 const HEADER_HEIGHT = 60;
 const BREAKPOINT = "@media (max-width: 755px)";
@@ -84,6 +86,8 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
   const { classes } = useStyles();
   const [opened, toggleOpened] = useBooleanToggle(false);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const { t } = useTranslation({ MinskyLandingHeader });
+  const { lang, setLang } = useLang();
 
   const items = links.map(link => {
     const menuItems = link.links?.map(item => <Menu.Item key={item.link}>{item.label}</Menu.Item>);
@@ -172,7 +176,17 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
             >
               {colorScheme === "dark" ? <Sun size={18} /> : <MoonStars size={18} />}
             </ActionIcon>
-            <Button component="a" href="#contact">Contact</Button>
+            <Select
+              defaultValue={lang}
+              onChange={(e:any) => setLang(e)}
+              data={[
+                { value: 'en', label: 'English' },
+                { value: 'es', label: 'Spanish' },
+              ]}
+              icon={<World size={18} />}
+              rightSection={<ChevronDown size={18} />}
+            />
+            <Button component="a" href="#contact">{t("contact button text")}</Button>
           </Group>
         </Container>
       </Header>
@@ -180,3 +194,7 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
     </>
   );
 }
+
+export const { i18n } = declareComponentKeys<
+  | "contact button text"
+>()({ MinskyLandingHeader })
