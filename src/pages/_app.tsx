@@ -9,7 +9,7 @@ import { minskyBrandDark, minskyBrandPrimary } from "theming";
 import { NotificationsProvider } from "@mantine/notifications";
 import { DefaultSeo } from "next-seo";
 import Script from "next/script";
-import { withLang } from "i18n";
+import { appWithTranslation } from "next-i18next";
 
 // const client = URQLClient();
 
@@ -100,5 +100,5 @@ MinskyLandingApp.getInitialProps = ({ ctx }: { ctx: GetServerSidePropsContext })
   colorScheme: getCookie("mantine-color-scheme", ctx) || "light",
 });
 
-export default withLang(MinskyLandingApp);
+export default appWithTranslation(MinskyLandingApp);
 

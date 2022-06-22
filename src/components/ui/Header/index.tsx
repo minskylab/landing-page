@@ -8,7 +8,6 @@ import {
   Burger,
   ActionIcon,
   useMantineColorScheme,
-  ColorSchemeProvider,
   Drawer,
   Text,
   Select
@@ -17,7 +16,8 @@ import { useBooleanToggle } from "@mantine/hooks";
 import { MoonStars, Sun, World, ChevronDown } from "tabler-icons-react";
 import Link from "next/link";
 import MinskyLogotype from "../../future/MinskyLogo";
-import { useTranslation, declareComponentKeys, useLang } from "i18n";
+import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router'
 
 const HEADER_HEIGHT = 60;
 const BREAKPOINT = "@media (max-width: 755px)";
@@ -61,7 +61,10 @@ const useStyles = createStyles(theme => ({
 
     "&:hover": {
       backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0],
-    },
+    }
+  },
+  selectLanguage: {
+    width: "130px",
   },
 
   /*   linkLabel: {
@@ -79,15 +82,29 @@ const useStyles = createStyles(theme => ({
 }));
 
 interface MinskyLandingHeaderProps {
-  links: { link: string; label: string; links?: { link: string; label: string }[] }[];
+  links: { 
+    link: string; 
+    label: string; 
+    links?: { link: string; label: string }[] }[];
 }
 
 export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
   const { classes } = useStyles();
   const [opened, toggleOpened] = useBooleanToggle(false);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-  const { t } = useTranslation({ MinskyLandingHeader });
-  const { lang, setLang } = useLang();
+  const { t } = useTranslation('home');
+  const router = useRouter()
+
+  type MinskyLabelLink = {
+    link: string;
+    label: string;
+  };
+
+  type MinskyHeaderTopic = {
+    link: string;
+    label: string;
+    links?: MinskyLabelLink[];
+  };
 
   const items = links.map(link => {
     const menuItems = link.links?.map(item => <Menu.Item key={item.link}>{item.label}</Menu.Item>);
@@ -164,8 +181,17 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
             />
             <MinskyLogotype typographyColor={colorScheme === "dark" ? "white" : undefined} />
           </Group>
-          <Group spacing={5} className={classes.links}>
+          {/* <Group spacing={5} className={classes.links}>
             {items}
+          </Group> */}
+          <Group spacing={5} className={classes.links}>
+            {t<string, MinskyHeaderTopic[]>("headerTopics", { returnObjects: true }).map(
+              ({ label, link }, index: number) => (
+                <Link key={index} href={`/${link}`}>
+                  <a className={classes.link}>{label}</a>
+                </Link>
+              )
+            )}
           </Group>
           <Group position="center" my="xl">
             <ActionIcon
@@ -176,17 +202,37 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
             >
               {colorScheme === "dark" ? <Sun size={18} /> : <MoonStars size={18} />}
             </ActionIcon>
-            <Select
-              defaultValue={lang}
-              onChange={(e:any) => setLang(e)}
+            {/* <Select
+              defaultValue={i18n.language}
+              onChange={(e: any) => {
+                i18n.changeLanguage(e === "en" ? "en" : "es");
+                console.log(i18n.language, e);
+                i18n.language === "es" ? router.push('/es') : router.push('/') //router.push('/') no retorna a /
+              }}
               data={[
                 { value: 'en', label: 'English' },
                 { value: 'es', label: 'Spanish' },
               ]}
               icon={<World size={18} />}
               rightSection={<ChevronDown size={18} />}
-            />
-            <Button component="a" href="#contact">{t("contact button text")}</Button>
+              className={classes.selectLanguage}
+            /> */}
+            {/* <Link href="/" locale={router.locale === 'en' ? 'es' : 'en'}>
+              <a className={classes.link}
+                onClick={() =>
+                  i18n.changeLanguage(i18n.language === "en" ? "en" : "es")
+                }>
+                {i18n.language === 'en' ? 'Spanish' : 'English'}
+              </a>
+            </Link> */}
+            <Link
+              href={router.pathname}
+              locale={router.locale === "en" ? "es" : "en"}
+              passHref
+            >
+              <a className={classes.link}>{router.locale === 'en' ? 'Spanish' : 'English'}</a>
+            </Link>
+            <Button component="a" href="#contact">{t('contact-btn')}</Button>
           </Group>
         </Container>
       </Header>
@@ -194,7 +240,3 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
     </>
   );
 }
-
-export const { i18n } = declareComponentKeys<
-  | "contact button text"
->()({ MinskyLandingHeader })

@@ -4,22 +4,39 @@ import { MinskyLandingSection } from "lib/landing/structure";
 import { BrandGithub } from "tabler-icons-react";
 import Link from "next/link";
 import { useCallback } from "react";
+import { useTranslation } from 'next-i18next';
 
 type MinskyLandingSections = {
   sections: MinskyLandingSection[];
 };
 
-export function MinskyLandingSections({ sections }: MinskyLandingSections) {
+export type MinskyArtType = "illustration" | "video" | "organism" | "system";
+export type MinskySectionType = "about-us" | "our-work" | "our-team" | "contact-us";
+
+type MinskyLandingSectionLast = {
+  type: MinskySectionType;
+  title: string;
+  description: string | string[];
+  art?: string;
+  artType?: MinskyArtType;
+};
+
+export function MinskyLandingSections() {
   let aboutUsSection: MinskyLandingSection | undefined;
   let ourWorkSection: MinskyLandingSection | undefined;
-  const handleClickExternalURL = useCallback(() => { window.open("https://github.com/minskylab", "_blank") }, [])
+  const handleClickExternalURL = useCallback(() => { window.open("https://github.com/minskylab", "_blank") }, []);
+  const { t } = useTranslation(['home', 'common']);
+
+  //Dar formato a las traducciones obtenidas del archivo home.json
+  const sections = t<string, MinskyLandingSectionLast[]>("sections", { returnObjects: true }).map(
+    ({ type, title, description, artType, art }, index: number) => (
+      { type: type, title: title, description: description, art: art, artType: artType }
+    )
+  )
 
   sections.forEach(section => {
     if (section.type === "about-us") {
       aboutUsSection = section;
-      // if (typeof aboutUsSection.description === "string") {
-      //   aboutUsSection.description = [aboutUsSection.description];
-      // }
     }
 
     if (section.type === "our-work") {
@@ -65,7 +82,7 @@ export function MinskyLandingSections({ sections }: MinskyLandingSections) {
               </Text>
             ))}
             <Link href="/team" passHref>
-              <Button component="a">Our Dream Team</Button>
+              <Button component="a">{t("btn-dream-team", { ns: 'common' })}</Button>
             </Link>
           </Group>
         </Group>
@@ -100,7 +117,7 @@ export function MinskyLandingSections({ sections }: MinskyLandingSections) {
                 textAlign: "end",
               }}
             >
-              What do we do?
+              {ourWorkSection?.title}
             </Title>
             {(typeof ourWorkSection?.description === "string"
               ? [ourWorkSection?.description]
@@ -120,7 +137,7 @@ export function MinskyLandingSections({ sections }: MinskyLandingSections) {
               </Text>
             ))}
             <Button color="dark" leftIcon={<BrandGithub />} onClick={handleClickExternalURL}>
-              Our GitHub
+              {t("btn-github", { ns: 'common' })}
             </Button>
           </Group>
         </Group>
