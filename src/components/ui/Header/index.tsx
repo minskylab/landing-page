@@ -82,17 +82,18 @@ const useStyles = createStyles(theme => ({
 }));
 
 interface MinskyLandingHeaderProps {
-  links: { 
-    link: string; 
-    label: string; 
-    links?: { link: string; label: string }[] }[];
+  links: {
+    link: string;
+    label: string;
+    links?: { link: string; label: string }[]
+  }[];
 }
 
 export function MinskyLandingHeader() {
   const { classes } = useStyles();
   const [opened, toggleOpened] = useBooleanToggle(false);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-  const { t } = useTranslation(['home','common']);
+  const { t } = useTranslation(['home', 'common']);
   const router = useRouter()
 
   type MinskyLabelLink = {
@@ -170,13 +171,10 @@ export function MinskyLandingHeader() {
             >
               {colorScheme === "dark" ? <Sun size={18} /> : <MoonStars size={18} />}
             </ActionIcon>
-            <Select
+            {/* <Select
               defaultValue={router.locale}
               onChange={(e: any) => {
-                router.locale = e ==="en" ? "en" : "es"
-                /* i18n.changeLanguage(e === "en" ? "en" : "es"); */
-                router.locale === "es" && router.push({pathname: '/es'}) 
-                router.locale === "en" && router.push({pathname: '/'}) 
+                router.locale = e === "en" ? "en" : "es"
                 console.log(router.locale, e);
               }}
               data={[
@@ -186,15 +184,7 @@ export function MinskyLandingHeader() {
               icon={<World size={18} />}
               rightSection={<ChevronDown size={18} />}
               className={classes.selectLanguage}
-            />
-            {/* <Link href="/" locale={router.locale === 'en' ? 'es' : 'en'}>
-              <a className={classes.link}
-                onClick={() =>
-                  i18n.changeLanguage(i18n.language === "en" ? "en" : "es")
-                }>
-                {i18n.language === 'en' ? 'Spanish' : 'English'}
-              </a>
-            </Link> */}
+            /> */}
             <Link
               href={router.pathname}
               locale={router.locale === "en" ? "es" : "en"}
