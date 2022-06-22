@@ -1,6 +1,7 @@
 import React from "react";
 import { createStyles, ThemeIcon, Text, Group, SimpleGrid, Box } from "@mantine/core";
 import { Sun, Phone, MapPin, At } from "tabler-icons-react";
+import { useTranslation } from 'next-i18next';
 
 type ContactIconVariant = "white" | "gradient";
 
@@ -50,6 +51,7 @@ function ContactIcon({
   ...others
 }: ContactIconProps) {
   const { classes, cx } = useStyles({ variant });
+
   return (
     <div className={cx(classes.wrapper, className)} {...others}>
       {variant === "gradient" ? (
@@ -77,15 +79,26 @@ interface ContactIconsListProps {
   variant?: ContactIconVariant;
 }
 
-const MOCKDATA = [
-  { title: "Email", description: "hello@minsky.cc", icon: At },
-  { title: "Phone", description: "+51 924 122 969", icon: Phone },
-  { title: "Address", description: "Jr. Rosendo Vidaurre 641, Lima, Barranco", icon: MapPin },
-  { title: "Working hours", description: "08:00 to 18:00.", icon: Sun },
-];
+export function ContactIconsList({ variant }: ContactIconsListProps) {
+  const { i18n } = useTranslation();
 
-export function ContactIconsList({ data = MOCKDATA, variant }: ContactIconsListProps) {
-  const items = data.map((item, index) => <ContactIcon key={index} variant={variant} {...item} />);
+  const dataEN = [
+    { title: "Email", description: "hello@minsky.cc", icon: At },
+    { title: "Phone", description: "+51 924 122 969", icon: Phone },
+    { title: "Address", description: "Jr. Rosendo Vidaurre 641, Lima, Barranco", icon: MapPin },
+    { title: "Working hours", description: "08:00 to 18:00.", icon: Sun },
+  ];
+  const dataES = [
+    { title: "Correo", description: "hello@minsky.cc", icon: At },
+    { title: "Telefono", description: "+51 924 122 969", icon: Phone },
+    { title: "Dirección", description: "Jr. Rosendo Vidaurre 641, Lima, Barranco", icon: MapPin },
+    { title: "Horas trabajadas", description: "08:00 to 18:00.", icon: Sun },
+  ];
+
+  const MOCKDATA = i18n.language === "en" ? dataEN : dataES
+
+  const items = MOCKDATA.map((item, index) => <ContactIcon key={index} variant={variant} {...item} />);
+
   return <Group direction="column">{items}</Group>;
 }
 

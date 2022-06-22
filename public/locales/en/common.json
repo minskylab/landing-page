@@ -1,4 +1,7 @@
 {
+  "btn-contact": "contact",
   "btn-dream-team": "Our Dream Team",
-  "btn-github": "Our GitHub"
+  "btn-github": "Our GitHub",
+  "btn-submit": "Send message",
+  "alert-message": "PAGE UNDER CONSTRUCTION"
 }

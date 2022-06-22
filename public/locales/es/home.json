@@ -1,5 +1,4 @@
 {
-  "contact-btn": "contacto",
   "headerTopics": [
     {
       "label": "Plataforma",
@@ -43,29 +42,21 @@
       "art": "system-illustration"
     }
   ],
-  "socialNetworks": [
-    {
-      "kind": "github",
-      "link": "https://github.com/minskylab"
-    },
-    {
-      "kind": "twitter",
-      "link": "https://twitter.com/minskylab"
-    },
-    {
-      "kind": "instagram",
-      "link": "https://www.instagram.com/minskylab"
-    },
-    {
-      "kind": "youtube",
-      "link": "https://www.youtube.com/channel/UCKJaMhGpxh_ffzZY7iXYiJw"
-    }
-  ],
-  "contactInformation": {
-    "email": "hello@minsky.cc",
-    "address": "Barranco, Lima",
-    "phone": "+51 924 122 969",
-    "workingHours": "Lun-Vie 9am-5pm"
+  "contactInformationTitle": "Información de contacto",
+  "formGetIntouch": {
+    "title": "Contactanos",
+    "name-label": "Nombre",
+    "name-placeholder": "Nombre",
+    "email-label": "Correo",
+    "email-placeholder": "hola@ejemplo.com",
+    "subject-label": "Asunto",
+    "subject-placeholder": "Asunto",
+    "message-label": "Mensaje",
+    "message-placeholder": "Incluya toda la información necesaria"
+  },
+  "getInTouchNotification": {
+    "title": "Suscripción exitosa",
+    "message": "Nos contactaremos con usted pronto."
   },
   "faqsTitle": "Preguntas frecuentes",
   "faqs": [
@@ -86,7 +77,7 @@
       "answer": "Actualmente estamos trabajando en una nueva página de preguntas frecuentes. Mantente atento."
     },
     {
-      "question": "I'm a developer, how can I work at Minsky?",
+      "question": "Soy desarrollador, ¿cómo puedo trabajar en Minsky?",
       "answer": "Actualmente estamos trabajando en una nueva página de preguntas frecuentes. Mantente atento."
     }
   ],

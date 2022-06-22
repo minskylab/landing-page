@@ -1,5 +1,4 @@
 {
-  "contact-btn": "contact",
   "headerTopics": [
     {
       "label": "Platform",
@@ -43,29 +42,21 @@
       "art": "system-illustration"
     }
   ],
-  "socialNetworks": [
-    {
-      "kind": "github",
-      "link": "https://github.com/minskylab"
-    },
-    {
-      "kind": "twitter",
-      "link": "https://twitter.com/minskylab"
-    },
-    {
-      "kind": "instagram",
-      "link": "https://www.instagram.com/minskylab"
-    },
-    {
-      "kind": "youtube",
-      "link": "https://www.youtube.com/channel/UCKJaMhGpxh_ffzZY7iXYiJw"
-    }
-  ],
-  "contactInformation": {
-    "email": "hello@minsky.cc",
-    "address": "Barranco, Lima",
-    "phone": "+51 924 122 969",
-    "workingHours": "Mon-Fri 9am-5pm"
+  "contactInformationTitle": "Contact information",
+  "formGetIntouch": {
+    "title": "Get in touch",
+    "name-label": "Your name",
+    "name-placeholder": "Your name",
+    "email-label": "Your email",
+    "email-placeholder": "hello@example.com",
+    "subject-label": "Subject",
+    "subject-placeholder": "Subject",
+    "message-label": "Your message",
+    "message-placeholder": "Please include all relevant information"
+  },
+  "getInTouchNotification": {
+    "title": "Subscription successful",
+    "message": "We will contact you as soon as possible."
   },
   "faqsTitle": "Frequently Asked Questions",
   "faqs": [

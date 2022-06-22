@@ -48,7 +48,7 @@ type MinskySimpleFAQProps = {
   faqs: MinskyFAQ[];
 };
 
-export function MinskySimpleFAQ({ title, faqs }: MinskySimpleFAQProps) {
+export function MinskySimpleFAQ() {
   const { classes } = useStyles();
   const { t } = useTranslation('home');
   return (

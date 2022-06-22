@@ -88,11 +88,11 @@ interface MinskyLandingHeaderProps {
     links?: { link: string; label: string }[] }[];
 }
 
-export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
+export function MinskyLandingHeader() {
   const { classes } = useStyles();
   const [opened, toggleOpened] = useBooleanToggle(false);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-  const { t } = useTranslation('home');
+  const { t } = useTranslation(['home','common']);
   const router = useRouter()
 
   type MinskyLabelLink = {
@@ -105,38 +105,6 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
     label: string;
     links?: MinskyLabelLink[];
   };
-
-  const items = links.map(link => {
-    const menuItems = link.links?.map(item => <Menu.Item key={item.link}>{item.label}</Menu.Item>);
-
-    if (menuItems) {
-      return (
-        <Menu
-          key={link.label}
-          trigger="hover"
-          delay={0}
-          transitionDuration={0}
-          placement="end"
-          gutter={1}
-          control={
-            <Link href={`/${link.link}`}>
-              <a href={link.link} className={classes.link}>
-                {link.label}
-              </a>
-            </Link>
-          }
-        >
-          {menuItems}
-        </Menu>
-      );
-    }
-
-    return (
-      <Link key={link.label} href={`/${link.link}`}>
-        <a className={classes.link}>{link.label}</a>
-      </Link>
-    );
-  });
 
   return (
     <>
@@ -202,12 +170,14 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
             >
               {colorScheme === "dark" ? <Sun size={18} /> : <MoonStars size={18} />}
             </ActionIcon>
-            {/* <Select
-              defaultValue={i18n.language}
+            <Select
+              defaultValue={router.locale}
               onChange={(e: any) => {
-                i18n.changeLanguage(e === "en" ? "en" : "es");
-                console.log(i18n.language, e);
-                i18n.language === "es" ? router.push('/es') : router.push('/') //router.push('/') no retorna a /
+                router.locale = e ==="en" ? "en" : "es"
+                /* i18n.changeLanguage(e === "en" ? "en" : "es"); */
+                router.locale === "es" && router.push({pathname: '/es'}) 
+                router.locale === "en" && router.push({pathname: '/'}) 
+                console.log(router.locale, e);
               }}
               data={[
                 { value: 'en', label: 'English' },
@@ -216,7 +186,7 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
               icon={<World size={18} />}
               rightSection={<ChevronDown size={18} />}
               className={classes.selectLanguage}
-            /> */}
+            />
             {/* <Link href="/" locale={router.locale === 'en' ? 'es' : 'en'}>
               <a className={classes.link}
                 onClick={() =>
@@ -232,7 +202,7 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
             >
               <a className={classes.link}>{router.locale === 'en' ? 'Spanish' : 'English'}</a>
             </Link>
-            <Button component="a" href="#contact">{t('contact-btn')}</Button>
+            <Button component="a" href="#contact">{t('btn-contact', { ns: 'common' })}</Button>
           </Group>
         </Container>
       </Header>

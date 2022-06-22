@@ -1,4 +1,7 @@
 {
+  "btn-contact": "contactanos",
   "btn-dream-team": "Nuestro equipo",
-  "btn-github": "Nuestro GitHub"
+  "btn-github": "Nuestro GitHub",
+  "btn-submit": "Enviar mensaje",
+  "alert-message": "PÁGINA EN CONSTRUCCIÓN"
 }

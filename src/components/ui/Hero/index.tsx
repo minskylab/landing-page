@@ -66,20 +66,9 @@ const useStyles = createStyles(theme => ({
 }));
 
 type MinskyHeadline = string;
-type MinskyHeadlineHighlight = string;
 type MinskyMinimalDescription = string;
 
-type MinskyHeroTitleProps = {
-  headline: string;
-  headlineHighlight: string | string[];
-  minimalDescription: string;
-};
-
-export const MinskyHeroTitle = ({
-  headline,
-  headlineHighlight,
-  minimalDescription,
-}: MinskyHeroTitleProps) => {
+export const MinskyHeroTitle = () => {
   const { classes, cx } = useStyles();
   const theme = useMantineTheme();
   const { t } = useTranslation('home');
@@ -89,7 +78,7 @@ export const MinskyHeroTitle = ({
       <Container className={classes.wrapper}>
         <Group className={classes.inner}>
           <Highlight
-            highlight={t<MinskyHeadlineHighlight>("headlineHighlight")}
+            highlight={t<MinskyHeadline>("headlineHighlight")}
             highlightStyles={{
               backgroundImage: theme.fn.linearGradient(
                 45,
