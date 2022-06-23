@@ -147,15 +147,15 @@ export function MinskyGetInTouch({
           <div className={classes.fields}>
             <SimpleGrid cols={2} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
               <TextInput
-                label={t("formGetIntouch.name-label")}
-                placeholder={t("formGetIntouch.name-placeholder")}
+                label={t("formGetIntouch.nameLabel")}
+                placeholder={t("formGetIntouch.namePlaceholder")}
                 value={formState.name}
                 disabled={loading}
                 onChange={e => setFormState({ ...formState, name: e.target.value })}
               />
               <TextInput
-                label={t("formGetIntouch.email-label")}
-                placeholder={t("formGetIntouch.email-placeholder")}
+                label={t("formGetIntouch.emailLabel")}
+                placeholder={t("formGetIntouch.emailPlaceholder")}
                 required
                 value={formState.email}
                 disabled={loading}
@@ -164,8 +164,8 @@ export function MinskyGetInTouch({
             </SimpleGrid>
             <TextInput
               mt="md"
-              label={t("formGetIntouch.subject-label")}
-              placeholder={t("formGetIntouch.subject-placeholder")}
+              label={t("formGetIntouch.subjectLabel")}
+              placeholder={t("formGetIntouch.subjectPlaceholder")}
               required
               value={formState.subject}
               disabled={loading}
@@ -173,15 +173,15 @@ export function MinskyGetInTouch({
             />
             <Textarea
               mt="md"
-              label={t("formGetIntouch.message-label")}
-              placeholder={t("formGetIntouch.message-placeholder")}
+              label={t("formGetIntouch.messageLabel")}
+              placeholder={t("formGetIntouch.messagePlaceholder")}
               minRows={3}
               value={formState.message}
               onChange={e => setFormState({ ...formState, message: e.target.value })}
             />
             <Group position="right" mt="md">
               <Button type="submit" loading={loading} leftIcon={<Mail size={14} />}>
-                {t("btn-submit", { ns: 'common' })}
+                {t("contactFormBtn", { ns: 'common' })}
               </Button>
             </Group>
           </div>

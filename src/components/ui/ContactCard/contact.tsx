@@ -80,13 +80,13 @@ interface ContactIconsListProps {
 }
 
 export function ContactIconsList({ variant }: ContactIconsListProps) {
-  const { t, i18n } = useTranslation('home');
-5
+  const { t } = useTranslation('home');
+
   const MOCKDATA = [
-    { title: t("contactInformation.icon-list.contact-title-email"), description: "hello@minsky.cc", icon: At },
-    { title: t("contactInformation.icon-list.contact-title-phone"), description: "+51 924 122 969", icon: Phone },
-    { title: t("contactInformation.icon-list.contact-title-address"), description: "Jr. Rosendo Vidaurre 641, Lima, Barranco", icon: MapPin },
-    { title: t("contactInformation.icon-list.contact-title-hours"), description: "08:00 to 18:00.", icon: Sun },
+    { title: t("contactInformation.fields.email"), description: "hello@minsky.cc", icon: At },
+    { title: t("contactInformation.fields.phone"), description: "+51 924 122 969", icon: Phone },
+    { title: t("contactInformation.fields.address"), description: "Jr. Rosendo Vidaurre 641, Lima, Barranco", icon: MapPin },
+    { title: t("contactInformation.fields.hours"), description: "08:00 to 18:00.", icon: Sun },
   ];
 
   const items = MOCKDATA.map((item, index) => <ContactIcon key={index} variant={variant} {...item} />);

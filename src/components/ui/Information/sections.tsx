@@ -82,7 +82,7 @@ export function MinskyLandingSections() {
               </Text>
             ))}
             <Link href="/team" passHref>
-              <Button component="a">{t("btn-dream-team", { ns: 'common' })}</Button>
+              <Button component="a">{t("dreamTeamBtn", { ns: 'common' })}</Button>
             </Link>
           </Group>
         </Group>
@@ -137,7 +137,7 @@ export function MinskyLandingSections() {
               </Text>
             ))}
             <Button color="dark" leftIcon={<BrandGithub />} onClick={handleClickExternalURL}>
-              {t("btn-github", { ns: 'common' })}
+              {t("githubBtn", { ns: 'common' })}
             </Button>
           </Group>
         </Group>

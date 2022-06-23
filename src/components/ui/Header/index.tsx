@@ -128,7 +128,7 @@ export function MinskyLandingHeader() {
         onClose={() => toggleOpened(false)}
         title={
           <Text size="lg" weight={"bold"}>
-            {t("burger-menu.title",{ ns: 'common' })}
+            {t("mobileNavigationMenu.title",{ ns: 'common' })}
           </Text>
         }
         padding={"md"}
@@ -139,7 +139,7 @@ export function MinskyLandingHeader() {
         {/* <h1 id="drawer-title">Title</h1>
         <div id="drawer-body">Body</div> */}
         <Group className={classes.burgerGroup}>
-          <Text> {t("burger-menu.theme-description", { ns: 'common' })}</Text>
+          <Text> {t("mobileNavigationMenu.themeDescription", { ns: 'common' })}</Text>
           <ActionIcon
             onClick={() => toggleColorScheme()}
             size="lg"
@@ -150,7 +150,7 @@ export function MinskyLandingHeader() {
           </ActionIcon>
         </Group>
         <Group>
-          <Text>{t("burger-menu.language-description",{ ns: 'common' })}</Text>
+          <Text>{t("mobileNavigationMenu.languageDescription",{ ns: 'common' })}</Text>
           <Select
             defaultValue={router.locale}
             onChange={(e: string) => { handleChangeLanguage(e) }}
@@ -210,7 +210,7 @@ export function MinskyLandingHeader() {
               rightSection={<ChevronDown size={18} />}
               className={classes.selectLanguage}
             />
-            <Button component="a" href="#contact">{t('btn-contact', { ns: 'common' })}</Button>
+            <Button component="a" href="#contact">{t('contactBtn', { ns: 'common' })}</Button>
           </Group>
         </Container>
       </Header>

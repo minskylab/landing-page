@@ -1,12 +1,12 @@
 {
-  "btn-contact": "Contact",
-  "btn-dream-team": "Our Dream Team",
-  "btn-github": "Our GitHub",
-  "btn-submit": "Send message",
-  "alert-message": "PAGE UNDER CONSTRUCTION",
-  "burger-menu": {
+  "contactBtn": "Contact",
+  "dreamTeamBtn": "Our Dream Team",
+  "githubBtn": "Our GitHub",
+  "contactFormBtn": "Send message",
+  "pageUnderConstructionMessage": "PAGE UNDER CONSTRUCTION",
+  "mobileNavigationMenu": {
     "title": "Navigation & Settings",
-    "theme-description": "Change theme:",
-    "language-description": "Select language:"
+    "themeDescription": "Change theme:",
+    "languageDescription": "Select language:"
   }
 }

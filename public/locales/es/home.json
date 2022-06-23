@@ -44,23 +44,23 @@
   ],
   "contactInformation": {
     "title": "Información de contacto",
-    "icon-list": {
-      "contact-title-email": "Correo",
-      "contact-title-phone": "Teléfono",
-      "contact-title-address": "Dirección",
-      "contact-title-hours": "Horario de trabajo"
+    "fields": {
+      "email": "Correo",
+      "phone": "Teléfono",
+      "address": "Dirección",
+      "hours": "Horario de trabajo"
     }
   },
   "formGetIntouch": {
     "title": "Contactanos",
-    "name-label": "Nombre",
-    "name-placeholder": "Nombre",
-    "email-label": "Correo",
-    "email-placeholder": "hola@ejemplo.com",
-    "subject-label": "Asunto",
-    "subject-placeholder": "Asunto",
-    "message-label": "Mensaje",
-    "message-placeholder": "Incluya toda la información necesaria"
+    "nameLabel": "Nombre",
+    "namePlaceholder": "Nombre",
+    "emailLabel": "Correo",
+    "emailPlaceholder": "hola@ejemplo.com",
+    "subjectLabel": "Asunto",
+    "subjectPlaceholder": "Asunto",
+    "messageLabel": "Mensaje",
+    "messagePlaceholder": "Incluya toda la información necesaria"
   },
   "getInTouchNotification": {
     "title": "Suscripción exitosa",

@@ -48,7 +48,7 @@ export default function MinskyAlertPageUnderConstruction() {
         <div className={classes.container}>
             <div className={classes.wrapper}>
                 <MinskyLogotype scale={0.3} typographyColor={colorScheme === "dark" ? "white" : undefined} />
-                <span className={classes.text}>{t("alert-message")}</span>
+                <span className={classes.text}>{t("pageUnderConstructionMessage")}</span>
             </div>
         </div>
     )
