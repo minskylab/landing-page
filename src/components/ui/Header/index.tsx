@@ -31,19 +31,19 @@ const useStyles = createStyles(theme => ({
   },
 
   links: {
-    [theme.fn.smallerThan("sm")]: {
+    [theme.fn.smallerThan("md")]: {
       display: "none",
     },
   },
 
   colorSchemaToggler: {
-    [theme.fn.smallerThan("sm")]: {
+    [theme.fn.smallerThan("md")]: {
       display: "none",
     },
   },
 
   burger: {
-    [theme.fn.largerThan("sm")]: {
+    [theme.fn.largerThan("md")]: {
       display: "none",
     },
   },
@@ -65,6 +65,15 @@ const useStyles = createStyles(theme => ({
   },
   selectLanguage: {
     width: "130px",
+    [theme.fn.smallerThan("md")]: {
+      display: "none",
+    },
+  },
+  selectLanguageBurger: {
+    width: "130px",
+  },
+  burgerGroup: {
+    marginBottom: theme.spacing.xs,
   },
 
   /*   linkLabel: {
@@ -119,7 +128,7 @@ export function MinskyLandingHeader() {
         onClose={() => toggleOpened(false)}
         title={
           <Text size="lg" weight={"bold"}>
-            Navigation & Settings
+            {t("burger-menu.title",{ ns: 'common' })}
           </Text>
         }
         padding={"md"}
@@ -129,8 +138,8 @@ export function MinskyLandingHeader() {
       >
         {/* <h1 id="drawer-title">Title</h1>
         <div id="drawer-body">Body</div> */}
-        <Group>
-          <Text>Change theme:</Text>
+        <Group className={classes.burgerGroup}>
+          <Text> {t("burger-menu.theme-description", { ns: 'common' })}</Text>
           <ActionIcon
             onClick={() => toggleColorScheme()}
             size="lg"
@@ -139,6 +148,20 @@ export function MinskyLandingHeader() {
           >
             {colorScheme === "dark" ? <Sun size={18} /> : <MoonStars size={18} />}
           </ActionIcon>
+        </Group>
+        <Group>
+          <Text>{t("burger-menu.language-description",{ ns: 'common' })}</Text>
+          <Select
+            defaultValue={router.locale}
+            onChange={(e: string) => { handleChangeLanguage(e) }}
+            data={[
+              { value: 'en', label: 'English' },
+              { value: 'es', label: 'Spanish' },
+            ]}
+            icon={<World size={18} />}
+            rightSection={<ChevronDown size={18} />}
+            className={classes.selectLanguageBurger}
+          />
         </Group>
       </Drawer>
 
@@ -178,7 +201,7 @@ export function MinskyLandingHeader() {
             </ActionIcon>
             <Select
               defaultValue={router.locale}
-              onChange={(e: string) => {handleChangeLanguage(e)}}
+              onChange={(e: string) => { handleChangeLanguage(e) }}
               data={[
                 { value: 'en', label: 'English' },
                 { value: 'es', label: 'Spanish' },
