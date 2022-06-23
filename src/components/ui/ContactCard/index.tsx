@@ -123,7 +123,7 @@ export function MinskyGetInTouch({
       <div className={classes.wrapper}>
         <div className={classes.contacts}>
           <Text size="lg" weight={700} className={classes.title} sx={{ color: "#fff" }}>
-            {t("contactInformationTitle")}
+            {t("contactInformation.title")}
           </Text>
 
           <ContactIconsList variant="white" />

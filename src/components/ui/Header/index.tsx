@@ -156,7 +156,7 @@ export function MinskyLandingHeader() {
             onChange={(e: string) => { handleChangeLanguage(e) }}
             data={[
               { value: 'en', label: 'English' },
-              { value: 'es', label: 'Spanish' },
+              { value: 'es', label: 'Español' },
             ]}
             icon={<World size={18} />}
             rightSection={<ChevronDown size={18} />}
@@ -204,7 +204,7 @@ export function MinskyLandingHeader() {
               onChange={(e: string) => { handleChangeLanguage(e) }}
               data={[
                 { value: 'en', label: 'English' },
-                { value: 'es', label: 'Spanish' },
+                { value: 'es', label: 'Español' },
               ]}
               icon={<World size={18} />}
               rightSection={<ChevronDown size={18} />}

@@ -80,22 +80,14 @@ interface ContactIconsListProps {
 }
 
 export function ContactIconsList({ variant }: ContactIconsListProps) {
-  const { i18n } = useTranslation();
-
-  const dataEN = [
-    { title: "Email", description: "hello@minsky.cc", icon: At },
-    { title: "Phone", description: "+51 924 122 969", icon: Phone },
-    { title: "Address", description: "Jr. Rosendo Vidaurre 641, Lima, Barranco", icon: MapPin },
-    { title: "Working hours", description: "08:00 to 18:00.", icon: Sun },
+  const { t, i18n } = useTranslation('home');
+5
+  const MOCKDATA = [
+    { title: t("contactInformation.icon-list.contact-title-email"), description: "hello@minsky.cc", icon: At },
+    { title: t("contactInformation.icon-list.contact-title-phone"), description: "+51 924 122 969", icon: Phone },
+    { title: t("contactInformation.icon-list.contact-title-address"), description: "Jr. Rosendo Vidaurre 641, Lima, Barranco", icon: MapPin },
+    { title: t("contactInformation.icon-list.contact-title-hours"), description: "08:00 to 18:00.", icon: Sun },
   ];
-  const dataES = [
-    { title: "Correo", description: "hello@minsky.cc", icon: At },
-    { title: "Telefono", description: "+51 924 122 969", icon: Phone },
-    { title: "Dirección", description: "Jr. Rosendo Vidaurre 641, Lima, Barranco", icon: MapPin },
-    { title: "Horas trabajadas", description: "08:00 to 18:00.", icon: Sun },
-  ];
-
-  const MOCKDATA = i18n.language === "en" ? dataEN : dataES
 
   const items = MOCKDATA.map((item, index) => <ContactIcon key={index} variant={variant} {...item} />);
 

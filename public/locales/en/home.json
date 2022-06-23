@@ -42,7 +42,15 @@
       "art": "system-illustration"
     }
   ],
-  "contactInformationTitle": "Contact information",
+  "contactInformation": {
+    "title": "Contact information",
+    "icon-list": {
+      "contact-title-email": "Email",
+      "contact-title-phone": "Phone",
+      "contact-title-address": "Address",
+      "contact-title-hours": "Working Hours"
+    }
+  },
   "formGetIntouch": {
     "title": "Get in touch",
     "name-label": "Your name",

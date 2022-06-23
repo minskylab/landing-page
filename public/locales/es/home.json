@@ -42,7 +42,15 @@
       "art": "system-illustration"
     }
   ],
-  "contactInformationTitle": "Información de contacto",
+  "contactInformation": {
+    "title": "Información de contacto",
+    "icon-list": {
+      "contact-title-email": "Correo",
+      "contact-title-phone": "Teléfono",
+      "contact-title-address": "Dirección",
+      "contact-title-hours": "Horario de trabajo"
+    }
+  },
   "formGetIntouch": {
     "title": "Contactanos",
     "name-label": "Nombre",
@@ -77,7 +85,7 @@
       "answer": "Actualmente estamos trabajando en una nueva página de preguntas frecuentes. Mantente atento."
     },
     {
-      "question": "Soy desarrollador, ¿cómo puedo trabajar en Minsky?",
+      "question": "Soy desarrollador, ¿Cómo puedo trabajar en Minsky?",
       "answer": "Actualmente estamos trabajando en una nueva página de preguntas frecuentes. Mantente atento."
     }
   ],
