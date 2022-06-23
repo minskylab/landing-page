@@ -10,6 +10,7 @@ import {
 import { BrandTwitter, BrandYoutube, BrandInstagram, BrandGithub } from "tabler-icons-react";
 import MinskyLogotype from "../../future/MinskyLogo";
 import { MinskyFooterSection } from "lib/landing/structure";
+import { useTranslation } from 'next-i18next';
 
 const useStyles = createStyles(theme => ({
   footer: {
@@ -17,9 +18,8 @@ const useStyles = createStyles(theme => ({
     paddingTop: theme.spacing.xl * 2,
     paddingBottom: theme.spacing.xl * 2,
     backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0],
-    borderTop: `1px solid ${
-      theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2]
-    }`,
+    borderTop: `1px solid ${theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2]
+      }`,
   },
 
   logo: {
@@ -91,9 +91,8 @@ const useStyles = createStyles(theme => ({
     marginTop: theme.spacing.xl,
     paddingTop: theme.spacing.xl,
     paddingBottom: theme.spacing.xl,
-    borderTop: `1px solid ${
-      theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[2]
-    }`,
+    borderTop: `1px solid ${theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[2]
+      }`,
 
     [theme.fn.smallerThan("sm")]: {
       flexDirection: "column",
@@ -107,15 +106,16 @@ const useStyles = createStyles(theme => ({
   },
 }));
 
-interface FooterLinksProps {
-  sections: MinskyFooterSection[];
-  tagline: string;
-  brandTrademark: string;
-}
-
-export function MinskyFooter({ sections, tagline, brandTrademark }: FooterLinksProps) {
+export function MinskyFooter() {
   const { classes } = useStyles();
   const { colorScheme } = useMantineColorScheme();
+  const { t } = useTranslation('home');
+
+  const sections = t<string, MinskyFooterSection[]>("footerInformation.sections", { returnObjects: true }).map(
+    ({ title, links }) => (
+      { title: title, links: links }
+    )
+  )
 
   const groups = sections.map(group => {
     const links = group.links?.map((link, index) => (
@@ -131,6 +131,7 @@ export function MinskyFooter({ sections, tagline, brandTrademark }: FooterLinksP
     ));
 
     return (
+
       <div className={classes.wrapper} key={group.title}>
         <Text className={classes.title}>{group.title}</Text>
         {links}
@@ -144,14 +145,14 @@ export function MinskyFooter({ sections, tagline, brandTrademark }: FooterLinksP
         <div className={classes.logo}>
           <MinskyLogotype fillColor={colorScheme === "dark" ? "white" : "#060607"} />
           <Text size="xs" color="dimmed" className={classes.description}>
-            {tagline}
+            {t("footerInformation.tagline")}
           </Text>
         </div>
         <div className={classes.groups}>{groups}</div>
       </Container>
       <Container className={classes.afterFooter}>
         <Text color="dimmed" size="sm">
-          {brandTrademark}
+          {t("footerInformation.brandTrademark")}
         </Text>
 
         <Group spacing={0} className={classes.social} position="right" noWrap>

@@ -1,0 +1,12 @@
+{
+  "contactBtn": "Contáctanos",
+  "dreamTeamBtn": "Nuestro equipo",
+  "githubBtn": "Nuestro GitHub",
+  "contactFormBtn": "Enviar mensaje",
+  "pageUnderConstructionMessage": "PÁGINA EN CONSTRUCCIÓN",
+  "mobileNavigationMenu": {
+    "title": "Navegación y configuración",
+    "themeDescription": "Cambiar tema:",
+    "languageDescription": "Seleccionar idioma:"
+  }
+}

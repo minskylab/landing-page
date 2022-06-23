@@ -8,14 +8,16 @@ import {
   Burger,
   ActionIcon,
   useMantineColorScheme,
-  ColorSchemeProvider,
   Drawer,
   Text,
+  Select
 } from "@mantine/core";
 import { useBooleanToggle } from "@mantine/hooks";
-import { MoonStars, Sun } from "tabler-icons-react";
+import { MoonStars, Sun, World, ChevronDown } from "tabler-icons-react";
 import Link from "next/link";
 import MinskyLogotype from "../../future/MinskyLogo";
+import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router'
 
 const HEADER_HEIGHT = 60;
 const BREAKPOINT = "@media (max-width: 755px)";
@@ -29,19 +31,19 @@ const useStyles = createStyles(theme => ({
   },
 
   links: {
-    [theme.fn.smallerThan("sm")]: {
+    [theme.fn.smallerThan("md")]: {
       display: "none",
     },
   },
 
   colorSchemaToggler: {
-    [theme.fn.smallerThan("sm")]: {
+    [theme.fn.smallerThan("md")]: {
       display: "none",
     },
   },
 
   burger: {
-    [theme.fn.largerThan("sm")]: {
+    [theme.fn.largerThan("md")]: {
       display: "none",
     },
   },
@@ -59,7 +61,19 @@ const useStyles = createStyles(theme => ({
 
     "&:hover": {
       backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0],
+    }
+  },
+  selectLanguage: {
+    width: "130px",
+    [theme.fn.smallerThan("md")]: {
+      display: "none",
     },
+  },
+  selectLanguageBurger: {
+    width: "130px",
+  },
+  burgerGroup: {
+    marginBottom: theme.spacing.xs,
   },
 
   /*   linkLabel: {
@@ -77,45 +91,35 @@ const useStyles = createStyles(theme => ({
 }));
 
 interface MinskyLandingHeaderProps {
-  links: { link: string; label: string; links?: { link: string; label: string }[] }[];
+  links: {
+    link: string;
+    label: string;
+    links?: { link: string; label: string }[]
+  }[];
 }
 
-export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
+export function MinskyLandingHeader() {
   const { classes } = useStyles();
   const [opened, toggleOpened] = useBooleanToggle(false);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const { t } = useTranslation(['home', 'common']);
+  const router = useRouter()
 
-  const items = links.map(link => {
-    const menuItems = link.links?.map(item => <Menu.Item key={item.link}>{item.label}</Menu.Item>);
+  type MinskyLabelLink = {
+    link: string;
+    label: string;
+  };
 
-    if (menuItems) {
-      return (
-        <Menu
-          key={link.label}
-          trigger="hover"
-          delay={0}
-          transitionDuration={0}
-          placement="end"
-          gutter={1}
-          control={
-            <Link href={`/${link.link}`}>
-              <a href={link.link} className={classes.link}>
-                {link.label}
-              </a>
-            </Link>
-          }
-        >
-          {menuItems}
-        </Menu>
-      );
-    }
+  type MinskyHeaderTopic = {
+    link: string;
+    label: string;
+    links?: MinskyLabelLink[];
+  };
 
-    return (
-      <Link key={link.label} href={`/${link.link}`}>
-        <a className={classes.link}>{link.label}</a>
-      </Link>
-    );
-  });
+  const handleChangeLanguage = (e: string) => {
+    router.locale = e === "en" ? "en" : "es";
+    router.locale === "en" ? router.push('/', '/', { locale: 'en' }) : router.push('/es');
+  }
 
   return (
     <>
@@ -124,7 +128,7 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
         onClose={() => toggleOpened(false)}
         title={
           <Text size="lg" weight={"bold"}>
-            Navigation & Settings
+            {t("mobileNavigationMenu.title",{ ns: 'common' })}
           </Text>
         }
         padding={"md"}
@@ -134,8 +138,8 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
       >
         {/* <h1 id="drawer-title">Title</h1>
         <div id="drawer-body">Body</div> */}
-        <Group>
-          <Text>Change theme:</Text>
+        <Group className={classes.burgerGroup}>
+          <Text> {t("mobileNavigationMenu.themeDescription", { ns: 'common' })}</Text>
           <ActionIcon
             onClick={() => toggleColorScheme()}
             size="lg"
@@ -144,6 +148,20 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
           >
             {colorScheme === "dark" ? <Sun size={18} /> : <MoonStars size={18} />}
           </ActionIcon>
+        </Group>
+        <Group>
+          <Text>{t("mobileNavigationMenu.languageDescription",{ ns: 'common' })}</Text>
+          <Select
+            defaultValue={router.locale}
+            onChange={(e: string) => { handleChangeLanguage(e) }}
+            data={[
+              { value: 'en', label: 'English' },
+              { value: 'es', label: 'Español' },
+            ]}
+            icon={<World size={18} />}
+            rightSection={<ChevronDown size={18} />}
+            className={classes.selectLanguageBurger}
+          />
         </Group>
       </Drawer>
 
@@ -160,8 +178,17 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
             />
             <MinskyLogotype typographyColor={colorScheme === "dark" ? "white" : undefined} />
           </Group>
-          <Group spacing={5} className={classes.links}>
+          {/* <Group spacing={5} className={classes.links}>
             {items}
+          </Group> */}
+          <Group spacing={5} className={classes.links}>
+            {t<string, MinskyHeaderTopic[]>("headerTopics", { returnObjects: true }).map(
+              ({ label, link }, index: number) => (
+                <Link key={index} href={`/${link}`}>
+                  <a className={classes.link}>{label}</a>
+                </Link>
+              )
+            )}
           </Group>
           <Group position="center" my="xl">
             <ActionIcon
@@ -172,7 +199,18 @@ export function MinskyLandingHeader({ links }: MinskyLandingHeaderProps) {
             >
               {colorScheme === "dark" ? <Sun size={18} /> : <MoonStars size={18} />}
             </ActionIcon>
-            <Button component="a" href="#contact">Contact</Button>
+            <Select
+              defaultValue={router.locale}
+              onChange={(e: string) => { handleChangeLanguage(e) }}
+              data={[
+                { value: 'en', label: 'English' },
+                { value: 'es', label: 'Español' },
+              ]}
+              icon={<World size={18} />}
+              rightSection={<ChevronDown size={18} />}
+              className={classes.selectLanguage}
+            />
+            <Button component="a" href="#contact">{t('contactBtn', { ns: 'common' })}</Button>
           </Group>
         </Container>
       </Header>

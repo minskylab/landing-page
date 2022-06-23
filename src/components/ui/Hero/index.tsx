@@ -2,19 +2,16 @@ import {
   createStyles,
   Container,
   Text,
-  Button,
   Group,
   useMantineTheme,
-  Center,
-  Tooltip,
   Highlight,
 } from "@mantine/core";
-import Image from "next/image";
+import { useTranslation } from 'next-i18next';
 
 const useStyles = createStyles(theme => ({
   wrapper: {
     boxSizing: "border-box",
-    maxWidth: 700,
+    maxWidth: 800,
 
     [theme.fn.smallerThan("md")]: {
       maxWidth: 520,
@@ -62,33 +59,26 @@ const useStyles = createStyles(theme => ({
     backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[5] : "transparent",
 
     "&:hover": {
-      backgroundColor: `${
-        theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0]
-      } !important`,
+      backgroundColor: `${theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0]
+        } !important`,
     },
   },
 }));
 
-type MinskyHeroTitleProps = {
-  headline: string;
-  headlineHighlight: string | string[];
-  minimalDescription: string;
-};
+type MinskyHeadline = string;
+type MinskyMinimalDescription = string;
 
-export const MinskyHeroTitle = ({
-  headline,
-  headlineHighlight,
-  minimalDescription,
-}: MinskyHeroTitleProps) => {
+export const MinskyHeroTitle = () => {
   const { classes, cx } = useStyles();
   const theme = useMantineTheme();
+  const { t } = useTranslation('home');
 
   return (
     <>
       <Container className={classes.wrapper}>
         <Group className={classes.inner}>
           <Highlight
-            highlight={headlineHighlight}
+            highlight={t<MinskyHeadline>("headlineHighlight")}
             highlightStyles={{
               backgroundImage: theme.fn.linearGradient(
                 45,
@@ -113,10 +103,10 @@ export const MinskyHeroTitle = ({
               },
             })}
           >
-            {headline}
+            {t<MinskyHeadline>("headline")}
           </Highlight>
           <Text className={classes.description} color="gray">
-            {minimalDescription}
+            {t<MinskyMinimalDescription>("minimalDescription")}
           </Text>
         </Group>
       </Container>
