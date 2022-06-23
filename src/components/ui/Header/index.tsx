@@ -107,6 +107,11 @@ export function MinskyLandingHeader() {
     links?: MinskyLabelLink[];
   };
 
+  const handleChangeLanguage = (e: string) => {
+    router.locale = e === "en" ? "en" : "es";
+    router.locale === "en" ? router.push('/', '/', { locale: 'en' }) : router.push('/es');
+  }
+
   return (
     <>
       <Drawer
@@ -171,12 +176,9 @@ export function MinskyLandingHeader() {
             >
               {colorScheme === "dark" ? <Sun size={18} /> : <MoonStars size={18} />}
             </ActionIcon>
-            {/* <Select
+            <Select
               defaultValue={router.locale}
-              onChange={(e: any) => {
-                router.locale = e === "en" ? "en" : "es"
-                console.log(router.locale, e);
-              }}
+              onChange={(e: string) => {handleChangeLanguage(e)}}
               data={[
                 { value: 'en', label: 'English' },
                 { value: 'es', label: 'Spanish' },
@@ -184,14 +186,7 @@ export function MinskyLandingHeader() {
               icon={<World size={18} />}
               rightSection={<ChevronDown size={18} />}
               className={classes.selectLanguage}
-            /> */}
-            <Link
-              href={router.pathname}
-              locale={router.locale === "en" ? "es" : "en"}
-              passHref
-            >
-              <a className={classes.link}>{router.locale === 'en' ? 'Spanish' : 'English'}</a>
-            </Link>
+            />
             <Button component="a" href="#contact">{t('btn-contact', { ns: 'common' })}</Button>
           </Group>
         </Container>
