@@ -12,7 +12,7 @@ import { MinskySimpleFAQ } from "components/ui/Faq";
 import { Directus } from "@directus/sdk";
 import { MinskyPlatformTypes, Subscriber } from "lib/platform/types";
 import { MinskyLandingSections } from "components/ui/Information";
-import { useMinskyLandingContent } from "./content";
+import { useTranslation } from 'next-i18next';
 
 const directus = new Directus<MinskyPlatformTypes>("https://self.internal.minsky.cc");
 
@@ -20,7 +20,7 @@ const createNewSubscriber = async (sub: Subscriber) => {
   return directus.items("Subscribers").createOne(sub);
 };
 
-const MinskyExpositor = dynamic<{}>(() => import("components/ui/Expositor"), {
+const MinskyExpositor = dynamic(() => import("components/ui/Expositor"), {
   ssr: false,
   loading: () => {
     return (
@@ -34,20 +34,12 @@ const MinskyExpositor = dynamic<{}>(() => import("components/ui/Expositor"), {
 const HomePageContent = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const notifications = useNotifications();
-  const {
-    headerTopics,
-    footerInformation,
-    headline,
-    headlineHighlight,
-    minimalDescription,
-    sections,
-    faqs,
-  } = useMinskyLandingContent();
+  const { t } = useTranslation('home');
 
   return (
     <>
       <Container mt="lg" size={"xl"}>
-        <MinskyLandingHeader links={headerTopics} />
+        <MinskyLandingHeader />
       </Container>
       <Container
         size={"xl"}
@@ -70,11 +62,7 @@ const HomePageContent = () => {
           },
         })}
       >
-        <MinskyHeroTitle
-          headline={headline}
-          headlineHighlight={headlineHighlight}
-          minimalDescription={minimalDescription}
-        />
+        <MinskyHeroTitle />
       </Container>
       <Container
         sx={theme => ({
@@ -102,11 +90,11 @@ const HomePageContent = () => {
           },
         })}
       >
-        <MinskyLandingSections sections={sections} />
+        <MinskyLandingSections />
       </Container>
       <Space h={62}></Space>
       <Container>
-        <MinskySimpleFAQ title={"Frequently Asked Questions"} faqs={faqs} />
+        <MinskySimpleFAQ />
       </Container>
       <Container>
         <MinskyGetInTouch
@@ -117,20 +105,16 @@ const HomePageContent = () => {
             setLoading(false);
             console.log(`created new subscriber: ${item}`);
             notifications.showNotification({
-              title: "Subscription successful",
+              title:  t("getInTouchNotification.title"),
               color: "green",
               icon: <Check />,
-              message: "We will contact you as soon as possible.",
+              message: t("getInTouchNotification.message"),
             });
             return true;
           }}
         />
       </Container>
-      <MinskyFooter
-        sections={footerInformation.sections}
-        tagline={footerInformation.tagline}
-        brandTrademark={footerInformation.brandTrademark}
-      />
+      <MinskyFooter />
     </>
   );
 };

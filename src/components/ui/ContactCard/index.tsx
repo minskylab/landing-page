@@ -12,6 +12,7 @@ import {
 import { ContactIconsList } from "./contact";
 import { NULL_SUBSCRIBER, Subscriber } from "lib/platform/types";
 import { Mail } from "tabler-icons-react";
+import { useTranslation } from 'next-i18next';
 // import bg from "./bg.svg";
 
 const useStyles = createStyles(theme => {
@@ -114,15 +115,15 @@ export function MinskyGetInTouch({
   loading = false,
 }: MinskyGetInTouchProps) {
   const { classes } = useStyles();
-
   const [formState, setFormState] = useState<Subscriber>(NULL_SUBSCRIBER);
+  const { t } = useTranslation('home');
 
   return (
     <Paper id="contact" shadow="md" radius="lg">
       <div className={classes.wrapper}>
         <div className={classes.contacts}>
           <Text size="lg" weight={700} className={classes.title} sx={{ color: "#fff" }}>
-            Contact information
+            {t("contactInformation.title")}
           </Text>
 
           <ContactIconsList variant="white" />
@@ -140,50 +141,47 @@ export function MinskyGetInTouch({
           }}
         >
           <Text size="lg" weight={700} className={classes.title}>
-            Get in touch
+            {t("formGetIntouch.title")}
           </Text>
 
           <div className={classes.fields}>
             <SimpleGrid cols={2} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
               <TextInput
-                label="Your name"
-                placeholder="Your name"
+                label={t("formGetIntouch.nameLabel")}
+                placeholder={t("formGetIntouch.namePlaceholder")}
                 value={formState.name}
                 disabled={loading}
                 onChange={e => setFormState({ ...formState, name: e.target.value })}
               />
               <TextInput
-                label="Your email"
-                placeholder="hello@example.com"
+                label={t("formGetIntouch.emailLabel")}
+                placeholder={t("formGetIntouch.emailPlaceholder")}
                 required
                 value={formState.email}
                 disabled={loading}
                 onChange={e => setFormState({ ...formState, email: e.target.value })}
               />
             </SimpleGrid>
-
             <TextInput
               mt="md"
-              label="Subject"
-              placeholder="Subject"
+              label={t("formGetIntouch.subjectLabel")}
+              placeholder={t("formGetIntouch.subjectPlaceholder")}
               required
               value={formState.subject}
               disabled={loading}
               onChange={e => setFormState({ ...formState, subject: e.target.value })}
             />
-
             <Textarea
               mt="md"
-              label="Your message"
-              placeholder="Please include all relevant information"
+              label={t("formGetIntouch.messageLabel")}
+              placeholder={t("formGetIntouch.messagePlaceholder")}
               minRows={3}
               value={formState.message}
               onChange={e => setFormState({ ...formState, message: e.target.value })}
             />
-
             <Group position="right" mt="md">
               <Button type="submit" loading={loading} leftIcon={<Mail size={14} />}>
-                Send message
+                {t("contactFormBtn", { ns: 'common' })}
               </Button>
             </Group>
           </div>

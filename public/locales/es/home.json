@@ -1,0 +1,140 @@
+{
+  "headerTopics": [
+    {
+      "label": "Plataforma",
+      "link": "platform"
+    },
+    {
+      "label": "Socios",
+      "link": "partners"
+    },
+    {
+      "label": "Academia",
+      "link": "academy"
+    },
+    {
+      "label": "Programadores",
+      "link": "developers"
+    }
+  ],
+  "headline": "Una nueva perspectiva tecnológica para tus ideas.",
+  "headlineHighlight": "perspectiva tecnológica",
+  "minimalDescription": "Diseñamos y construimos soluciones digitales para generar valor en nuestros clientes y en la comunidad.",
+  "sections": [
+    {
+      "type": "about-us",
+      "title": "¿Quiénes somos?",
+      "description": [
+        "Somos una organización que busca ofrecer tecnología de alta calidad a la sociedad. Diseñamos e implementamos soluciones tecnológicas para la comunidad académica y las empresas, apoyándonos en tecnologías Open Source y Cloud.",
+        "Somos un equipo de personas apasionadas por el desarrollo de software, y por la tecnología en general."
+      ],
+      "artType": "illustration",
+      "art": "symbols"
+    },
+    {
+      "type": "our-work",
+      "title": "¿Qué hacemos?",
+      "description": [
+        "Estamos trabajando con socios y la comunidad académica para desarrollar y lanzar productos de software, teniendo en cuenta un camino holístico y una visión integral. Además, tenemos oportunidades de trabajo para desarrolladores locales (Perú), mejorando su experiencia y el placer de elaborar software.",
+        "Nos encanta crear piezas de software que sean útiles para todos nosotros. Todas nuestras exploraciones y propuestas están abiertas al público en nuestros repositorios."
+      ],
+      "artType": "illustration",
+      "art": "system-illustration"
+    }
+  ],
+  "contactInformation": {
+    "title": "Información de contacto",
+    "fields": {
+      "email": "Correo",
+      "phone": "Teléfono",
+      "address": "Dirección",
+      "hours": "Horario de trabajo"
+    }
+  },
+  "formGetIntouch": {
+    "title": "Contactanos",
+    "nameLabel": "Nombre",
+    "namePlaceholder": "Nombre",
+    "emailLabel": "Correo",
+    "emailPlaceholder": "hola@ejemplo.com",
+    "subjectLabel": "Asunto",
+    "subjectPlaceholder": "Asunto",
+    "messageLabel": "Mensaje",
+    "messagePlaceholder": "Incluya toda la información necesaria"
+  },
+  "getInTouchNotification": {
+    "title": "Suscripción exitosa",
+    "message": "Nos contactaremos con usted pronto."
+  },
+  "faqsTitle": "Preguntas frecuentes",
+  "faqs": [
+    {
+      "question": "¿Dónde está su sistema de precios?",
+      "answer": "Actualmente estamos trabajando en una nueva página de preguntas frecuentes. Mantente atento."
+    },
+    {
+      "question": "¿Pueden desarrollar mi aplicación web/móvil?",
+      "answer": "Actualmente estamos trabajando en una nueva página de preguntas frecuentes. Mantente atento."
+    },
+    {
+      "question": "¿Cuál es la experiencia de su equipo?",
+      "answer": "Actualmente estamos trabajando en una nueva página de preguntas frecuentes. Mantente atento."
+    },
+    {
+      "question": "¿Tiene algún tipo de certificación de calidad?",
+      "answer": "Actualmente estamos trabajando en una nueva página de preguntas frecuentes. Mantente atento."
+    },
+    {
+      "question": "Soy desarrollador, ¿Cómo puedo trabajar en Minsky?",
+      "answer": "Actualmente estamos trabajando en una nueva página de preguntas frecuentes. Mantente atento."
+    }
+  ],
+  "footerInformation": {
+    "brandTrademark": "🇵🇪 2022 Minsky S.A.C.",
+    "tagline": "Somos una empresa, una comunidad y también un sistema vivo.",
+    "sections": [
+      {
+        "title": "Minsky",
+        "links": [
+          {
+            "label": "Nosotros",
+            "link": "about"
+          },
+          {
+            "label": "Carreras",
+            "link": "careers"
+          },
+          {
+            "label": "Equipo",
+            "link": "team"
+          },
+          {
+            "label": "Contacto",
+            "link": "contact"
+          }
+        ]
+      },
+      {
+        "title": "Visión",
+        "links": [
+          {
+            "label": "Filosofía",
+            "link": "philosophy"
+          },
+          {
+            "label": "Tecnología",
+            "link": "technology"
+          },
+          {
+            "label": "Comunidad",
+            "link": "community"
+          },
+          {
+            "label": "Futuro",
+            "link": "future"
+          }
+        ]
+      }
+    ]
+  }
+}

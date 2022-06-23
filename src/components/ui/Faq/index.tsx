@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Title, Accordion, createStyles } from "@mantine/core";
 import { MinskyFAQ } from "lib/landing/structure";
+import { useTranslation } from 'next-i18next';
 
 const useStyles = createStyles((theme, _params, getRef) => {
   const control = getRef("control");
@@ -30,9 +31,8 @@ const useStyles = createStyles((theme, _params, getRef) => {
       borderRadius: theme.radius.md,
       marginBottom: theme.spacing.lg,
 
-      border: `1px solid ${
-        theme.colorScheme === "dark" ? theme.colors.dark[3] : theme.colors.gray[3]
-      }`,
+      border: `1px solid ${theme.colorScheme === "dark" ? theme.colors.dark[3] : theme.colors.gray[3]
+        }`,
     },
 
     itemOpened: {
@@ -48,14 +48,14 @@ type MinskySimpleFAQProps = {
   faqs: MinskyFAQ[];
 };
 
-export function MinskySimpleFAQ({ title, faqs }: MinskySimpleFAQProps) {
+export function MinskySimpleFAQ() {
   const { classes } = useStyles();
+  const { t } = useTranslation('home');
   return (
     <Container size="sm" className={classes.wrapper}>
       <Title align="center" className={classes.title}>
-        {title}
+        {t("faqsTitle")}
       </Title>
-
       <Accordion
         iconPosition="right"
         classNames={{
@@ -64,11 +64,14 @@ export function MinskySimpleFAQ({ title, faqs }: MinskySimpleFAQProps) {
           control: classes.control,
         }}
       >
-        {faqs.map(faq => (
-          <Accordion.Item key={faq.answer} label={faq.question}>
-            {faq.answer}
-          </Accordion.Item>
-        ))}
+        {t<string, MinskyFAQ[]>("faqs", { returnObjects: true }).map(
+          ({ answer, question }, index: number) => (
+            <Accordion.Item key={answer} label={question}>
+              {answer}
+            </Accordion.Item>
+          )
+        )
+        }
       </Accordion>
     </Container>
   );

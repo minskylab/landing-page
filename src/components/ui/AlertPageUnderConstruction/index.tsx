@@ -1,5 +1,6 @@
 import { useMantineColorScheme, createStyles } from "@mantine/core";
 import MinskyLogotype from "../../future/MinskyLogo";
+import { useTranslation } from 'next-i18next';
 
 const useStyles = createStyles(theme => {
     const BREAKPOINT = theme.fn.smallerThan("md");
@@ -41,12 +42,13 @@ const useStyles = createStyles(theme => {
 export default function MinskyAlertPageUnderConstruction() {
     const { colorScheme } = useMantineColorScheme();
     const { classes } = useStyles();
+    const { t } = useTranslation('common');
 
     return (
         <div className={classes.container}>
             <div className={classes.wrapper}>
                 <MinskyLogotype scale={0.3} typographyColor={colorScheme === "dark" ? "white" : undefined} />
-                <span className={classes.text}>PAGE UNDER CONSTRUCTION</span>
+                <span className={classes.text}>{t("pageUnderConstructionMessage")}</span>
             </div>
         </div>
     )
