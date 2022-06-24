@@ -5,7 +5,8 @@
   "contactFormBtn": "Send message",
   "pageUnderConstructionMessage": "PAGE UNDER CONSTRUCTION",
   "mobileNavigationMenu": {
-    "title": "Navigation & Settings",
+    "navigationTitle": "Navigation",
+    "settingsTitle": "Settings",
     "themeDescription": "Change theme:",
     "languageDescription": "Select language:"
   }
