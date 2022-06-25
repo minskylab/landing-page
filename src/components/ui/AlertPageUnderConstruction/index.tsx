@@ -1,39 +1,26 @@
-import { useMantineColorScheme, createStyles } from "@mantine/core";
+import { useMantineColorScheme, createStyles, Container, Center, Group, Title } from "@mantine/core";
+import { useViewportSize } from '@mantine/hooks';
 import MinskyLogotype from "../../future/MinskyLogo";
 import { useTranslation } from 'next-i18next';
 
 const useStyles = createStyles(theme => {
-    const BREAKPOINT = theme.fn.smallerThan("md");
+    const BREAKPOINT = theme.fn.smallerThan("lg");
 
     return {
-        container: {
+        center: {
             height: "100vh",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center"
-        },
-        wrapper: {
-            display: "flex",
-            boxSizing: "border-box",
-            maxWidth: 700,
-            backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.white,
-
-            [BREAKPOINT]: {
-                flexDirection: "column",
-            },
         },
         text: {
+            width: 300,
             fontFamily: `${theme.fontFamily}`,
-            fontSize: 38,
+            fontSize: "xl",
             fontWeight: 900,
             lineHeight: 1.2,
-            marginLeft: 20,
             color: theme.colorScheme === "dark" ? theme.white : theme.black,
 
             [BREAKPOINT]: {
-                align: "center",
-                marginTop: 30,
-                marginLeft: 0
+                textAlign: "center",
+                width: "100%",
             },
         },
     };
@@ -42,14 +29,15 @@ const useStyles = createStyles(theme => {
 export default function MinskyAlertPageUnderConstruction() {
     const { colorScheme } = useMantineColorScheme();
     const { classes } = useStyles();
+    const { width } = useViewportSize();
     const { t } = useTranslation('common');
 
     return (
-        <div className={classes.container}>
-            <div className={classes.wrapper}>
-                <MinskyLogotype scale={0.3} typographyColor={colorScheme === "dark" ? "white" : undefined} />
-                <span className={classes.text}>{t("pageUnderConstructionMessage")}</span>
-            </div>
-        </div>
+        <Center className={classes.center}>
+            <Group position="center">
+                <MinskyLogotype scale={width < 1200 ? 0.15 : 0.2} typographyColor={colorScheme === "dark" ? "white" : undefined} />
+                <Title className={classes.text} order={1}>{t("pageUnderConstructionMessage")}</Title>
+            </Group>
+        </Center>
     )
 }
