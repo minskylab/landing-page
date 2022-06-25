@@ -10,7 +10,10 @@ import {
   useMantineColorScheme,
   Drawer,
   Text,
-  Select
+  Select,
+  Divider,
+  Title,
+  Stack
 } from "@mantine/core";
 import { useBooleanToggle } from "@mantine/hooks";
 import { MoonStars, Sun, World, ChevronDown } from "tabler-icons-react";
@@ -47,12 +50,7 @@ const useStyles = createStyles(theme => ({
       display: "none",
     },
   },
-
   link: {
-    display: "block",
-    lineHeight: 1,
-    padding: "8px 12px",
-    borderRadius: theme.radius.sm,
     textDecoration: "none",
     color: theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.colors.gray[7],
     fontFamily: `${theme.fontFamily}`,
@@ -63,24 +61,24 @@ const useStyles = createStyles(theme => ({
       backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0],
     }
   },
+  linkDesktop: {
+    display: "block",
+    lineHeight: 1,
+    padding: "8px 12px",
+    borderRadius: theme.radius.sm,
+  },
+  linkMobile: {
+    padding: "8px",
+  },
   selectLanguage: {
-    width: "130px",
+    width: 130,
     [theme.fn.smallerThan("md")]: {
       display: "none",
     },
   },
-  selectLanguageBurger: {
-    width: "130px",
+  selectBurger: {
+    width: 130,
   },
-  burgerGroup: {
-    marginBottom: theme.spacing.xs,
-  },
-
-  /*   linkLabel: {
-      fontFamily: `${theme.fontFamily}`,
-      marginRight: 5,
-    }, */
-
   header: {
     marginBottom: 80,
     borderBottom: 0,
@@ -103,7 +101,7 @@ export function MinskyLandingHeader() {
   const [opened, toggleOpened] = useBooleanToggle(false);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const { t } = useTranslation(['home', 'common']);
-  const router = useRouter()
+  const router = useRouter();
 
   type MinskyLabelLink = {
     link: string;
@@ -126,45 +124,51 @@ export function MinskyLandingHeader() {
       <Drawer
         opened={opened}
         onClose={() => toggleOpened(false)}
-        title={
-          <Text size="lg" weight={"bold"}>
-            {t("mobileNavigationMenu.title",{ ns: 'common' })}
-          </Text>
-        }
         padding={"md"}
-        // padding="xl"
-        size="sm"
+        size={"xl"}
         position="top"
       >
-        {/* <h1 id="drawer-title">Title</h1>
-        <div id="drawer-body">Body</div> */}
-        <Group className={classes.burgerGroup}>
-          <Text> {t("mobileNavigationMenu.themeDescription", { ns: 'common' })}</Text>
-          <ActionIcon
-            onClick={() => toggleColorScheme()}
-            size="lg"
-            variant="default"
-          // className={classes.colorSchemaToggler}
-          >
-            {colorScheme === "dark" ? <Sun size={18} /> : <MoonStars size={18} />}
-          </ActionIcon>
-        </Group>
-        <Group>
-          <Text>{t("mobileNavigationMenu.languageDescription",{ ns: 'common' })}</Text>
-          <Select
-            defaultValue={router.locale}
-            onChange={(e: string) => { handleChangeLanguage(e) }}
-            data={[
-              { value: 'en', label: 'English' },
-              { value: 'es', label: 'Español' },
-            ]}
-            icon={<World size={18} />}
-            rightSection={<ChevronDown size={18} />}
-            className={classes.selectLanguageBurger}
-          />
-        </Group>
+        <Stack>
+          <Title order={4}>{t("mobileNavigationMenu.navigationTitle", { ns: 'common' })}</Title>
+          <Stack spacing={0}>{t<string, MinskyHeaderTopic[]>("headerTopics", { returnObjects: true }).map(
+            ({ label, link }, index: number) => (
+              <Link key={index} href={`/${link}`}>
+                <a className={`${classes.link} ${classes.linkMobile}`}>{label}</a>
+              </Link>
+            )
+          )}</Stack>
+        </Stack>
+        <Divider my="sm" />
+        <Stack>
+          <Title order={4}>{t("mobileNavigationMenu.settingsTitle", { ns: 'common' })}</Title>
+          <Group>
+            <Select
+              defaultValue={colorScheme}
+              onChange={() => toggleColorScheme()}
+              data={[
+                { value: 'light', label: 'Light' },
+                { value: 'dark', label: 'Dark' },
+              ]}
+              icon={colorScheme === "dark" ? <MoonStars size={18} /> : <Sun size={18} />}
+              rightSection={<ChevronDown size={18} />}
+              styles={{ rightSection: { pointerEvents: 'none' } }}
+              className={classes.selectBurger}
+            />
+            <Select
+              defaultValue={router.locale}
+              onChange={(e: string) => { handleChangeLanguage(e) }}
+              data={[
+                { value: 'en', label: 'English' },
+                { value: 'es', label: 'Español' },
+              ]}
+              icon={<World size={18} />}
+              rightSection={<ChevronDown size={18} />}
+              styles={{ rightSection: { pointerEvents: 'none' } }}
+              className={classes.selectBurger}
+            />
+          </Group>
+        </Stack>
       </Drawer>
-
       {/* <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}> */}
       <Header height={HEADER_HEIGHT} className={classes.header}>
         <Container className={classes.inner} fluid>
@@ -185,7 +189,7 @@ export function MinskyLandingHeader() {
             {t<string, MinskyHeaderTopic[]>("headerTopics", { returnObjects: true }).map(
               ({ label, link }, index: number) => (
                 <Link key={index} href={`/${link}`}>
-                  <a className={classes.link}>{label}</a>
+                  <a className={`${classes.link} ${classes.linkDesktop}`}>{label}</a>
                 </Link>
               )
             )}
@@ -208,6 +212,7 @@ export function MinskyLandingHeader() {
               ]}
               icon={<World size={18} />}
               rightSection={<ChevronDown size={18} />}
+              styles={{ rightSection: { pointerEvents: 'none' } }}
               className={classes.selectLanguage}
             />
             <Button component="a" href="#contact">{t('contactBtn', { ns: 'common' })}</Button>
