@@ -14,6 +14,8 @@ import { Directus } from "@directus/sdk";
 import { MinskyPlatformTypes, Subscriber } from "lib/platform/types";
 import { MinskyLandingSections } from "components/ui/Information";
 import { useMinskyLandingContent } from "./content";
+import Head from "next/head";
+import { NextPage } from "next";
 
 const directus = new Directus<MinskyPlatformTypes>("https://self.internal.minsky.cc");
 
@@ -32,7 +34,7 @@ const MinskyExpositor = dynamic(() => import("components/ui/Expositor"), {
   },
 });
 
-const HomePageContent = () => {
+const HomePageContent: NextPage = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const notifications = useNotifications();
   const {

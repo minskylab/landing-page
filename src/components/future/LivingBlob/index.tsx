@@ -7,6 +7,10 @@ import {
   MeshDistortMaterial,
   ContactShadows,
   useAspect,
+  OrbitControls,
+  CubeCamera,
+  Lightformer,
+  SpotLight,
 } from "@react-three/drei";
 import { useSpring } from "@react-spring/core";
 import { a } from "@react-spring/three";
@@ -95,8 +99,9 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
         {/* <a.pointLight ref={light} position-z={-15} intensity={env} color="#F8C069" /> */}
       </PerspectiveCamera>
       <Suspense fallback={null}>
+        <SpotLight distance={5} angle={0.15} attenuation={5} anglePower={5} />
         <a.mesh
-          ref={sphere}
+          // ref={sphere}
           scale={wobble}
           onPointerOver={() => setHovered(true)}
           onPointerOut={() => setHovered(false)}
@@ -113,22 +118,38 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
             envMapIntensity={env}
             clearcoat={0.005}
             // clearcoatRoughness={0}
-            metalness={0.001}
+            metalness={0.005}
             toneMapped={false}
+            distort={0.1}
+            speed={5}
           >
+            {/* <videoTexture attach="map" args={[video]} encoding={THREE.LinearEncoding} /> */}
+            {/* <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} /> */}
+
             <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
           </AnimatedMaterial>
         </a.mesh>
-        <Environment preset="studio" />
-        {/* <ContactShadows
-          rotation={[Math.PI / 2, 0, 0]}
-          position={[0, -1.6, 0]}
-          opacity={mode ? 0.8 : 0.4}
-          width={15}
-          height={15}
-          blur={2.5}
-          far={1.6}
-        /> */}
+        {/* <Environment preset="sunset" /> */}
+        {/* <Environment preset="dawn" /> */}
+        {/* <Environment preset="night" /> */}
+        {/* <Environment preset="warehouse" /> */}
+        {/* <Environment preset="forest" /> */}
+        {/* <Environment preset="apartment" /> */}
+        {/* <Environment preset="studio" /> */}
+        {/* <Environment preset="city" /> */}
+        {/* <Environment preset="park" /> */}
+        {/* <Environment preset="lobby" /> */}
+        <Environment files="studio_small_08_1k.hdr" />
+
+        {/* //         <ContactShadows
+        {/* //           rotation={[Math.PI / 2, 0, 0]}
+        {/* //           position={[0, -1.6, 0]}
+        {/* //           opacity={mode ? 0.8 : 0.4}
+        {/* //           width={15}
+        {/* //           height={15}
+        {/* //           blur={2.5}
+        {/* //           far={1.6}
+        {/* //         /> */}
       </Suspense>
     </>
   );
