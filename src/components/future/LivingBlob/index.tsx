@@ -74,7 +74,7 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
     {
       wobble: down ? 2.4 : hovered ? 2.4 : 2,
       coat: mode && !hovered ? 0.04 : 1,
-      ambient: mode && !hovered ? 1.5 : 0.5,
+      ambient: mode && !hovered ? 3 : 1.5,
       env: mode && !hovered ? 0.4 : 1,
       color: "#FB8857", // #202020' 'white'
       config: {
@@ -91,12 +91,15 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
     <>
       <PerspectiveCamera makeDefault position={[0, 0, 5]} fov={75}>
         {/* @ts-ignore-line */}
+        {/* <a.ambientLight intensity={ambient} /> */}
         <a.ambientLight intensity={ambient} />
+        {/* <a.directionalLight position={[10, 10, 5]} intensity={3.5} /> */}
+        {/* <a.pointLight intensity={3.5} position={[0, -10, 5]} /> */}
         {/* <a.pointLight ref={light} position-z={-15} intensity={env} color="#F8C069" /> */}
       </PerspectiveCamera>
       <Suspense fallback={null}>
         <a.mesh
-          ref={sphere}
+          // ref={sphere}
           scale={wobble}
           onPointerOver={() => setHovered(true)}
           onPointerOut={() => setHovered(false)}
@@ -113,13 +116,18 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
             envMapIntensity={env}
             clearcoat={0.005}
             // clearcoatRoughness={0}
-            metalness={0.001}
+            metalness={0.005}
             toneMapped={false}
+            distort={0.4}
+            speed={1.3}
+            factor={1}
+            roughness={0.05}
           >
             <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
           </AnimatedMaterial>
         </a.mesh>
         <Environment preset="studio" />
+        {/* <Environment files="studio_small_08_1k.hdr" /> */}
         {/* <ContactShadows
           rotation={[Math.PI / 2, 0, 0]}
           position={[0, -1.6, 0]}

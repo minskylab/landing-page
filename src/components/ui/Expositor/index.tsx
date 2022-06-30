@@ -11,7 +11,7 @@ const AVAILABLE_CA = [132, 133, 142, 244, 262, 263, 264, 271].map(
 );
 
 const randomBlobVideoSrc = (): string => {
-  return AVAILABLE_CA[(Math.random() * AVAILABLE_CA.length) | 0];
+  return AVAILABLE_CA[~~(Math.random() * AVAILABLE_CA.length)];
 };
 
 export default function MinskyExpositor() {
