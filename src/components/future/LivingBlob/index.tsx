@@ -78,7 +78,7 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
     {
       wobble: down ? 2.4 : hovered ? 2.4 : 2,
       coat: mode && !hovered ? 0.04 : 1,
-      ambient: mode && !hovered ? 2.5 : 0.5,
+      ambient: mode && !hovered ? 3. : 0.5,
       env: mode && !hovered ? 0.4 : 1,
       color: "#FB8857", // #202020' 'white'
       config: {
