@@ -10,20 +10,9 @@ const AVAILABLE_CA = [132, 133, 142, 244, 262, 263, 264, 271].map(
   num => `/MinskyVideo${num}WithOpacity.mp4`
 );
 
-// const randomBlobVideoSrc = (): string => {
-//   return AVAILABLE_CA[Math.floor(Math.random() * AVAILABLE_CA.length)];
-// };
-
 const randomBlobVideoSrc = (): string => {
   return AVAILABLE_CA[~~(Math.random() * AVAILABLE_CA.length)];
 };
-
-// for (var i = 1e3, lookupTable = []; i--; ) {
-//   lookupTable.push(AVAILABLE_CA[(Math.random() * AVAILABLE_CA.length) | 0]);
-// }
-// function randomBlobVideoSrc() {
-//   return ++i >= lookupTable.length ? lookupTable[(i = 0)] : lookupTable[i];
-// }
 
 export default function MinskyExpositor() {
   const notifications = useNotifications();

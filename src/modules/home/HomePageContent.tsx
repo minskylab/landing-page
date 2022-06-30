@@ -16,6 +16,8 @@ import { MinskyLandingSections } from "components/ui/Information";
 import { useMinskyLandingContent } from "./content";
 import Head from "next/head";
 import { NextPage } from "next";
+import { SpotLight } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
 
 const directus = new Directus<MinskyPlatformTypes>("https://self.internal.minsky.cc");
 
@@ -88,7 +90,10 @@ const HomePageContent: NextPage = () => {
         })}
       >
         <Center>
-          <TensionLine />
+          {/* <TensionLine /> */}
+          <Canvas dpr={[1, 2]} style={{ maxHeight: 510, height: "57vh" }}>
+            <SpotLight position={[0, 3.6, 0]} distance={6} angle={0.6} attenuation={6.} anglePower={6.5} />
+          </Canvas>
         </Center>
       </Container>
 

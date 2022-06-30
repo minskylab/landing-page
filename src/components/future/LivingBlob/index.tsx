@@ -78,7 +78,7 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
     {
       wobble: down ? 2.4 : hovered ? 2.4 : 2,
       coat: mode && !hovered ? 0.04 : 1,
-      ambient: mode && !hovered ? 1.5 : 0.5,
+      ambient: mode && !hovered ? 2.5 : 0.5,
       env: mode && !hovered ? 0.4 : 1,
       color: "#FB8857", // #202020' 'white'
       config: {
@@ -99,7 +99,7 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
         {/* <a.pointLight ref={light} position-z={-15} intensity={env} color="#F8C069" /> */}
       </PerspectiveCamera>
       <Suspense fallback={null}>
-        <SpotLight distance={5} angle={0.15} attenuation={5} anglePower={5} />
+        {/* <SpotLight distance={5} angle={0.15} attenuation={5} anglePower={5} /> */}
         <a.mesh
           // ref={sphere}
           scale={wobble}
@@ -120,25 +120,14 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
             // clearcoatRoughness={0}
             metalness={0.005}
             toneMapped={false}
-            distort={0.1}
-            speed={5}
+            distort={0.4}
+            speed={1.3}
           >
             {/* <videoTexture attach="map" args={[video]} encoding={THREE.LinearEncoding} /> */}
-            {/* <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} /> */}
-
             <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
           </AnimatedMaterial>
         </a.mesh>
-        {/* <Environment preset="sunset" /> */}
-        {/* <Environment preset="dawn" /> */}
-        {/* <Environment preset="night" /> */}
-        {/* <Environment preset="warehouse" /> */}
-        {/* <Environment preset="forest" /> */}
-        {/* <Environment preset="apartment" /> */}
-        {/* <Environment preset="studio" /> */}
-        {/* <Environment preset="city" /> */}
-        {/* <Environment preset="park" /> */}
-        {/* <Environment preset="lobby" /> */}
+
         <Environment files="studio_small_08_1k.hdr" />
 
         {/* //         <ContactShadows
