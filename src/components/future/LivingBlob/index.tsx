@@ -121,7 +121,7 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
             distort={0.4}
             speed={1.3}
             factor={1}
-            roughness={0.05}
+            roughness={0}
           >
             <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
           </AnimatedMaterial>
