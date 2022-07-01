@@ -92,7 +92,8 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
       <PerspectiveCamera makeDefault position={[0, 0, 5]} fov={75}>
         {/* @ts-ignore-line */}
         {/* <a.ambientLight intensity={ambient} /> */}
-        <a.ambientLight intensity={ambient} />
+        {/* Change intensity value if you don't use enviorments or lights */}
+        <a.ambientLight intensity={ambient} /> 
         {/* <a.directionalLight position={[10, 10, 5]} intensity={3.5} /> */}
         {/* <a.pointLight intensity={3.5} position={[0, -10, 5]} /> */}
         {/* <a.pointLight ref={light} position-z={-15} intensity={env} color="#F8C069" /> */}
@@ -110,6 +111,13 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
             setTapCount(tapCount + 1);
           }}
         >
+
+{/* ------------------------ Code lines for try new ways to render ------------------------------- */}
+          {/* <Environment preset="studio" /> */}
+          <a.directionalLight position={[10, 10, 5]} intensity={3.5} />
+          <a.pointLight intensity={3.5} position={[0, -10, 5]} />
+{/* ------------------------ Code lines for try new ways to render ------------------------------- */}
+
           <sphereBufferGeometry args={[1, 64, 64]} />
           <AnimatedMaterial
             color={color}
@@ -126,7 +134,7 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
             <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
           </AnimatedMaterial>
         </a.mesh>
-        <Environment preset="studio" />
+
         {/* <Environment files="studio_small_08_1k.hdr" /> */}
         {/* <ContactShadows
           rotation={[Math.PI / 2, 0, 0]}
