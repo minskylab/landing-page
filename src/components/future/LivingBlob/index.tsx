@@ -10,7 +10,7 @@ import {
 } from "@react-three/drei";
 import { useSpring } from "@react-spring/core";
 import { a } from "@react-spring/three";
-import { Mesh } from "three";
+import { Mesh, RepeatWrapping } from "three";
 
 const AnimatedMaterial = a(MeshDistortMaterial);
 
@@ -74,7 +74,7 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
     {
       wobble: down ? 2.4 : hovered ? 2.4 : 2,
       coat: mode && !hovered ? 0.04 : 1,
-      ambient: mode && !hovered ? 3 : 1.5,
+      ambient: mode && !hovered ? 2.5 : 1.5,
       env: mode && !hovered ? 0.4 : 1,
       color: "#FB8857", // #202020' 'white'
       config: {
@@ -93,7 +93,7 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
         {/* @ts-ignore-line */}
         {/* <a.ambientLight intensity={ambient} /> */}
         {/* Change intensity value if you don't use enviorments or lights */}
-        <a.ambientLight intensity={ambient} /> 
+        <a.ambientLight intensity={ambient} />
         {/* <a.directionalLight position={[10, 10, 5]} intensity={3.5} /> */}
         {/* <a.pointLight intensity={3.5} position={[0, -10, 5]} /> */}
         {/* <a.pointLight ref={light} position-z={-15} intensity={env} color="#F8C069" /> */}
@@ -111,12 +111,11 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
             setTapCount(tapCount + 1);
           }}
         >
-
-{/* ------------------------ Code lines for try new ways to render ------------------------------- */}
+          {/* ------------------------ Code lines for try new ways to render ------------------------------- */}
           {/* <Environment preset="studio" /> */}
-          <a.directionalLight position={[10, 10, 5]} intensity={3.5} />
-          <a.pointLight intensity={3.5} position={[0, -10, 5]} />
-{/* ------------------------ Code lines for try new ways to render ------------------------------- */}
+          <a.directionalLight position={[10, 10, 5]} intensity={1} />
+          <a.pointLight intensity={1} position={[0, -10, 5]} />
+          {/* ------------------------ Code lines for try new ways to render ------------------------------- */}
 
           <sphereBufferGeometry args={[1, 64, 64]} />
           <AnimatedMaterial
@@ -124,14 +123,25 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
             envMapIntensity={env}
             clearcoat={0.005}
             // clearcoatRoughness={0}
-            metalness={0.005}
+            metalness={0.001}
             toneMapped={false}
             distort={0.4}
             speed={1.3}
             factor={1}
             roughness={0}
+            // wireframe={false}
           >
-            <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
+            <videoTexture
+              attach="map"
+              args={[video]}
+              encoding={THREE.sRGBEncoding}
+              magFilter={THREE.NearestFilter}
+              minFilter={THREE.NearestFilter}
+              wrapS={THREE.RepeatWrapping}
+              wrapT={THREE.RepeatWrapping}
+              anisotropy={4096}
+            />
+            {/* <videoTexture attach="emissiveMap" args={[video]} /> */}
           </AnimatedMaterial>
         </a.mesh>
 
