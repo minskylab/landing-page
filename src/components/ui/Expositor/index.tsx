@@ -13,7 +13,7 @@ import { Bulb } from "tabler-icons-react";
 const AVAILABLE_CA = [244, 1000].map(num => `/MinskyVideo${num}WithOpacity.mp4`);
 
 const randomBlobVideoSrc = (): string => {
-  return AVAILABLE_CA[~~(Math.random() * AVAILABLE_CA.length)];
+  return AVAILABLE_CA[(Math.random() * AVAILABLE_CA.length) >> 0];
 };
 
 export default function MinskyExpositor() {

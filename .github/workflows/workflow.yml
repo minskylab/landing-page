@@ -1,9 +1,8 @@
-name: Build image, push to custom registry, deploy to Caprover
-
+name: Build and test
 on:
   push:
     branches:
-      - "main"
+      - "dev"
 
 env:
   IMAGE_REPO: registry.minsky.cc/minskylab/landing-page
