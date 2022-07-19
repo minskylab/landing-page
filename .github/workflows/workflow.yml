@@ -1,4 +1,4 @@
-name: Build and test
+name: Build image, push to custom registry, deploy to Caprover
 on:
   push:
     branches:
@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
-      
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
@@ -42,5 +42,5 @@ jobs:
         with:
           host: "${{ secrets.CAPROVER_HOST }}"
           password: "${{ secrets.CAPROVER_PASSWORD }}"
-          app: "${{ secrets.CAPROVER_APP }}"
+          app: "${{ secrets.CAPROVER_DEV_APP }}"
           image: "${{ env.IMAGE_REPO }}:${{ github.sha }}"
