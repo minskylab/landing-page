@@ -91,9 +91,8 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
     <>
       <PerspectiveCamera makeDefault position={[0, 0, 5]} fov={75}>
         {/* @ts-ignore-line */}
-        {/* <a.ambientLight intensity={ambient} /> */}
-        {/* Change intensity value if you don't use enviorments or lights */}
         <a.ambientLight intensity={ambient} />
+        {/* Change intensity value if you don't use enviorments or lights */}
         {/* <a.directionalLight position={[10, 10, 5]} intensity={3.5} /> */}
         {/* <a.pointLight intensity={3.5} position={[0, -10, 5]} /> */}
         {/* <a.pointLight ref={light} position-z={-15} intensity={env} color="#F8C069" /> */}
