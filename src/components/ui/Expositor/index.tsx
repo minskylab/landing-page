@@ -10,7 +10,7 @@ import { Bulb } from "tabler-icons-react";
 //   num => `/MinskyVideo${num}WithOpacity.mp4`
 // );
 
-const AVAILABLE_CA = [244, 1000].map(num => `/MinskyVideo${num}WithOpacity.mp4`);
+const AVAILABLE_CA = [132, 133, 142, 244, 262, 263, 264].map(num => `/MinskyVideo${num}.mp4`);
 
 const randomBlobVideoSrc = (): string => {
   return AVAILABLE_CA[(Math.random() * AVAILABLE_CA.length) >> 0];
