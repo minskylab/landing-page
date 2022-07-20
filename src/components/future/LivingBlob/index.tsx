@@ -72,7 +72,7 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
 
   const [{ wobble, coat, color, ambient, env }] = useSpring(
     {
-      wobble: down ? 2.4 : hovered ? 2.4 : 2,
+      wobble: down ? 2.8 : hovered ? 2.8 : 2.5,
       coat: mode && !hovered ? 0.04 : 1,
       ambient: mode && !hovered ? 1.5 : 0.5,
       env: mode && !hovered ? 0.4 : 1,
@@ -138,7 +138,7 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
               minFilter={THREE.NearestFilter}
               wrapS={THREE.RepeatWrapping}
               wrapT={THREE.RepeatWrapping}
-              anisotropy={512}
+              anisotropy={2048}
             />
             {/* <videoTexture attach="emissiveMap" args={[video]} /> */}
           </AnimatedMaterial>
