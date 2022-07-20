@@ -32,7 +32,7 @@ jobs:
 
   deploy-caprover:
     runs-on: ubuntu-20.04
-    needs: [build-push-registry]
+    needs: [build]
     steps:
       - uses: floms/action-caprover@v1
         with:
