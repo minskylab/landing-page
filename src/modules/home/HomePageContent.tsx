@@ -7,12 +7,16 @@ import { Check } from "tabler-icons-react";
 import { useState } from "react";
 import { useNotifications } from "@mantine/notifications";
 import { MinskyGetInTouch } from "components/ui/ContactCard";
-import TensionLine from "components/ui/TensionLine";
+// import TensionLine from "components/ui/TensionLine";
 import { MinskySimpleFAQ } from "components/ui/Faq";
 import { Directus } from "@directus/sdk";
 import { MinskyPlatformTypes, Subscriber } from "lib/platform/types";
 import { MinskyLandingSections } from "components/ui/Information";
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from "next-i18next";
+import { NextPage } from "next";
+// import { SpotLight } from "@react-three/drei";
+// import { Canvas } from "@react-three/fiber";
+import TensionLine from "components/ui/TensionLine";
 
 const directus = new Directus<MinskyPlatformTypes>("https://self.internal.minsky.cc");
 
@@ -31,10 +35,10 @@ const MinskyExpositor = dynamic(() => import("components/ui/Expositor"), {
   },
 });
 
-const HomePageContent = () => {
+const HomePageContent: NextPage = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const notifications = useNotifications();
-  const { t } = useTranslation('home');
+  const { t } = useTranslation("home");
 
   return (
     <>
@@ -74,6 +78,15 @@ const HomePageContent = () => {
       >
         <Center>
           <TensionLine />
+          {/* <Canvas dpr={[1, 2]} style={{ maxHeight: 510, height: "57vh" }}>
+            <SpotLight
+              position={[0, 3.6, 0]}
+              distance={6}
+              angle={0.6}
+              attenuation={6}
+              anglePower={6.5}
+            />
+          </Canvas> */}
         </Center>
       </Container>
 
@@ -105,7 +118,7 @@ const HomePageContent = () => {
             setLoading(false);
             console.log(`created new subscriber: ${item}`);
             notifications.showNotification({
-              title:  t("getInTouchNotification.title"),
+              title: t("getInTouchNotification.title"),
               color: "green",
               icon: <Check />,
               message: t("getInTouchNotification.message"),

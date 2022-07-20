@@ -33,7 +33,6 @@ jobs:
           tags: |
             ${{ env.IMAGE_REPO }}:${{ github.sha }}
             ${{ env.IMAGE_REPO }}:latest
-
   deploy-caprover:
     runs-on: ubuntu-20.04
     needs: [build-push-registry]

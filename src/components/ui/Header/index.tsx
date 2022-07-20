@@ -13,14 +13,14 @@ import {
   Select,
   Divider,
   Title,
-  Stack
+  Stack,
 } from "@mantine/core";
 import { useBooleanToggle } from "@mantine/hooks";
 import { MoonStars, Sun, World, ChevronDown } from "tabler-icons-react";
 import Link from "next/link";
 import MinskyLogotype from "../../future/MinskyLogo";
-import { useTranslation } from 'next-i18next';
-import { useRouter } from 'next/router'
+import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 const HEADER_HEIGHT = 60;
 const BREAKPOINT = "@media (max-width: 755px)";
@@ -59,7 +59,7 @@ const useStyles = createStyles(theme => ({
 
     "&:hover": {
       backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0],
-    }
+    },
   },
   linkDesktop: {
     display: "block",
@@ -92,7 +92,7 @@ interface MinskyLandingHeaderProps {
   links: {
     link: string;
     label: string;
-    links?: { link: string; label: string }[]
+    links?: { link: string; label: string }[];
   }[];
 }
 
@@ -100,7 +100,7 @@ export function MinskyLandingHeader() {
   const { classes } = useStyles();
   const [opened, toggleOpened] = useBooleanToggle(false);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-  const { t } = useTranslation(['home', 'common']);
+  const { t } = useTranslation(["home", "common"]);
   const router = useRouter();
 
   type MinskyLabelLink = {
@@ -116,8 +116,8 @@ export function MinskyLandingHeader() {
 
   const handleChangeLanguage = (e: string) => {
     router.locale = e === "en" ? "en" : "es";
-    router.locale === "en" ? router.push('/', '/', { locale: 'en' }) : router.push('/es');
-  }
+    router.locale === "en" ? router.push("/", "/", { locale: "en" }) : router.push("/es");
+  };
 
   return (
     <>
@@ -129,41 +129,45 @@ export function MinskyLandingHeader() {
         position="top"
       >
         <Stack>
-          <Title order={4}>{t("mobileNavigationMenu.navigationTitle", { ns: 'common' })}</Title>
-          <Stack spacing={0}>{t<string, MinskyHeaderTopic[]>("headerTopics", { returnObjects: true }).map(
-            ({ label, link }, index: number) => (
-              <Link key={index} href={`/${link}`}>
-                <a className={`${classes.link} ${classes.linkMobile}`}>{label}</a>
-              </Link>
-            )
-          )}</Stack>
+          <Title order={4}>{t("mobileNavigationMenu.navigationTitle", { ns: "common" })}</Title>
+          <Stack spacing={0}>
+            {t<string, MinskyHeaderTopic[]>("headerTopics", { returnObjects: true }).map(
+              ({ label, link }, index: number) => (
+                <Link key={index} href={`/${link}`}>
+                  <a className={`${classes.link} ${classes.linkMobile}`}>{label}</a>
+                </Link>
+              )
+            )}
+          </Stack>
         </Stack>
         <Divider my="sm" />
         <Stack>
-          <Title order={4}>{t("mobileNavigationMenu.settingsTitle", { ns: 'common' })}</Title>
+          <Title order={4}>{t("mobileNavigationMenu.settingsTitle", { ns: "common" })}</Title>
           <Group>
             <Select
               defaultValue={colorScheme}
               onChange={() => toggleColorScheme()}
               data={[
-                { value: 'light', label: 'Light' },
-                { value: 'dark', label: 'Dark' },
+                { value: "light", label: "Light" },
+                { value: "dark", label: "Dark" },
               ]}
               icon={colorScheme === "dark" ? <MoonStars size={18} /> : <Sun size={18} />}
               rightSection={<ChevronDown size={18} />}
-              styles={{ rightSection: { pointerEvents: 'none' } }}
+              styles={{ rightSection: { pointerEvents: "none" } }}
               className={classes.selectBurger}
             />
             <Select
               defaultValue={router.locale}
-              onChange={(e: string) => { handleChangeLanguage(e) }}
+              onChange={(e: string) => {
+                handleChangeLanguage(e);
+              }}
               data={[
-                { value: 'en', label: 'English' },
-                { value: 'es', label: 'Español' },
+                { value: "en", label: "English" },
+                { value: "es", label: "Español" },
               ]}
               icon={<World size={18} />}
               rightSection={<ChevronDown size={18} />}
-              styles={{ rightSection: { pointerEvents: 'none' } }}
+              styles={{ rightSection: { pointerEvents: "none" } }}
               className={classes.selectBurger}
             />
           </Group>
@@ -179,6 +183,8 @@ export function MinskyLandingHeader() {
               className={classes.burger}
               size="sm"
               mr={"sm"}
+              title="Open navigation"
+              arial-label="Open navigation"
             />
             <MinskyLogotype typographyColor={colorScheme === "dark" ? "white" : undefined} />
           </Group>
@@ -200,22 +206,28 @@ export function MinskyLandingHeader() {
               size="lg"
               variant="default"
               className={classes.colorSchemaToggler}
+              title="Mode"
+              arial-label="Mode"
             >
               {colorScheme === "dark" ? <Sun size={18} /> : <MoonStars size={18} />}
             </ActionIcon>
             <Select
               defaultValue={router.locale}
-              onChange={(e: string) => { handleChangeLanguage(e) }}
+              onChange={(e: string) => {
+                handleChangeLanguage(e);
+              }}
               data={[
-                { value: 'en', label: 'English' },
-                { value: 'es', label: 'Español' },
+                { value: "en", label: "English" },
+                { value: "es", label: "Español" },
               ]}
               icon={<World size={18} />}
               rightSection={<ChevronDown size={18} />}
-              styles={{ rightSection: { pointerEvents: 'none' } }}
+              styles={{ rightSection: { pointerEvents: "none" } }}
               className={classes.selectLanguage}
             />
-            <Button component="a" href="#contact">{t('contactBtn', { ns: 'common' })}</Button>
+            <Button component="a" href="#contact">
+              {t("contactBtn", { ns: "common" })}
+            </Button>
           </Group>
         </Container>
       </Header>
