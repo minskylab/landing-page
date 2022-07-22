@@ -18,7 +18,7 @@
     "@react-spring/core": "9.4.5",
     "@react-spring/three": "9.4.5",
     "@react-spring/web": "9.4.5",
-    "@react-three/drei": "9.13.0",
+    "@react-three/drei": "9.17.3",
     "@react-three/fiber": "8.0.22",
     "cookies-next": "^2.0.4",
     "graphql": "16.5.0",
