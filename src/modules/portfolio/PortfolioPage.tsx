@@ -1,4 +1,4 @@
-import { Container, Tabs, Text } from "@mantine/core";
+import { Container, Text } from "@mantine/core";
 import { useTranslation } from "next-i18next";
 
 export default function PortfolioPageContent() {

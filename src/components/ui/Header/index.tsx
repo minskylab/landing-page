@@ -14,6 +14,7 @@ import {
   Divider,
   Title,
   Stack,
+  UnstyledButton,
 } from "@mantine/core";
 import { useBooleanToggle } from "@mantine/hooks";
 import { MoonStars, Sun, World, ChevronDown } from "tabler-icons-react";
@@ -100,7 +101,7 @@ export function MinskyLandingHeader() {
   const { classes } = useStyles();
   const [opened, toggleOpened] = useBooleanToggle(false);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-  const { t } = useTranslation(["home", "common"]);
+  const { t } = useTranslation(["home", "common", "portfolio"]);
   const router = useRouter();
 
   type MinskyLabelLink = {
@@ -186,7 +187,11 @@ export function MinskyLandingHeader() {
               title="Open navigation"
               arial-label="Open navigation"
             />
-            <MinskyLogotype typographyColor={colorScheme === "dark" ? "white" : undefined} />
+            <Link href="/" passHref>
+              <UnstyledButton>
+                <MinskyLogotype typographyColor={colorScheme === "dark" ? "white" : undefined} />
+              </UnstyledButton>
+            </Link>
           </Group>
           {/* <Group spacing={5} className={classes.links}>
             {items}

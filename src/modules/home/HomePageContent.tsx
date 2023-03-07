@@ -1,6 +1,5 @@
 import { Center, Container, Loader, Space } from "@mantine/core";
 import { MinskyFooter } from "components/ui/Footer";
-import { MinskyLandingHeader } from "components/ui/Header";
 import { MinskyHeroTitle } from "components/ui/Hero";
 import dynamic from "next/dynamic";
 import { Check } from "tabler-icons-react";
@@ -42,9 +41,6 @@ const HomePageContent: NextPage = () => {
 
   return (
     <>
-      <Container mt="lg" size={"xl"}>
-        <MinskyLandingHeader />
-      </Container>
       <Container
         size={"xl"}
         sx={theme => ({
