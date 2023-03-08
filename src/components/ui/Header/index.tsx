@@ -99,6 +99,7 @@ export function MinskyLandingHeader() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const { t } = useTranslation(["home", "common", "portfolio"]);
   const router = useRouter();
+  const { pathname, asPath, query } = router;
 
   type MinskyLabelLink = {
     link: string;
@@ -112,8 +113,7 @@ export function MinskyLandingHeader() {
   };
 
   const handleChangeLanguage = (e: string) => {
-    router.locale = e === "en" ? "en" : "es";
-    router.locale === "en" ? router.push("/", "/", { locale: "en" }) : router.push("/es");
+    router.push({ pathname, query }, asPath, { locale: e });
   };
 
   return (
