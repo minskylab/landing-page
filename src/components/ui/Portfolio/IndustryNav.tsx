@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createStyles, Box, Text, Group } from "@mantine/core";
+import { createStyles, Box } from "@mantine/core";
 import { useTranslation } from "next-i18next";
 
 const LINK_HEIGHT = 38;
@@ -47,15 +47,15 @@ const useStyles = createStyles(theme => ({
   },
 }));
 
-export function TableOfContentsFloating() {
+type ItemsProps = {
+  name: string;
+  label: string;
+};
+
+const IndustryNav = () => {
   const { classes, cx } = useStyles();
   const [active, setActive] = useState(2);
   const { t } = useTranslation(["portfolio"]);
-
-  type ItemsProps = {
-    name: string;
-    label: string;
-  };
 
   const items = t<string, ItemsProps[]>("industries", { returnObjects: true }).map(
     ({ name, label }, index: number) => {
@@ -88,4 +88,6 @@ export function TableOfContentsFloating() {
       </div>
     </div>
   );
-}
+};
+
+export default IndustryNav;
