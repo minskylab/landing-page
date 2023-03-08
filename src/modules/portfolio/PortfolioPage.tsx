@@ -3,15 +3,25 @@ import IndustryNav from "components/ui/Portfolio/IndustryNav";
 import ProjectCard, { ProjectType } from "components/ui/Portfolio/ProjectCard";
 import { useTranslation } from "next-i18next";
 import { ChevronDown, ChevronUp } from "tabler-icons-react";
+import { useState } from "react";
 
 export default function PortfolioPageContent() {
   const { t } = useTranslation("portfolio");
+  const [selectedIndustry, setSelectedIndustry] = useState<string | null>(null);
 
-  const projects = t<string, ProjectType[]>("projects", { returnObjects: true }).map(
-    (project, index: number) => {
-      return <ProjectCard key={index} project={project} />;
+  const projectsList = t<string, ProjectType[]>("projects", { returnObjects: true }).filter(
+    project => {
+      if (!selectedIndustry) {
+        return true;
+      }
+
+      return project.industry == selectedIndustry;
     }
   );
+
+  const projects = projectsList.map((project, index: number) => {
+    return <ProjectCard key={index} project={project} />;
+  });
 
   return (
     <Container size={"xl"}>
@@ -27,7 +37,7 @@ export default function PortfolioPageContent() {
           <Text size="lg" weight={"bold"}>
             {t("industryTitle")}
           </Text>
-          <IndustryNav />
+          <IndustryNav setSelectedIndustry={setSelectedIndustry} />
         </Stack>
         <Spoiler
           maxHeight={580}

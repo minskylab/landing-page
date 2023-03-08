@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { createStyles, Box } from "@mantine/core";
 import { useTranslation } from "next-i18next";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const LINK_HEIGHT = 38;
 const INDICATOR_SIZE = 10;
@@ -9,6 +11,7 @@ const INDICATOR_OFFSET = (LINK_HEIGHT - INDICATOR_SIZE) / 2;
 const useStyles = createStyles(theme => ({
   link: {
     ...theme.fn.focusStyles(),
+    cursor: "pointer",
     display: "block",
     textDecoration: "none",
     color: theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.black,
@@ -52,27 +55,36 @@ type ItemsProps = {
   label: string;
 };
 
-const IndustryNav = () => {
+type IndustryNavProps = {
+  setSelectedIndustry: (selectedIndustry: string | null) => void;
+};
+
+const IndustryNav = ({ setSelectedIndustry }: IndustryNavProps) => {
   const { classes, cx } = useStyles();
   const [active, setActive] = useState<number | null>(null);
   const { t } = useTranslation(["portfolio"]);
+  const { pathname, query } = useRouter();
 
   const items = t<string, ItemsProps[]>("industries", { returnObjects: true }).map(
     ({ name, label }, index: number) => {
       return (
-        <Box<"a">
-          component="a"
-          href={label}
-          onClick={event => {
-            event.preventDefault();
-            setActive(index);
-          }}
+        <Link
           key={label}
-          className={cx(classes.link, { [classes.linkActive]: active === index })}
-          sx={{ paddingLeft: 20 }}
+          href={{ pathname: pathname, query: { ...query, industry: label } }}
+          /* style={{ textDecoration: "none" }} */
         >
-          {name}
-        </Box>
+          <Box
+            onClick={event => {
+              /* event.preventDefault(); */
+              active == index ? setActive(null) : setActive(index);
+              active == index ? setSelectedIndustry(null) : setSelectedIndustry(label);
+            }}
+            className={cx(classes.link, { [classes.linkActive]: active === index })}
+            sx={{ paddingLeft: 20 }}
+          >
+            {name}
+          </Box>
+        </Link>
       );
     }
   );
