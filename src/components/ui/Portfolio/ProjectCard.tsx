@@ -10,9 +10,11 @@ import {
 } from "@mantine/core";
 import LogesLogo from "assets/LogesLogo";
 import { useTranslation } from "next-i18next";
+import Link from "next/link";
 
 const useStyles = createStyles(theme => ({
   card: {
+    cursor: "pointer",
     transition: "transform 150ms ease, box-shadow 150ms ease",
 
     "&:hover": {
@@ -97,28 +99,30 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
   };
 
   return (
-    <Card p="xl" radius="md" component="a" href="#" className={classes.card}>
-      <Group>
-        <Center sx={{ minWidth: 200 }}>{logo}</Center>
-        <Stack spacing={20}>
-          <Text transform="uppercase" sx={{ letterSpacing: 2 }}>
-            {project.client}
-          </Text>
-          <Text sx={{ fontSize: 45 }} weight="bold">
-            {project.name} <Text inherit>{project.shortDescription}</Text>
-          </Text>
-          <Group>
-            {project.services.map((service, index) => {
-              return (
-                <Text key={index} color="dimmed" size="sm">
-                  {getServiceName(service)}
-                </Text>
-              );
-            })}
-          </Group>
-        </Stack>
-      </Group>
-    </Card>
+    <Link href={`/portfolio/${project.link}`} passHref>
+      <Card p="xl" radius="md" className={classes.card}>
+        <Group>
+          <Center sx={{ minWidth: 200 }}>{logo}</Center>
+          <Stack spacing={20}>
+            <Text transform="uppercase" sx={{ letterSpacing: 2 }}>
+              {project.client}
+            </Text>
+            <Text sx={{ fontSize: 45 }} weight="bold">
+              {project.name} <Text inherit>{project.shortDescription}</Text>
+            </Text>
+            <Group>
+              {project.services.map((service, index) => {
+                return (
+                  <Text key={index} color="dimmed" size="sm">
+                    {getServiceName(service)}
+                  </Text>
+                );
+              })}
+            </Group>
+          </Stack>
+        </Group>
+      </Card>
+    </Link>
   );
 };
 

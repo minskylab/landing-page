@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import AppLayout from "components/ui/AppLayout";
 import { ReactElement } from "react";
-import type { NextPageWithLayout } from "./_app";
+import { NextPageWithLayout } from "pages/_app";
 
 const PortfolioPage: NextPageWithLayout = () => {
   return <PortfolioPageContent />;
