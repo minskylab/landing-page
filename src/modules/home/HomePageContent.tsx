@@ -1,5 +1,4 @@
 import { Center, Container, Loader, Space } from "@mantine/core";
-import { MinskyFooter } from "components/ui/Footer";
 import { MinskyHeroTitle } from "components/ui/Hero";
 import dynamic from "next/dynamic";
 import { Check } from "tabler-icons-react";
@@ -125,7 +124,6 @@ const HomePageContent: NextPage = () => {
           }}
         />
       </Container>
-      <MinskyFooter />
     </>
   );
 };

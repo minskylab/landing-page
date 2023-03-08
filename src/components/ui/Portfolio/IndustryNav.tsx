@@ -68,14 +68,9 @@ const IndustryNav = ({ setSelectedIndustry }: IndustryNavProps) => {
   const items = t<string, ItemsProps[]>("industries", { returnObjects: true }).map(
     ({ name, label }, index: number) => {
       return (
-        <Link
-          key={label}
-          href={{ pathname: pathname, query: { ...query, industry: label } }}
-          /* style={{ textDecoration: "none" }} */
-        >
+        <Link key={label} href={{ pathname: pathname, query: { ...query, industry: label } }}>
           <Box
-            onClick={event => {
-              /* event.preventDefault(); */
+            onClick={() => {
               active == index ? setActive(null) : setActive(index);
               active == index ? setSelectedIndustry(null) : setSelectedIndustry(label);
             }}

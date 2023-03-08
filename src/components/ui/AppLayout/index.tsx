@@ -1,6 +1,7 @@
 import { ReactElement } from "react";
 import { Container } from "@mantine/core";
 import { MinskyLandingHeader } from "../Header/index";
+import { MinskyFooter } from "../Footer";
 
 const AppLayout = ({ children }: { children: ReactElement }) => {
   return (
@@ -9,6 +10,7 @@ const AppLayout = ({ children }: { children: ReactElement }) => {
         <MinskyLandingHeader />
       </Container>
       {children}
+      <MinskyFooter />
     </>
   );
 };
