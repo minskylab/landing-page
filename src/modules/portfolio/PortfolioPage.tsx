@@ -1,8 +1,10 @@
 import { Container, Text } from "@mantine/core";
+import { TableOfContentsFloating } from "components/ui/Portfolio/IndustryNav";
 import { useTranslation } from "next-i18next";
 
 export default function PortfolioPageContent() {
   const { t } = useTranslation("portfolio");
+
   return (
     <Container size={"xl"}>
       <Text
@@ -12,6 +14,7 @@ export default function PortfolioPageContent() {
       >
         {t("headline")}
       </Text>
+      <TableOfContentsFloating />
     </Container>
   );
 }
