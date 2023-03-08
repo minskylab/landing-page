@@ -6,7 +6,7 @@ import Head from "next/head";
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
 import Fonts from "theming/fonts";
 import { minskyBrandDark, minskyBrandPrimary } from "theming";
-import { NotificationsProvider } from "@mantine/notifications";
+import { Notifications } from "@mantine/notifications";
 import { DefaultSeo } from "next-seo";
 import Script from "next/script";
 import { appWithTranslation } from "next-i18next";
@@ -53,7 +53,7 @@ const MinskyLandingApp = (props: AppProps & { colorScheme: ColorScheme }) => {
             primaryColor: "brand",
           }}
         >
-          <NotificationsProvider position="top-right">
+          <Notifications position="top-right">
             <Fonts />
             <DefaultSeo
               title="Minsky | Open Technology Innovation"
@@ -88,7 +88,7 @@ const MinskyLandingApp = (props: AppProps & { colorScheme: ColorScheme }) => {
               }}
             />
             <Component {...pageProps} />
-          </NotificationsProvider>
+          </Notifications>
         </MantineProvider>
       </ColorSchemeProvider>
     </>
@@ -101,4 +101,3 @@ MinskyLandingApp.getInitialProps = ({ ctx }: { ctx: GetServerSidePropsContext })
 });
 
 export default appWithTranslation(MinskyLandingApp);
-

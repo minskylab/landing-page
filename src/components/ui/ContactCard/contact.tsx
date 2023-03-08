@@ -1,7 +1,7 @@
 import React from "react";
-import { createStyles, ThemeIcon, Text, Group, SimpleGrid, Box } from "@mantine/core";
+import { createStyles, ThemeIcon, Text, Group, SimpleGrid, Box, Flex } from "@mantine/core";
 import { Sun, Phone, MapPin, At } from "tabler-icons-react";
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from "next-i18next";
 
 type ContactIconVariant = "white" | "gradient";
 
@@ -20,8 +20,9 @@ const useStyles = createStyles((theme, { variant }: ContactIconStyles) => ({
     marginRight: theme.spacing.md,
     backgroundImage:
       variant === "gradient"
-        ? `linear-gradient(135deg, ${theme.colors[theme.primaryColor][4]} 0%, ${theme.colors[theme.primaryColor][6]
-        } 100%)`
+        ? `linear-gradient(135deg, ${theme.colors[theme.primaryColor][4]} 0%, ${
+            theme.colors[theme.primaryColor][6]
+          } 100%)`
         : "none",
     backgroundColor: "transparent",
   },
@@ -80,18 +81,24 @@ interface ContactIconsListProps {
 }
 
 export function ContactIconsList({ variant }: ContactIconsListProps) {
-  const { t } = useTranslation('home');
+  const { t } = useTranslation("home");
 
   const MOCKDATA = [
     { title: t("contactInformation.fields.email"), description: "hello@minsky.cc", icon: At },
     { title: t("contactInformation.fields.phone"), description: "+51 924 122 969", icon: Phone },
-    { title: t("contactInformation.fields.address"), description: "Jr. Rosendo Vidaurre 641, Lima, Barranco", icon: MapPin },
+    {
+      title: t("contactInformation.fields.address"),
+      description: "Jr. Rosendo Vidaurre 641, Lima, Barranco",
+      icon: MapPin,
+    },
     { title: t("contactInformation.fields.hours"), description: "08:00 to 18:00.", icon: Sun },
   ];
 
-  const items = MOCKDATA.map((item, index) => <ContactIcon key={index} variant={variant} {...item} />);
+  const items = MOCKDATA.map((item, index) => (
+    <ContactIcon key={index} variant={variant} {...item} />
+  ));
 
-  return <Group direction="column">{items}</Group>;
+  return <Flex direction="column">{items}</Flex>;
 }
 
 export function ContactIcons() {
@@ -111,8 +118,9 @@ export function ContactIcons() {
         sx={theme => ({
           padding: theme.spacing.xl,
           borderRadius: theme.radius.md,
-          backgroundImage: `linear-gradient(135deg, ${theme.colors[theme.primaryColor][6]} 0%, ${theme.colors[theme.primaryColor][4]
-            } 100%)`,
+          backgroundImage: `linear-gradient(135deg, ${theme.colors[theme.primaryColor][6]} 0%, ${
+            theme.colors[theme.primaryColor][4]
+          } 100%)`,
         })}
       >
         <ContactIconsList variant="white" />
