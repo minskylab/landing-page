@@ -1,5 +1,5 @@
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
-import { getCookie, setCookies } from "cookies-next";
+import { setCookies } from "cookies-next";
 import { useState, ReactNode } from "react";
 
 import Fonts from "theming/fonts";
@@ -29,7 +29,7 @@ export const MyMantineProvider = ({ children, colorScheme }: MantineProviderProp
           withGlobalStyles
           withNormalizeCSS
           theme={{
-            colorScheme: colorScheme,
+            colorScheme: currentColorScheme,
             fontFamily: "Open Sans",
             fontFamilyMonospace: "Ubuntu Mono",
             colors: {
