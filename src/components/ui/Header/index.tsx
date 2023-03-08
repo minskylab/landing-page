@@ -81,11 +81,7 @@ const useStyles = createStyles(theme => ({
     width: 130,
   },
   header: {
-    marginBottom: 80,
     borderBottom: 0,
-    [theme.fn.smallerThan("sm")]: {
-      marginBottom: 12,
-    },
   },
 }));
 

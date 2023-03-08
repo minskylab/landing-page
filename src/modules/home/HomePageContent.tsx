@@ -44,10 +44,12 @@ const HomePageContent: NextPage = () => {
       <Container
         size={"xl"}
         sx={theme => ({
+          marginTop: 80,
           marginBottom: 80,
           maxHeight: 520,
           height: "35vh",
           [theme.fn.smallerThan("sm")]: {
+            marginTop: 12,
             marginBottom: 12,
           },
         })}
