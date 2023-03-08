@@ -8,6 +8,7 @@ import {
   Text,
   useMantineColorScheme,
 } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import LogesLogo from "assets/LogesLogo";
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
@@ -22,43 +23,111 @@ const useStyles = createStyles(theme => ({
       boxShadow: theme.shadows.md,
     },
   },
+  cardContainer: {
+    [theme.fn.smallerThan("xs")]: {
+      flexDirection: "column",
+    },
+  },
+  cardTextSection: {
+    flex: 1,
+    [theme.fn.smallerThan("xs")]: {
+      gap: 10,
+    },
+  },
+  cardTitle: {
+    fontSize: 45,
+    [theme.fn.smallerThan("lg")]: {
+      fontSize: 38,
+    },
+    [theme.fn.smallerThan("md")]: {
+      fontSize: 30,
+    },
+  },
+  cardClient: {
+    [theme.fn.smallerThan("md")]: {
+      fontSize: 14,
+    },
+  },
 }));
 
-const getLogo = (projectName: string, colorScheme: ColorScheme) => {
+const getLogo = (projectName: string, colorScheme: ColorScheme, largeScreen: boolean) => {
   return (
-    <Center sx={{ minWidth: 200 }}>
+    <Center
+      sx={theme => ({
+        minWidth: 200,
+        [theme.fn.smallerThan("md")]: {
+          minWidth: 150,
+        },
+        [theme.fn.smallerThan("sm")]: {
+          minWidth: 100,
+        },
+      })}
+    >
       {projectName === "tele-us" && (
-        <LogesLogo scale={0.3} fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined} />
+        <LogesLogo
+          scale={largeScreen ? 0.2 : 0.3}
+          fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
+        />
       )}
       {projectName === "pachatec" && (
-        <LogesLogo scale={0.3} fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined} />
+        <LogesLogo
+          scale={largeScreen ? 0.2 : 0.3}
+          fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
+        />
       )}
       {projectName === "neo-vigilancia-integrada" && (
-        <LogesLogo scale={0.3} fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined} />
+        <LogesLogo
+          scale={largeScreen ? 0.2 : 0.3}
+          fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
+        />
       )}
       {projectName === "loges" && (
-        <LogesLogo scale={0.3} fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined} />
+        <LogesLogo
+          scale={largeScreen ? 0.2 : 0.3}
+          fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
+        />
       )}
       {projectName === "redmop" && (
-        <LogesLogo scale={0.3} fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined} />
+        <LogesLogo
+          scale={largeScreen ? 0.2 : 0.3}
+          fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
+        />
       )}
       {projectName === "qronica" && (
-        <LogesLogo scale={0.3} fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined} />
+        <LogesLogo
+          scale={largeScreen ? 0.2 : 0.3}
+          fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
+        />
       )}
       {projectName === "totemiq-experiences" && (
-        <LogesLogo scale={0.3} fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined} />
+        <LogesLogo
+          scale={largeScreen ? 0.2 : 0.3}
+          fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
+        />
       )}
       {projectName === "experiencia-astronomica-vr" && (
-        <LogesLogo scale={0.3} fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined} />
+        <LogesLogo
+          scale={largeScreen ? 0.2 : 0.3}
+          fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
+        />
       )}
       {projectName === "vax-canina" && (
-        <LogesLogo scale={0.3} fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined} />
+        <LogesLogo
+          scale={largeScreen ? 0.2 : 0.3}
+          fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
+        />
       )}
       {projectName === "projection-mapping" && (
-        <LogesLogo scale={0.3} fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined} />
+        <LogesLogo
+          scale={largeScreen ? 0.2 : 0.3}
+          fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
+        />
       )}
       {projectName === "workdyst" && (
-        <LogesLogo scale={0.3} fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined} />
+        <LogesLogo
+          scale={largeScreen ? 0.2 : 0.3}
+          fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
+        />
       )}
     </Center>
   );
@@ -86,9 +155,10 @@ type ServicesProps = {
 };
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
-  const { classes } = useStyles();
+  const { classes, theme } = useStyles();
+  const largeScreen = useMediaQuery(`(max-width: 1200px)`);
   const { colorScheme } = useMantineColorScheme();
-  const logo = getLogo(project.link, colorScheme);
+  const logo = getLogo(project.link, colorScheme, largeScreen);
   const { t } = useTranslation("portfolio");
 
   const getServiceName = (service: string) => {
@@ -101,16 +171,19 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
     <Link href={`/portfolio/${project.link}`} passHref>
       <Card p="xl" radius="md" className={classes.card}>
-        <Group>
-          <Center sx={{ minWidth: 200 }}>{logo}</Center>
-          <Stack spacing={20}>
-            <Text transform="uppercase" sx={{ letterSpacing: 2 }}>
+        <Group className={classes.cardContainer}>
+          {logo}
+          <Stack spacing={15} className={classes.cardTextSection}>
+            <Text transform="uppercase" sx={{ letterSpacing: 2 }} className={classes.cardClient}>
               {project.client}
             </Text>
-            <Text sx={{ fontSize: 45 }} weight="bold">
-              {project.name} <Text inherit>{project.shortDescription}</Text>
+            <Text weight="bold" className={classes.cardTitle}>
+              {project.name}{" "}
+              <Text weight={400} className={classes.cardTitle}>
+                {project.shortDescription}
+              </Text>
             </Text>
-            <Group>
+            <Group spacing={10}>
               {project.services.map((service, index) => {
                 return (
                   <Text key={index} color="dimmed" size="sm">
