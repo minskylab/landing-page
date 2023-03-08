@@ -54,7 +54,7 @@ type ItemsProps = {
 
 const IndustryNav = () => {
   const { classes, cx } = useStyles();
-  const [active, setActive] = useState(2);
+  const [active, setActive] = useState<number | null>(null);
   const { t } = useTranslation(["portfolio"]);
 
   const items = t<string, ItemsProps[]>("industries", { returnObjects: true }).map(
@@ -69,7 +69,7 @@ const IndustryNav = () => {
           }}
           key={label}
           className={cx(classes.link, { [classes.linkActive]: active === index })}
-          sx={theme => ({ paddingLeft: 20 })}
+          sx={{ paddingLeft: 20 }}
         >
           {name}
         </Box>
@@ -81,8 +81,13 @@ const IndustryNav = () => {
     <div>
       <div className={classes.links}>
         <div
-          className={classes.indicator}
-          style={{ transform: `translateY(${active * LINK_HEIGHT + INDICATOR_OFFSET}px)` }}
+          className={typeof active == "number" ? classes.indicator : undefined}
+          style={{
+            transform:
+              typeof active == "number"
+                ? `translateY(${active * LINK_HEIGHT + INDICATOR_OFFSET}px)`
+                : undefined,
+          }}
         />
         {items}
       </div>
