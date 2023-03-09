@@ -1,11 +1,4 @@
-import {
-  useMantineColorScheme,
-  createStyles,
-  Container,
-  Center,
-  Group,
-  Title,
-} from "@mantine/core";
+import { useMantineColorScheme, createStyles, Center, Group, Title } from "@mantine/core";
 import { useViewportSize } from "@mantine/hooks";
 import MinskyLogotype from "../../future/MinskyLogo";
 import { useTranslation } from "next-i18next";

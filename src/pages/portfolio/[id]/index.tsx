@@ -15,9 +15,9 @@ ProjectPage.getLayout = function getLayout(page: ReactElement) {
 
 export default ProjectPage;
 
-export const getServerSideProps: GetServerSideProps = async ({ locale, query }) => {
-  const { id } = query;
-  console.log(id);
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+  /* const { id } = query; */
+
   return {
     props: {
       ...(await serverSideTranslations(locale as string, ["common", "home", "portfolio"])),

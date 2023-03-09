@@ -1,6 +1,5 @@
 import {
   createStyles,
-  Menu,
   Header,
   Container,
   Group,
@@ -9,7 +8,6 @@ import {
   ActionIcon,
   useMantineColorScheme,
   Drawer,
-  Text,
   Select,
   Divider,
   Title,
@@ -22,9 +20,6 @@ import Link from "next/link";
 import MinskyLogotype from "../../future/MinskyLogo";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-
-const HEADER_HEIGHT = 60;
-const BREAKPOINT = "@media (max-width: 755px)";
 
 const useStyles = createStyles(theme => ({
   inner: {
@@ -85,14 +80,6 @@ const useStyles = createStyles(theme => ({
     borderBottom: 0,
   },
 }));
-
-interface MinskyLandingHeaderProps {
-  links: {
-    link: string;
-    label: string;
-    links?: { link: string; label: string }[];
-  }[];
-}
 
 export function MinskyLandingHeader() {
   const { classes } = useStyles();

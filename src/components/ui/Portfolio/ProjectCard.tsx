@@ -142,7 +142,7 @@ type ServicesProps = {
 };
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
-  const { classes, theme } = useStyles();
+  const { classes } = useStyles();
   const largeScreen = useMediaQuery(`(max-width: 1200px)`);
   const { colorScheme } = useMantineColorScheme();
   const logo = getLogo(project.link, colorScheme, largeScreen);

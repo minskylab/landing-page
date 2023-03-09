@@ -117,7 +117,6 @@ const HomePageContent: NextPage = () => {
             setLoading(true);
             const item = await createNewSubscriber(sub);
             setLoading(false);
-            console.log(`created new subscriber: ${item}`);
             notifications.showNotification({
               title: t("getInTouchNotification.title"),
               color: "green",
