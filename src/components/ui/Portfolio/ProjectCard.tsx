@@ -44,7 +44,7 @@ const useStyles = createStyles(theme => ({
     },
   },
   cardTitle: {
-    lineHeight: 1.2,
+    lineHeight: 1.3,
     fontSize: 34,
     [theme.fn.smallerThan("sm")]: {
       fontSize: 30,
