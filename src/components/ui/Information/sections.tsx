@@ -4,7 +4,7 @@ import { MinskyLandingSection } from "lib/landing/structure";
 import { BrandGithub } from "tabler-icons-react";
 import Link from "next/link";
 import { useCallback } from "react";
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from "next-i18next";
 
 type MinskyLandingSections = {
   sections: MinskyLandingSection[];
@@ -24,15 +24,21 @@ type MinskyLandingSectionLast = {
 export function MinskyLandingSections() {
   let aboutUsSection: MinskyLandingSection | undefined;
   let ourWorkSection: MinskyLandingSection | undefined;
-  const handleClickExternalURL = useCallback(() => { window.open("https://github.com/minskylab", "_blank") }, []);
-  const { t } = useTranslation(['home', 'common']);
+  const handleClickExternalURL = useCallback(() => {
+    window.open("https://github.com/minskylab", "_blank");
+  }, []);
+  const { t } = useTranslation(["home", "common"]);
 
   //Dar formato a las traducciones obtenidas del archivo home.json
   const sections = t<string, MinskyLandingSectionLast[]>("sections", { returnObjects: true }).map(
-    ({ type, title, description, artType, art }, index: number) => (
-      { type: type, title: title, description: description, art: art, artType: artType }
-    )
-  )
+    ({ type, title, description, artType, art }) => ({
+      type: type,
+      title: title,
+      description: description,
+      art: art,
+      artType: artType,
+    })
+  );
 
   sections.forEach(section => {
     if (section.type === "about-us") {
@@ -56,12 +62,12 @@ export function MinskyLandingSections() {
         <Group position="left">
           <Group sx={{ justifyContent: "flex-start", maxWidth: 380, marginTop: 12 }} spacing={"md"}>
             <Title
-              sx={theme => ({
+              sx={{
                 // fontSize: 42,
                 fontWeight: 900,
                 fontFamily: "Open Sans",
                 textAlign: "start",
-              })}
+              }}
             >
               {aboutUsSection?.title}
             </Title>
@@ -71,18 +77,18 @@ export function MinskyLandingSections() {
             )?.map(paragraph => (
               <Text
                 key={paragraph}
-                sx={theme => ({
+                sx={{
                   // maxWidth: 320,
                   // marginTop: 12,
                   lineHeight: 1.68,
                   // fontSize: 18,
-                })}
+                }}
               >
                 {paragraph}
               </Text>
             ))}
             <Link href="/team" passHref>
-              <Button component="a">{t("dreamTeamBtn", { ns: 'common' })}</Button>
+              <Button component="a">{t("dreamTeamBtn", { ns: "common" })}</Button>
             </Link>
           </Group>
         </Group>
@@ -137,7 +143,7 @@ export function MinskyLandingSections() {
               </Text>
             ))}
             <Button color="dark" leftIcon={<BrandGithub />} onClick={handleClickExternalURL}>
-              {t("githubBtn", { ns: 'common' })}
+              {t("githubBtn", { ns: "common" })}
             </Button>
           </Group>
         </Group>

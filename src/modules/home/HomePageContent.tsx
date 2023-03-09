@@ -1,6 +1,4 @@
-import { Center, Container, Loader, Space } from "@mantine/core";
-import { MinskyFooter } from "components/ui/Footer";
-import { MinskyLandingHeader } from "components/ui/Header";
+import { Box, Center, Container, Loader, Space } from "@mantine/core";
 import { MinskyHeroTitle } from "components/ui/Hero";
 import dynamic from "next/dynamic";
 import { Check } from "tabler-icons-react";
@@ -41,16 +39,19 @@ const HomePageContent: NextPage = () => {
   const { t } = useTranslation("home");
 
   return (
-    <>
-      <Container mt="lg" size={"xl"}>
-        <MinskyLandingHeader />
-      </Container>
+    <Box
+      sx={theme => ({
+        marginTop: 194,
+        [theme.fn.smallerThan("sm")]: {
+          marginTop: 24,
+        },
+      })}
+    >
       <Container
         size={"xl"}
         sx={theme => ({
           marginBottom: 80,
           maxHeight: 520,
-          height: "35vh",
           [theme.fn.smallerThan("sm")]: {
             marginBottom: 12,
           },
@@ -116,7 +117,6 @@ const HomePageContent: NextPage = () => {
             setLoading(true);
             const item = await createNewSubscriber(sub);
             setLoading(false);
-            console.log(`created new subscriber: ${item}`);
             notifications.showNotification({
               title: t("getInTouchNotification.title"),
               color: "green",
@@ -127,8 +127,7 @@ const HomePageContent: NextPage = () => {
           }}
         />
       </Container>
-      <MinskyFooter />
-    </>
+    </Box>
   );
 };
 

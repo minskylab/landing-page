@@ -1,16 +1,10 @@
 import * as THREE from "three";
-import React, { Suspense, useEffect, useState, useRef, ReactElement } from "react";
+import React, { Suspense, useEffect, useState, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import {
-  PerspectiveCamera,
-  Environment,
-  MeshDistortMaterial,
-  ContactShadows,
-  useAspect,
-} from "@react-three/drei";
+import { PerspectiveCamera, MeshDistortMaterial } from "@react-three/drei";
 import { useSpring } from "@react-spring/core";
 import { a } from "@react-spring/three";
-import { Mesh, RepeatWrapping } from "three";
+import { Mesh } from "three";
 
 const AnimatedMaterial = a(MeshDistortMaterial);
 

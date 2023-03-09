@@ -1,12 +1,5 @@
-import {
-  createStyles,
-  Container,
-  Text,
-  Group,
-  useMantineTheme,
-  Highlight,
-} from "@mantine/core";
-import { useTranslation } from 'next-i18next';
+import { createStyles, Container, Text, Group, useMantineTheme, Highlight } from "@mantine/core";
+import { useTranslation } from "next-i18next";
 
 const useStyles = createStyles(theme => ({
   wrapper: {
@@ -59,8 +52,9 @@ const useStyles = createStyles(theme => ({
     backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[5] : "transparent",
 
     "&:hover": {
-      backgroundColor: `${theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0]
-        } !important`,
+      backgroundColor: `${
+        theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0]
+      } !important`,
     },
   },
 }));
@@ -69,9 +63,9 @@ type MinskyHeadline = string;
 type MinskyMinimalDescription = string;
 
 export const MinskyHeroTitle = () => {
-  const { classes, cx } = useStyles();
+  const { classes } = useStyles();
   const theme = useMantineTheme();
-  const { t } = useTranslation('home');
+  const { t } = useTranslation("home");
 
   return (
     <>

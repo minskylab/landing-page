@@ -1,4 +1,3 @@
-import { useColorScheme } from "@mantine/hooks";
 import React from "react";
 
 type MinskyLogotypeProps = {

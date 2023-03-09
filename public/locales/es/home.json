@@ -1,6 +1,10 @@
 {
   "headerTopics": [
     {
+      "label": "Portafolio",
+      "link": "portfolio"
+    },
+    {
       "label": "Plataforma",
       "link": "platform"
     },
