@@ -1,8 +1,19 @@
 import { useState } from "react";
-import { createStyles, Box } from "@mantine/core";
+import {
+  createStyles,
+  Box,
+  Menu,
+  Button,
+  UnstyledButton,
+  Collapse,
+  Stack,
+  Group,
+  Text,
+} from "@mantine/core";
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { ChevronDown, ChevronUp } from "tabler-icons-react";
 
 const LINK_HEIGHT = 38;
 const INDICATOR_SIZE = 10;
@@ -48,6 +59,15 @@ const useStyles = createStyles(theme => ({
     position: "absolute",
     left: `calc(-${INDICATOR_SIZE} / 2 + ${1})`,
   },
+  menuItem: {
+    padding: "10px 0px",
+    fontSize: 14,
+    cursor: "pointer",
+
+    "&:hover": {
+      backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0],
+    },
+  },
 }));
 
 type ItemsProps = {
@@ -59,7 +79,7 @@ type IndustryNavProps = {
   setSelectedIndustry: (selectedIndustry: string | null) => void;
 };
 
-const IndustryNav = ({ setSelectedIndustry }: IndustryNavProps) => {
+export const IndustryNav = ({ setSelectedIndustry }: IndustryNavProps) => {
   const { classes, cx } = useStyles();
   const [active, setActive] = useState<number | null>(null);
   const { t } = useTranslation(["portfolio"]);
@@ -102,4 +122,64 @@ const IndustryNav = ({ setSelectedIndustry }: IndustryNavProps) => {
   );
 };
 
-export default IndustryNav;
+export const IndustryMenu = ({ setSelectedIndustry }: IndustryNavProps) => {
+  const { classes, cx } = useStyles();
+  const { t } = useTranslation(["portfolio"]);
+  const { pathname, query } = useRouter();
+  const activeIndustry = query.industry;
+  const [opened, setOpen] = useState(false);
+
+  const items = t<string, ItemsProps[]>("industries", { returnObjects: true }).map(
+    ({ name, label }) => {
+      return (
+        <Link key={label} href={{ pathname: pathname, query: { ...query, industry: label } }}>
+          <Box
+            className={cx(classes.menuItem, { [classes.linkActive]: activeIndustry == label })}
+            onClick={() => {
+              setSelectedIndustry(label);
+            }}
+          >
+            {name}
+          </Box>
+        </Link>
+      );
+    }
+  );
+  return (
+    <>
+      <UnstyledButton
+        onClick={() => setOpen(o => !o)}
+        sx={theme => ({
+          width: "100%",
+          borderBottom: `1px solid ${
+            theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[2]
+          }`,
+        })}
+      >
+        <Group position="apart" pb={5}>
+          <Text size="lg" weight={"bold"}>
+            Industry
+          </Text>
+          {opened ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+        </Group>
+      </UnstyledButton>
+      <Collapse in={opened}>
+        <Stack spacing={0} p={10}>
+          <Link href={{ pathname: pathname }}>
+            <Box
+              className={cx(classes.menuItem, {
+                [classes.linkActive]: activeIndustry == undefined,
+              })}
+              onClick={() => {
+                setSelectedIndustry(null);
+              }}
+            >
+              All
+            </Box>
+          </Link>
+          {items}
+        </Stack>
+      </Collapse>
+    </>
+  );
+};

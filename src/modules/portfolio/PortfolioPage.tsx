@@ -6,8 +6,9 @@ import {
   Spoiler,
   createStyles,
   useMantineColorScheme,
+  Box,
 } from "@mantine/core";
-import IndustryNav from "components/ui/Portfolio/IndustryNav";
+import { IndustryMenu, IndustryNav } from "components/ui/Portfolio/IndustryNav";
 import ProjectCard, { ProjectType } from "components/ui/Portfolio/ProjectCard";
 import { useTranslation } from "next-i18next";
 import { ChevronDown, ChevronUp } from "tabler-icons-react";
@@ -26,10 +27,19 @@ const useStyles = createStyles(theme => {
         padding: "40px 20px",
       },
     },
+    menuSection: {
+      display: "none",
+      width: "100%",
+      paddingLeft: 20,
+      [theme.fn.smallerThan("md")]: {
+        display: "block",
+      },
+    },
     navSection: {
       minWidth: 200,
+
       [theme.fn.smallerThan("md")]: {
-        paddingLeft: 20,
+        display: "none",
       },
     },
     projectSection: {
@@ -40,10 +50,9 @@ const useStyles = createStyles(theme => {
     cardsection: {
       flex: 1,
       [theme.fn.smallerThan("md")]: {
-        alignSelf: "center",
+        width: "100%",
       },
     },
-
     spoilerLabel: {
       color: colorScheme === "dark" ? theme.colors.gray[3] : "black",
     },
@@ -76,6 +85,9 @@ export default function PortfolioPageContent() {
         {t("headline")}
       </Text>
       <Group spacing={40} align="flex-start" className={classes.projectSection}>
+        <Box className={classes.menuSection}>
+          <IndustryMenu setSelectedIndustry={setSelectedIndustry} />
+        </Box>
         <Stack className={classes.navSection}>
           <Text size="lg" weight={"bold"}>
             {t("industryTitle")}
@@ -83,7 +95,7 @@ export default function PortfolioPageContent() {
           <IndustryNav setSelectedIndustry={setSelectedIndustry} />
         </Stack>
         <Spoiler
-          maxHeight={530}
+          maxHeight={660}
           showLabel={
             <Group>
               <Text weight={"bold"} className={classes.spoilerLabel}>
