@@ -4,8 +4,6 @@ import {
   Stack,
   Text,
   Spoiler,
-  Menu,
-  UnstyledButton,
   createStyles,
   useMantineColorScheme,
 } from "@mantine/core";
@@ -24,8 +22,9 @@ const useStyles = createStyles(theme => {
       fontFamily: `${theme.fontFamily}`,
       [theme.fn.smallerThan("lg")]: {
         fontSize: 38,
-        paddingBottom: 40,
-        paddingTop: 40,
+        /*  paddingBottom: 40,
+        paddingTop: 40, */
+        padding: "40px 20px",
       },
     },
     projectSection: {
