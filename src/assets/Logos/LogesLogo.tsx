@@ -1,14 +1,9 @@
-type LogesLogotypeProps = {
+type LogesLogoProps = {
   scale?: number;
-  fillColor?: string;
   fillPathColorMid?: string;
 };
 
-export default function LogesLogo({
-  scale = 0.088,
-  fillColor,
-  fillPathColorMid,
-}: LogesLogotypeProps) {
+export default function LogesLogo({ scale = 1, fillPathColorMid }: LogesLogoProps) {
   return (
     <svg
       width={340 * scale}

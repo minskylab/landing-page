@@ -9,7 +9,15 @@ import {
   useMantineColorScheme,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
-import LogesLogo from "assets/LogesLogo";
+import LogesLogo from "assets/Logos/LogesLogo";
+import NviLogo from "assets/Logos/NviLogo";
+import PachatecLogo from "assets/Logos/PachatecLogo";
+import QronicaLogo from "assets/Logos/QronicaLogo";
+import RedmopLogo from "assets/Logos/RedmopLogo";
+import TeleusLogo from "assets/Logos/TeleusLogo";
+import TotemiqLogo from "assets/Logos/TotemiqLogo";
+import VaxcaninaLogo from "assets/Logos/VaxcaninaLogo";
+import WorkdystLogo from "assets/Logos/WorkdystLogo";
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
 
@@ -19,7 +27,7 @@ const useStyles = createStyles(theme => ({
     transition: "transform 150ms ease, box-shadow 150ms ease",
 
     "&:hover": {
-      transform: "scale(1.01)",
+      transform: "scale(1.02)",
       boxShadow: theme.shadows.md,
     },
   },
@@ -32,6 +40,7 @@ const useStyles = createStyles(theme => ({
     flex: 1,
     [theme.fn.smallerThan("xs")]: {
       gap: 10,
+      alignSelf: "flex-start",
     },
   },
   cardTitle: {
@@ -60,25 +69,21 @@ const getLogo = (projectName: string, colorScheme: ColorScheme, largeScreen: boo
         },
         [theme.fn.smallerThan("sm")]: {
           minWidth: 100,
+          height: 100,
         },
       })}
     >
-      {projectName === "tele-us" && (
-        <LogesLogo
-          scale={largeScreen ? 0.2 : 0.3}
-          fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
-        />
-      )}
+      {projectName === "tele-us" && <TeleusLogo scale={largeScreen ? 0.2 : 0.25} />}
       {projectName === "pachatec" && (
-        <LogesLogo
-          scale={largeScreen ? 0.2 : 0.3}
-          fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
+        <PachatecLogo
+          scale={largeScreen ? 0.25 : 0.3}
+          fillColor={colorScheme === "dark" ? "#245C4B" : undefined}
         />
       )}
       {projectName === "neo-vigilancia-integrada" && (
-        <LogesLogo
+        <NviLogo
           scale={largeScreen ? 0.2 : 0.3}
-          fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
+          fillColor={colorScheme === "dark" ? "#F43D4E" : undefined}
         />
       )}
       {projectName === "loges" && (
@@ -87,46 +92,28 @@ const getLogo = (projectName: string, colorScheme: ColorScheme, largeScreen: boo
           fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
         />
       )}
-      {projectName === "redmop" && (
-        <LogesLogo
-          scale={largeScreen ? 0.2 : 0.3}
-          fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
-        />
-      )}
+      {projectName === "redmop" && <RedmopLogo scale={largeScreen ? 0.2 : 0.3} />}
       {projectName === "qronica" && (
-        <LogesLogo
+        <QronicaLogo
           scale={largeScreen ? 0.2 : 0.3}
-          fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
+          fillColorFront={colorScheme === "dark" ? "#86C8E4" : undefined}
+          fillColorBack={colorScheme === "dark" ? "#2E6ECD" : undefined}
         />
       )}
       {projectName === "totemiq-experiences" && (
-        <LogesLogo
+        <TotemiqLogo
           scale={largeScreen ? 0.2 : 0.3}
-          fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
+          fillColor={colorScheme === "dark" ? "#FFFFFF" : undefined}
         />
       )}
-      {projectName === "experiencia-astronomica-vr" && (
-        <LogesLogo
-          scale={largeScreen ? 0.2 : 0.3}
-          fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
-        />
-      )}
-      {projectName === "vax-canina" && (
-        <LogesLogo
-          scale={largeScreen ? 0.2 : 0.3}
-          fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
-        />
-      )}
-      {projectName === "projection-mapping" && (
-        <LogesLogo
-          scale={largeScreen ? 0.2 : 0.3}
-          fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
-        />
-      )}
+      {projectName === "experiencia-astronomica-vr" && <></>}
+      {projectName === "vax-canina" && <VaxcaninaLogo scale={largeScreen ? 0.2 : 0.3} />}
+      {projectName === "projection-mapping" && <></>}
       {projectName === "workdyst" && (
-        <LogesLogo
+        <WorkdystLogo
           scale={largeScreen ? 0.2 : 0.3}
-          fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
+          fillColorFront={colorScheme === "dark" ? "#26ED7C" : undefined}
+          fillColorBack={colorScheme === "dark" ? "#4661F2" : undefined}
         />
       )}
     </Center>
@@ -170,7 +157,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
   return (
     <Link href={`/portfolio/${project.link}`} passHref>
-      <Card p="xl" radius="md" className={classes.card}>
+      <Card p="xl" radius="md" shadow="sm" className={classes.card}>
         <Group className={classes.cardContainer}>
           {logo}
           <Stack spacing={15} className={classes.cardTextSection}>
