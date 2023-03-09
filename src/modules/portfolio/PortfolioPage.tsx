@@ -13,6 +13,7 @@ import ProjectCard, { ProjectType } from "components/ui/Portfolio/ProjectCard";
 import { useTranslation } from "next-i18next";
 import { ChevronDown, ChevronUp } from "tabler-icons-react";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const useStyles = createStyles(theme => {
   const { colorScheme } = useMantineColorScheme();
@@ -62,8 +63,12 @@ const useStyles = createStyles(theme => {
 export default function PortfolioPageContent() {
   const { classes, theme } = useStyles();
   const { colorScheme } = useMantineColorScheme();
+
   const { t } = useTranslation("portfolio");
-  const [selectedIndustry, setSelectedIndustry] = useState<string | null>(null);
+
+  const { query } = useRouter();
+  const activeIndustry = query.industry || null;
+  const [selectedIndustry, setSelectedIndustry] = useState(activeIndustry);
 
   const projectsList = t<string, ProjectType[]>("projects", { returnObjects: true }).filter(
     project => {

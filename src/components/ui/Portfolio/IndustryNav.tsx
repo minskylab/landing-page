@@ -83,40 +83,52 @@ export const IndustryNav = ({ setSelectedIndustry }: IndustryNavProps) => {
   const { classes, cx } = useStyles();
   const [active, setActive] = useState<number | null>(null);
   const { t } = useTranslation(["portfolio"]);
-  const { pathname, query } = useRouter();
+  const router = useRouter();
+  const { pathname, query } = router;
+  const activeIndustry = query.industry;
 
-  const items = t<string, ItemsProps[]>("industries", { returnObjects: true }).map(
-    ({ name, label }, index: number) => {
-      return (
-        <Link key={label} href={{ pathname: pathname, query: { ...query, industry: label } }}>
-          <Box
-            onClick={() => {
-              active == index ? setActive(null) : setActive(index);
-              active == index ? setSelectedIndustry(null) : setSelectedIndustry(label);
-            }}
-            className={cx(classes.link, { [classes.linkActive]: active === index })}
-            sx={{ paddingLeft: 20 }}
-          >
-            {name}
-          </Box>
-        </Link>
-      );
-    }
-  );
+  const industries = t<string, ItemsProps[]>("industries", { returnObjects: true });
 
+  const links = industries.map(({ name, label }, index: number) => {
+    return (
+      <Box
+        key={label}
+        onClick={() => {
+          if (active == index) {
+            //Link activo
+            setActive(null);
+            setSelectedIndustry(null);
+            router.push("/portfolio", undefined, { shallow: true });
+          } else {
+            //Link inactivo
+            setActive(index);
+            setSelectedIndustry(label);
+            router.push({ pathname: pathname, query: { ...query, industry: label } });
+          }
+        }}
+        className={cx(classes.link, { [classes.linkActive]: activeIndustry === label })}
+        sx={{ paddingLeft: 20 }}
+      >
+        {name}
+      </Box>
+    );
+  });
+  industries.findIndex(i => i.label == activeIndustry);
   return (
     <div>
       <div className={classes.links}>
         <div
-          className={typeof active == "number" ? classes.indicator : undefined}
+          className={activeIndustry ? classes.indicator : undefined}
           style={{
-            transform:
-              typeof active == "number"
-                ? `translateY(${active * LINK_HEIGHT + INDICATOR_OFFSET}px)`
-                : undefined,
+            transform: activeIndustry
+              ? `translateY(${
+                  industries.findIndex(i => i.label == activeIndustry) * LINK_HEIGHT +
+                  INDICATOR_OFFSET
+                }px)`
+              : undefined,
           }}
         />
-        {items}
+        {links}
       </div>
     </div>
   );
