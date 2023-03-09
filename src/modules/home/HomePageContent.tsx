@@ -1,4 +1,4 @@
-import { Center, Container, Loader, Space } from "@mantine/core";
+import { Box, Center, Container, Loader, Space } from "@mantine/core";
 import { MinskyHeroTitle } from "components/ui/Hero";
 import dynamic from "next/dynamic";
 import { Check } from "tabler-icons-react";
@@ -39,16 +39,20 @@ const HomePageContent: NextPage = () => {
   const { t } = useTranslation("home");
 
   return (
-    <>
+    <Box
+      sx={theme => ({
+        marginTop: 194,
+        [theme.fn.smallerThan("sm")]: {
+          marginTop: 24,
+        },
+      })}
+    >
       <Container
         size={"xl"}
         sx={theme => ({
-          marginTop: 80,
           marginBottom: 80,
           maxHeight: 520,
-          height: "35vh",
           [theme.fn.smallerThan("sm")]: {
-            marginTop: 12,
             marginBottom: 12,
           },
         })}
@@ -124,7 +128,7 @@ const HomePageContent: NextPage = () => {
           }}
         />
       </Container>
-    </>
+    </Box>
   );
 };
 

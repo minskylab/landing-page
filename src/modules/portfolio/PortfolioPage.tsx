@@ -7,6 +7,7 @@ import {
   Menu,
   UnstyledButton,
   createStyles,
+  useMantineColorScheme,
 } from "@mantine/core";
 import IndustryNav from "components/ui/Portfolio/IndustryNav";
 import ProjectCard, { ProjectType } from "components/ui/Portfolio/ProjectCard";
@@ -14,31 +15,40 @@ import { useTranslation } from "next-i18next";
 import { ChevronDown, ChevronUp } from "tabler-icons-react";
 import { useState } from "react";
 
-const useStyles = createStyles(theme => ({
-  mainTitle: {
-    fontSize: 48,
-    fontFamily: `${theme.fontFamily}`,
-    [theme.fn.smallerThan("lg")]: {
-      fontSize: 38,
-      paddingBottom: 40,
-      paddingTop: 40,
+const useStyles = createStyles(theme => {
+  const { colorScheme } = useMantineColorScheme();
+
+  return {
+    mainTitle: {
+      fontSize: 48,
+      fontFamily: `${theme.fontFamily}`,
+      [theme.fn.smallerThan("lg")]: {
+        fontSize: 38,
+        paddingBottom: 40,
+        paddingTop: 40,
+      },
     },
-  },
-  projectSection: {
-    [theme.fn.smallerThan("lg")]: {
-      flexDirection: "column",
+    projectSection: {
+      [theme.fn.smallerThan("lg")]: {
+        flexDirection: "column",
+      },
     },
-  },
-  cardsection: {
-    flexGrow: 1,
-    [theme.fn.smallerThan("lg")]: {
-      width: "100%",
+    cardsection: {
+      flexGrow: 1,
+      [theme.fn.smallerThan("lg")]: {
+        width: "100%",
+      },
     },
-  },
-}));
+
+    spoilerLabel: {
+      color: colorScheme === "dark" ? theme.colors.gray[3] : "black",
+    },
+  };
+});
 
 export default function PortfolioPageContent() {
-  const { classes } = useStyles();
+  const { classes, theme } = useStyles();
+  const { colorScheme } = useMantineColorScheme();
   const { t } = useTranslation("portfolio");
   const [selectedIndustry, setSelectedIndustry] = useState<string | null>(null);
 
@@ -58,7 +68,7 @@ export default function PortfolioPageContent() {
 
   return (
     <Container size={"xl"}>
-      <Text py={80} weight={"bold"} className={classes.mainTitle}>
+      <Text py={60} weight={"bold"} className={classes.mainTitle}>
         {t("headline")}
       </Text>
       <Group spacing={40} align="flex-start" className={classes.projectSection}>
@@ -72,19 +82,27 @@ export default function PortfolioPageContent() {
           maxHeight={560}
           showLabel={
             <Group>
-              <Text transform="uppercase">More projects</Text>
-              <ChevronDown size={18} />
+              <Text weight={"bold"} className={classes.spoilerLabel}>
+                More projects
+              </Text>
+              <ChevronDown size={18} className={classes.spoilerLabel} />
             </Group>
           }
           hideLabel={
             <Group>
-              <Text transform="uppercase">Less projects</Text>
-              <ChevronUp size={18} />
+              <Text weight={"bold"} className={classes.spoilerLabel}>
+                Less projects
+              </Text>
+              <ChevronUp size={18} className={classes.spoilerLabel} />
             </Group>
           }
           styles={{
             control: {
               margin: "10px 0px",
+              "&:hover": {
+                color: colorScheme === "dark" ? theme.colors.gray[3] : "black",
+                /* textDecoration: "none", */
+              },
             },
           }}
           className={classes.cardsection}
