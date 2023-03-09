@@ -18,24 +18,29 @@ const useStyles = createStyles(theme => {
 
   return {
     mainTitle: {
-      fontSize: 48,
+      fontSize: 38,
       fontFamily: `${theme.fontFamily}`,
-      [theme.fn.smallerThan("lg")]: {
-        fontSize: 38,
-        /*  paddingBottom: 40,
-        paddingTop: 40, */
+      lineHeight: 1.2,
+      [theme.fn.smallerThan("md")]: {
+        fontSize: 34,
         padding: "40px 20px",
       },
     },
+    navSection: {
+      minWidth: 200,
+      [theme.fn.smallerThan("md")]: {
+        paddingLeft: 20,
+      },
+    },
     projectSection: {
-      [theme.fn.smallerThan("lg")]: {
+      [theme.fn.smallerThan("md")]: {
         flexDirection: "column",
       },
     },
     cardsection: {
-      flexGrow: 1,
-      [theme.fn.smallerThan("lg")]: {
-        width: "100%",
+      flex: 1,
+      [theme.fn.smallerThan("md")]: {
+        alignSelf: "center",
       },
     },
 
@@ -66,19 +71,19 @@ export default function PortfolioPageContent() {
   });
 
   return (
-    <Container size={"xl"}>
-      <Text py={60} weight={"bold"} className={classes.mainTitle}>
+    <Container>
+      <Text pt={40} pb={40} weight={"bold"} className={classes.mainTitle}>
         {t("headline")}
       </Text>
       <Group spacing={40} align="flex-start" className={classes.projectSection}>
-        <Stack pl={20} sx={{ minWidth: 200 }}>
+        <Stack className={classes.navSection}>
           <Text size="lg" weight={"bold"}>
             {t("industryTitle")}
           </Text>
           <IndustryNav setSelectedIndustry={setSelectedIndustry} />
         </Stack>
         <Spoiler
-          maxHeight={560}
+          maxHeight={530}
           showLabel={
             <Group>
               <Text weight={"bold"} className={classes.spoilerLabel}>

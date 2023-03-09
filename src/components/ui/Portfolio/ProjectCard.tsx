@@ -38,80 +38,75 @@ const useStyles = createStyles(theme => ({
   },
   cardTextSection: {
     flex: 1,
-    [theme.fn.smallerThan("xs")]: {
+    [theme.fn.smallerThan("sm")]: {
       gap: 10,
       alignSelf: "flex-start",
     },
   },
   cardTitle: {
-    fontSize: 45,
-    [theme.fn.smallerThan("lg")]: {
-      fontSize: 38,
-    },
-    [theme.fn.smallerThan("md")]: {
+    lineHeight: 1.2,
+    fontSize: 34,
+    [theme.fn.smallerThan("sm")]: {
       fontSize: 30,
     },
   },
   cardClient: {
-    [theme.fn.smallerThan("md")]: {
+    [theme.fn.smallerThan("sm")]: {
       fontSize: 14,
     },
   },
 }));
 
-const getLogo = (projectName: string, colorScheme: ColorScheme, largeScreen: boolean) => {
+const getLogo = (projectName: string, colorScheme: ColorScheme, smallScreen: boolean) => {
   return (
     <Center
       sx={theme => ({
-        minWidth: 200,
-        [theme.fn.smallerThan("md")]: {
-          minWidth: 150,
-        },
+        minWidth: 150,
         [theme.fn.smallerThan("sm")]: {
           minWidth: 100,
           height: 100,
         },
       })}
     >
-      {projectName === "tele-us" && <TeleusLogo scale={largeScreen ? 0.2 : 0.25} />}
+      {projectName === "tele-us" && <TeleusLogo scale={smallScreen ? 0.18 : 0.2} />}
       {projectName === "pachatec" && (
         <PachatecLogo
-          scale={largeScreen ? 0.25 : 0.3}
+          scale={smallScreen ? 0.18 : 0.2}
           fillColor={colorScheme === "dark" ? "#245C4B" : undefined}
         />
       )}
       {projectName === "neo-vigilancia-integrada" && (
         <NviLogo
-          scale={largeScreen ? 0.2 : 0.3}
+          scale={smallScreen ? 0.18 : 0.2}
           fillColor={colorScheme === "dark" ? "#F43D4E" : undefined}
         />
       )}
       {projectName === "loges" && (
         <LogesLogo
-          scale={largeScreen ? 0.2 : 0.3}
+          scale={smallScreen ? 0.18 : 0.2}
           fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
         />
       )}
-      {projectName === "redmop" && <RedmopLogo scale={largeScreen ? 0.2 : 0.3} />}
+      {projectName === "redmop" && <RedmopLogo scale={smallScreen ? 0.18 : 0.2} />}
       {projectName === "qronica" && (
         <QronicaLogo
-          scale={largeScreen ? 0.2 : 0.3}
+          scale={smallScreen ? 0.18 : 0.2}
           fillColorFront={colorScheme === "dark" ? "#86C8E4" : undefined}
           fillColorBack={colorScheme === "dark" ? "#2E6ECD" : undefined}
         />
       )}
       {projectName === "totemiq-experiences" && (
         <TotemiqLogo
-          scale={largeScreen ? 0.2 : 0.3}
+          scale={smallScreen ? 0.18 : 0.2}
           fillColor={colorScheme === "dark" ? "#FFFFFF" : undefined}
         />
       )}
       {projectName === "experiencia-astronomica-vr" && <></>}
-      {projectName === "vax-canina" && <VaxcaninaLogo scale={largeScreen ? 0.2 : 0.3} />}
+      {projectName === "vax-canina" && <VaxcaninaLogo scale={smallScreen ? 0.18 : 0.2} />}
       {projectName === "projection-mapping" && <></>}
       {projectName === "workdyst" && (
         <WorkdystLogo
-          scale={largeScreen ? 0.2 : 0.3}
+          scale={smallScreen ? 0.18 : 0.2}
           fillColorFront={colorScheme === "dark" ? "#26ED7C" : undefined}
           fillColorBack={colorScheme === "dark" ? "#4661F2" : undefined}
         />
@@ -143,9 +138,9 @@ type ServicesProps = {
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
   const { classes } = useStyles();
-  const largeScreen = useMediaQuery(`(max-width: 1200px)`);
+  const smallScreen = useMediaQuery(`(max-width: 770px)`);
   const { colorScheme } = useMantineColorScheme();
-  const logo = getLogo(project.link, colorScheme, largeScreen);
+  const logo = getLogo(project.link, colorScheme, smallScreen);
   const { t } = useTranslation("portfolio");
 
   const getServiceName = (service: string) => {
@@ -165,7 +160,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               {project.client}
             </Text>
             <Text weight="bold" className={classes.cardTitle}>
-              {project.name}{" "}
+              {project.name}
               <Text weight={400} className={classes.cardTitle}>
                 {project.shortDescription}
               </Text>
@@ -173,7 +168,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             <Group spacing={10}>
               {project.services.map((service, index) => {
                 return (
-                  <Text key={index} color="dimmed" size="sm">
+                  <Text key={index} color="gray" size="sm">
                     {getServiceName(service)}
                   </Text>
                 );

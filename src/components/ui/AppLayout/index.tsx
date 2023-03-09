@@ -7,7 +7,7 @@ const AppLayout = ({ children }: { children: ReactElement }) => {
   return (
     <>
       <MinskyLandingHeader />
-      <Box mt={114}>{children}</Box>
+      <Box mt={104}>{children}</Box>
       <MinskyFooter />
     </>
   );
