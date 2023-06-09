@@ -25,6 +25,10 @@
     {
       "name": "Software",
       "label": "software"
+    },
+    {
+      "name": "ONG",
+      "label": "ong"
     }
   ],
   "programs": [
@@ -153,7 +157,7 @@
       "description": "Plataforma Web Responsive de tecnología open source en el sector de imágenes médicas, específicamente imágenes ecográficas para los roles pacientes y doctores.",
       "client": "Databioma",
       "program": "partners",
-      "industry": "logistics",
+      "industry": "health-tech",
       "services": ["graphic-design", "product-design", "web-development"],
       "stack": []
     },
@@ -197,7 +201,7 @@
       "description": "Stack Tecnológico: (a) Plataforma Thingsboard, plataforma IoT de código abierto que permite una rápidadesarrollo, gestión y escalado de proyectos IoT; y (b) Terraform es una herramienta de infraestructura como código (IaC) que le permite construir, cambiar y versionar la infraestructura de manera segura y eficiente.",
       "program": "partners",
       "client": "Practical Action",
-      "industry": "logistics",
+      "industry": "ong",
       "services": ["system-design", "iot-development", "research"],
       "stack": []
     },
@@ -237,7 +241,7 @@
     {
       "name": "Workdyst",
       "link": "workdyst",
-      "shortDescription": "AR",
+      "shortDescription": "Mobile App",
       "description": "Plataforma de Comunicación para facilitar el trabajo en campo, mediante la Gestión a tiempo real de la información de los proyectos y la potenciación de la colaboración de los trabajadores.",
       "program": "partners",
       "client": "Workdyst, CLV contratistas",
