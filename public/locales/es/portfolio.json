@@ -224,24 +224,6 @@
       "stack": []
     },
     {
-      "name": "Experiencia Astronomica VR",
-      "link": "experiencia-astronomica-vr",
-      "shortDescription": "Plataforma de realidad virtual",
-      "description": "Entorno de VR para realizar una experiencia interactiva con temática del cielo nocturno en la epoca del Tahuantinsuyo.",
-      "program": "partners",
-      "client": "Planetario Cusco",
-      "industry": "tourism",
-      "services": [
-        "exploration",
-        "product-design",
-        "web-development",
-        "vr-development",
-        "graphic-design",
-        "research"
-      ],
-      "stack": []
-    },
-    {
       "name": "Vax Canina",
       "link": "vax-canina",
       "shortDescription": "Aplicación móvil",
@@ -250,17 +232,6 @@
       "client": "InnovaLab | Cayetano Heredia",
       "industry": "health-tech",
       "services": ["product-design", "web-development", "mobile-development", "research"],
-      "stack": []
-    },
-    {
-      "name": "Projection Mapping",
-      "link": "projection-mapping",
-      "shortDescription": "AR",
-      "description": "Mapeo de proyección que para superponer videos en cualquier superficie dentro del Planetario de Cusco.",
-      "program": "partners",
-      "client": "Planetario Cusco",
-      "industry": "tourism",
-      "services": ["experience-design", "software-development", "creative-coding"],
       "stack": []
     },
     {
