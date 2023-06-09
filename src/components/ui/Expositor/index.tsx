@@ -6,12 +6,14 @@ import LivingIdeaBlob from "components/future/LivingBlob";
 import React from "react";
 import { Bulb } from "tabler-icons-react";
 
-const AVAILABLE_CA = [132, 133, 142, 244, 262, 263, 264, 271].map(
-  num => `/MinskyVideo${num}WithOpacity.mp4`
-);
+// const AVAILABLE_CA = [132, 133, 142, 244, 262, 263, 264, 271].map(
+//   num => `/MinskyVideo${num}WithOpacity.mp4`
+// );
+
+const AVAILABLE_CA = [132, 133, 142, 244, 262, 263, 264].map(num => `/MinskyVideo${num}.mp4`);
 
 const randomBlobVideoSrc = (): string => {
-  return AVAILABLE_CA[(Math.random() * AVAILABLE_CA.length) | 0];
+  return AVAILABLE_CA[(Math.random() * AVAILABLE_CA.length) >> 0];
 };
 
 export default function MinskyExpositor() {

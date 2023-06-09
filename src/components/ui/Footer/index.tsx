@@ -10,7 +10,7 @@ import {
 import { BrandTwitter, BrandYoutube, BrandInstagram, BrandGithub } from "tabler-icons-react";
 import MinskyLogotype from "../../future/MinskyLogo";
 import { MinskyFooterSection } from "lib/landing/structure";
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from "next-i18next";
 
 const useStyles = createStyles(theme => ({
   footer: {
@@ -18,8 +18,9 @@ const useStyles = createStyles(theme => ({
     paddingTop: theme.spacing.xl * 2,
     paddingBottom: theme.spacing.xl * 2,
     backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0],
-    borderTop: `1px solid ${theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2]
-      }`,
+    borderTop: `1px solid ${
+      theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2]
+    }`,
   },
 
   logo: {
@@ -91,8 +92,9 @@ const useStyles = createStyles(theme => ({
     marginTop: theme.spacing.xl,
     paddingTop: theme.spacing.xl,
     paddingBottom: theme.spacing.xl,
-    borderTop: `1px solid ${theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[2]
-      }`,
+    borderTop: `1px solid ${
+      theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[2]
+    }`,
 
     [theme.fn.smallerThan("sm")]: {
       flexDirection: "column",
@@ -109,13 +111,11 @@ const useStyles = createStyles(theme => ({
 export function MinskyFooter() {
   const { classes } = useStyles();
   const { colorScheme } = useMantineColorScheme();
-  const { t } = useTranslation('home');
+  const { t } = useTranslation("home");
 
-  const sections = t<string, MinskyFooterSection[]>("footerInformation.sections", { returnObjects: true }).map(
-    ({ title, links }) => (
-      { title: title, links: links }
-    )
-  )
+  const sections = t<string, MinskyFooterSection[]>("footerInformation.sections", {
+    returnObjects: true,
+  }).map(({ title, links }) => ({ title: title, links: links }));
 
   const groups = sections.map(group => {
     const links = group.links?.map((link, index) => (
@@ -131,7 +131,6 @@ export function MinskyFooter() {
     ));
 
     return (
-
       <div className={classes.wrapper} key={group.title}>
         <Text className={classes.title}>{group.title}</Text>
         {links}
@@ -159,18 +158,24 @@ export function MinskyFooter() {
           <ActionIcon
             size="lg"
             onClick={() => window.open("https://github.com/minskylab", "_blank")}
+            title="GitHub"
+            arial-label="GitHub"
           >
             <BrandGithub size={18} />
           </ActionIcon>
           <ActionIcon
             size="lg"
             onClick={() => window.open("https://twitter.com/minskylab", "_blank")}
+            title="Twitter"
+            arial-label="Twitter"
           >
             <BrandTwitter size={18} />
           </ActionIcon>
           <ActionIcon
             size="lg"
             onClick={() => window.open("https://www.instagram.com/minskylab/", "_blank")}
+            title="Instagram"
+            arial-label="Instagram"
           >
             <BrandInstagram size={18} />
           </ActionIcon>
@@ -179,6 +184,8 @@ export function MinskyFooter() {
             onClick={() =>
               window.open("https://www.youtube.com/channel/UCKJaMhGpxh_ffzZY7iXYiJw", "_blank")
             }
+            title="YouTube"
+            arial-label="YouTube"
           >
             <BrandYoutube size={18} />
           </ActionIcon>

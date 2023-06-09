@@ -1,28 +1,34 @@
-import { GetServerSidePropsContext } from "next";
-import { useState } from "react";
-import { getCookie, setCookies } from "cookies-next";
+import { ColorScheme } from "@mantine/core";
+import { NotificationsProvider } from "@mantine/notifications";
+import { ReactElement, ReactNode } from "react";
+import { GetServerSidePropsContext, NextPage } from "next";
+import { appWithTranslation } from "next-i18next";
+import { getCookie } from "cookies-next";
+import { DefaultSeo } from "next-seo";
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
-import Fonts from "theming/fonts";
-import { minskyBrandDark, minskyBrandPrimary } from "theming";
-import { NotificationsProvider } from "@mantine/notifications";
-import { DefaultSeo } from "next-seo";
 import Script from "next/script";
-import { appWithTranslation } from "next-i18next";
 
-// const client = URQLClient();
+import { MyMantineProvider } from "theming/mantine";
 
-const MinskyLandingApp = (props: AppProps & { colorScheme: ColorScheme }) => {
-  const { Component, pageProps } = props;
-  const [colorScheme, setColorScheme] = useState<ColorScheme>(props.colorScheme);
+export type NextPageWithLayout<T = {}> = NextPage<T> & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
 
-  const toggleColorScheme = (value?: ColorScheme) => {
-    const nextColorScheme = value || (colorScheme === "dark" ? "light" : "dark");
-    setColorScheme(nextColorScheme);
-    // when color scheme is updated save it to cookie
-    setCookies("mantine-color-scheme", nextColorScheme, { maxAge: 60 * 60 * 24 * 30 });
-  };
+type AppPropsWithLayout<T> = AppProps & {
+  Component: NextPageWithLayout<T>;
+};
+
+type MinskyAppProps = {
+  colorScheme: ColorScheme;
+};
+
+const MinskyLandingApp = ({
+  Component,
+  pageProps,
+  colorScheme,
+}: AppPropsWithLayout<MinskyAppProps> & MinskyAppProps) => {
+  const getLayout = Component.getLayout ?? (page => page);
 
   return (
     <>
@@ -38,59 +44,43 @@ const MinskyLandingApp = (props: AppProps & { colorScheme: ColorScheme }) => {
       />
       <Script defer data-domain="minsky.cc" src="https://plausible.io/js/plausible.js" />
 
-      <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-        <MantineProvider
-          withGlobalStyles
-          withNormalizeCSS
-          theme={{
-            colorScheme: colorScheme,
-            fontFamily: "Open Sans",
-            fontFamilyMonospace: "Ubuntu Mono",
-            colors: {
-              brand: minskyBrandPrimary,
-              dark: minskyBrandDark,
-            },
-            primaryColor: "brand",
-          }}
-        >
-          <NotificationsProvider position="top-right">
-            <Fonts />
-            <DefaultSeo
-              title="Minsky | Open Technology Innovation"
-              description="We design and build digital solutions to generate value in our clients and society."
-              canonical="https://minsky.cc/"
-              openGraph={{
-                type: "website",
-                locale: "es_PE",
-                url: "https://minsky.cc/",
-                site_name: "Minsky",
-                // title
+      <MyMantineProvider colorScheme={colorScheme}>
+        <NotificationsProvider position="top-right">
+          <DefaultSeo
+            title="Minsky | Open Technology Innovation"
+            description="We design and build digital solutions to generate value in our clients and society."
+            canonical="https://minsky.cc/"
+            openGraph={{
+              type: "website",
+              locale: "es_PE",
+              url: "https://minsky.cc/",
+              site_name: "Minsky",
+              // title
 
-                images: [
-                  {
-                    url: "/minsky_square_dark.png",
-                    alt: "Minsky",
-                    width: 512,
-                    height: 512,
-                  },
-                  {
-                    url: "/minsky_banner_dark.png",
-                    alt: "Minsky",
-                    width: 1140,
-                    height: 600,
-                  },
-                ],
-              }}
-              twitter={{
-                handle: "@MinskyLab",
-                site: "@MinskyLab",
-                cardType: "summary_large_image",
-              }}
-            />
-            <Component {...pageProps} />
-          </NotificationsProvider>
-        </MantineProvider>
-      </ColorSchemeProvider>
+              images: [
+                {
+                  url: "/minsky_square_dark.png",
+                  alt: "Minsky",
+                  width: 512,
+                  height: 512,
+                },
+                {
+                  url: "/minsky_banner_dark.png",
+                  alt: "Minsky",
+                  width: 1140,
+                  height: 600,
+                },
+              ],
+            }}
+            twitter={{
+              handle: "@MinskyLab",
+              site: "@MinskyLab",
+              cardType: "summary_large_image",
+            }}
+          />
+          {getLayout(<Component {...pageProps} />)}
+        </NotificationsProvider>
+      </MyMantineProvider>
     </>
   );
 };
@@ -101,4 +91,3 @@ MinskyLandingApp.getInitialProps = ({ ctx }: { ctx: GetServerSidePropsContext })
 });
 
 export default appWithTranslation(MinskyLandingApp);
-
