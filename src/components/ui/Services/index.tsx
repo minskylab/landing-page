@@ -13,10 +13,10 @@ const useStyles = createStyles(theme => ({
     textAlign: "center",
     marginBottom: `calc(${theme.spacing.xl} * 1.5)`,
 
-    [theme.fn.smallerThan("sm")]: {
+    /*  [theme.fn.smallerThan("sm")]: {
       fontSize: 28,
       textAlign: "left",
-    },
+    }, */
   },
 
   title_service: {
