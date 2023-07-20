@@ -26,8 +26,7 @@ const useStyles = createStyles(theme => ({
   },
 
   controls: {
-    marginTop: theme.spacing.xl * 2,
-
+    marginTop: `calc(${theme.spacing.xl} * 2)`,
     [theme.fn.smallerThan("sm")]: {
       marginTop: theme.spacing.xl,
     },
@@ -59,9 +58,6 @@ const useStyles = createStyles(theme => ({
   },
 }));
 
-type MinskyHeadline = string;
-type MinskyMinimalDescription = string;
-
 export const MinskyHeroTitle = () => {
   const { classes } = useStyles();
   const theme = useMantineTheme();
@@ -72,12 +68,12 @@ export const MinskyHeroTitle = () => {
       <Container className={classes.wrapper}>
         <Group className={classes.inner}>
           <Highlight
-            highlight={t<MinskyHeadline>("headlineHighlight")}
+            highlight={t("headlineHighlight")}
             highlightStyles={{
               backgroundImage: theme.fn.linearGradient(
                 45,
                 theme.colors.orange[6],
-                theme.colors.red[6]
+                theme.colors.red[6],
               ),
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
@@ -97,10 +93,10 @@ export const MinskyHeroTitle = () => {
               },
             })}
           >
-            {t<MinskyHeadline>("headline")}
+            {t("headline")}
           </Highlight>
-          <Text className={classes.description} color="gray">
-            {t<MinskyMinimalDescription>("minimalDescription")}
+          <Text className={classes.description} color="gray.6">
+            {t("minimalDescription")}
           </Text>
         </Group>
       </Container>

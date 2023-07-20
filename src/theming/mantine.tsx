@@ -1,5 +1,5 @@
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
-import { setCookies } from "cookies-next";
+import { setCookie } from "cookies-next";
 import { useState, ReactNode } from "react";
 
 import Fonts from "theming/fonts";
@@ -10,7 +10,7 @@ export const useColorScheme = (initialColorScheme: ColorScheme) => {
   const toggleColorScheme = (value?: ColorScheme) => {
     const nextColorScheme = value || (currentColorScheme === "dark" ? "light" : "dark");
     setColorScheme(nextColorScheme);
-    setCookies("mantine-color-scheme", nextColorScheme, { maxAge: 60 * 60 * 24 * 30 });
+    setCookie("mantine-color-scheme", nextColorScheme, { maxAge: 60 * 60 * 24 * 30 });
   };
   return { currentColorScheme, toggleColorScheme };
 };

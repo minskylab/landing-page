@@ -29,18 +29,9 @@ export function MinskyLandingSections() {
   }, []);
   const { t } = useTranslation(["home", "common"]);
 
-  //Dar formato a las traducciones obtenidas del archivo home.json
-  const sections = t<string, MinskyLandingSectionLast[]>("sections", { returnObjects: true }).map(
-    ({ type, title, description, artType, art }) => ({
-      type: type,
-      title: title,
-      description: description,
-      art: art,
-      artType: artType,
-    })
-  );
+  const sections: MinskyLandingSectionLast[] = t("sections", { returnObjects: true });
 
-  sections.forEach(section => {
+  sections.forEach((section: MinskyLandingSectionLast) => {
     if (section.type === "about-us") {
       aboutUsSection = section;
     }
@@ -88,7 +79,7 @@ export function MinskyLandingSections() {
               </Text>
             ))}
             <Link href="/team" passHref>
-              <Button component="a">{t("dreamTeamBtn", { ns: "common" })}</Button>
+              <Button /* component="a" */>{t("dreamTeamBtn", { ns: "common" })}</Button>
             </Link>
           </Group>
         </Group>

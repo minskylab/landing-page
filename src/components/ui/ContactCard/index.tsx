@@ -12,7 +12,7 @@ import {
 import { ContactIconsList } from "./contact";
 import { NULL_SUBSCRIBER, Subscriber } from "lib/platform/types";
 import { Mail } from "tabler-icons-react";
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from "next-i18next";
 // import bg from "./bg.svg";
 
 const useStyles = createStyles(theme => {
@@ -24,8 +24,9 @@ const useStyles = createStyles(theme => {
       backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.white,
       borderRadius: theme.radius.lg,
       padding: 4,
-      border: `1px solid ${theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.colors.gray[2]
-        }`,
+      border: `1px solid ${
+        theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.colors.gray[2]
+      }`,
 
       [BREAKPOINT]: {
         flexDirection: "column",
@@ -36,7 +37,7 @@ const useStyles = createStyles(theme => {
       boxSizing: "border-box",
       flex: 1,
       padding: theme.spacing.xl,
-      paddingLeft: theme.spacing.xl * 2,
+      paddingLeft: `calc(${theme.spacing.xl} * 2)`,
       borderLeft: 0,
 
       [BREAKPOINT]: {
@@ -73,7 +74,7 @@ const useStyles = createStyles(theme => {
     contacts: {
       boxSizing: "border-box",
       position: "relative",
-      borderRadius: theme.radius.lg - 2,
+      borderRadius: theme.radius.lg /* - 2 */,
       //   backgroundImage: `url(${"/minsky_getintouch_banner.png"})`,
       backgroundColor: theme.colors["dark"][4],
       backgroundSize: "cover",
@@ -89,7 +90,7 @@ const useStyles = createStyles(theme => {
     },
 
     title: {
-      marginBottom: theme.spacing.xl * 1.5,
+      marginBottom: `calc(${theme.spacing.xl} * 1.5)`,
       fontFamily: `${theme.fontFamily}`,
 
       [BREAKPOINT]: {
@@ -116,7 +117,7 @@ export function MinskyGetInTouch({
 }: MinskyGetInTouchProps) {
   const { classes } = useStyles();
   const [formState, setFormState] = useState<Subscriber>(NULL_SUBSCRIBER);
-  const { t } = useTranslation('home');
+  const { t } = useTranslation(["home", "common"]);
 
   return (
     <Paper id="contact" shadow="md" radius="lg">
@@ -181,7 +182,7 @@ export function MinskyGetInTouch({
             />
             <Group position="right" mt="md">
               <Button type="submit" loading={loading} leftIcon={<Mail size={14} />}>
-                {t("contactFormBtn", { ns: 'common' })}
+                {t("contactFormBtn", { ns: "common" })}
               </Button>
             </Group>
           </div>
