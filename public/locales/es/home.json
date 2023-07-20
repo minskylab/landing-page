@@ -46,6 +46,64 @@
       "art": "system-illustration"
     }
   ],
+  "servicesInformation":{
+    "title": "Nuestros Servicios",
+    "services": [
+      {
+        "title":"Diseño y marca",
+        "description":"Creamos un diseño funcional de rápido prototipado, pero adecuado para tu idea.",
+        "items":[
+          "UX/UI Design",
+          "Micromarca"
+        ]
+      },
+      {
+        "title":"Desarrollo de Software",
+        "description":"Usamos modernos paradigmas de desarrollo de Sotfware.",
+        "items":[
+          "Aplicaciones web",
+          "Aplicaciones móviles",
+          "E-commerce con plataformas de pagos (Mercado Pago, Paypal)",
+          "Plataformas con Geolocalización/referenciación"
+        ]
+      },
+      {
+        "title":"Consultorías y/o Asesorías",
+        "description":"Te ayudamos a desarrollar tu producto desde cero.",
+        "items":[
+          "Investigación y análisis aplicado al caso",
+          "Workshops, Talleres, Cursos sobre tecnologías, sus aplicaciones e investigación"
+        ]
+      },
+      {
+        "title":"DevOps, Infraestructura y Cloud",
+        "description":"Nos especializamos en servicios end-to-end.",
+        "items":[
+          "Definición de Base de datos",
+          "Definición de arquitecturas de software",
+          "Despliegue de servicios/microservicios en AWS, Digital Ocean",
+          "Migración de información y homologaciones"
+        ]
+      },
+      {
+        "title":"Data Science y AI",
+        "description":"Extraemos, limpiamos, procesamos, estructuramos los datos y le damos valor a su uso a través de IA.",
+        "items":[
+          "Optimización de procesos, automatización e IA",
+          "Web scraping, web harvesting, o web data extraction",
+          "Implementación de plataformas de Business Intelligente (Metabase, etc)"
+        ]
+      },
+      {
+        "title":"Otros servicios",
+        "description":"Estamos en constante cambio tecnológico, conocemos sobre herramientas y tecnologías en general que pueden ayudarte a crecer en tu negocio o investigación.",
+        "items":[
+          "IoT",
+          "Hosting y dominios"
+        ]
+      }
+    ]
+  },
   "contactInformation": {
     "title": "Información de contacto",
     "fields": {

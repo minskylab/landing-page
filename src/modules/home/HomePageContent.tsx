@@ -15,6 +15,7 @@ import { NextPage } from "next";
 // import { SpotLight } from "@react-three/drei";
 // import { Canvas } from "@react-three/fiber";
 import TensionLine from "components/ui/TensionLine";
+import { ServicesGrid } from "components/ui/Services";
 
 const directus = new Directus<MinskyPlatformTypes>("https://self.internal.minsky.cc");
 
@@ -105,6 +106,7 @@ const HomePageContent: NextPage = () => {
         })}
       >
         <MinskyLandingSections />
+        <ServicesGrid />
       </Container>
       <Space h={62}></Space>
       <Container>
