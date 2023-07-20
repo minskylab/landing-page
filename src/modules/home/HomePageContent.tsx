@@ -16,6 +16,7 @@ import { NextPage } from "next";
 // import { Canvas } from "@react-three/fiber";
 import TensionLine from "components/ui/TensionLine";
 import { ServicesGrid } from "components/ui/Services";
+import { MinskyClients } from "components/ui/Clients";
 
 const directus = new Directus<MinskyPlatformTypes>("https://self.internal.minsky.cc");
 
@@ -111,6 +112,10 @@ const HomePageContent: NextPage = () => {
       <Container>
         <MinskySimpleFAQ />
       </Container>
+      <Container mb={100}>
+        <MinskyClients />
+      </Container>
+
       <Container>
         <MinskyGetInTouch
           loading={loading}
