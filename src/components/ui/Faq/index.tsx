@@ -6,7 +6,8 @@ import { useTranslation } from "next-i18next";
 const useStyles = createStyles((theme, _params, getRef) => {
   return {
     wrapper: {
-      paddingTop: `calc(${theme.spacing.xl} * 4)`,
+      paddingTop: `calc(${theme.spacing.xl} * 6)`,
+      paddingBottom: `calc(${theme.spacing.xl} * 4)`,
       minHeight: 650,
     },
 

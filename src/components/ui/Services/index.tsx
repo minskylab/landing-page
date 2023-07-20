@@ -5,7 +5,7 @@ import { MinskyServices } from "lib/landing/structure";
 
 const useStyles = createStyles(theme => ({
   wrapper: {
-    paddingTop: `calc(${theme.spacing.xl} * 4)`,
+    paddingTop: `calc(${theme.spacing.xl} * 6)`,
   },
 
   title: {

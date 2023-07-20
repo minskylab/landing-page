@@ -46,23 +46,20 @@
       "art": "system-illustration"
     }
   ],
-  "servicesInformation":{
+  "servicesInformation": {
     "title": "Our Services",
     "services": [
       {
         "icon": "alfa",
-        "title":"Design and branding",
-        "description":"We create a functional design of fast prototyping, but suitable for your idea.",
-        "items":[
-          "UX/UI Design",
-          "Microbranding"
-        ]
+        "title": "Design and branding",
+        "description": "We create a functional design of fast prototyping, but suitable for your idea.",
+        "items": ["UX/UI Design", "Microbranding"]
       },
       {
         "icon": "alfa",
-        "title":"Software Development",
-        "description":"We use modern software development paradigms.",
-        "items":[
+        "title": "Software Development",
+        "description": "We use modern software development paradigms.",
+        "items": [
           "Web applications",
           "Mobile applications",
           "E-commerce with payment platforms (Mercado Pago, Paypal)",
@@ -71,18 +68,18 @@
       },
       {
         "icon": "alfa",
-        "title":"Consultancies and/or Advising",
-        "description":"We help you develop your product from scratch.",
-        "items":[
+        "title": "Consultancies and/or Advising",
+        "description": "We help you develop your product from scratch.",
+        "items": [
           "Research and analysis applied to the case",
           "Workshops, Courses on technologies, their applications and research"
         ]
       },
       {
         "icon": "alfa",
-        "title":"DevOps, Infrastructure and Cloud",
-        "description":"We are specialized in end-to-end services.",
-        "items":[
+        "title": "DevOps, Infrastructure and Cloud",
+        "description": "We are specialized in end-to-end services.",
+        "items": [
           "Database definition",
           "Definition of software architectures",
           "Deployment of services/microservices in AWS, Digital Ocean",
@@ -91,9 +88,9 @@
       },
       {
         "icon": "alfa",
-        "title":"Data Science and AI",
-        "description":"We extract, clean, process, structure data and give value to its use through AI.",
-        "items":[
+        "title": "Data Science and AI",
+        "description": "We extract, clean, process, structure data and give value to its use through AI.",
+        "items": [
           "Process optimization, automation and AI",
           "Web scraping, web harvesting, or web data extraction",
           "Implementation of Business Intelligent platforms (Metabase, etc)"
@@ -101,12 +98,9 @@
       },
       {
         "icon": "alfa",
-        "title":"Other Services",
-        "description":"We are in constant technological change, we know about tools and technologies in general that can help you grow your business or research.",
-        "items":[
-          "IoT",
-          "Hosting and domains"
-        ]
+        "title": "Other Services",
+        "description": "We are in constant technological change, we know about tools and technologies in general that can help you grow your business or research.",
+        "items": ["IoT", "Hosting and domains"]
       }
     ]
   },
@@ -158,6 +152,10 @@
     }
   ],
   "clientsTitle": "Our clients",
+  "schedule": {
+    "title": "Request for quote",
+    "button": "Schedule meeting"
+  },
   "footerInformation": {
     "brandTrademark": "🇵🇪 2022 Minsky S.A.C.",
     "tagline": "We are a company, a community, and a living system too.",

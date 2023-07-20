@@ -17,6 +17,7 @@ import { NextPage } from "next";
 import TensionLine from "components/ui/TensionLine";
 import { ServicesGrid } from "components/ui/Services";
 import { MinskyClients } from "components/ui/Clients";
+import { MinskySchedule } from "components/ui/Schedule";
 
 const directus = new Directus<MinskyPlatformTypes>("https://self.internal.minsky.cc");
 
@@ -110,6 +111,7 @@ const HomePageContent: NextPage = () => {
       </Container>
       <Container>
         <MinskyClients />
+        <MinskySchedule />
       </Container>
       <Container>
         <MinskySimpleFAQ />

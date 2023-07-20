@@ -46,23 +46,20 @@
       "art": "system-illustration"
     }
   ],
-  "servicesInformation":{
+  "servicesInformation": {
     "title": "Nuestros Servicios",
     "services": [
       {
         "icon": "alfa",
-        "title":"Diseño y marca",
-        "description":"Creamos un diseño funcional de rápido prototipado, pero adecuado para tu idea.",
-        "items":[
-          "UX/UI Design",
-          "Micromarca"
-        ]
+        "title": "Diseño y marca",
+        "description": "Creamos un diseño funcional de rápido prototipado, pero adecuado para tu idea.",
+        "items": ["UX/UI Design", "Micromarca"]
       },
       {
         "icon": "alfa",
-        "title":"Desarrollo de Software",
-        "description":"Usamos modernos paradigmas de desarrollo de Sotfware.",
-        "items":[
+        "title": "Desarrollo de Software",
+        "description": "Usamos modernos paradigmas de desarrollo de Sotfware.",
+        "items": [
           "Aplicaciones web",
           "Aplicaciones móviles",
           "E-commerce con plataformas de pagos (Mercado Pago, Paypal)",
@@ -71,18 +68,18 @@
       },
       {
         "icon": "alfa",
-        "title":"Consultorías y/o Asesorías",
-        "description":"Te ayudamos a desarrollar tu producto desde cero.",
-        "items":[
+        "title": "Consultorías y/o Asesorías",
+        "description": "Te ayudamos a desarrollar tu producto desde cero.",
+        "items": [
           "Investigación y análisis aplicado al caso",
           "Workshops, Talleres, Cursos sobre tecnologías, sus aplicaciones e investigación"
         ]
       },
       {
         "icon": "alfa",
-        "title":"DevOps, Infraestructura y Cloud",
-        "description":"Nos especializamos en servicios end-to-end.",
-        "items":[
+        "title": "DevOps, Infraestructura y Cloud",
+        "description": "Nos especializamos en servicios end-to-end.",
+        "items": [
           "Definición de Base de datos",
           "Definición de arquitecturas de software",
           "Despliegue de servicios/microservicios en AWS, Digital Ocean",
@@ -91,9 +88,9 @@
       },
       {
         "icon": "alfa",
-        "title":"Data Science y AI",
-        "description":"Extraemos, limpiamos, procesamos, estructuramos los datos y le damos valor a su uso a través de IA.",
-        "items":[
+        "title": "Data Science y AI",
+        "description": "Extraemos, limpiamos, procesamos, estructuramos los datos y le damos valor a su uso a través de IA.",
+        "items": [
           "Optimización de procesos, automatización e IA",
           "Web scraping, web harvesting, o web data extraction",
           "Implementación de plataformas de Business Intelligente (Metabase, etc)"
@@ -101,12 +98,9 @@
       },
       {
         "icon": "alfa",
-        "title":"Otros servicios",
-        "description":"Estamos en constante cambio tecnológico, conocemos sobre herramientas y tecnologías en general que pueden ayudarte a crecer en tu negocio o investigación.",
-        "items":[
-          "IoT",
-          "Hosting y dominios"
-        ]
+        "title": "Otros servicios",
+        "description": "Estamos en constante cambio tecnológico, conocemos sobre herramientas y tecnologías en general que pueden ayudarte a crecer en tu negocio o investigación.",
+        "items": ["IoT", "Hosting y dominios"]
       }
     ]
   },
@@ -158,6 +152,10 @@
     }
   ],
   "clientsTitle": "Nuestros clientes",
+  "schedule": {
+    "title": "Cotiza con nosotros",
+    "button": "Agenda una reunión"
+  },
   "footerInformation": {
     "brandTrademark": "🇵🇪 2022 Minsky S.A.C.",
     "tagline": "Somos una empresa, una comunidad y también un sistema vivo.",
