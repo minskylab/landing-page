@@ -21,6 +21,7 @@ export type MinskyLandingSection = {
 };
 
 export type MinskyServices = {
+  icon: string;
   title: string;
   description: string;
   items: string[];
