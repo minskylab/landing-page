@@ -20,6 +20,13 @@ export type MinskyLandingSection = {
   artType?: MinskyArtType;
 };
 
+export type MinskyServices = {
+  icon: string;
+  title: string;
+  description: string;
+  items: string[];
+};
+
 export type MinskyFAQ = {
   question: string;
   answer: string;
