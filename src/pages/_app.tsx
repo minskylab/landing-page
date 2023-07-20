@@ -1,5 +1,5 @@
 import { ColorScheme } from "@mantine/core";
-import { NotificationsProvider } from "@mantine/notifications";
+import { Notifications } from "@mantine/notifications";
 import { ReactElement, ReactNode } from "react";
 import { GetServerSidePropsContext, NextPage } from "next";
 import { appWithTranslation } from "next-i18next";
@@ -45,41 +45,40 @@ const MinskyLandingApp = ({
       <Script defer data-domain="minsky.cc" src="https://plausible.io/js/plausible.js" />
 
       <MyMantineProvider colorScheme={colorScheme}>
-        <NotificationsProvider position="top-right">
-          <DefaultSeo
-            title="Minsky | Open Technology Innovation"
-            description="We design and build digital solutions to generate value in our clients and society."
-            canonical="https://minsky.cc/"
-            openGraph={{
-              type: "website",
-              locale: "es_PE",
-              url: "https://minsky.cc/",
-              site_name: "Minsky",
-              // title
+        <Notifications position="top-right" />
+        <DefaultSeo
+          title="Minsky | Open Technology Innovation"
+          description="We design and build digital solutions to generate value in our clients and society."
+          canonical="https://minsky.cc/"
+          openGraph={{
+            type: "website",
+            locale: "es_PE",
+            url: "https://minsky.cc/",
+            site_name: "Minsky",
+            // title
 
-              images: [
-                {
-                  url: "/minsky_square_dark.png",
-                  alt: "Minsky",
-                  width: 512,
-                  height: 512,
-                },
-                {
-                  url: "/minsky_banner_dark.png",
-                  alt: "Minsky",
-                  width: 1140,
-                  height: 600,
-                },
-              ],
-            }}
-            twitter={{
-              handle: "@MinskyLab",
-              site: "@MinskyLab",
-              cardType: "summary_large_image",
-            }}
-          />
-          {getLayout(<Component {...pageProps} />)}
-        </NotificationsProvider>
+            images: [
+              {
+                url: "/minsky_square_dark.png",
+                alt: "Minsky",
+                width: 512,
+                height: 512,
+              },
+              {
+                url: "/minsky_banner_dark.png",
+                alt: "Minsky",
+                width: 1140,
+                height: 600,
+              },
+            ],
+          }}
+          twitter={{
+            handle: "@MinskyLab",
+            site: "@MinskyLab",
+            cardType: "summary_large_image",
+          }}
+        />
+        {getLayout(<Component {...pageProps} />)}
       </MyMantineProvider>
     </>
   );

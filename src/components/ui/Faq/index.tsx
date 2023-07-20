@@ -4,26 +4,25 @@ import { MinskyFAQ } from "lib/landing/structure";
 import { useTranslation } from "next-i18next";
 
 const useStyles = createStyles((theme, _params, getRef) => {
-  const control = getRef("control");
-
   return {
     wrapper: {
-      paddingTop: theme.spacing.xl * 2,
-      paddingBottom: theme.spacing.xl * 2,
+      paddingTop: `calc(${theme.spacing.xl} * 2)`,
+      paddingBottom: `calc(${theme.spacing.xl} * 2)`,
       minHeight: 650,
     },
 
     title: {
       fontWeight: 900,
       fontFamily: "Open Sans",
-      marginBottom: theme.spacing.xl * 1.5,
+      marginBottom: `calc(${theme.spacing.xl} * 1.5)`,
     },
 
     control: {
-      ref: control,
-
       "&:hover": {
         backgroundColor: "transparent",
+      },
+      "&[data-active]": {
+        color: theme.colors[theme.primaryColor][theme.colorScheme === "dark" ? 4 : 6],
       },
     },
 
@@ -35,34 +34,30 @@ const useStyles = createStyles((theme, _params, getRef) => {
         theme.colorScheme === "dark" ? theme.colors.dark[3] : theme.colors.gray[3]
       }`,
     },
-
-    itemOpened: {
-      [`& .${control}`]: {
-        color: theme.colors[theme.primaryColor][theme.colorScheme === "dark" ? 4 : 6],
-      },
-    },
   };
 });
 
 export function MinskySimpleFAQ() {
   const { classes } = useStyles();
   const { t } = useTranslation("home");
+
+  const faqs: MinskyFAQ[] = t("faqs", { returnObjects: true });
+
   return (
     <Container size="sm" className={classes.wrapper}>
       <Title align="center" className={classes.title}>
         {t("faqsTitle")}
       </Title>
       <Accordion
-        iconPosition="right"
         classNames={{
           item: classes.item,
-          itemOpened: classes.itemOpened,
           control: classes.control,
         }}
       >
-        {t<string, MinskyFAQ[]>("faqs", { returnObjects: true }).map(({ answer, question }) => (
-          <Accordion.Item key={answer} label={question}>
-            {answer}
+        {faqs.map(({ answer, question }: MinskyFAQ) => (
+          <Accordion.Item key={question} value={question}>
+            <Accordion.Control>{question}</Accordion.Control>
+            <Accordion.Panel>{answer}</Accordion.Panel>
           </Accordion.Item>
         ))}
       </Accordion>

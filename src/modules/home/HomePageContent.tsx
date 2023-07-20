@@ -3,7 +3,7 @@ import { MinskyHeroTitle } from "components/ui/Hero";
 import dynamic from "next/dynamic";
 import { Check } from "tabler-icons-react";
 import { useState } from "react";
-import { useNotifications } from "@mantine/notifications";
+import { notifications } from "@mantine/notifications";
 import { MinskyGetInTouch } from "components/ui/ContactCard";
 // import TensionLine from "components/ui/TensionLine";
 import { MinskySimpleFAQ } from "components/ui/Faq";
@@ -35,7 +35,6 @@ const MinskyExpositor = dynamic(() => import("components/ui/Expositor"), {
 
 const HomePageContent: NextPage = () => {
   const [loading, setLoading] = useState<boolean>(false);
-  const notifications = useNotifications();
   const { t } = useTranslation("home");
 
   return (
@@ -117,7 +116,7 @@ const HomePageContent: NextPage = () => {
             setLoading(true);
             const item = await createNewSubscriber(sub);
             setLoading(false);
-            notifications.showNotification({
+            notifications.show({
               title: t("getInTouchNotification.title"),
               color: "green",
               icon: <Check />,

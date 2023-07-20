@@ -70,17 +70,17 @@ export default function PortfolioPageContent() {
   const activeIndustry = query.industry || null;
   const [selectedIndustry, setSelectedIndustry] = useState(activeIndustry);
 
-  const projectsList = t<string, ProjectType[]>("projects", { returnObjects: true }).filter(
-    project => {
-      if (!selectedIndustry) {
-        return true;
-      }
+  const projectsTranslations: ProjectType[] = t("projects", { returnObjects: true });
 
-      return project.industry == selectedIndustry;
+  const projectsList = projectsTranslations.filter((project: ProjectType) => {
+    if (!selectedIndustry) {
+      return true;
     }
-  );
 
-  const projects = projectsList.map((project, index: number) => {
+    return project.industry == selectedIndustry;
+  });
+
+  const projects = projectsList.map((project: ProjectType, index: number) => {
     return <ProjectCard key={index} project={project} />;
   });
 
