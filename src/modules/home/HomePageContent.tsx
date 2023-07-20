@@ -108,12 +108,11 @@ const HomePageContent: NextPage = () => {
         <MinskyLandingSections />
         <ServicesGrid />
       </Container>
-      <Space h={62}></Space>
+      <Container>
+        <MinskyClients />
+      </Container>
       <Container>
         <MinskySimpleFAQ />
-      </Container>
-      <Container mb={100}>
-        <MinskyClients />
       </Container>
 
       <Container>
