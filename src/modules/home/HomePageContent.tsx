@@ -1,4 +1,4 @@
-import { Box, Center, Container, Loader, Space } from "@mantine/core";
+import { Box, Center, Container, Loader, Space, useMantineTheme } from "@mantine/core";
 import { MinskyHeroTitle } from "components/ui/Hero";
 import dynamic from "next/dynamic";
 import { Check } from "tabler-icons-react";
@@ -37,6 +37,7 @@ const MinskyExpositor = dynamic(() => import("components/ui/Expositor"), {
 });
 
 const HomePageContent: NextPage = () => {
+  const theme = useMantineTheme();
   const [loading, setLoading] = useState<boolean>(false);
   const { t } = useTranslation("home");
 
@@ -96,28 +97,21 @@ const HomePageContent: NextPage = () => {
       <Container
         mt={60}
         sx={theme => ({
-          [theme.fn.smallerThan("sm")]: {
-            paddingLeft: 16,
-            paddingRight: 16,
-          },
           [theme.fn.smallerThan("md")]: {
-            paddingLeft: 42,
-            paddingRight: 42,
+            paddingLeft: theme.spacing.xl,
+            paddingRight: theme.spacing.xl,
           },
         })}
       >
         <MinskyLandingSections />
+        <Space h={`calc(${theme.spacing.xl} * 6)`} />
         <ServicesGrid />
-      </Container>
-      <Container>
+        <Space h={`calc(${theme.spacing.xl} * 6)`} />
         <MinskyClients />
+        <Space h={`calc(${theme.spacing.xl} * 6)`} />
         <MinskySchedule />
-      </Container>
-      <Container>
+        <Space h={`calc(${theme.spacing.xl} * 6)`} />
         <MinskySimpleFAQ />
-      </Container>
-
-      <Container>
         <MinskyGetInTouch
           loading={loading}
           onSubmitNewSubscriber={async sub => {

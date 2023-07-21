@@ -6,15 +6,13 @@ import { useTranslation } from "next-i18next";
 const useStyles = createStyles((theme, _params, getRef) => {
   return {
     wrapper: {
-      paddingTop: `calc(${theme.spacing.xl} * 6)`,
-      paddingBottom: `calc(${theme.spacing.xl} * 4)`,
       minHeight: 650,
     },
 
     title: {
       fontWeight: 900,
       fontFamily: "Open Sans",
-      marginBottom: `calc(${theme.spacing.xl} * 1.5)`,
+      marginBottom: `calc(${theme.spacing.xl} * 2)`,
     },
 
     control: {

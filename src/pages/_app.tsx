@@ -45,7 +45,7 @@ const MinskyLandingApp = ({
       <Script defer data-domain="minsky.cc" src="https://plausible.io/js/plausible.js" />
 
       <MyMantineProvider colorScheme={colorScheme}>
-        <Notifications position="top-right" />
+        <Notifications position="top-right" zIndex={2002} />
         <DefaultSeo
           title="Minsky | Open Technology Innovation"
           description="We design and build digital solutions to generate value in our clients and society."

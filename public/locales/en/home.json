@@ -60,7 +60,7 @@
         "items": ["UX/UI Design", "Microbranding"]
       },
       {
-        "icon": "alfa",
+        "icon": "beta",
         "title": "Software Development",
         "description": "We use modern software development paradigms.",
         "items": [
@@ -71,7 +71,7 @@
         ]
       },
       {
-        "icon": "alfa",
+        "icon": "delta",
         "title": "Consultancies and/or Advising",
         "description": "We help you develop your product from scratch.",
         "items": [
@@ -80,7 +80,7 @@
         ]
       },
       {
-        "icon": "alfa",
+        "icon": "gamma",
         "title": "DevOps, Infrastructure and Cloud",
         "description": "We are specialized in end-to-end services.",
         "items": [
@@ -91,7 +91,7 @@
         ]
       },
       {
-        "icon": "alfa",
+        "icon": "lambda",
         "title": "Data Science and AI",
         "description": "We extract, clean, process, structure data and give value to its use through AI.",
         "items": [
@@ -101,7 +101,7 @@
         ]
       },
       {
-        "icon": "alfa",
+        "icon": "pi",
         "title": "Other Services",
         "description": "We are in constant technological change, we know about tools and technologies in general that can help you grow your business or research.",
         "items": ["IoT", "Hosting and domains"]

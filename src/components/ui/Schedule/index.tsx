@@ -10,8 +10,7 @@ const useStyles = createStyles(theme => {
     title: {
       fontWeight: 900,
       fontFamily: "Open Sans",
-      paddingTop: `calc(${theme.spacing.xl} * 6)`,
-      marginBottom: `calc(${theme.spacing.xl} * 1.5)`,
+      marginBottom: `calc(${theme.spacing.xl} * 4)`,
     },
   };
 });
