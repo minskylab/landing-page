@@ -9,12 +9,12 @@ import {
   useMantineColorScheme,
   Drawer,
   Select,
-  Divider,
   Title,
-  Stack,
   UnstyledButton,
   Text,
   Anchor,
+  Stack,
+  Divider,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { MoonStars, Sun, World, ChevronDown } from "tabler-icons-react";
@@ -105,7 +105,7 @@ const useStyles = createStyles(theme => ({
 
 export function MinskyLandingHeader() {
   const { classes } = useStyles();
-  const [opened, { toggle }] = useDisclosure(false);
+  const [opened, { open, close, toggle }] = useDisclosure(false);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const { t } = useTranslation(["home", "common", "portfolio"]);
   const router = useRouter();
@@ -218,7 +218,16 @@ export function MinskyLandingHeader() {
         </Group>
       </Container>
 
-      <Drawer zIndex={1002} opened={opened} onClose={toggle} padding={"md"} position="top">
+      <Drawer
+        zIndex={1002}
+        opened={opened}
+        onClose={close}
+        padding={"md"}
+        position="top"
+        transitionProps={{
+          transition: "slide-down",
+        }}
+      >
         <Stack>
           <Title order={4}>{t("mobileNavigationMenu.navigationTitle", { ns: "common" })}</Title>
           <Stack spacing={0}>
