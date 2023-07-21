@@ -80,7 +80,7 @@ export function ServicesGrid() {
   const services: MinskyServices[] = t("servicesInformation.services", { returnObjects: true });
 
   return (
-    <Container className={classes.wrapper}>
+    <Container id="services" className={classes.wrapper}>
       <Title className={classes.title}>{t("servicesInformation.title")}</Title>
 
       <SimpleGrid

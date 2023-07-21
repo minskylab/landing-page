@@ -1,24 +1,28 @@
 {
   "headerTopics": [
     {
+      "id": "portfolio",
       "label": "Portfolio",
-      "link": "portfolio"
+      "link": "/portfolio",
+      "type": "page"
     },
     {
-      "label": "Platform",
-      "link": "platform"
+      "id": "blog",
+      "label": "Blog",
+      "link": "https://research.minsky.cc/",
+      "type": "externalLink"
     },
     {
-      "label": "Partners",
-      "link": "partners"
+      "id": "services",
+      "label": "Services",
+      "link": "services",
+      "type": "section"
     },
     {
-      "label": "Academy",
-      "link": "academy"
-    },
-    {
-      "label": "Developers",
-      "link": "developers"
+      "id": "sales",
+      "label": "Sales",
+      "link": "sales",
+      "type": "section"
     }
   ],
   "headline": "A new technological perspective for your ideas.",
