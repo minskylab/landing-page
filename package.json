@@ -20,7 +20,7 @@
     "@mantine/next": "6.0.17",
     "@mantine/notifications": "6.0.17",
     "@react-spring/core": "9.4.5",
-    "@react-spring/three": "9.4.5",
+    "@react-spring/three": "9.7.3",
     "@react-spring/web": "9.4.5",
     "@react-three/drei": "9.13.0",
     "@react-three/fiber": "8.0.22",
