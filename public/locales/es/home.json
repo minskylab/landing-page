@@ -1,24 +1,28 @@
 {
   "headerTopics": [
     {
+      "id": "portfolio",
       "label": "Portafolio",
-      "link": "portfolio"
+      "link": "/portfolio",
+      "type": "page"
     },
     {
-      "label": "Plataforma",
-      "link": "platform"
+      "id": "blog",
+      "label": "Blog",
+      "link": "https://research.minsky.cc/",
+      "type": "externalLink"
     },
     {
-      "label": "Socios",
-      "link": "partners"
+      "id": "services",
+      "label": "Servicios",
+      "link": "services",
+      "type": "section"
     },
     {
-      "label": "Academia",
-      "link": "academy"
-    },
-    {
-      "label": "Programadores",
-      "link": "developers"
+      "id": "sales",
+      "label": "Cotizador",
+      "link": "sales",
+      "type": "section"
     }
   ],
   "headline": "Una nueva perspectiva tecnológica para tus ideas.",
