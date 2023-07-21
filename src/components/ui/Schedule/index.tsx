@@ -27,7 +27,7 @@ export const MinskySchedule = () => {
         <InlineWidget url={CALENDLY_URL} />
       </Modal>
 
-      <Stack id="sales">
+      <Stack id="quote">
         <Title align="center" className={classes.title}>
           {t("schedule.title")}
         </Title>

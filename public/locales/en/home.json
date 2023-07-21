@@ -19,9 +19,9 @@
       "type": "section"
     },
     {
-      "id": "sales",
-      "label": "Sales",
-      "link": "sales",
+      "id": "quote",
+      "label": "Request a quote",
+      "link": "quote",
       "type": "section"
     }
   ],
@@ -157,7 +157,7 @@
   ],
   "clientsTitle": "Our clients",
   "schedule": {
-    "title": "Request for quote",
+    "title": "Request a quote",
     "button": "Schedule meeting"
   },
   "footerInformation": {

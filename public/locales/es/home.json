@@ -19,9 +19,9 @@
       "type": "section"
     },
     {
-      "id": "sales",
+      "id": "quote",
       "label": "Cotizador",
-      "link": "sales",
+      "link": "quote",
       "type": "section"
     }
   ],
