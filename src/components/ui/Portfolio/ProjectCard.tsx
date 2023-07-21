@@ -144,14 +144,14 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
   const { t } = useTranslation("portfolio");
 
   const getServiceName = (service: string) => {
-    const serviceName = t<string, ServicesProps[]>("services", { returnObjects: true }).find(
-      ({ label }) => label === service
-    );
+    const services: ServicesProps[] = t("services", { returnObjects: true });
+
+    const serviceName = services.find(({ label }: ServicesProps) => label === service);
     return serviceName?.name;
   };
 
   return (
-    <Link href={`/portfolio/${project.link}`} passHref>
+    <Link href={`/portfolio/${project.link}`} passHref style={{ textDecoration: "none" }}>
       <Card p="xl" radius="md" shadow="sm" className={classes.card}>
         <Group className={classes.cardContainer}>
           {logo}
@@ -168,7 +168,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             <Group spacing={10}>
               {project.services.map((service, index) => {
                 return (
-                  <Text key={index} color="gray" size="sm">
+                  <Text key={index} color="gray.6" size="sm">
                     {getServiceName(service)}
                   </Text>
                 );

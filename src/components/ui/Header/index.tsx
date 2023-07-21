@@ -13,8 +13,11 @@ import {
   Title,
   Stack,
   UnstyledButton,
+  NavLink,
+  Anchor,
+  Text,
 } from "@mantine/core";
-import { useBooleanToggle } from "@mantine/hooks";
+import { useDisclosure } from "@mantine/hooks";
 import { MoonStars, Sun, World, ChevronDown } from "tabler-icons-react";
 import Link from "next/link";
 import MinskyLogotype from "../../future/MinskyLogo";
@@ -83,7 +86,7 @@ const useStyles = createStyles(theme => ({
 
 export function MinskyLandingHeader() {
   const { classes } = useStyles();
-  const [opened, toggleOpened] = useBooleanToggle(false);
+  const [opened, { toggle }] = useDisclosure(false);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const { t } = useTranslation(["home", "common", "portfolio"]);
   const router = useRouter();
@@ -104,6 +107,8 @@ export function MinskyLandingHeader() {
     router.push({ pathname, query }, asPath, { locale: e });
   };
 
+  const topics: MinskyHeaderTopic[] = t("headerTopics", { returnObjects: true });
+
   return (
     <Header
       py={10}
@@ -115,7 +120,7 @@ export function MinskyLandingHeader() {
         <Group>
           <Burger
             opened={opened}
-            onClick={() => toggleOpened()}
+            onClick={toggle}
             className={classes.burger}
             size="sm"
             mr={"sm"}
@@ -128,17 +133,12 @@ export function MinskyLandingHeader() {
             </UnstyledButton>
           </Link>
         </Group>
-        {/* <Group spacing={5} className={classes.links}>
-            {items}
-          </Group> */}
         <Group spacing={5} className={classes.links}>
-          {t<string, MinskyHeaderTopic[]>("headerTopics", { returnObjects: true }).map(
-            ({ label, link }, index: number) => (
-              <Link key={index} href={`/${link}`}>
-                <a className={`${classes.link} ${classes.linkDesktop}`}>{label}</a>
-              </Link>
-            )
-          )}
+          {topics.map(({ label, link }: MinskyHeaderTopic, index: number) => (
+            <Link key={index} href={`/${link}`} style={{ textDecoration: "none" }}>
+              <Text className={`${classes.link} ${classes.linkDesktop}`}>{label}</Text>
+            </Link>
+          ))}
         </Group>
         <Group position="center" my="xl">
           <ActionIcon
@@ -171,23 +171,15 @@ export function MinskyLandingHeader() {
         </Group>
       </Container>
 
-      <Drawer
-        opened={opened}
-        onClose={() => toggleOpened(false)}
-        padding={"md"}
-        size={"xl"}
-        position="top"
-      >
+      <Drawer zIndex={1002} opened={opened} onClose={toggle} padding={"md"} position="top">
         <Stack>
           <Title order={4}>{t("mobileNavigationMenu.navigationTitle", { ns: "common" })}</Title>
           <Stack spacing={0}>
-            {t<string, MinskyHeaderTopic[]>("headerTopics", { returnObjects: true }).map(
-              ({ label, link }, index: number) => (
-                <Link key={index} href={`/${link}`}>
-                  <a className={`${classes.link} ${classes.linkMobile}`}>{label}</a>
-                </Link>
-              )
-            )}
+            {topics.map(({ label, link }: MinskyHeaderTopic, index: number) => (
+              <Link key={index} href={`/${link}`} style={{ textDecoration: "none" }}>
+                <Text className={`${classes.link} ${classes.linkMobile}`}>{label}</Text>
+              </Link>
+            ))}
           </Stack>
         </Stack>
         <Divider my="sm" />

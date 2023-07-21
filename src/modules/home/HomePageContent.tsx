@@ -3,7 +3,7 @@ import { MinskyHeroTitle } from "components/ui/Hero";
 import dynamic from "next/dynamic";
 import { Check } from "tabler-icons-react";
 import { useState } from "react";
-import { useNotifications } from "@mantine/notifications";
+import { notifications } from "@mantine/notifications";
 import { MinskyGetInTouch } from "components/ui/ContactCard";
 // import TensionLine from "components/ui/TensionLine";
 import { MinskySimpleFAQ } from "components/ui/Faq";
@@ -15,6 +15,9 @@ import { NextPage } from "next";
 // import { SpotLight } from "@react-three/drei";
 // import { Canvas } from "@react-three/fiber";
 import TensionLine from "components/ui/TensionLine";
+import { ServicesGrid } from "components/ui/Services";
+import { MinskyClients } from "components/ui/Clients";
+import { MinskySchedule } from "components/ui/Schedule";
 
 const directus = new Directus<MinskyPlatformTypes>("https://self.internal.minsky.cc");
 
@@ -35,7 +38,6 @@ const MinskyExpositor = dynamic(() => import("components/ui/Expositor"), {
 
 const HomePageContent: NextPage = () => {
   const [loading, setLoading] = useState<boolean>(false);
-  const notifications = useNotifications();
   const { t } = useTranslation("home");
 
   return (
@@ -105,11 +107,16 @@ const HomePageContent: NextPage = () => {
         })}
       >
         <MinskyLandingSections />
+        <ServicesGrid />
       </Container>
-      <Space h={62}></Space>
+      <Container>
+        <MinskyClients />
+        <MinskySchedule />
+      </Container>
       <Container>
         <MinskySimpleFAQ />
       </Container>
+
       <Container>
         <MinskyGetInTouch
           loading={loading}
@@ -117,7 +124,7 @@ const HomePageContent: NextPage = () => {
             setLoading(true);
             const item = await createNewSubscriber(sub);
             setLoading(false);
-            notifications.showNotification({
+            notifications.show({
               title: t("getInTouchNotification.title"),
               color: "green",
               icon: <Check />,

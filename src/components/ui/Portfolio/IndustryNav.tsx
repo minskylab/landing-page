@@ -60,6 +60,7 @@ const useStyles = createStyles(theme => ({
     left: `calc(-${INDICATOR_SIZE} / 2 + ${1})`,
   },
   menuItem: {
+    color: theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.black,
     padding: "10px 0px",
     fontSize: 14,
     cursor: "pointer",
@@ -87,9 +88,9 @@ export const IndustryNav = ({ setSelectedIndustry }: IndustryNavProps) => {
   const { pathname, query } = router;
   const activeIndustry = query.industry;
 
-  const industries = t<string, ItemsProps[]>("industries", { returnObjects: true });
+  const industries: ItemsProps[] = t("industries", { returnObjects: true });
 
-  const links = industries.map(({ name, label }, index: number) => {
+  const links = industries.map(({ name, label }: ItemsProps, index: number) => {
     return (
       <Box
         key={label}
@@ -113,7 +114,9 @@ export const IndustryNav = ({ setSelectedIndustry }: IndustryNavProps) => {
       </Box>
     );
   });
-  industries.findIndex(i => i.label == activeIndustry);
+
+  industries.findIndex((i: ItemsProps) => i.label == activeIndustry);
+
   return (
     <div>
       <div className={classes.links}>
@@ -122,7 +125,7 @@ export const IndustryNav = ({ setSelectedIndustry }: IndustryNavProps) => {
           style={{
             transform: activeIndustry
               ? `translateY(${
-                  industries.findIndex(i => i.label == activeIndustry) * LINK_HEIGHT +
+                  industries.findIndex((i: ItemsProps) => i.label == activeIndustry) * LINK_HEIGHT +
                   INDICATOR_OFFSET
                 }px)`
               : undefined,
@@ -141,22 +144,26 @@ export const IndustryMenu = ({ setSelectedIndustry }: IndustryNavProps) => {
   const activeIndustry = query.industry;
   const [opened, setOpen] = useState(false);
 
-  const items = t<string, ItemsProps[]>("industries", { returnObjects: true }).map(
-    ({ name, label }) => {
-      return (
-        <Link key={label} href={{ pathname: pathname, query: { ...query, industry: label } }}>
-          <Box
-            className={cx(classes.menuItem, { [classes.linkActive]: activeIndustry == label })}
-            onClick={() => {
-              setSelectedIndustry(label);
-            }}
-          >
-            {name}
-          </Box>
-        </Link>
-      );
-    }
-  );
+  const industries: ItemsProps[] = t("industries", { returnObjects: true });
+
+  const items = industries.map(({ name, label }: ItemsProps) => {
+    return (
+      <Link
+        key={label}
+        href={{ pathname: pathname, query: { ...query, industry: label } }}
+        style={{ textDecoration: "none" }}
+      >
+        <Box
+          className={cx(classes.menuItem, { [classes.linkActive]: activeIndustry == label })}
+          onClick={() => {
+            setSelectedIndustry(label);
+          }}
+        >
+          {name}
+        </Box>
+      </Link>
+    );
+  });
   return (
     <>
       <UnstyledButton
@@ -177,7 +184,7 @@ export const IndustryMenu = ({ setSelectedIndustry }: IndustryNavProps) => {
       </UnstyledButton>
       <Collapse in={opened}>
         <Stack spacing={0} p={10}>
-          <Link href={{ pathname: pathname }}>
+          <Link href={{ pathname: pathname }} style={{ textDecoration: "none" }}>
             <Box
               className={cx(classes.menuItem, {
                 [classes.linkActive]: activeIndustry == undefined,

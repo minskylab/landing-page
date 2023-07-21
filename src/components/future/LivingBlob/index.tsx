@@ -53,13 +53,13 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
       sphere.current.position.x = THREE.MathUtils.lerp(
         sphere.current.position.x,
         hovered ? state.mouse.x / 2 : 0,
-        0.2
+        0.2,
       );
 
       sphere.current.position.y = THREE.MathUtils.lerp(
         sphere.current.position.y,
         Math.sin(state.clock.elapsedTime / 1.5) / 6 + (hovered ? state.mouse.y / 2 : 0),
-        0.2
+        0.2,
       );
     }
   });
@@ -78,7 +78,7 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
       },
       // config: (n) => n === 'wobble' && hovered && { mass: 2, tension: 1000, friction: 10 }
     },
-    [mode, hovered, down]
+    [mode, hovered, down],
   );
 
   return (
@@ -110,7 +110,8 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
           <a.pointLight intensity={1} position={[0, -10, 5]} />
           {/* ------------------------ Code lines for try new ways to render ------------------------------- */}
 
-          <sphereBufferGeometry args={[1, 64, 64]} />
+          <sphereBufferGeometry attach="geometry" args={[1, 64, 64]} />
+
           <AnimatedMaterial
             color={color}
             envMapIntensity={env}

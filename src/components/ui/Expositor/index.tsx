@@ -1,4 +1,4 @@
-import { useNotifications } from "@mantine/notifications";
+import { notifications } from "@mantine/notifications";
 import { Anchor } from "@mantine/core";
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
@@ -17,8 +17,6 @@ const randomBlobVideoSrc = (): string => {
 };
 
 export default function MinskyExpositor() {
-  const notifications = useNotifications();
-
   return (
     <Canvas dpr={[1, 2]} style={{ maxHeight: 520, height: "40vh" }}>
       <LivingIdeaBlob
@@ -28,7 +26,7 @@ export default function MinskyExpositor() {
           notifications.clean();
           setTimeout(
             () =>
-              notifications.showNotification({
+              notifications.show({
                 title: "What is that?",
                 // autoClose: false,
                 message: (
@@ -43,7 +41,7 @@ export default function MinskyExpositor() {
                 ),
                 icon: <Bulb />,
               }),
-            100
+            100,
           );
         }}
       />
