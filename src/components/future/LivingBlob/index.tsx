@@ -110,8 +110,8 @@ const LivingIdeaBlob = ({ onTap, videoSrc, tapCountToOverflow = 2 }: LivingIdeaB
           <a.pointLight intensity={1} position={[0, -10, 5]} />
           {/* ------------------------ Code lines for try new ways to render ------------------------------- */}
 
-          {/*  <sphereBufferGeometry attach="geometry" args={[1, 64, 64]} /> */}
-          {/* @ts-ignore-line */}
+          <sphereBufferGeometry attach="geometry" args={[1, 64, 64]} />
+
           <AnimatedMaterial
             color={color}
             envMapIntensity={env}
