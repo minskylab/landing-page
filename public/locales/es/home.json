@@ -60,7 +60,7 @@
         "items": ["UX/UI Design", "Micromarca"]
       },
       {
-        "icon": "alfa",
+        "icon": "beta",
         "title": "Desarrollo de Software",
         "description": "Usamos modernos paradigmas de desarrollo de Sotfware.",
         "items": [
@@ -71,7 +71,7 @@
         ]
       },
       {
-        "icon": "alfa",
+        "icon": "delta",
         "title": "Consultorías y/o Asesorías",
         "description": "Te ayudamos a desarrollar tu producto desde cero.",
         "items": [
@@ -80,7 +80,7 @@
         ]
       },
       {
-        "icon": "alfa",
+        "icon": "gamma",
         "title": "DevOps, Infraestructura y Cloud",
         "description": "Nos especializamos en servicios end-to-end.",
         "items": [
@@ -91,7 +91,7 @@
         ]
       },
       {
-        "icon": "alfa",
+        "icon": "lambda",
         "title": "Data Science y AI",
         "description": "Extraemos, limpiamos, procesamos, estructuramos los datos y le damos valor a su uso a través de IA.",
         "items": [
@@ -101,7 +101,7 @@
         ]
       },
       {
-        "icon": "alfa",
+        "icon": "pi",
         "title": "Otros servicios",
         "description": "Estamos en constante cambio tecnológico, conocemos sobre herramientas y tecnologías en general que pueden ayudarte a crecer en tu negocio o investigación.",
         "items": ["IoT", "Hosting y dominios"]

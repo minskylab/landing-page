@@ -38,7 +38,7 @@ export const clientsImages = [
     id: "totemiq",
     iconLightmode: totemiqLightmode,
     iconDarkmode: totemiqDarkmode,
-    height: 60,
+    height: 50,
   },
   {
     id: "clv",
