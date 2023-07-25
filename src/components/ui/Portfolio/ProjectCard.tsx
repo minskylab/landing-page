@@ -1,10 +1,10 @@
 import { Card, Center, createStyles, Group, Stack, Text } from "@mantine/core";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 import { ProjectLogo } from "./ProjectLogo";
 import { ProjectDetail } from "./ProjectDetail";
-import { useRouter } from "next/router";
 
 const useStyles = createStyles(theme => ({
   card: {
@@ -46,7 +46,7 @@ export type ProjectType = {
   id: string;
   name: string;
   link: string;
-  shortDescription: string;
+  tagline: string;
   description: string;
   client: string;
   program: string;
@@ -79,6 +79,7 @@ export const getServiceName = ({
 export const ProjectCard = ({ project }: ProjectCardProps) => {
   const { classes } = useStyles();
   const smallScreen = useMediaQuery(`(max-width: 770px)`);
+
   const { t } = useTranslation("portfolio");
   const [opened, { open, close }] = useDisclosure(false);
   const router = useRouter();
@@ -90,7 +91,6 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
     const name = getServiceName({ service: service, servicesList: servicesList });
     return name;
   });
-
   const client = clientsList.find(({ label }: ServicesProps) => label === project.client)?.name;
 
   return (
@@ -132,7 +132,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
             <Text weight="bold" className={classes.cardTitle}>
               {project.name}
               <Text weight={400} className={classes.cardTitle}>
-                {project.shortDescription}
+                {project.tagline}
               </Text>
             </Text>
             <Group spacing={10}>

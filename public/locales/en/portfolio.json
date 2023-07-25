@@ -119,12 +119,24 @@
       "label": "figma"
     },
     {
+      "name": "Metabase",
+      "label": "metabase"
+    },
+    {
       "name": "Flutter",
       "label": "flutter"
     },
     {
       "name": "Mapbox",
       "label": "mapbox"
+    },
+    {
+      "name": "MedusaJs",
+      "label": "medusajs"
+    },
+    {
+      "name": "Mantine",
+      "label": "mantine"
     },
     {
       "name": "Thingsboard",
@@ -144,7 +156,7 @@
     },
     {
       "name": "ChakraUI",
-      "label": "chakra-ui"
+      "label": "chakraui"
     },
     {
       "name": "Python",
@@ -190,118 +202,118 @@
       "id": "teleus",
       "name": "Tele Us",
       "link": "tele-us",
-      "shortDescription": "Medical Images Platform",
+      "tagline": "Medical Images Platform",
       "description": "Responsive web platform of open source technology in the medical imaging sector, specifically ultrasound images for patients and doctors roles.",
       "client": "databioma",
       "program": "partners",
       "industry": "health-tech",
       "repository": "Private",
       "services": ["graphic-design", "product-design", "web-development"],
-      "stack": []
+      "stack": ["react", "nextjs", "typescript", "go"]
     },
     {
       "id": "pachatec",
       "name": "Pachatec",
       "link": "pachatec",
-      "shortDescription": "Landing Page",
+      "tagline": "Landing Page",
       "description": "Brand Manual and Web Design, Custom Web Development (Landing Page with registration forms and price tables of crops in the area of San Martin, Peru).",
       "client": "inqube",
       "program": "partners",
       "industry": "agro-tech",
       "repository": "Private",
       "services": ["graphic-design", "product-design", "web-development"],
-      "stack": []
+      "stack": ["figma", "react", "nextjs", "typescript"]
     },
     {
       "id": "nvi",
       "name": "Neo Vigilancia Integrada",
       "link": "neo-vigilancia-integrada",
-      "shortDescription": "Mobile App",
+      "tagline": "Mobile App",
       "description": "Mobile application for the collection of data related to the project “Integrated Surveillance” for entomological surveillance of flukes (Triatoma infestans). It allows us to see the information about the risk of infestation of each house in a given area and also allows us to enter the data we collect in the field, in the city of Arequipa.",
       "client": "innovalab",
       "program": "academy",
       "industry": "health-tech",
       "repository": "Private",
       "services": ["product-design", "mobile-development"],
-      "stack": []
+      "stack": ["go", "flutter"]
     },
     {
       "id": "loges",
       "name": "Loges",
       "link": "loges",
-      "shortDescription": "Logistics Platform",
+      "tagline": "Logistics Platform",
       "description": "New logistics platform that integrates shipment tracking, allows the visualization of freight, customs and Operlog data. It has a customized reporting system and is integrated with a Business Intelligence platform for data visualization through dashboards.",
       "program": "partners",
       "client": "gammarcargo",
       "industry": "logistics",
       "repository": "Private",
       "services": ["product-design", "web-development"],
-      "stack": []
+      "stack": ["figma", "typescript", "react", "nextjs", "mapbox", "mantine", "metabase"]
     },
     {
       "id": "redmop",
       "name": "Redmop",
       "link": "redmop",
-      "shortDescription": "Practical Action",
+      "tagline": "Practical Action",
       "description": "",
       "program": "partners",
       "client": "practicalaction",
       "industry": "ong",
       "repository": "Private",
       "services": ["system-design", "iot-development", "research"],
-      "stack": []
+      "stack": ["thingsboard", "terraform"]
     },
     {
       "id": "qronica",
       "name": "Qronica",
       "link": "qronica",
-      "shortDescription": "Mobile Platform",
+      "tagline": "Mobile Platform",
       "description": "Platform for management and administration of resources related to anthropological studies.",
       "program": "partners",
       "client": "totemiq",
       "industry": "anthropology",
       "repository": "Private",
       "services": ["system-design", "mobile-development", "research"],
-      "stack": []
+      "stack": ["react", "nextjs", "typescript", "flutter"]
     },
     {
       "id": "totemiq",
       "name": "Totemiq Experiences",
       "link": "totemiq-experiences",
-      "shortDescription": "Ecommerce",
+      "tagline": "Ecommerce",
       "description": "Art e-commerce platform inspired by the union of Peruvian living culture and contemporary art. It allows the purchase of experiences through PayPal or Mercado Pago and has an admin dashboard to manage products and orders.",
       "program": "partners",
       "client": "totemiq",
       "industry": "tourism",
       "repository": "Private",
       "services": ["product-design", "web-development"],
-      "stack": []
+      "stack": ["react", "nextjs", "typescript", "medusajs", "mantine"]
     },
     {
       "id": "vaxcanina",
       "name": "Vax Canina",
       "link": "vax-canina",
-      "shortDescription": "Mobile App",
+      "tagline": "Mobile App",
       "description": "Mobile application that includes data entry with spatial data capture of fixed points to quickly capture the addresses of people who come to vaccinate their dogs and door-to-door tracking of vaccinators, with route tracking.",
       "program": "academy",
       "client": "innovalab",
       "industry": "health-tech",
       "repository": "Private",
       "services": ["product-design", "web-development", "mobile-development", "research"],
-      "stack": []
+      "stack": ["react", "nextjs", "typescript", "go", "flutter", "chakraui"]
     },
     {
       "id": "workdyst",
       "name": "Workdyst",
       "link": "workdyst",
-      "shortDescription": "Mobile App",
+      "tagline": "Mobile App",
       "description": "Communication platform to facilitate work in the field, through real-time management of project information and the enhancement of employee collaboration.",
       "program": "partners",
       "client": "clv",
       "industry": "software",
       "repository": "Private",
       "services": ["vr-development"],
-      "stack": []
+      "stack": ["flutter"]
     }
   ]
 }

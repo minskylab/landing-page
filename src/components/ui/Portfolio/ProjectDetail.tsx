@@ -1,13 +1,13 @@
-import { Center, Group, Modal, Stack, Text, createStyles } from "@mantine/core";
+import { Center, Group, Modal, Stack, Text, createStyles, useMantineTheme } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 import Image from "next/image";
 
 import { ProjectLogo } from "./ProjectLogo";
 import { ProjectType } from "./ProjectCard";
 import { IndustryProps } from "./IndustryNav";
 import { clientsImages } from "assets/images";
-import { useRouter } from "next/router";
 
 const useStyles = createStyles(theme => ({
   modal: {
@@ -45,6 +45,13 @@ const useStyles = createStyles(theme => ({
       fontSize: `calc(${theme.spacing.lg} * 1.2)`,
     },
   },
+  stackText: {
+    maxWidth: 200,
+    [theme.fn.smallerThan("md")]: {
+      width: "100%",
+      maxWidth: "100%",
+    },
+  },
 }));
 
 type ProjectDetailProps = {
@@ -55,9 +62,26 @@ type ProjectDetailProps = {
   close: () => void;
 };
 
+const ClientImage = ({
+  clientId,
+  clientName,
+}: {
+  clientId: string;
+  clientName: string | undefined;
+}) => {
+  const theme = useMantineTheme();
+  const clientImageData = clientsImages.find(client => client.id === clientId);
+
+  const image =
+    theme.colorScheme === "dark" ? clientImageData?.iconDarkmode : clientImageData?.iconLightmode;
+
+  return image ? <Image height={40} src={image} alt={clientId} /> : <Text>{clientName}</Text>;
+};
+
 export const ProjectDetail = ({ project, services, client, opened, close }: ProjectDetailProps) => {
   const { classes, theme } = useStyles();
   const { t } = useTranslation("portfolio");
+
   const router = useRouter();
   const { pathname, query } = useRouter();
   const hash = router.asPath.split("#")[1] || "";
@@ -66,10 +90,15 @@ export const ProjectDetail = ({ project, services, client, opened, close }: Proj
   const smallScreen = useMediaQuery(`(max-width: 770px)`);
 
   const industries: IndustryProps[] = t("industries", { returnObjects: true });
-  const industry = industries.find(({ label }: IndustryProps) => label === project.industry)?.name;
+  const stackList: IndustryProps[] = t("stack", { returnObjects: true });
 
-  const imageData = clientsImages.find(client => client.id === project.client);
-  const image = theme.colorScheme === "dark" ? imageData?.iconDarkmode : imageData?.iconLightmode;
+  const industry = industries.find(({ label }: IndustryProps) => label === project.industry)?.name;
+  const stacks = project.stack
+    .map(stack => {
+      const name = stackList.find(({ label }: IndustryProps) => label === stack)?.name;
+      return name;
+    })
+    .join(", ");
 
   return (
     <Modal
@@ -101,7 +130,7 @@ export const ProjectDetail = ({ project, services, client, opened, close }: Proj
                 {project.name}
               </Text>
               <Text weight={400} sx={{ lineHeight: 1.2 }} className={classes.description}>
-                {project.shortDescription}
+                {project.tagline}
               </Text>
             </Stack>
           </Group>
@@ -114,7 +143,7 @@ export const ProjectDetail = ({ project, services, client, opened, close }: Proj
               {t("titles.client")}
             </Text>
 
-            {image ? <Image height={40} src={image} alt={client || ""} /> : <Text>{client}</Text>}
+            <ClientImage clientId={project.client} clientName={client} />
           </Stack>
 
           <Stack spacing={5}>
@@ -142,11 +171,12 @@ export const ProjectDetail = ({ project, services, client, opened, close }: Proj
             <Text>{project.repository}</Text>
           </Stack>
 
-          {/* <Stack spacing={5}>
+          <Stack spacing={5}>
             <Text fz={"lg"} color="gray.6">
               {t("titles.stack")}
             </Text>
-          </Stack> */}
+            <Text className={classes.stackText}>{stacks}</Text>
+          </Stack>
         </Stack>
       </Group>
     </Modal>
