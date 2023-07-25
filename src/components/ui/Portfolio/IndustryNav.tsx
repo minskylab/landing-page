@@ -1,15 +1,5 @@
 import { useState } from "react";
-import {
-  createStyles,
-  Box,
-  Menu,
-  Button,
-  UnstyledButton,
-  Collapse,
-  Stack,
-  Group,
-  Text,
-} from "@mantine/core";
+import { createStyles, Box, UnstyledButton, Collapse, Stack, Group, Text } from "@mantine/core";
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -71,7 +61,7 @@ const useStyles = createStyles(theme => ({
   },
 }));
 
-type ItemsProps = {
+export type IndustryProps = {
   name: string;
   label: string;
 };
@@ -88,9 +78,9 @@ export const IndustryNav = ({ setSelectedIndustry }: IndustryNavProps) => {
   const { pathname, query } = router;
   const activeIndustry = query.industry;
 
-  const industries: ItemsProps[] = t("industries", { returnObjects: true });
+  const industries: IndustryProps[] = t("industries", { returnObjects: true });
 
-  const links = industries.map(({ name, label }: ItemsProps, index: number) => {
+  const links = industries.map(({ name, label }: IndustryProps, index: number) => {
     return (
       <Box
         key={label}
@@ -115,7 +105,7 @@ export const IndustryNav = ({ setSelectedIndustry }: IndustryNavProps) => {
     );
   });
 
-  industries.findIndex((i: ItemsProps) => i.label == activeIndustry);
+  industries.findIndex((i: IndustryProps) => i.label == activeIndustry);
 
   return (
     <div>
@@ -125,7 +115,8 @@ export const IndustryNav = ({ setSelectedIndustry }: IndustryNavProps) => {
           style={{
             transform: activeIndustry
               ? `translateY(${
-                  industries.findIndex((i: ItemsProps) => i.label == activeIndustry) * LINK_HEIGHT +
+                  industries.findIndex((i: IndustryProps) => i.label == activeIndustry) *
+                    LINK_HEIGHT +
                   INDICATOR_OFFSET
                 }px)`
               : undefined,
@@ -144,9 +135,9 @@ export const IndustryMenu = ({ setSelectedIndustry }: IndustryNavProps) => {
   const activeIndustry = query.industry;
   const [opened, setOpen] = useState(false);
 
-  const industries: ItemsProps[] = t("industries", { returnObjects: true });
+  const industries: IndustryProps[] = t("industries", { returnObjects: true });
 
-  const items = industries.map(({ name, label }: ItemsProps) => {
+  const items = industries.map(({ name, label }: IndustryProps) => {
     return (
       <Link
         key={label}

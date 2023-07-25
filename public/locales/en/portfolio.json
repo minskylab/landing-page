@@ -1,6 +1,12 @@
 {
   "headline": "Latest Portfolio Projects",
-  "industryTitle": "Industry",
+  "titles": {
+    "client": "Client",
+    "services": "Services",
+    "industry": "Industry",
+    "repository": "Repository",
+    "stack": "Stack"
+  },
   "industries": [
     {
       "name": "Logistics",
@@ -149,103 +155,151 @@
       "label": "opencv"
     }
   ],
+  "clients": [
+    {
+      "name": "Databioma",
+      "label": "databioma"
+    },
+    {
+      "name": "Inqube Latam",
+      "label": "inqube"
+    },
+    {
+      "name": "InnovaLab | Cayetano Heredia",
+      "label": "innovalab"
+    },
+    {
+      "name": "Gamma Cargo",
+      "label": "gammarcargo"
+    },
+    {
+      "name": "Practical Action",
+      "label": "practicalaction"
+    },
+    {
+      "name": "Totemiq",
+      "label": "totemiq"
+    },
+    {
+      "name": "Workdyst, CLV contratistas",
+      "label": "clv"
+    }
+  ],
   "projects": [
     {
+      "id": "teleus",
       "name": "Tele Us",
       "link": "tele-us",
       "shortDescription": "Medical Images Platform",
-      "description": "Plataforma Web Responsive de tecnología open source en el sector de imágenes médicas, específicamente imágenes ecográficas para los roles pacientes y doctores.",
-      "client": "Databioma",
+      "description": "Responsive web platform of open source technology in the medical imaging sector, specifically ultrasound images for patients and doctors roles.",
+      "client": "databioma",
       "program": "partners",
       "industry": "health-tech",
+      "repository": "Private",
       "services": ["graphic-design", "product-design", "web-development"],
       "stack": []
     },
     {
+      "id": "pachatec",
       "name": "Pachatec",
       "link": "pachatec",
       "shortDescription": "Landing Page",
-      "description": "Diseño de Manual de Marca y web, Desarrollo Web personalizado (Landing Page con formularios de registro y tablas de precios de cultivos de la zona de San Martín, Perú).",
-      "client": "Inqube Latam",
+      "description": "Brand Manual and Web Design, Custom Web Development (Landing Page with registration forms and price tables of crops in the area of San Martin, Peru).",
+      "client": "inqube",
       "program": "partners",
       "industry": "agro-tech",
+      "repository": "Private",
       "services": ["graphic-design", "product-design", "web-development"],
       "stack": []
     },
     {
+      "id": "nvi",
       "name": "Neo Vigilancia Integrada",
       "link": "neo-vigilancia-integrada",
       "shortDescription": "Mobile App",
-      "description": "Aplicación Móvil para la recopilación de datos relacionados con el proyecto “Vigilancia Integrada” para la vigilancia entomológica de chirimachas (Triatoma infestans). Nos permite ver la información acerca del riesgo de infestación de cada casa en una zona dada y también permite ingresar los datos que recolectemos en campo, en la ciudad de Arequipa.",
-      "client": "InnovaLab | Cayetano Heredia",
+      "description": "Mobile application for the collection of data related to the project “Integrated Surveillance” for entomological surveillance of flukes (Triatoma infestans). It allows us to see the information about the risk of infestation of each house in a given area and also allows us to enter the data we collect in the field, in the city of Arequipa.",
+      "client": "innovalab",
       "program": "academy",
       "industry": "health-tech",
+      "repository": "Private",
       "services": ["product-design", "mobile-development"],
       "stack": []
     },
     {
+      "id": "loges",
       "name": "Loges",
       "link": "loges",
       "shortDescription": "Logistics Platform",
-      "description": "Nuevo sistema logístico que integra tracking de carga, aduana, 4PL y reportes.",
+      "description": "New logistics platform that integrates shipment tracking, allows the visualization of freight, customs and Operlog data. It has a customized reporting system and is integrated with a Business Intelligence platform for data visualization through dashboards.",
       "program": "partners",
-      "client": "Gamma Cargo",
+      "client": "gammarcargo",
       "industry": "logistics",
+      "repository": "Private",
       "services": ["product-design", "web-development"],
       "stack": []
     },
     {
+      "id": "redmop",
       "name": "Redmop",
       "link": "redmop",
       "shortDescription": "Practical Action",
-      "description": "Stack Tecnológico: (a) Plataforma Thingsboard, plataforma IoT de código abierto que permite una rápidadesarrollo, gestión y escalado de proyectos IoT; y (b) Terraform es una herramienta de infraestructura como código (IaC) que le permite construir, cambiar y versionar la infraestructura de manera segura y eficiente.",
+      "description": "",
       "program": "partners",
-      "client": "Practical Action",
+      "client": "practicalaction",
       "industry": "ong",
+      "repository": "Private",
       "services": ["system-design", "iot-development", "research"],
       "stack": []
     },
     {
+      "id": "qronica",
       "name": "Qronica",
       "link": "qronica",
       "shortDescription": "Mobile Platform",
-      "description": "Desarrollo y mantenimiento de la plataforma y el aplicativo Qronica (dashboard para gestión y administración de recursos relacionados a estudios antropológicos).",
+      "description": "Platform for management and administration of resources related to anthropological studies.",
       "program": "partners",
-      "client": "Totemiq",
+      "client": "totemiq",
       "industry": "anthropology",
+      "repository": "Private",
       "services": ["system-design", "mobile-development", "research"],
       "stack": []
     },
     {
-      "name": "Totemiq Esperiences",
+      "id": "totemiq",
+      "name": "Totemiq Experiences",
       "link": "totemiq-experiences",
       "shortDescription": "Ecommerce",
-      "description": "Plataforma Web que muestra Arte inspirado en la unión de la cultura viva peruana y el arte contemporáneo.",
+      "description": "Art e-commerce platform inspired by the union of Peruvian living culture and contemporary art. It allows the purchase of experiences through PayPal or Mercado Pago and has an admin dashboard to manage products and orders.",
       "program": "partners",
-      "client": "Totemiq",
+      "client": "totemiq",
       "industry": "tourism",
+      "repository": "Private",
       "services": ["product-design", "web-development"],
       "stack": []
     },
     {
+      "id": "vaxcanina",
       "name": "Vax Canina",
       "link": "vax-canina",
       "shortDescription": "Mobile App",
-      "description": "Aplicativo móvil que incluye el ingreso de datos con captura de datos espacial de puntos fijos que sirva para captar las direcciones rápidamente de la gente que se acerca para vacunar a sus perros y el rastreo de los vacunadores puerta a puerta, con seguimiento de rutas.",
+      "description": "Mobile application that includes data entry with spatial data capture of fixed points to quickly capture the addresses of people who come to vaccinate their dogs and door-to-door tracking of vaccinators, with route tracking.",
       "program": "academy",
-      "client": "InnovaLab | Cayetano Heredia",
+      "client": "innovalab",
       "industry": "health-tech",
+      "repository": "Private",
       "services": ["product-design", "web-development", "mobile-development", "research"],
       "stack": []
     },
     {
+      "id": "workdyst",
       "name": "Workdyst",
       "link": "workdyst",
       "shortDescription": "Mobile App",
-      "description": "Plataforma de Comunicación para facilitar el trabajo en campo, mediante la Gestión a tiempo real de la información de los proyectos y la potenciación de la colaboración de los trabajadores.",
+      "description": "Communication platform to facilitate work in the field, through real-time management of project information and the enhancement of employee collaboration.",
       "program": "partners",
-      "client": "Workdyst, CLV contratistas",
+      "client": "clv",
       "industry": "software",
+      "repository": "Private",
       "services": ["vr-development"],
       "stack": []
     }

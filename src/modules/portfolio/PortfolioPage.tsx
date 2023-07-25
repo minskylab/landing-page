@@ -8,12 +8,12 @@ import {
   useMantineColorScheme,
   Box,
 } from "@mantine/core";
-import { IndustryMenu, IndustryNav } from "components/ui/Portfolio/IndustryNav";
-import ProjectCard, { ProjectType } from "components/ui/Portfolio/ProjectCard";
+
 import { useTranslation } from "next-i18next";
 import { ChevronDown, ChevronUp } from "tabler-icons-react";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { IndustryMenu, IndustryNav, ProjectCard, ProjectType } from "components/ui/Portfolio";
 
 const useStyles = createStyles(theme => {
   const { colorScheme } = useMantineColorScheme();
@@ -95,7 +95,7 @@ export default function PortfolioPageContent() {
         </Box>
         <Stack className={classes.navSection}>
           <Text size="lg" weight={"bold"}>
-            {t("industryTitle")}
+            {t("titles.industry")}
           </Text>
           <IndustryNav setSelectedIndustry={setSelectedIndustry} />
         </Stack>

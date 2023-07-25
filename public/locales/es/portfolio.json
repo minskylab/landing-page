@@ -1,6 +1,12 @@
 {
   "headline": "Proyectos recientes",
-  "industryTitle": "Sector",
+  "titles": {
+    "client": "Cliente",
+    "services": "Servicios",
+    "industry": "Sector",
+    "repository": "Repositorio",
+    "stack": "Stack"
+  },
   "industries": [
     {
       "name": "Logística",
@@ -149,103 +155,151 @@
       "label": "opencv"
     }
   ],
+  "clients": [
+    {
+      "name": "Databioma",
+      "label": "databioma"
+    },
+    {
+      "name": "Inqube Latam",
+      "label": "inqube"
+    },
+    {
+      "name": "InnovaLab | Cayetano Heredia",
+      "label": "innovalab"
+    },
+    {
+      "name": "Gamma Cargo",
+      "label": "gammarcargo"
+    },
+    {
+      "name": "Practical Action",
+      "label": "practicalaction"
+    },
+    {
+      "name": "Totemiq",
+      "label": "totemiq"
+    },
+    {
+      "name": "Workdyst, CLV contratistas",
+      "label": "clv"
+    }
+  ],
   "projects": [
     {
+      "id": "teleus",
       "name": "Tele Us",
       "link": "tele-us",
       "shortDescription": "Plataforma de imágenes médicas",
       "description": "Plataforma Web Responsive de tecnología open source en el sector de imágenes médicas, específicamente imágenes ecográficas para los roles pacientes y doctores.",
-      "client": "Databioma",
+      "client": "databioma",
       "program": "partners",
       "industry": "health-tech",
+      "repository": "Privado",
       "services": ["graphic-design", "product-design", "web-development"],
       "stack": []
     },
     {
+      "id": "pachatec",
       "name": "Pachatec",
       "link": "pachatec",
       "shortDescription": "Página web",
       "description": "Diseño de Manual de Marca y web, Desarrollo Web personalizado (Landing Page con formularios de registro y tablas de precios de cultivos de la zona de San Martín, Perú).",
-      "client": "Inqube Latam",
+      "client": "inqube",
       "program": "partners",
       "industry": "agro-tech",
+      "repository": "Privado",
       "services": ["graphic-design", "product-design", "web-development"],
       "stack": []
     },
     {
+      "id": "nvi",
       "name": "Neo Vigilancia Integrada",
       "link": "neo-vigilancia-integrada",
       "shortDescription": "Aplicación móvil",
       "description": "Aplicación Móvil para la recopilación de datos relacionados con el proyecto “Vigilancia Integrada” para la vigilancia entomológica de chirimachas (Triatoma infestans). Nos permite ver la información acerca del riesgo de infestación de cada casa en una zona dada y también permite ingresar los datos que recolectemos en campo, en la ciudad de Arequipa.",
-      "client": "InnovaLab | Cayetano Heredia",
+      "client": "innovalab",
       "program": "academy",
       "industry": "health-tech",
+      "repository": "Privado",
       "services": ["product-design", "mobile-development"],
       "stack": []
     },
     {
+      "id": "loges",
       "name": "Loges",
       "link": "loges",
       "shortDescription": "Plataforma logística",
-      "description": "Nuevo sistema logístico que integra tracking de carga, aduana, 4PL y reportes.",
+      "description": "Nuevo sistema logístico que integra el tracking de embarques, permite la visualización de datos de carga, aduana y Operlog. Cuenta con un sistema de reportes personalizados y se integra con una plataforma de Business Intelligence para la visualización de datos a través de dashboards.",
       "program": "partners",
-      "client": "Gamma Cargo",
+      "client": "gammarcargo",
       "industry": "logistics",
+      "repository": "Privado",
       "services": ["product-design", "web-development"],
       "stack": []
     },
     {
+      "id": "redmop",
       "name": "Redmop",
       "link": "redmop",
       "shortDescription": "Practical Action",
-      "description": "Stack Tecnológico: (a) Plataforma Thingsboard, plataforma IoT de código abierto que permite una rápidadesarrollo, gestión y escalado de proyectos IoT; y (b) Terraform es una herramienta de infraestructura como código (IaC) que le permite construir, cambiar y versionar la infraestructura de manera segura y eficiente.",
+      "description": "",
       "program": "partners",
-      "client": "Practical Action",
+      "client": "practicalaction",
       "industry": "ong",
+      "repository": "Privado",
       "services": ["system-design", "iot-development", "research"],
       "stack": []
     },
     {
+      "id": "qronica",
       "name": "Qronica",
       "link": "qronica",
       "shortDescription": "Aplicación móvil",
-      "description": "Desarrollo y mantenimiento de la plataforma y el aplicativo Qronica (dashboard para gestión y administración de recursos relacionados a estudios antropológicos).",
+      "description": "Plataforma de gestión y administración de recursos relacionados a estudios antropológicos.",
       "program": "partners",
-      "client": "Totemiq",
+      "client": "totemiq",
       "industry": "anthropology",
+      "repository": "Privado",
       "services": ["system-design", "mobile-development", "research"],
       "stack": []
     },
     {
-      "name": "Totemiq Esperiences",
+      "id": "totemiq",
+      "name": "Totemiq Experiences",
       "link": "totemiq-experiences",
       "shortDescription": "Ecommerce",
-      "description": "Plataforma Web que muestra Arte inspirado en la unión de la cultura viva peruana y el arte contemporáneo.",
+      "description": "Plataforma de comercio electrónico de arte inspirado en la unión de la cultura viva peruana y el arte contemporáneo. Permite la compra de experiencias a través de PayPal o Mercado Pago y cuenta con un panel administrativo para gestionar los productos y pedidos.",
       "program": "partners",
-      "client": "Totemiq",
+      "client": "totemiq",
       "industry": "tourism",
+      "repository": "Privado",
       "services": ["product-design", "web-development"],
       "stack": []
     },
     {
+      "id": "vaxcanina",
       "name": "Vax Canina",
       "link": "vax-canina",
       "shortDescription": "Aplicación móvil",
       "description": "Aplicativo móvil que incluye el ingreso de datos con captura de datos espacial de puntos fijos que sirva para captar las direcciones rápidamente de la gente que se acerca para vacunar a sus perros y el rastreo de los vacunadores puerta a puerta, con seguimiento de rutas.",
       "program": "academy",
-      "client": "InnovaLab | Cayetano Heredia",
+      "client": "innovalab",
       "industry": "health-tech",
+      "repository": "Privado",
       "services": ["product-design", "web-development", "mobile-development", "research"],
       "stack": []
     },
     {
+      "id": "workdyst",
       "name": "Workdyst",
       "link": "workdyst",
       "shortDescription": "Aplicación móvil",
       "description": "Plataforma de Comunicación para facilitar el trabajo en campo, mediante la Gestión a tiempo real de la información de los proyectos y la potenciación de la colaboración de los trabajadores.",
       "program": "partners",
-      "client": "Workdyst, CLV contratistas",
+      "client": "clv",
       "industry": "software",
+      "repository": "Privado",
       "services": ["vr-development"],
       "stack": []
     }

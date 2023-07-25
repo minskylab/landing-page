@@ -22,7 +22,7 @@ export const MinskySchedule = () => {
 
   return (
     <>
-      <Modal zIndex={1002} opened={opened} onClose={close} withCloseButton={false} padding={0}>
+      <Modal opened={opened} onClose={close} withCloseButton={false} padding={0}>
         <InlineWidget url={CALENDLY_URL} />
       </Modal>
 

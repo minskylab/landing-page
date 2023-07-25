@@ -1,4 +1,4 @@
-import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
+import { ColorScheme, ColorSchemeProvider, MantineProvider, Modal } from "@mantine/core";
 import { setCookie } from "cookies-next";
 import { useState, ReactNode } from "react";
 
