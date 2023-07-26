@@ -8,6 +8,7 @@ import { ProjectLogo } from "./ProjectLogo";
 import { ProjectType } from "./ProjectCard";
 import { IndustryProps } from "./IndustryNav";
 import { clientsImages } from "assets/images";
+import { StackDataProps, stackData } from "lib/data";
 
 const useStyles = createStyles(theme => ({
   modal: {
@@ -90,12 +91,11 @@ export const ProjectDetail = ({ project, services, client, opened, close }: Proj
   const smallScreen = useMediaQuery(`(max-width: 770px)`);
 
   const industries: IndustryProps[] = t("industries", { returnObjects: true });
-  const stackList: IndustryProps[] = t("stack", { returnObjects: true });
 
   const industry = industries.find(({ label }: IndustryProps) => label === project.industry)?.name;
   const stacks = project.stack
     .map(stack => {
-      const name = stackList.find(({ label }: IndustryProps) => label === stack)?.name;
+      const name = stackData.find(({ label }: StackDataProps) => label === stack)?.name;
       return name;
     })
     .join(", ");

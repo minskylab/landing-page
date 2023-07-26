@@ -108,6 +108,36 @@
       }
     ]
   },
+  "stackInformation": {
+    "title": "Stack tech",
+    "stack": [
+      {
+        "title": "Design",
+        "techs": ["figma", "photoshop", "illustrator", "indesign", "xd"]
+      },
+      {
+        "title": "Front-End",
+        "techs": ["react", "angular", "vue", "typescript", "webflow"]
+      },
+      {
+        "title": "Back-End",
+        "techs": ["node", "python", "rails", "django"]
+      },
+      {
+        "title": "Mobile",
+        "techs": ["reactnative", "flutter"]
+      },
+      {
+        "title": "Systems",
+        "techs": ["googlecloud", "azure", "aws"]
+      },
+      {
+        "title": "AI/Data Science",
+        "techs": ["pytorch", "cml", "dvc", "mlflow", "vertex", "azureai", "metabase", "sagemaker"]
+      }
+    ]
+  },
+
   "contactInformation": {
     "title": "Contact information",
     "fields": {

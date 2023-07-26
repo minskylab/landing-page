@@ -108,6 +108,35 @@
       }
     ]
   },
+  "stackInformation": {
+    "title": "Stack tecnológico",
+    "stack": [
+      {
+        "title": "Diseño",
+        "techs": ["figma", "photoshop", "illustrator", "indesign", "xd"]
+      },
+      {
+        "title": "Front-End",
+        "techs": ["react", "angular", "vue", "typescript", "webflow"]
+      },
+      {
+        "title": "Back-End",
+        "techs": ["node", "python", "rails", "django"]
+      },
+      {
+        "title": "Móvil",
+        "techs": ["reactnative", "flutter"]
+      },
+      {
+        "title": "Computación en nube",
+        "techs": ["googlecloud", "azure", "aws"]
+      },
+      {
+        "title": "IA/Ciencia de datos",
+        "techs": ["pytorch", "cml", "dvc", "mlflow", "vertex", "azureai", "metabase", "sagemaker"]
+      }
+    ]
+  },
   "contactInformation": {
     "title": "Información de contacto",
     "fields": {
