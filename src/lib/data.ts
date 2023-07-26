@@ -13,7 +13,7 @@ export const stackData = [
     label: "photoshop",
   },
   {
-    name: "Ilustrator",
+    name: "Illustrator",
     label: "illustrator",
   },
   {
@@ -33,7 +33,7 @@ export const stackData = [
     label: "angular",
   },
   {
-    name: "Vue",
+    name: "Vue.js",
     label: "vue",
   },
   {
@@ -45,7 +45,7 @@ export const stackData = [
     label: "webflow",
   },
   {
-    name: "Node",
+    name: "Node.js",
     label: "node",
   },
   {
