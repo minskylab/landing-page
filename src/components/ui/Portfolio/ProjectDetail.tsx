@@ -76,7 +76,11 @@ const ClientImage = ({
   const image =
     theme.colorScheme === "dark" ? clientImageData?.iconDarkmode : clientImageData?.iconLightmode;
 
-  return image ? <Image height={40} src={image} alt={clientId} /> : <Text>{clientName}</Text>;
+  return image ? (
+    <Image height={40} src={image} alt={clientId} />
+  ) : (
+    <Text fz={"sm"}>{clientName}</Text>
+  );
 };
 
 export const ProjectDetail = ({ project, services, client, opened, close }: ProjectDetailProps) => {
@@ -139,7 +143,7 @@ export const ProjectDetail = ({ project, services, client, opened, close }: Proj
 
         <Stack>
           <Stack spacing={5}>
-            <Text fz={"lg"} color="gray.6">
+            <Text fz={"sm"} color="gray.6">
               {t("titles.client")}
             </Text>
 
@@ -147,35 +151,41 @@ export const ProjectDetail = ({ project, services, client, opened, close }: Proj
           </Stack>
 
           <Stack spacing={5}>
-            <Text fz={"lg"} color="gray.6">
+            <Text fz={"sm"} color="gray.6">
               {t("titles.services")}
             </Text>
             <Stack spacing={0}>
               {services.map((s, index) => {
-                return <Text key={index}>{s}</Text>;
+                return (
+                  <Text key={index} fz={"sm"}>
+                    {s}
+                  </Text>
+                );
               })}
             </Stack>
           </Stack>
 
           <Stack spacing={5}>
-            <Text fz={"lg"} color="gray.6">
+            <Text fz={"sm"} color="gray.6">
               {t("titles.industry")}
             </Text>
-            <Text>{industry}</Text>
+            <Text fz={"sm"}>{industry}</Text>
           </Stack>
 
           <Stack spacing={5}>
-            <Text fz={"lg"} color="gray.6">
+            <Text fz={"sm"} color="gray.6">
               {t("titles.repository")}
             </Text>
-            <Text>{project.repository}</Text>
+            <Text fz={"sm"}>{project.repository}</Text>
           </Stack>
 
           <Stack spacing={5}>
-            <Text fz={"lg"} color="gray.6">
+            <Text fz={"sm"} color="gray.6">
               {t("titles.stack")}
             </Text>
-            <Text className={classes.stackText}>{stacks}</Text>
+            <Text fz={"sm"} className={classes.stackText}>
+              {stacks}
+            </Text>
           </Stack>
         </Stack>
       </Group>
