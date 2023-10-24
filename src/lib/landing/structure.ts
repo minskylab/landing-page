@@ -26,10 +26,6 @@ export type MinskyServices = {
   description: string;
   items: string[];
 };
-export type MinskyStack = {
-  title: string;
-  techs: string[];
-};
 
 export type MinskyFAQ = {
   question: string;
