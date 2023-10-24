@@ -1,6 +1,12 @@
 {
   "headerTopics": [
     {
+      "id": "services",
+      "label": "Servicios",
+      "link": "services",
+      "type": "section"
+    },
+    {
       "id": "portfolio",
       "label": "Portafolio",
       "link": "/portfolio",
@@ -11,18 +17,6 @@
       "label": "Blog",
       "link": "https://research.minsky.cc/",
       "type": "externalLink"
-    },
-    {
-      "id": "services",
-      "label": "Servicios",
-      "link": "services",
-      "type": "section"
-    },
-    {
-      "id": "quote",
-      "label": "Cotizador",
-      "link": "quote",
-      "type": "section"
     }
   ],
   "headline": "Una nueva perspectiva tecnológica para tus ideas.",
