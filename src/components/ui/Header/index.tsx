@@ -153,6 +153,7 @@ export function MinskyLandingHeader() {
 
   return (
     <Header
+      zIndex={1}
       py={10}
       height={"auto"}
       className={classes.header}
@@ -219,7 +220,6 @@ export function MinskyLandingHeader() {
       </Container>
 
       <Drawer
-        zIndex={1002}
         opened={opened}
         onClose={close}
         padding={"md"}

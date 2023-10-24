@@ -1,5 +1,19 @@
-import { createStyles, Container, Text, Group, useMantineTheme, Highlight } from "@mantine/core";
+import {
+  createStyles,
+  Container,
+  Text,
+  Group,
+  useMantineTheme,
+  Highlight,
+  Button,
+  Modal,
+  Stack,
+} from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
+import { CALENDLY_URL } from "lib/utils";
 import { useTranslation } from "next-i18next";
+import { InlineWidget } from "react-calendly";
+import { CalendarEvent } from "tabler-icons-react";
 
 const useStyles = createStyles(theme => ({
   wrapper: {
@@ -13,10 +27,10 @@ const useStyles = createStyles(theme => ({
 
   inner: {
     position: "relative",
+    gap: `calc(${theme.spacing.xl} * 2)`,
   },
 
   description: {
-    marginTop: theme.spacing.md,
     fontSize: 24,
 
     [theme.fn.smallerThan("sm")]: {
@@ -62,11 +76,15 @@ export const MinskyHeroTitle = () => {
   const { classes } = useStyles();
   const theme = useMantineTheme();
   const { t } = useTranslation("home");
+  const [opened, { open, close }] = useDisclosure(false);
 
   return (
     <>
+      <Modal opened={opened} onClose={close} withCloseButton={false} padding={0}>
+        <InlineWidget url={CALENDLY_URL} />
+      </Modal>
       <Container className={classes.wrapper}>
-        <Group className={classes.inner}>
+        <Stack className={classes.inner}>
           <Highlight
             highlight={t("headlineHighlight")}
             highlightStyles={{
@@ -98,7 +116,10 @@ export const MinskyHeroTitle = () => {
           <Text className={classes.description} color="gray.6">
             {t("minimalDescription")}
           </Text>
-        </Group>
+          <Button size="md" m={"auto"} onClick={open} leftIcon={<CalendarEvent size={22} />}>
+            {t("schedule.button")}
+          </Button>
+        </Stack>
       </Container>
     </>
   );

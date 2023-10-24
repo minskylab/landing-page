@@ -1,31 +1,16 @@
-import {
-  Card,
-  Center,
-  ColorScheme,
-  createStyles,
-  Group,
-  Stack,
-  Text,
-  useMantineColorScheme,
-} from "@mantine/core";
-import { useMediaQuery } from "@mantine/hooks";
-import LogesLogo from "assets/Logos/LogesLogo";
-import NviLogo from "assets/Logos/NviLogo";
-import PachatecLogo from "assets/Logos/PachatecLogo";
-import QronicaLogo from "assets/Logos/QronicaLogo";
-import RedmopLogo from "assets/Logos/RedmopLogo";
-import TeleusLogo from "assets/Logos/TeleusLogo";
-import TotemiqLogo from "assets/Logos/TotemiqLogo";
-import VaxcaninaLogo from "assets/Logos/VaxcaninaLogo";
-import WorkdystLogo from "assets/Logos/WorkdystLogo";
+import { Card, Center, createStyles, Group, Stack, Text } from "@mantine/core";
+import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { useTranslation } from "next-i18next";
-import Link from "next/link";
+import { useRouter } from "next/router";
+
+import { ProjectLogo } from "./ProjectLogo";
+import { ProjectDetail } from "./ProjectDetail";
 
 const useStyles = createStyles(theme => ({
   card: {
     cursor: "pointer",
     transition: "transform 150ms ease, box-shadow 150ms ease",
-
+    backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[0],
     "&:hover": {
       transform: "scale(1.02)",
       boxShadow: theme.shadows.md,
@@ -57,72 +42,16 @@ const useStyles = createStyles(theme => ({
   },
 }));
 
-const getLogo = (projectName: string, colorScheme: ColorScheme, smallScreen: boolean) => {
-  return (
-    <Center
-      sx={theme => ({
-        minWidth: 150,
-        [theme.fn.smallerThan("sm")]: {
-          minWidth: 100,
-          height: 100,
-        },
-      })}
-    >
-      {projectName === "tele-us" && <TeleusLogo scale={smallScreen ? 0.18 : 0.2} />}
-      {projectName === "pachatec" && (
-        <PachatecLogo
-          scale={smallScreen ? 0.18 : 0.2}
-          fillColor={colorScheme === "dark" ? "#245C4B" : undefined}
-        />
-      )}
-      {projectName === "neo-vigilancia-integrada" && (
-        <NviLogo
-          scale={smallScreen ? 0.18 : 0.2}
-          fillColor={colorScheme === "dark" ? "#F43D4E" : undefined}
-        />
-      )}
-      {projectName === "loges" && (
-        <LogesLogo
-          scale={smallScreen ? 0.18 : 0.2}
-          fillPathColorMid={colorScheme === "dark" ? "#214a3e" : undefined}
-        />
-      )}
-      {projectName === "redmop" && <RedmopLogo scale={smallScreen ? 0.18 : 0.2} />}
-      {projectName === "qronica" && (
-        <QronicaLogo
-          scale={smallScreen ? 0.18 : 0.2}
-          fillColorFront={colorScheme === "dark" ? "#86C8E4" : undefined}
-          fillColorBack={colorScheme === "dark" ? "#2E6ECD" : undefined}
-        />
-      )}
-      {projectName === "totemiq-experiences" && (
-        <TotemiqLogo
-          scale={smallScreen ? 0.18 : 0.2}
-          fillColor={colorScheme === "dark" ? "#FFFFFF" : undefined}
-        />
-      )}
-      {projectName === "experiencia-astronomica-vr" && <></>}
-      {projectName === "vax-canina" && <VaxcaninaLogo scale={smallScreen ? 0.18 : 0.2} />}
-      {projectName === "projection-mapping" && <></>}
-      {projectName === "workdyst" && (
-        <WorkdystLogo
-          scale={smallScreen ? 0.18 : 0.2}
-          fillColorFront={colorScheme === "dark" ? "#26ED7C" : undefined}
-          fillColorBack={colorScheme === "dark" ? "#4661F2" : undefined}
-        />
-      )}
-    </Center>
-  );
-};
-
 export type ProjectType = {
+  id: string;
   name: string;
   link: string;
-  shortDescription: string;
+  tagline: string;
   description: string;
   client: string;
   program: string;
   industry: string;
+  repository: string;
   services: string[];
   stack: string[];
 };
@@ -136,40 +65,81 @@ type ServicesProps = {
   label: string;
 };
 
-const ProjectCard = ({ project }: ProjectCardProps) => {
+export const getServiceName = ({
+  service,
+  servicesList,
+}: {
+  service: string;
+  servicesList: ServicesProps[];
+}) => {
+  const serviceName = servicesList.find(({ label }: ServicesProps) => label === service);
+  return serviceName?.name;
+};
+
+export const ProjectCard = ({ project }: ProjectCardProps) => {
   const { classes } = useStyles();
   const smallScreen = useMediaQuery(`(max-width: 770px)`);
-  const { colorScheme } = useMantineColorScheme();
-  const logo = getLogo(project.link, colorScheme, smallScreen);
+
   const { t } = useTranslation("portfolio");
+  const [opened, { open, close }] = useDisclosure(false);
+  const router = useRouter();
 
-  const getServiceName = (service: string) => {
-    const services: ServicesProps[] = t("services", { returnObjects: true });
+  const servicesList: ServicesProps[] = t("services", { returnObjects: true });
+  const clientsList: ServicesProps[] = t("clients", { returnObjects: true });
 
-    const serviceName = services.find(({ label }: ServicesProps) => label === service);
-    return serviceName?.name;
-  };
+  const services = project.services.map(service => {
+    const name = getServiceName({ service: service, servicesList: servicesList });
+    return name;
+  });
+  const client = clientsList.find(({ label }: ServicesProps) => label === project.client)?.name;
 
   return (
-    <Link href={`/portfolio/${project.link}`} passHref style={{ textDecoration: "none" }}>
-      <Card p="xl" radius="md" shadow="sm" className={classes.card}>
+    <>
+      <ProjectDetail
+        project={project}
+        services={services}
+        client={client}
+        opened={opened}
+        close={close}
+      />
+      {/*  <Link href={`/portfolio/${project.link}`} passHref style={{ textDecoration: "none" }}> */}
+      <Card
+        p="xl"
+        radius="md"
+        shadow="sm"
+        className={classes.card}
+        onClick={() => {
+          open();
+          router.push(`#${project.link}`);
+        }}
+      >
         <Group className={classes.cardContainer}>
-          {logo}
+          <Center
+            sx={theme => ({
+              minWidth: 150,
+              [theme.fn.smallerThan("sm")]: {
+                minWidth: 100,
+                height: 100,
+              },
+            })}
+          >
+            <ProjectLogo projectName={project.id} smallScreen={smallScreen} />
+          </Center>
           <Stack spacing={15} className={classes.cardTextSection}>
             <Text transform="uppercase" sx={{ letterSpacing: 2 }} className={classes.cardClient}>
-              {project.client}
+              {client}
             </Text>
             <Text weight="bold" className={classes.cardTitle}>
               {project.name}
               <Text weight={400} className={classes.cardTitle}>
-                {project.shortDescription}
+                {project.tagline}
               </Text>
             </Text>
             <Group spacing={10}>
-              {project.services.map((service, index) => {
+              {services.map((s, index) => {
                 return (
                   <Text key={index} color="gray.6" size="sm">
-                    {getServiceName(service)}
+                    {s}
                   </Text>
                 );
               })}
@@ -177,8 +147,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           </Stack>
         </Group>
       </Card>
-    </Link>
+      {/* </Link> */}
+    </>
   );
 };
-
-export default ProjectCard;
