@@ -135,7 +135,7 @@
     "title": "Información de contacto",
     "fields": {
       "email": "Correo",
-      "phone": "Teléfono",
+      "whatsapp": "Whatsapp",
       "address": "Dirección",
       "hours": "Horario de trabajo"
     }
