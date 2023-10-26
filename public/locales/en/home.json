@@ -136,7 +136,7 @@
     "title": "Contact information",
     "fields": {
       "email": "Email",
-      "phone": "Phone",
+      "whatsapp": "Whatsapp",
       "address": "Address",
       "hours": "Working Hours"
     }
