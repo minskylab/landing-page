@@ -2,17 +2,14 @@ import {
   createStyles,
   Container,
   Text,
-  Group,
   useMantineTheme,
   Highlight,
   Button,
-  Modal,
   Stack,
 } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
-import { CALENDLY_URL } from "lib/utils";
+import { GOOGLECALENDAR_URL } from "lib/utils";
 import { useTranslation } from "next-i18next";
-import { InlineWidget } from "react-calendly";
+import { useCallback } from "react";
 import { CalendarEvent } from "tabler-icons-react";
 
 const useStyles = createStyles(theme => ({
@@ -76,13 +73,13 @@ export const MinskyHeroTitle = () => {
   const { classes } = useStyles();
   const theme = useMantineTheme();
   const { t } = useTranslation("home");
-  const [opened, { open, close }] = useDisclosure(false);
+
+  const handleClickExternalURL = useCallback(() => {
+    window.open(GOOGLECALENDAR_URL, "_blank");
+  }, []);
 
   return (
     <>
-      <Modal opened={opened} onClose={close} withCloseButton={false} padding={0}>
-        <InlineWidget url={CALENDLY_URL} />
-      </Modal>
       <Container className={classes.wrapper}>
         <Stack className={classes.inner}>
           <Highlight
@@ -116,7 +113,12 @@ export const MinskyHeroTitle = () => {
           <Text className={classes.description} color="gray.6">
             {t("minimalDescription")}
           </Text>
-          <Button size="md" m={"auto"} onClick={open} leftIcon={<CalendarEvent size={22} />}>
+          <Button
+            size="md"
+            m={"auto"}
+            onClick={handleClickExternalURL}
+            leftIcon={<CalendarEvent size={22} />}
+          >
             {t("schedule.button")}
           </Button>
         </Stack>
