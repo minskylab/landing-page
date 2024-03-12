@@ -27,6 +27,17 @@ export type MinskyServices = {
   items: string[];
 };
 
+export type LandingPageDifferences = {
+  icon: string;
+  title: string;
+  description: string;
+};
+
+export type LandingPageFAQ = {
+  title: string;
+  description: string;
+};
+
 export type MinskyFAQ = {
   question: string;
   answer: string;

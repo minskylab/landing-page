@@ -1,21 +1,58 @@
 {
   "landingPage": {
+    "headline": "Web design and development",
+    "description": "Take control of your online presence without depending on social networks and their algorithms. Take your business to the next level with a modern, secure and personalized page.",
+    "button": "Request a Quote Now!",
+    "differencesTitle": "What makes us different:",
+    "differences": [
+      {
+        "icon": "palette",
+        "title": "Personalized design",
+        "description": "Each website we create is unique and designed specifically to reflect your brand identity and values."
+      },
+      {
+        "icon": "lock",
+        "title": "Comprehensive Security",
+        "description": "We implement robust security measures to protect your website and your customers' information against cyber threats."
+      },
+      {
+        "icon": "user",
+        "title": "Intuitive User Experience",
+        "description": "We design intuitive interfaces and smooth navigation so your visitors can easily find what they're looking for."
+      },
+      {
+        "icon": "device",
+        "title": "Responsive design",
+        "description": "We optimize all our websites for mobile devices, guaranteeing a consistent and satisfactory experience on smartphones and tablets."
+      },
+      {
+        "icon": "affiliate",
+        "title": "Content management",
+        "description": "You have complete control over the information on your website. Keep your website always up to date and relevant to your visitors with just a few clicks."
+      },
+      {
+        "icon": "headset",
+        "title": "Continuous support",
+        "description": "We offer ongoing support to help you with any questions, technical issues, or updates you may need in the future."
+      }
+    ],
+    "faqsTitle": "Why have your own website?",
     "faqs": [
       {
-        "question": "Independencia de las Redes Sociales",
-        "answer": "Al tener un landing page, no estás sujeto a los cambios de algoritmos o caídas de servicios de las redes sociales, lo que te brinda estabilidad y control sobre tu presencia en línea."
+        "title": "Freedom from the Social Networks",
+        "description": "On social media, your posts and content are subject to the platform's policies and algorithms, which means they may change how and when your content is displayed without notice. With your own website, you have complete control over your content and how it is presented to your audience."
       },
       {
-        "question": "Control de la Data de Tus Clientes",
-        "answer": "Con un landing page, tienes la capacidad de recolectar y gestionar la información de tus clientes de manera directa y segura. Esto te permite personalizar tus estrategias de marketing y mejorar la experiencia del cliente."
+        "title": "Control of Your Clients' Data",
+        "description": "Managing your own website allows you to establish your own privacy and security policies, which is crucial to protecting your customers' sensitive information."
       },
       {
-        "question": "Percepción de Seriedad y Modernidad",
-        "answer": "Los negocios que cuentan con un sitio web dedicado, como un landing page, transmiten una imagen de profesionalismo, seriedad y modernidad. Esto genera confianza en tus clientes y demuestra tu compromiso con tu negocio y tu audiencia."
+        "title": "Credibility, Seriousness and Modernity",
+        "description": "A well-designed website conveys seriousness and commitment to your project or business, something that social media profiles cannot match in terms of professionalism and credibility."
       },
       {
-        "question": "Personalización y Flexibilidad Total",
-        "answer": "Al optar por un desarrollo de software a medida o una página web creada por nosotros, tienes la libertad de personalizar cada aspecto según tus necesidades específicas. A diferencia de las plantillas predefinidas de WordPress u otros sistemas similares, donde estás limitado por las funcionalidades prediseñadas, podemos construir una solución completamente adaptada a tus requerimientos comerciales, procesos internos y objetivos de crecimiento."
+        "title": "Personalization and Total Flexibility",
+        "description": "Your own website allows you to create a completely unique and differentiated experience that can stand out in your sector."
       }
     ]
   }

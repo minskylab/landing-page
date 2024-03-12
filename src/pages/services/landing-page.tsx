@@ -18,7 +18,7 @@ export default LandingPage;
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale as string, ["common", "home" /* "services" */])),
+      ...(await serverSideTranslations(locale as string, ["common", "home", "services"])),
     },
   };
 };
