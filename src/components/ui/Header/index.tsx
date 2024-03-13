@@ -140,10 +140,12 @@ export function MinskyLandingHeader() {
       <Anchor
         underline={false}
         onClick={() =>
-          document.getElementById(link.link)?.scrollIntoView({
-            block: "center",
-            behavior: "smooth",
-          })
+          pathname === "/"
+            ? document.getElementById(link.link)?.scrollIntoView({
+                block: "center",
+                behavior: "smooth",
+              })
+            : router.push(`/#${link.link}`)
         }
       >
         <Text className={`${classes.link} ${responsiveClass}`}>{link.label}</Text>
@@ -208,10 +210,12 @@ export function MinskyLandingHeader() {
           />
           <Button
             onClick={() =>
-              document.getElementById("contact")?.scrollIntoView({
-                block: "center",
-                behavior: "smooth",
-              })
+              pathname === "/"
+                ? document.getElementById("contact")?.scrollIntoView({
+                    block: "center",
+                    behavior: "smooth",
+                  })
+                : router.push("/#contact")
             }
           >
             {t("contactBtn", { ns: "common" })}
