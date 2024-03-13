@@ -40,19 +40,34 @@
     "faqs": [
       {
         "title": "Freedom from the Social Networks",
-        "description": "On social media, your posts and content are subject to the platform's policies and algorithms, which means they may change how and when your content is displayed without notice. With your own website, you have complete control over your content and how it is presented to your audience."
+        "description": [
+          "On social media, your posts and content are subject to the platform's policies and algorithms, which means they may change how and when your content is displayed without notice. With your own website, you have complete control over your content and how it is presented to your audience.",
+          "Social networks can change drastically, lose popularity, or even close. Having your own website ensures a stable online presence that is not dependent on the volatility of these platforms.",
+          "On your own website, there are no distractions or direct competition like on social networks, where others' ads and posts can divert attention from your message."
+        ]
       },
       {
         "title": "Control of Your Clients' Data",
-        "description": "Managing your own website allows you to establish your own privacy and security policies, which is crucial to protecting your customers' sensitive information."
+        "description": [
+          "Managing your own website allows you to establish your own privacy and security policies, which is crucial to protecting your customers' sensitive information.",
+          "While social networks provide performance statistics, having your own website allows you to implement advanced web analysis tools to obtain more detailed insights into the behavior of your visitors.",
+          "With control of your customers' data, you can personalize the browsing experience on your site, offering content, products or services tailored to their interests and behaviors."
+        ]
       },
       {
         "title": "Credibility, Seriousness and Modernity",
-        "description": "A well-designed website conveys seriousness and commitment to your project or business, something that social media profiles cannot match in terms of professionalism and credibility."
+        "description": [
+          "A well-designed website conveys seriousness and commitment to your project or business, something that social media profiles cannot match in terms of professionalism and credibility.",
+          "Maintaining a modern and technologically updated website speaks well of your adaptation to change and your commitment to offering a high-quality user experience."
+        ]
       },
       {
         "title": "Personalization and Total Flexibility",
-        "description": "Your own website allows you to create a completely unique and differentiated experience that can stand out in your sector."
+        "description": [
+          "Your own website allows you to create a completely unique and differentiated experience that can stand out in your sector.",
+          "You can adapt your website to the changing needs of your business or personal project, adding new functionality, sections or even completely restructuring the site as necessary.",
+          "Having your own website allows you to integrate a wide range of tools and platforms (such as reservation systems, online stores, and blogs) cohesively under your own brand."
+        ]
       }
     ]
   }

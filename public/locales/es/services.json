@@ -40,19 +40,34 @@
     "faqs": [
       {
         "title": "Independencia de las Redes Sociales",
-        "description": "En las redes sociales, tus publicaciones y contenido están sujetos a las políticas y algoritmos de la plataforma, lo que significa que pueden cambiar cómo y cuándo se muestra tu contenido sin previo aviso. Con tu propia página web, tú tienes el control total sobre tu contenido y cómo se presenta a tu audiencia."
+        "description": [
+          "En las redes sociales, tus publicaciones y contenido están sujetos a las políticas y algoritmos de la plataforma, lo que significa que pueden cambiar cómo y cuándo se muestra tu contenido sin previo aviso. Con tu propia página web, tú tienes el control total sobre tu contenido y cómo se presenta a tu audiencia.",
+          "Las redes sociales pueden cambiar drásticamente, perder popularidad, o incluso cerrar. Tener tu propio sitio web asegura una presencia en línea estable que no depende de la volatilidad de estas plataformas.",
+          "En una página web propia, no hay distracciones ni competencia directa como en las redes sociales, donde los anuncios y publicaciones de otros pueden desviar la atención de tu mensaje."
+        ]
       },
       {
         "title": "Control de los Datos de Tus Clientes",
-        "description": "Administrar tu propia página web te permite establecer tus propias políticas de privacidad y seguridad, lo que es crucial para proteger la información sensible de tus clientes."
+        "description": [
+          "Administrar tu propia página web te permite establecer tus propias políticas de privacidad y seguridad, lo que es crucial para proteger la información sensible de tus clientes.",
+          "Mientras que las redes sociales proporcionan estadísticas de desempeño, tener tu propia página web te permite implementar herramientas de análisis web avanzadas para obtener insights más detallados sobre el comportamiento de tus visitantes.",
+          "Con el control de los datos de tus clientes, puedes personalizar la experiencia de navegación en tu sitio, ofreciendo contenido, productos o servicios adaptados a sus intereses y comportamientos."
+        ]
       },
       {
         "title": "Credibilidad, Seriedad y Modernidad",
-        "description": "Una página web bien diseñada transmite seriedad y compromiso con tu proyecto o negocio, algo que los perfiles en redes sociales no pueden igualar en términos de profesionalismo y credibilidad."
+        "description": [
+          "Una página web bien diseñada transmite seriedad y compromiso con tu proyecto o negocio, algo que los perfiles en redes sociales no pueden igualar en términos de profesionalismo y credibilidad.",
+          "Mantener una página web moderna y actualizada tecnológicamente habla bien de tu adaptación al cambio y tu compromiso con ofrecer una experiencia de usuario de alta calidad."
+        ]
       },
       {
         "title": "Personalización y Flexibilidad Total",
-        "description": "Una página web propia te permite crear una experiencia completamente única y diferenciada que puede destacar en tu sector."
+        "description": [
+          "Una página web propia te permite crear una experiencia completamente única y diferenciada que puede destacar en tu sector.",
+          "Puedes adaptar tu sitio web a las necesidades cambiantes de tu negocio o proyecto personal, añadiendo nuevas funcionalidades, secciones o incluso reestructurando completamente el sitio según sea necesario.",
+          "Tener tu propio sitio web te permite integrar una amplia gama de herramientas y plataformas (como sistemas de reservas, tiendas en línea, y blogs) de manera cohesiva bajo tu propia marca."
+        ]
       }
     ]
   }

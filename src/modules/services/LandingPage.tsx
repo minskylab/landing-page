@@ -59,8 +59,11 @@ const useStyles = createStyles(theme => {
       },
     },
     control: {
-      [`@media (max-width: ${theme.breakpoints.xs}px)`]: {
-        flex: 1,
+      "&:hover": {
+        backgroundColor: "transparent",
+      },
+      "&[data-active]": {
+        color: theme.colors[theme.primaryColor][theme.colorScheme === "dark" ? 4 : 6],
       },
     },
     image: {
@@ -220,7 +223,15 @@ export default function LandingPageContent() {
             {faqs.map(({ title, description }: LandingPageFAQ) => (
               <Accordion.Item key={title} value={title}>
                 <Accordion.Control>{title}</Accordion.Control>
-                <Accordion.Panel>{description}</Accordion.Panel>
+                <Accordion.Panel>
+                  {description.map((item, key) => {
+                    return (
+                      <Text key={key} pb={"xs"}>
+                        {item}
+                      </Text>
+                    );
+                  })}
+                </Accordion.Panel>
               </Accordion.Item>
             ))}
           </Accordion>

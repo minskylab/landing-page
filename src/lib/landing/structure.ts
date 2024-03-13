@@ -35,7 +35,7 @@ export type LandingPageDifferences = {
 
 export type LandingPageFAQ = {
   title: string;
-  description: string;
+  description: string[];
 };
 
 export type MinskyFAQ = {
