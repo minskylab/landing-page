@@ -69,6 +69,102 @@
           "Tener tu propio sitio web te permite integrar una amplia gama de herramientas y plataformas (como sistemas de reservas, tiendas en línea, y blogs) de manera cohesiva bajo tu propia marca."
         ]
       }
-    ]
+    ],
+    "pricing": {
+      "plans": [
+        {
+          "name": "Básico",
+          "price": "$260",
+          "monthlyPrice": "$32 /mensual",
+          "igv": "Inc. IGV"
+        },
+        {
+          "name": "Profesional",
+          "price": "$1200",
+          "monthlyPrice": "$192 /mensual",
+          "igv": "Inc. IGV"
+        },
+        {
+          "name": "Premium",
+          "price": "$1600",
+          "monthlyPrice": "$290 /mensual",
+          "igv": "Inc. IGV"
+        }
+      ],
+      "features": [
+        {
+          "name": "Características principales",
+          "basic": [
+            "Página web básica con hasta 5 secciones.",
+            "Diseño simple y limpio.",
+            "Integración de hasta 3 fotos proporcionadas por el cliente.",
+            "Sin blog.",
+            "Sin pasarela de pagos.",
+            "Sin mantenimiento del cloud.",
+            "Sin CMS."
+          ],
+          "professional": [
+            "Página web con hasta 10 secciones.",
+            "Diseño personalizado.",
+            "Integración de hasta 10 fotos proporcionadas por el cliente.",
+            "Opción de incluir un blog con hasta 5 publicaciones.",
+            "Galería con Función de Búsqueda y Filtrado Avanzado.",
+            "Carrito de compras completo.",
+            "Sin pasarela de pagos.",
+            "Selección del carrito conectado a WhatsApp para continuar con el pedido.",
+            "Mantenimiento básico del cloud.",
+            "Uso de CMS básico para productos.",
+            "Formulario electrónico."
+          ],
+          "premium": [
+            "Página web con diseño premium y hasta 15 secciones.",
+            "Integración de hasta 20 fotos proporcionadas por el cliente.",
+            "Blog con capacidad ilimitada de publicaciones y diseño personalizado.",
+            "Galería con Función de Búsqueda y Filtrado Avanzado.",
+            "Carrito de compras completo.",
+            "Pasarela de pagos (PayPal, MercadoPago, etc.)",
+            "Mantenimiento completo del cloud.",
+            "Uso de CMS avanzado con funcionalidades personalizadas.",
+            "Registro y acceso de usuarios.",
+            "Formulario de Subscripción conectado a un servicio de e-mail marketing."
+          ]
+        },
+        {
+          "name": "Funciones adicionales",
+          "basic": [
+            "Galería: 30 USD",
+            "Galería con Función de Búsqueda y Filtrado Avanzado: S/ 80 USD",
+            "Carrito de Compras Básico: 60 USD",
+            "Carrito de Compras Completo: 140 USD",
+            "Formulario de Suscripción: 15 USD",
+            "Interruptor de Modo Oscuro y Claro: 60 USD",
+            "Multi-idioma (2 idiomas): 30 USD"
+          ],
+          "professional": [
+            "Formulario de Suscripción con Segmentación de Listas: 30 USD",
+            "Interruptor de Modo Oscuro y Claro: 60 USD",
+            "Integración de Plugin de Traducción: 45 USD"
+          ],
+          "premium": [
+            "Sistema de Recomendación de Productos: 160 USD",
+            "Formulario Electrónico Personalizado: 60 USD",
+            "Interruptor de Modo Oscuro y Claro: 60 USD",
+            "Traducción Automática de Contenido: 50 USD"
+          ]
+        },
+        {
+          "name": "Gratis",
+          "basic": [],
+          "professional": ["1 entrada de blog"],
+          "premium": ["3 entrada de blog"]
+        },
+        {
+          "name": "Sugerencia",
+          "basic": ["Debe contar con dominio propio."],
+          "professional": ["Debe contar con dominio propio."],
+          "premium": ["Debe contar con dominio propio."]
+        }
+      ]
+    }
   }
 }

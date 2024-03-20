@@ -69,6 +69,102 @@
           "Having your own website allows you to integrate a wide range of tools and platforms (such as reservation systems, online stores, and blogs) cohesively under your own brand."
         ]
       }
-    ]
+    ],
+    "pricing": {
+      "plans": [
+        {
+          "name": "Basic",
+          "price": "$260",
+          "monthlyPrice": "$32 /month",
+          "igv": "Inc. IGV"
+        },
+        {
+          "name": "Profesional",
+          "price": "$1200",
+          "monthlyPrice": "$192 /month",
+          "igv": "Inc. IGV"
+        },
+        {
+          "name": "Premium",
+          "price": "$1600",
+          "monthlyPrice": "$290 /month",
+          "igv": "Inc. IGV"
+        }
+      ],
+      "features": [
+        {
+          "name": "Features",
+          "basic": [
+            "Basic website with up to 5 sections.",
+            "Simple and clean design.",
+            "Integration of up to 3 photos provided by the client.",
+            "No blog.",
+            "No payment gateway.",
+            "No cloud maintenance.",
+            "No CMS (Content Management System)."
+          ],
+          "professional": [
+            "Website with up to 10 sections.",
+            "Customized design.",
+            "Integration of up to 10 photos provided by the client.",
+            "Option to include a blog with up to 5 posts.",
+            "Gallery with Advanced Search and Filtering Functionality.",
+            "Full shopping cart.",
+            "No payment gateway.",
+            "Selection of the cart connected to WhatsApp to proceed with the order.",
+            "Basic cloud maintenance.",
+            "Use of basic CMS for products.",
+            "Online form."
+          ],
+          "premium": [
+            "Website with premium design and up to 15 sections.",
+            "Integration of up to 20 photos provided by the client.",
+            "Blog with unlimited posting capacity and customized design.",
+            "Gallery with Advanced Search and Filtering Functionality.",
+            "Full shopping cart.",
+            "Payment gateway (PayPal, MercadoPago, etc.).",
+            "Cloud maintenance.",
+            "Use of advanced CMS with customized functionalities.",
+            "User registration and access.",
+            "Subscription form connected to an email marketing service."
+          ]
+        },
+        {
+          "name": "Additional features",
+          "basic": [
+            "Gallery: 30 USD",
+            "Gallery with Advanced Search and Filtering Functionality: 80 USD",
+            "Basic Shopping Cart: 60 USD",
+            "Full Shopping Cart: 140 USD",
+            "Subscription Form: 15 USD",
+            "Dark and Light Mode: 60 USD",
+            "Multi-language (2 languages): 30 USD"
+          ],
+          "professional": [
+            "Subscription Form with List Segmentation: 30 USD",
+            "Dark and Light Mode: 60 USD",
+            "Translation Plugin Integration: 45 USD"
+          ],
+          "premium": [
+            "Product Recommendation System: 160 USD",
+            "Custom Electronic Form: 60 USD",
+            "Dark and Light Mode: 60 USD",
+            "Automatic Content Translation: 50 USD"
+          ]
+        },
+        {
+          "name": "Free",
+          "basic": [],
+          "professional": ["1 blog post"],
+          "premium": ["3 blog post"]
+        },
+        {
+          "name": "Suggestion",
+          "basic": ["Should have its own domain."],
+          "professional": ["Should have its own domain."],
+          "premium": ["Should have its own domain."]
+        }
+      ]
+    }
   }
 }

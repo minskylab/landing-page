@@ -38,6 +38,20 @@ export type LandingPageFAQ = {
   description: string[];
 };
 
+export type LandingPagePlans = {
+  name: string;
+  price: string;
+  monthlyPrice: string;
+  igv: string;
+};
+
+export type LandingPagePlansFeatures = {
+  name: string;
+  basic: string[];
+  professional: string[];
+  premium: string[];
+};
+
 export type MinskyFAQ = {
   question: string;
   answer: string;
