@@ -15,6 +15,8 @@ import {
   Anchor,
   Stack,
   Divider,
+  Menu,
+  NavLink,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { MoonStars, Sun, World, ChevronDown } from "tabler-icons-react";
@@ -36,6 +38,11 @@ type MinskyHeaderTopic = {
   label: string;
   type: string;
   links?: MinskyLabelLink[];
+};
+
+type ServicesLinks = {
+  name: string;
+  link: string;
 };
 
 type LinkComponentProps = {
@@ -104,7 +111,7 @@ const useStyles = createStyles(theme => ({
 }));
 
 export function MinskyLandingHeader() {
-  const { classes } = useStyles();
+  const { classes, theme } = useStyles();
   const [opened, { open, close, toggle }] = useDisclosure(false);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const { t } = useTranslation(["home", "common", "portfolio"]);
@@ -116,6 +123,7 @@ export function MinskyLandingHeader() {
   };
 
   const topics: MinskyHeaderTopic[] = t("headerTopics", { returnObjects: true });
+  const servicesLinks: ServicesLinks[] = t("servicesMenu.items", { returnObjects: true });
 
   const LinkComponent = ({ variant, link }: LinkComponentProps) => {
     const responsiveClass = variant == "desktop" ? classes.linkDesktop : classes.linkMobile;
@@ -140,10 +148,12 @@ export function MinskyLandingHeader() {
       <Anchor
         underline={false}
         onClick={() =>
-          document.getElementById(link.link)?.scrollIntoView({
-            block: "center",
-            behavior: "smooth",
-          })
+          pathname === "/"
+            ? document.getElementById(link.link)?.scrollIntoView({
+                block: "center",
+                behavior: "smooth",
+              })
+            : router.push(`/#${link.link}`)
         }
       >
         <Text className={`${classes.link} ${responsiveClass}`}>{link.label}</Text>
@@ -177,6 +187,29 @@ export function MinskyLandingHeader() {
           </Link>
         </Group>
         <Group spacing={5} className={classes.links}>
+          <Menu shadow="md" width={180}>
+            <Menu.Target>
+              <UnstyledButton>
+                <Text className={`${classes.link} ${classes.linkDesktop}`}>
+                  <Group spacing={"xs"}>
+                    <Text>{t("servicesMenu.name", { ns: "home" })}</Text>
+                    <ChevronDown size={18} color={theme.colors.brand[6]} />
+                  </Group>
+                </Text>
+              </UnstyledButton>
+            </Menu.Target>
+
+            <Menu.Dropdown>
+              {servicesLinks.map((link: ServicesLinks) => {
+                return (
+                  <Menu.Item key={link.name} component={Link} href={link.link}>
+                    {link.name}
+                  </Menu.Item>
+                );
+              })}
+            </Menu.Dropdown>
+          </Menu>
+
           {topics.map((link: MinskyHeaderTopic) => {
             return <LinkComponent key={link.id} variant="desktop" link={link} />;
           })}
@@ -208,10 +241,12 @@ export function MinskyLandingHeader() {
           />
           <Button
             onClick={() =>
-              document.getElementById("contact")?.scrollIntoView({
-                block: "center",
-                behavior: "smooth",
-              })
+              pathname === "/"
+                ? document.getElementById("contact")?.scrollIntoView({
+                    block: "center",
+                    behavior: "smooth",
+                  })
+                : router.push("/#contact")
             }
           >
             {t("contactBtn", { ns: "common" })}
@@ -231,6 +266,14 @@ export function MinskyLandingHeader() {
         <Stack>
           <Title order={4}>{t("mobileNavigationMenu.navigationTitle", { ns: "common" })}</Title>
           <Stack spacing={0}>
+            <NavLink p={8} label={t("servicesMenu.name", { ns: "home" })} childrenOffset={28}>
+              {servicesLinks.map((link: ServicesLinks) => {
+                return (
+                  <NavLink key={link.name} component={Link} label={link.name} href={link.link} />
+                );
+              })}
+            </NavLink>
+
             {topics.map((link: MinskyHeaderTopic) => (
               <LinkComponent key={link.id} variant="mobile" link={link} />
             ))}

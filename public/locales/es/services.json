@@ -1,0 +1,170 @@
+{
+  "landingPage": {
+    "headline": "Desarrollo de páginas web",
+    "description": "Toma el control de tu presencia en línea sin depender de las redes sociales y sus algoritmos. Lleva tu negocio al siguiente nivel con una página moderna, segura y personalizada.",
+    "button": "Consúltanos",
+    "differencesTitle": "Lo que nos diferencia:",
+    "differences": [
+      {
+        "icon": "palette",
+        "title": "Diseño Personalizado",
+        "description": "Cada página web que creamos es única y está diseñada específicamente para reflejar la identidad y los valores de tu marca."
+      },
+      {
+        "icon": "lock",
+        "title": "Seguridad Integral",
+        "description": "Implementamos medidas de seguridad robustas para proteger tu sitio web y la información de tus clientes contra amenazas cibernéticas."
+      },
+      {
+        "icon": "user",
+        "title": "Experiencia de Usuario Intuitiva",
+        "description": "Diseñamos interfaces intuitivas y navegación fluida para que tus visitantes encuentren fácilmente lo que están buscando y disfruten de una experiencia sin problemas en tu sitio web."
+      },
+      {
+        "icon": "device",
+        "title": "Diseño responsive",
+        "description": "Optimizamos todas nuestras páginas web para dispositivos móviles, garantizando una experiencia consistente y satisfactoria en smartphones y tablets."
+      },
+      {
+        "icon": "affiliate",
+        "title": "Gestión de Contenidos",
+        "description": "Tú tienes el control total sobre la información en tu página web. Mantén tu sitio web siempre actualizado y relevante para tus visitantes con solo unos pocos clics."
+      },
+      {
+        "icon": "headset",
+        "title": "Soporte Continuo",
+        "description": "Ofrecemos soporte continuo para ayudarte con cualquier pregunta, problema técnico o actualización que puedas necesitar en el futuro."
+      }
+    ],
+    "faqsTitle": "¿Por qué tener tu propia página web?",
+    "faqs": [
+      {
+        "title": "Independencia de las Redes Sociales",
+        "description": [
+          "En las redes sociales, tus publicaciones y contenido están sujetos a las políticas y algoritmos de la plataforma, lo que significa que pueden cambiar cómo y cuándo se muestra tu contenido sin previo aviso. Con tu propia página web, tú tienes el control total sobre tu contenido y cómo se presenta a tu audiencia.",
+          "Las redes sociales pueden cambiar drásticamente, perder popularidad, o incluso cerrar. Tener tu propio sitio web asegura una presencia en línea estable que no depende de la volatilidad de estas plataformas.",
+          "En una página web propia, no hay distracciones ni competencia directa como en las redes sociales, donde los anuncios y publicaciones de otros pueden desviar la atención de tu mensaje."
+        ]
+      },
+      {
+        "title": "Control de los Datos de Tus Clientes",
+        "description": [
+          "Administrar tu propia página web te permite establecer tus propias políticas de privacidad y seguridad, lo que es crucial para proteger la información sensible de tus clientes.",
+          "Mientras que las redes sociales proporcionan estadísticas de desempeño, tener tu propia página web te permite implementar herramientas de análisis web avanzadas para obtener insights más detallados sobre el comportamiento de tus visitantes.",
+          "Con el control de los datos de tus clientes, puedes personalizar la experiencia de navegación en tu sitio, ofreciendo contenido, productos o servicios adaptados a sus intereses y comportamientos."
+        ]
+      },
+      {
+        "title": "Credibilidad, Seriedad y Modernidad",
+        "description": [
+          "Una página web bien diseñada transmite seriedad y compromiso con tu proyecto o negocio, algo que los perfiles en redes sociales no pueden igualar en términos de profesionalismo y credibilidad.",
+          "Mantener una página web moderna y actualizada tecnológicamente habla bien de tu adaptación al cambio y tu compromiso con ofrecer una experiencia de usuario de alta calidad."
+        ]
+      },
+      {
+        "title": "Personalización y Flexibilidad Total",
+        "description": [
+          "Una página web propia te permite crear una experiencia completamente única y diferenciada que puede destacar en tu sector.",
+          "Puedes adaptar tu sitio web a las necesidades cambiantes de tu negocio o proyecto personal, añadiendo nuevas funcionalidades, secciones o incluso reestructurando completamente el sitio según sea necesario.",
+          "Tener tu propio sitio web te permite integrar una amplia gama de herramientas y plataformas (como sistemas de reservas, tiendas en línea, y blogs) de manera cohesiva bajo tu propia marca."
+        ]
+      }
+    ],
+    "pricing": {
+      "plans": [
+        {
+          "name": "Startup",
+          "price": "$260",
+          "monthlyPrice": "$32 /mensual",
+          "igv": "Inc. IGV"
+        },
+        {
+          "name": "Profesional",
+          "price": "$1200",
+          "monthlyPrice": "$192 /mensual",
+          "igv": "Inc. IGV"
+        },
+        {
+          "name": "Premium",
+          "price": "$1600",
+          "monthlyPrice": "$290 /mensual",
+          "igv": "Inc. IGV"
+        }
+      ],
+      "features": [
+        {
+          "name": "Características principales",
+          "basic": [
+            "Página web básica con hasta 5 secciones.",
+            "Diseño simple y limpio.",
+            "Integración de hasta 3 fotos proporcionadas por el cliente.",
+            "Sin blog.",
+            "Sin pasarela de pagos.",
+            "Sin mantenimiento del cloud.",
+            "Sin CMS."
+          ],
+          "professional": [
+            "Página web con hasta 10 secciones.",
+            "Diseño personalizado.",
+            "Integración de hasta 10 fotos proporcionadas por el cliente.",
+            "Opción de incluir un blog con hasta 5 publicaciones.",
+            "Galería con Función de Búsqueda y Filtrado Avanzado.",
+            "Carrito de compras completo.",
+            "Sin pasarela de pagos.",
+            "Selección del carrito conectado a WhatsApp para continuar con el pedido.",
+            "Mantenimiento básico del cloud.",
+            "Uso de CMS básico para productos.",
+            "Formulario electrónico."
+          ],
+          "premium": [
+            "Página web con diseño premium y hasta 15 secciones.",
+            "Integración de hasta 20 fotos proporcionadas por el cliente.",
+            "Blog con capacidad ilimitada de publicaciones y diseño personalizado.",
+            "Galería con Función de Búsqueda y Filtrado Avanzado.",
+            "Carrito de compras completo.",
+            "Pasarela de pagos (PayPal, MercadoPago, etc.)",
+            "Mantenimiento completo del cloud.",
+            "Uso de CMS avanzado con funcionalidades personalizadas.",
+            "Registro y acceso de usuarios.",
+            "Formulario de Subscripción conectado a un servicio de e-mail marketing."
+          ]
+        },
+        {
+          "name": "Funciones adicionales",
+          "basic": [
+            "Galería: 30 USD",
+            "Galería con Función de Búsqueda y Filtrado Avanzado: S/ 80 USD",
+            "Carrito de Compras Básico: 60 USD",
+            "Carrito de Compras Completo: 140 USD",
+            "Formulario de Suscripción: 15 USD",
+            "Interruptor de Modo Oscuro y Claro: 60 USD",
+            "Multi-idioma (2 idiomas): 30 USD"
+          ],
+          "professional": [
+            "Formulario de Suscripción con Segmentación de Listas: 30 USD",
+            "Interruptor de Modo Oscuro y Claro: 60 USD",
+            "Integración de Plugin de Traducción: 45 USD"
+          ],
+          "premium": [
+            "Sistema de Recomendación de Productos: 160 USD",
+            "Formulario Electrónico Personalizado: 60 USD",
+            "Interruptor de Modo Oscuro y Claro: 60 USD",
+            "Traducción Automática de Contenido: 50 USD"
+          ]
+        },
+        {
+          "name": "Gratis",
+          "basic": [],
+          "professional": ["1 entrada de blog"],
+          "premium": ["3 entrada de blog"]
+        },
+        {
+          "name": "Sugerencia",
+          "basic": ["Debe contar con dominio propio."],
+          "professional": ["Debe contar con dominio propio."],
+          "premium": ["Debe contar con dominio propio."]
+        }
+      ]
+    }
+  }
+}

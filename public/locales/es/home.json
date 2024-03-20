@@ -1,12 +1,6 @@
 {
   "headerTopics": [
     {
-      "id": "services",
-      "label": "Servicios",
-      "link": "services",
-      "type": "section"
-    },
-    {
       "id": "portfolio",
       "label": "Portafolio",
       "link": "/portfolio",
@@ -19,6 +13,19 @@
       "type": "externalLink"
     }
   ],
+  "servicesMenu": {
+    "name": "Servicios",
+    "items": [
+      {
+        "name": "Páginas Web",
+        "link": "/services/landing-page"
+      },
+      {
+        "name": "Ver todo",
+        "link": "/services"
+      }
+    ]
+  },
   "headline": "Una nueva perspectiva tecnológica para tus ideas.",
   "headlineHighlight": "perspectiva tecnológica",
   "minimalDescription": "Diseñamos y construimos soluciones digitales para generar valor en nuestros clientes y en la comunidad.",
