@@ -2,7 +2,7 @@
   "landingPage": {
     "headline": "Web design and development",
     "description": "Take control of your online presence without depending on social networks and their algorithms. Take your business to the next level with a modern, secure and personalized page.",
-    "button": "Request a Quote Now!",
+    "button": "Start Now!",
     "differencesTitle": "What makes us different:",
     "differences": [
       {
@@ -73,7 +73,7 @@
     "pricing": {
       "plans": [
         {
-          "name": "Basic",
+          "name": "Startup",
           "price": "$260",
           "monthlyPrice": "$32 /month",
           "igv": "Inc. IGV"

@@ -2,7 +2,7 @@
   "landingPage": {
     "headline": "Desarrollo de páginas web",
     "description": "Toma el control de tu presencia en línea sin depender de las redes sociales y sus algoritmos. Lleva tu negocio al siguiente nivel con una página moderna, segura y personalizada.",
-    "button": "¡Cotiza Ahora!",
+    "button": "Consúltanos",
     "differencesTitle": "Lo que nos diferencia:",
     "differences": [
       {
@@ -73,7 +73,7 @@
     "pricing": {
       "plans": [
         {
-          "name": "Básico",
+          "name": "Startup",
           "price": "$260",
           "monthlyPrice": "$32 /mensual",
           "igv": "Inc. IGV"

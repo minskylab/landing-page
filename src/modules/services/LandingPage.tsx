@@ -24,13 +24,13 @@ import { GOOGLECALENDAR_URL } from "lib/utils";
 import { useCallback } from "react";
 import { useTranslation } from "next-i18next";
 import {
-  CalendarEvent,
   Lock,
   Palette,
   DeviceTablet,
   Headset,
   Affiliate,
   UserCheck,
+  BrandWhatsapp,
 } from "tabler-icons-react";
 
 const useStyles = createStyles(theme => {
@@ -197,8 +197,10 @@ export default function LandingPageContent() {
           <Group mt={30}>
             <Button
               size="md"
-              onClick={handleClickExternalURL}
-              leftIcon={<CalendarEvent size={22} />}
+              component="a"
+              href="https://wa.me/961818237?text=Hola%20Minsky,%20soy%20[nombre],%20estoy%20buscando%20información%20sobre%20el%20servicio%20de%20desarrollo%20de%20Páginas%20Web,%20me%20interesa%20el%20plan%20[Startup/Profesional/Premium]."
+              target="_blank"
+              leftIcon={<BrandWhatsapp size={22} />}
             >
               {t("landingPage.button")}
             </Button>
