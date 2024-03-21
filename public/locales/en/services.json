@@ -68,6 +68,14 @@
           "You can adapt your website to the changing needs of your business or personal project, adding new functionality, sections or even completely restructuring the site as necessary.",
           "Having your own website allows you to integrate a wide range of tools and platforms (such as reservation systems, online stores, and blogs) cohesively under your own brand."
         ]
+      },
+      {
+        "title": "Enhanced Online Visibility",
+        "description": [
+          "The main indicators or KPIs (Key Performance Indicators) that SEO providers typically offer to measure the success and return on investment of their strategies include several key aspects focused on performance, traffic, engagement, and conversions.",
+          "Insights: Organic Traffic and Sessions, Brand vs. Non-Brand Traffic, Keyword Positions, Backlinks, Organic CTR, Bounce Rate and Average Time on Page, SEO ROI, New Links, and Keyword Rankings.",
+          "These KPIs are essential for monitoring and evaluating the performance of your SEO strategies. They allow you to adjust and optimize your tactics to continuously improve the performance of your website on search engines and, consequently, your return on investment (Semrush)."
+        ]
       }
     ],
     "pricing": {
@@ -156,7 +164,7 @@
           "name": "Free",
           "basic": [],
           "professional": ["1 blog post"],
-          "premium": ["3 blog post"]
+          "premium": ["3 blog posts"]
         },
         {
           "name": "Suggestion",

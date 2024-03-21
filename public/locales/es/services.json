@@ -68,6 +68,14 @@
           "Puedes adaptar tu sitio web a las necesidades cambiantes de tu negocio o proyecto personal, añadiendo nuevas funcionalidades, secciones o incluso reestructurando completamente el sitio según sea necesario.",
           "Tener tu propio sitio web te permite integrar una amplia gama de herramientas y plataformas (como sistemas de reservas, tiendas en línea, y blogs) de manera cohesiva bajo tu propia marca."
         ]
+      },
+      {
+        "title": "Visibilidad potenciada en línea",
+        "description": [
+          "Los principales indicadores o KPIs (Key Performance Indicators) que los proveedores de SEO suelen ofrecer para medir el éxito y el retorno de inversión de sus estrategias incluyen varios aspectos clave que se centran en el rendimiento, el tráfico, el engagement, y las conversiones.",
+          "Métricas: Tráfico Orgánico y Sesiones Orgánicas, Tráfico de Marca vs. Sin Marca, Posiciones de Palabras Clave, Backlinks, CTR Orgánico, Tasa de Rebote y Tiempo Medio en la Página, ROI del SEO, Nuevos Enlaces y Rankings de Palabras Clave.",
+          "Estos KPIs son esenciales para monitorear y evaluar el desempeño de tus estrategias de SEO. Te permiten ajustar y optimizar tus tácticas para mejorar continuamente el rendimiento de tu sitio web en los motores de búsqueda y, por ende, tu retorno de inversión​ (Semrush)​."
+        ]
       }
     ],
     "pricing": {
@@ -156,7 +164,7 @@
           "name": "Gratis",
           "basic": [],
           "professional": ["1 entrada de blog"],
-          "premium": ["3 entrada de blog"]
+          "premium": ["3 entradas de blog"]
         },
         {
           "name": "Sugerencia",
