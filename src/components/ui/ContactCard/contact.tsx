@@ -74,7 +74,7 @@ function ContactIcon({
         {type == "link" ? (
           <Anchor
             color="brand.4"
-            href="https://wa.me/961818237?text=Me%20gustaría%20obtener%20más%20información%20sobre%20sus%20servicios."
+            href="https://wa.me/+51936445786?text=Me%20gustaría%20obtener%20más%20información%20sobre%20sus%20servicios."
             target="_blank"
           >
             {description}

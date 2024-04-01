@@ -121,7 +121,8 @@ export function MinskyFooter() {
         key={index}
         className={classes.link}
         component="a"
-        href={link.link}
+        /* href={link.link} */
+        href="#"
         onClick={event => event.preventDefault()}
       >
         {link.label}
