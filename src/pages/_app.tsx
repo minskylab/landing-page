@@ -10,6 +10,7 @@ import Head from "next/head";
 import Script from "next/script";
 
 import { MyMantineProvider } from "theming/mantine";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export type NextPageWithLayout<T = {}> = NextPage<T> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -36,14 +37,6 @@ const MinskyLandingApp = ({
         <title>Minsky | Open Technology Innovation</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
-      <Script
-        async
-        src="https://analytics.internal.minsky.cc/tracker.js"
-        data-ackee-server="https://analytics.internal.minsky.cc"
-        data-ackee-domain-id="27dc13a2-fcf6-494a-99b6-dc40a0795946"
-      />
-      <Script defer data-domain="minsky.cc" src="https://plausible.io/js/plausible.js" />
-
       <MyMantineProvider colorScheme={colorScheme}>
         <Notifications position="top-right" zIndex={2002} />
         <DefaultSeo
@@ -80,6 +73,7 @@ const MinskyLandingApp = ({
         />
         {getLayout(<Component {...pageProps} />)}
       </MyMantineProvider>
+      <GoogleTagManager gtmId="G-RF2EZRJD9G" />
     </>
   );
 };
