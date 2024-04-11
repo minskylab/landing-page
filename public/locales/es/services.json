@@ -81,22 +81,25 @@
     "pricing": {
       "plans": [
         {
-          "name": "Startup",
+          "id": "Basic",
+          "name": "Básico",
           "price": "$260",
           "monthlyPrice": "$32 /mensual",
-          "igv": "Inc. IGV"
+          "button": ""
         },
         {
-          "name": "Profesional",
+          "id": "Startup",
+          "name": "Start-up",
           "price": "$1200",
           "monthlyPrice": "$192 /mensual",
-          "igv": "Inc. IGV"
+          "button": ""
         },
         {
-          "name": "Premium",
-          "price": "$1600",
-          "monthlyPrice": "$290 /mensual",
-          "igv": "Inc. IGV"
+          "id": "Profesional",
+          "name": "Profesional",
+          "price": "",
+          "monthlyPrice": "",
+          "button": "¡Cotiza ahora!"
         }
       ],
       "features": [
@@ -104,73 +107,54 @@
           "name": "Características principales",
           "basic": [
             "Página web básica con hasta 5 secciones.",
+            "Botón CTA (Call to action).",
             "Diseño simple y limpio.",
-            "Integración de hasta 3 fotos proporcionadas por el cliente.",
             "Sin blog.",
             "Sin pasarela de pagos.",
-            "Sin mantenimiento del cloud.",
             "Sin CMS."
           ],
           "professional": [
             "Página web con hasta 10 secciones.",
+            "Botón CTA (Call to action).",
             "Diseño personalizado.",
-            "Integración de hasta 10 fotos proporcionadas por el cliente.",
-            "Opción de incluir un blog con hasta 5 publicaciones.",
-            "Galería con Función de Búsqueda y Filtrado Avanzado.",
-            "Carrito de compras completo.",
+            "Galería.",
             "Sin pasarela de pagos.",
             "Selección del carrito conectado a WhatsApp para continuar con el pedido.",
-            "Mantenimiento básico del cloud.",
             "Uso de CMS básico para productos.",
             "Formulario electrónico."
           ],
           "premium": [
-            "Página web con diseño premium y hasta 15 secciones.",
-            "Integración de hasta 20 fotos proporcionadas por el cliente.",
-            "Blog con capacidad ilimitada de publicaciones y diseño personalizado.",
-            "Galería con Función de Búsqueda y Filtrado Avanzado.",
-            "Carrito de compras completo.",
-            "Pasarela de pagos (PayPal, MercadoPago, etc.)",
-            "Mantenimiento completo del cloud.",
-            "Uso de CMS avanzado con funcionalidades personalizadas.",
-            "Registro y acceso de usuarios.",
-            "Formulario de Subscripción conectado a un servicio de e-mail marketing."
+            "Página web a medida.",
+            "Botón CTA (Call to action).",
+            "Buscador general.",
+            "Pasarela de Pagos.",
+            "Formulario de Suscripción.",
+            "Sistema de Recomendación de Productos.",
+            "Calculadora de precios.",
+            "Blog.",
+            "Integración con otras APIs.",
+            "Multi-idioma (a partir de 2 idiomas).",
+            "Modo Oscuro y Claro."
           ]
         },
+
         {
-          "name": "Funciones adicionales",
-          "basic": [
-            "Galería: 30 USD",
-            "Galería con Función de Búsqueda y Filtrado Avanzado: S/ 80 USD",
-            "Carrito de Compras Básico: 60 USD",
-            "Carrito de Compras Completo: 140 USD",
-            "Formulario de Suscripción: 15 USD",
-            "Interruptor de Modo Oscuro y Claro: 60 USD",
-            "Multi-idioma (2 idiomas): 30 USD"
-          ],
+          "name": "Mantenimiento",
+          "basic": ["Alojamiento web", "Certificado SSL", "Soporte técnico"],
           "professional": [
-            "Formulario de Suscripción con Segmentación de Listas: 30 USD",
-            "Interruptor de Modo Oscuro y Claro: 60 USD",
-            "Integración de Plugin de Traducción: 45 USD"
+            "Alojamiento web",
+            "Certificado SSL",
+            "Servicios de correo electrónico",
+            "Soporte técnico"
           ],
           "premium": [
-            "Sistema de Recomendación de Productos: 160 USD",
-            "Formulario Electrónico Personalizado: 60 USD",
-            "Interruptor de Modo Oscuro y Claro: 60 USD",
-            "Traducción Automática de Contenido: 50 USD"
+            "Alojamiento web",
+            "Certificado SSL",
+            "Servicios de correo electrónico",
+            "Soporte técnico",
+            "SEO",
+            "Reportes"
           ]
-        },
-        {
-          "name": "Gratis",
-          "basic": [],
-          "professional": ["1 entrada de blog"],
-          "premium": ["3 entradas de blog"]
-        },
-        {
-          "name": "Sugerencia",
-          "basic": ["Debe contar con dominio propio."],
-          "professional": ["Debe contar con dominio propio."],
-          "premium": ["Debe contar con dominio propio."]
         }
       ]
     }

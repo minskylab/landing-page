@@ -128,6 +128,9 @@ const useStyles = createStyles(theme => {
         theme.colorScheme === "dark" ? theme.colors.dark[3] : theme.colors.gray[3]
       }`,
     },
+    listItemWrapper: {
+      paddingRight: theme.spacing.lg,
+    },
   };
 });
 
@@ -258,21 +261,34 @@ export default function LandingPageContent() {
         <ScrollArea miw={800} type="never">
           <SimpleGrid cols={4} px={"md"} py={"lg"} className={classes.pricingRow}>
             <Stack></Stack>
-            {plans.map(({ name, price, monthlyPrice, igv }: LandingPagePlans) => (
-              <Stack key={name} align="center">
+            {plans.map(({ id, name, price, monthlyPrice, button }: LandingPagePlans) => (
+              <Stack key={name}>
                 <Text fw={700} color="brand.5">
                   {name}
                 </Text>
-                <Stack align="center" spacing={4}>
-                  <Title order={2} fz={42}>
-                    {price}
-                  </Title>
+                {id === "Profesional" ? (
+                  <Stack justify="center" sx={{ flex: 1 }}>
+                    <Group>
+                      <Button
+                        size="sm"
+                        component="a"
+                        href="https://wa.me/+51936445786?text=Hola%20Minsky,%20soy%20[nombre],%20estoy%20buscando%20información%20sobre%20el%20servicio%20de%20desarrollo%20de%20Páginas%20Web,%20me%20interesa%20el%20plan%20[Startup/Profesional/Premium]."
+                        target="_blank"
+                        leftIcon={<BrandWhatsapp size={22} />}
+                      >
+                        {button}
+                      </Button>
+                    </Group>
+                  </Stack>
+                ) : (
+                  <Stack spacing={4}>
+                    <Title order={2} fz={36}>
+                      {price}
+                    </Title>
 
-                  <Text fw={700}>{monthlyPrice}</Text>
-                  <Text color="gray.6" sx={{ fontSize: 14 }}>
-                    {igv}
-                  </Text>
-                </Stack>
+                    <Text fz={"sm"}>+ {monthlyPrice}</Text>
+                  </Stack>
+                )}
               </Stack>
             ))}
           </SimpleGrid>
@@ -282,21 +298,36 @@ export default function LandingPageContent() {
                 <Text size="sm">{name}</Text>
               </Stack>
               <Stack>
-                <List withPadding size="sm">
+                <List
+                  size="sm"
+                  classNames={{
+                    itemWrapper: classes.listItemWrapper,
+                  }}
+                >
                   {basic.map((item, index) => {
                     return <List.Item key={index}>{item}</List.Item>;
                   })}
                 </List>
               </Stack>
               <Stack>
-                <List withPadding size="sm">
+                <List
+                  size="sm"
+                  classNames={{
+                    itemWrapper: classes.listItemWrapper,
+                  }}
+                >
                   {professional.map((item, index) => {
                     return <List.Item key={index}>{item}</List.Item>;
                   })}
                 </List>
               </Stack>
               <Stack>
-                <List withPadding size="sm">
+                <List
+                  size="sm"
+                  classNames={{
+                    itemWrapper: classes.listItemWrapper,
+                  }}
+                >
                   {premium.map((item, index) => {
                     return <List.Item key={index}>{item}</List.Item>;
                   })}

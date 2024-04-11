@@ -39,10 +39,11 @@ export type LandingPageFAQ = {
 };
 
 export type LandingPagePlans = {
+  id: string;
   name: string;
   price: string;
   monthlyPrice: string;
-  igv: string;
+  button: string;
 };
 
 export type LandingPagePlansFeatures = {
