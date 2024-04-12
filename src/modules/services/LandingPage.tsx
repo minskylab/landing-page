@@ -176,8 +176,17 @@ function Difference({ icon, title, description }: FeatureProps) {
   );
 }
 
+const imagesLinks = [
+  "https://raw.githubusercontent.com/minskylab/landing-page/dev/src/assets/images/projects/WebPage1.png",
+  "https://raw.githubusercontent.com/minskylab/landing-page/dev/src/assets/images/projects/WebPage2.png",
+  "https://raw.githubusercontent.com/minskylab/landing-page/dev/src/assets/images/projects/WebPage3.png",
+  "https://raw.githubusercontent.com/minskylab/landing-page/dev/src/assets/images/projects/WebPage4.png",
+  "https://raw.githubusercontent.com/minskylab/landing-page/dev/src/assets/images/projects/WebPage5.png",
+  "https://raw.githubusercontent.com/minskylab/landing-page/dev/src/assets/images/projects/WebPage6.png",
+];
+
 export default function LandingPageContent() {
-  const { classes } = useStyles();
+  const { classes, theme } = useStyles();
   const { t } = useTranslation("services");
 
   const differences: LandingPageDifferences[] = t("landingPage.differences", {
@@ -239,22 +248,43 @@ export default function LandingPageContent() {
         </SimpleGrid>
       </Stack>
 
-      <Stack m={"auto"} className={classes.inner} sx={{ maxWidth: 700 }} spacing={0}>
-        <Title className={classes.titleProps}>{t("landingPage.projectsTitle")}</Title>
-        {projectsText.map((item, index) => (
-          <Text key={index} mt="md" className={classes.projectText}>
-            {item}
-          </Text>
-        ))}
+      <Stack className={classes.inner}>
+        <Stack m={"auto"} sx={{ maxWidth: 700 }} spacing={0}>
+          <Title className={classes.titleProps}>{t("landingPage.projectsTitle")}</Title>
+          {projectsText.map((item, index) => (
+            <Text key={index} mt="md" className={classes.projectText}>
+              {item}
+            </Text>
+          ))}
+        </Stack>
 
-        {/* <Image height={100} src={"./page1.png"} alt={"photo"} />
-        <Image
-          height={100}
-          src={
-            "https://images.unsplash.com/photo-1627552245715-77d79bbf6fe2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=80"
-          }
-          alt={"photo"}
-        /> */}
+        <SimpleGrid
+          cols={3}
+          spacing="lg"
+          breakpoints={[
+            { maxWidth: "48rem", cols: 2, spacing: "md" },
+            { maxWidth: "36rem", cols: 1, spacing: "sm" },
+          ]}
+          mt={`calc(${theme.spacing.xl} * 2)`}
+        >
+          {imagesLinks.map((item, index) => {
+            return (
+              <Image
+                key={index}
+                radius={"md"}
+                height={210}
+                src={item}
+                alt={"photo"}
+                styles={{
+                  image: {
+                    objectFit: "cover",
+                    objectPosition: "top",
+                  },
+                }}
+              />
+            );
+          })}
+        </SimpleGrid>
       </Stack>
 
       <ScrollArea miw={800} type="never" className={classes.inner}>

@@ -1,4 +1,4 @@
-import page1 from "./WebPage-1.png";
+import page1 from "./WebPage1.png";
 import page2 from "./WebPage2.png";
 import page3 from "./WebPage3.png";
 import page4 from "./WebPage4.png";
