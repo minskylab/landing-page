@@ -156,6 +156,94 @@
             "Reports"
           ]
         }
+      ],
+      "plansDetail": [
+        {
+          "id": "Basic",
+          "name": "Basic",
+          "price": "$260",
+          "monthlyPrice": "$32 /month",
+          "button": "",
+          "features": [
+            {
+              "name": "Features",
+              "list": [
+                "Basic website with up to 5 sections.",
+                "Call To Action Button.",
+                "Simple and clean design.",
+                "No blog.",
+                "No payment gateway.",
+                "No CMS (Content Management System)."
+              ]
+            },
+            {
+              "name": "Maintenance",
+              "list": ["Hosting", "SSL certificate", "Technical support"]
+            }
+          ]
+        },
+        {
+          "id": "Startup",
+          "name": "Startup",
+          "price": "$1200",
+          "monthlyPrice": "$192 /month",
+          "button": "",
+          "features": [
+            {
+              "name": "Features",
+              "list": [
+                "Website with up to 10 sections.",
+                "Call To Action Button.",
+                "Customized design.",
+                "Gallery.",
+                "No payment gateway.",
+                "Selection of the cart connected to WhatsApp to proceed with the order.",
+                "Use of basic CMS for products.",
+                "Online form."
+              ]
+            },
+            {
+              "name": "Maintenance",
+              "list": ["Hosting", "SSL certificate", "Email services", "Technical support"]
+            }
+          ]
+        },
+        {
+          "id": "Profesional",
+          "name": "Professional",
+          "price": "",
+          "monthlyPrice": "",
+          "button": "Quote now!",
+          "features": [
+            {
+              "name": "Features",
+              "list": [
+                "Custom Web Page.",
+                "Call To Action Button.",
+                "General search engine.",
+                "Payment Gateway.",
+                "Subscription Form.",
+                "Product Recommendation System.",
+                "Price Calculator.",
+                "Blog.",
+                "Integration with other APIs.",
+                "Multi-language (from 2 languages).",
+                "Dark and Light Mode."
+              ]
+            },
+            {
+              "name": "Maintenance",
+              "list": [
+                "Hosting",
+                "SSL certificate",
+                "Email services",
+                "Technical support",
+                "SEO",
+                "Reports"
+              ]
+            }
+          ]
+        }
       ]
     }
   }

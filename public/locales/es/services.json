@@ -161,6 +161,99 @@
             "Reportes"
           ]
         }
+      ],
+      "plansDetail": [
+        {
+          "id": "Basic",
+          "name": "Básico",
+          "price": "$260",
+          "monthlyPrice": "$32 /mensual",
+          "button": "",
+          "features": [
+            {
+              "name": "Características principales",
+              "list": [
+                "Página web básica con hasta 5 secciones.",
+                "Botón CTA (Call to action).",
+                "Diseño simple y limpio.",
+                "Sin blog.",
+                "Sin pasarela de pagos.",
+                "Sin CMS."
+              ]
+            },
+            {
+              "name": "Mantenimiento",
+              "list": ["Alojamiento web", "Certificado SSL", "Soporte técnico"]
+            }
+          ]
+        },
+        {
+          "id": "Startup",
+          "name": "Start-up",
+          "price": "$1200",
+          "monthlyPrice": "$192 /mensual",
+          "button": "",
+          "features": [
+            {
+              "name": "Características principales",
+              "list": [
+                "Página web con hasta 10 secciones.",
+                "Botón CTA (Call to action).",
+                "Diseño personalizado.",
+                "Galería.",
+                "Sin pasarela de pagos.",
+                "Selección del carrito conectado a WhatsApp para continuar con el pedido.",
+                "Uso de CMS básico para productos.",
+                "Formulario electrónico."
+              ]
+            },
+            {
+              "name": "Mantenimiento",
+              "list": [
+                "Alojamiento web",
+                "Certificado SSL",
+                "Servicios de correo electrónico",
+                "Soporte técnico"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "Profesional",
+          "name": "Profesional",
+          "price": "",
+          "monthlyPrice": "",
+          "button": "¡Cotiza ahora!",
+          "features": [
+            {
+              "name": "Características principales",
+              "list": [
+                "Página web a medida.",
+                "Botón CTA (Call to action).",
+                "Buscador general.",
+                "Pasarela de Pagos.",
+                "Formulario de Suscripción.",
+                "Sistema de Recomendación de Productos.",
+                "Calculadora de precios.",
+                "Blog.",
+                "Integración con otras APIs.",
+                "Multi-idioma (a partir de 2 idiomas).",
+                "Modo Oscuro y Claro."
+              ]
+            },
+            {
+              "name": "Mantenimiento",
+              "list": [
+                "Alojamiento web",
+                "Certificado SSL",
+                "Servicios de correo electrónico",
+                "Soporte técnico",
+                "SEO",
+                "Reportes"
+              ]
+            }
+          ]
+        }
       ]
     }
   }

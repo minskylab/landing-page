@@ -53,6 +53,20 @@ export type LandingPagePlansFeatures = {
   premium: string[];
 };
 
+export type PlansDetailFeatures = {
+  name: string;
+  list: string[];
+};
+
+export type PlansDetailProps = {
+  id: string;
+  name: string;
+  price: string;
+  monthlyPrice: string;
+  button: string;
+  features: PlansDetailFeatures[];
+};
+
 export type MinskyFAQ = {
   question: string;
   answer: string;

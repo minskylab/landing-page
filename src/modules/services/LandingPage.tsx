@@ -1,6 +1,7 @@
 import {
   Accordion,
   Button,
+  Card,
   Container,
   Group,
   Image,
@@ -19,6 +20,7 @@ import {
   LandingPageFAQ,
   LandingPagePlans,
   LandingPagePlansFeatures,
+  PlansDetailProps,
 } from "lib/landing/structure";
 import { GOOGLECALENDAR_URL } from "lib/utils";
 import { useCallback } from "react";
@@ -31,6 +33,7 @@ import {
   Affiliate,
   UserCheck,
   BrandWhatsapp,
+  Check,
 } from "tabler-icons-react";
 
 const useStyles = createStyles(theme => {
@@ -99,11 +102,6 @@ const useStyles = createStyles(theme => {
         fontSize: rem(28),
         textAlign: "left",
       },
-
-      /* [`@media (max-width: ${theme.breakpoints.xs}px)`]: {
-        fontSize: rem(28),
-        textAlign: "right",
-      }, */
     },
     description: {
       textAlign: "center",
@@ -133,6 +131,18 @@ const useStyles = createStyles(theme => {
     },
     listItemWrapper: {
       paddingRight: theme.spacing.lg,
+    },
+    plansTable: {
+      display: "block",
+      [theme.fn.smallerThan("sm")]: {
+        display: "none",
+      },
+    },
+    plansCards: {
+      display: "none",
+      [theme.fn.smallerThan("sm")]: {
+        display: "block",
+      },
     },
   };
 });
@@ -195,6 +205,9 @@ export default function LandingPageContent() {
   const faqs: LandingPageFAQ[] = t("landingPage.faqs", { returnObjects: true });
   const plans: LandingPagePlans[] = t("landingPage.pricing.plans", { returnObjects: true });
   const plansFeatures: LandingPagePlansFeatures[] = t("landingPage.pricing.features", {
+    returnObjects: true,
+  });
+  const plansdetail: PlansDetailProps[] = t("landingPage.pricing.plansDetail", {
     returnObjects: true,
   });
   const projectsText: string[] = t("landingPage.projectsText", {
@@ -287,7 +300,7 @@ export default function LandingPageContent() {
         </SimpleGrid>
       </Stack>
 
-      <ScrollArea miw={800} type="never" className={classes.inner}>
+      <ScrollArea miw={800} type="never" className={`${classes.inner} ${classes.plansTable}`}>
         <SimpleGrid cols={4} px={"md"} py={"lg"} className={classes.pricingRow}>
           <Stack></Stack>
           {plans.map(({ id, name, price, monthlyPrice, button }: LandingPagePlans) => (
@@ -365,6 +378,61 @@ export default function LandingPageContent() {
           </SimpleGrid>
         ))}
       </ScrollArea>
+
+      <Container size="sm" className={`${classes.inner} ${classes.plansCards}`}>
+        <Stack spacing={"xl"}>
+          {plansdetail.map(
+            ({ id, name, price, monthlyPrice, button, features }: PlansDetailProps) => (
+              <Card key={id} shadow="md" p="lg" radius="md" withBorder>
+                <Text fw={700} color="brand.5">
+                  {name}
+                </Text>
+                {id === "Profesional" ? (
+                  <Group mt={"xl"}>
+                    <Button
+                      size="sm"
+                      component="a"
+                      href="https://wa.me/+51936445786?text=Hola%20Minsky,%20soy%20[nombre],%20estoy%20buscando%20información%20sobre%20el%20servicio%20de%20desarrollo%20de%20Páginas%20Web,%20me%20interesa%20el%20plan%20[Startup/Profesional/Premium]."
+                      target="_blank"
+                      leftIcon={<BrandWhatsapp size={22} />}
+                    >
+                      {button}
+                    </Button>
+                  </Group>
+                ) : (
+                  <Stack spacing={4}>
+                    <Title order={2} fz={36}>
+                      {price}
+                    </Title>
+
+                    <Text fz={"sm"}>+ {monthlyPrice}</Text>
+                  </Stack>
+                )}
+
+                {features.map((item, index) => {
+                  return (
+                    <Stack key={index} mt={"xl"}>
+                      <Text fz={"sm"} fw={700}>
+                        {item.name}
+                      </Text>
+                      {item.list.map((item, index) => {
+                        return (
+                          <Group key={index}>
+                            <Check size={18} strokeWidth={2} color={theme.colors.brand[4]} />
+                            <Text fz={"sm"} sx={{ flex: 1 }}>
+                              {item}
+                            </Text>
+                          </Group>
+                        );
+                      })}
+                    </Stack>
+                  );
+                })}
+              </Card>
+            ),
+          )}
+        </Stack>
+      </Container>
 
       <Container size="sm" className={classes.inner}>
         <Title className={classes.titleProps}>{t("landingPage.faqsTitle")}</Title>
