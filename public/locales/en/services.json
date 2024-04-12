@@ -78,25 +78,33 @@
         ]
       }
     ],
+    "projectsTitle": "Highlighted Web Pages",
+    "projectsText": [
+      "We develop websites globally using JAMStack, providing you with a solid foundation for continuous growth without being hindered by the technological limitations of some providers.",
+      "Grow at your own pace without worries!"
+    ],
     "pricing": {
       "plans": [
         {
-          "name": "Startup",
+          "id": "Basic",
+          "name": "Basic",
           "price": "$260",
           "monthlyPrice": "$32 /month",
-          "igv": "Inc. IGV"
+          "button": ""
         },
         {
-          "name": "Profesional",
+          "id": "Startup",
+          "name": "Startup",
           "price": "$1200",
           "monthlyPrice": "$192 /month",
-          "igv": "Inc. IGV"
+          "button": ""
         },
         {
-          "name": "Premium",
-          "price": "$1600",
-          "monthlyPrice": "$290 /month",
-          "igv": "Inc. IGV"
+          "id": "Profesional",
+          "name": "Professional",
+          "price": "",
+          "monthlyPrice": "",
+          "button": "Quote now!"
         }
       ],
       "features": [
@@ -104,73 +112,137 @@
           "name": "Features",
           "basic": [
             "Basic website with up to 5 sections.",
+            "Call To Action Button.",
             "Simple and clean design.",
-            "Integration of up to 3 photos provided by the client.",
             "No blog.",
             "No payment gateway.",
-            "No cloud maintenance.",
             "No CMS (Content Management System)."
           ],
           "professional": [
             "Website with up to 10 sections.",
+            "Call To Action Button.",
             "Customized design.",
-            "Integration of up to 10 photos provided by the client.",
-            "Option to include a blog with up to 5 posts.",
-            "Gallery with Advanced Search and Filtering Functionality.",
-            "Full shopping cart.",
+            "Gallery.",
             "No payment gateway.",
             "Selection of the cart connected to WhatsApp to proceed with the order.",
-            "Basic cloud maintenance.",
             "Use of basic CMS for products.",
             "Online form."
           ],
           "premium": [
-            "Website with premium design and up to 15 sections.",
-            "Integration of up to 20 photos provided by the client.",
-            "Blog with unlimited posting capacity and customized design.",
-            "Gallery with Advanced Search and Filtering Functionality.",
-            "Full shopping cart.",
-            "Payment gateway (PayPal, MercadoPago, etc.).",
-            "Cloud maintenance.",
-            "Use of advanced CMS with customized functionalities.",
-            "User registration and access.",
-            "Subscription form connected to an email marketing service."
+            "Custom Web Page.",
+            "Call To Action Button.",
+            "General search engine.",
+            "Payment Gateway.",
+            "Subscription Form.",
+            "Product Recommendation System.",
+            "Price Calculator.",
+            "Blog.",
+            "Integration with other APIs.",
+            "Multi-language (from 2 languages).",
+            "Dark and Light Mode."
           ]
         },
+
         {
-          "name": "Additional features",
-          "basic": [
-            "Gallery: 30 USD",
-            "Gallery with Advanced Search and Filtering Functionality: 80 USD",
-            "Basic Shopping Cart: 60 USD",
-            "Full Shopping Cart: 140 USD",
-            "Subscription Form: 15 USD",
-            "Dark and Light Mode: 60 USD",
-            "Multi-language (2 languages): 30 USD"
-          ],
-          "professional": [
-            "Subscription Form with List Segmentation: 30 USD",
-            "Dark and Light Mode: 60 USD",
-            "Translation Plugin Integration: 45 USD"
-          ],
+          "name": "Maintenance",
+          "basic": ["Hosting", "SSL certificate", "Technical support"],
+          "professional": ["Hosting", "SSL certificate", "Email services", "Technical support"],
           "premium": [
-            "Product Recommendation System: 160 USD",
-            "Custom Electronic Form: 60 USD",
-            "Dark and Light Mode: 60 USD",
-            "Automatic Content Translation: 50 USD"
+            "Hosting",
+            "SSL certificate",
+            "Email services",
+            "Technical support",
+            "SEO",
+            "Reports"
+          ]
+        }
+      ],
+      "plansDetail": [
+        {
+          "id": "Basic",
+          "name": "Basic",
+          "price": "$260",
+          "monthlyPrice": "$32 /month",
+          "button": "",
+          "features": [
+            {
+              "name": "Features",
+              "list": [
+                "Basic website with up to 5 sections.",
+                "Call To Action Button.",
+                "Simple and clean design.",
+                "No blog.",
+                "No payment gateway.",
+                "No CMS (Content Management System)."
+              ]
+            },
+            {
+              "name": "Maintenance",
+              "list": ["Hosting", "SSL certificate", "Technical support"]
+            }
           ]
         },
         {
-          "name": "Free",
-          "basic": [],
-          "professional": ["1 blog post"],
-          "premium": ["3 blog posts"]
+          "id": "Startup",
+          "name": "Startup",
+          "price": "$1200",
+          "monthlyPrice": "$192 /month",
+          "button": "",
+          "features": [
+            {
+              "name": "Features",
+              "list": [
+                "Website with up to 10 sections.",
+                "Call To Action Button.",
+                "Customized design.",
+                "Gallery.",
+                "No payment gateway.",
+                "Selection of the cart connected to WhatsApp to proceed with the order.",
+                "Use of basic CMS for products.",
+                "Online form."
+              ]
+            },
+            {
+              "name": "Maintenance",
+              "list": ["Hosting", "SSL certificate", "Email services", "Technical support"]
+            }
+          ]
         },
         {
-          "name": "Suggestion",
-          "basic": ["Should have its own domain."],
-          "professional": ["Should have its own domain."],
-          "premium": ["Should have its own domain."]
+          "id": "Profesional",
+          "name": "Professional",
+          "price": "",
+          "monthlyPrice": "",
+          "button": "Quote now!",
+          "features": [
+            {
+              "name": "Features",
+              "list": [
+                "Custom Web Page.",
+                "Call To Action Button.",
+                "General search engine.",
+                "Payment Gateway.",
+                "Subscription Form.",
+                "Product Recommendation System.",
+                "Price Calculator.",
+                "Blog.",
+                "Integration with other APIs.",
+                "Multi-language (from 2 languages).",
+                "Dark and Light Mode."
+              ]
+            },
+            {
+              "name": "Maintenance",
+              "list": [
+                "Hosting",
+                "SSL certificate",
+                "Email services",
+                "Technical support",
+                "SEO",
+                "Reports"
+              ]
+            }
+          ]
         }
       ]
     }

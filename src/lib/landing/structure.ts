@@ -39,10 +39,11 @@ export type LandingPageFAQ = {
 };
 
 export type LandingPagePlans = {
+  id: string;
   name: string;
   price: string;
   monthlyPrice: string;
-  igv: string;
+  button: string;
 };
 
 export type LandingPagePlansFeatures = {
@@ -50,6 +51,20 @@ export type LandingPagePlansFeatures = {
   basic: string[];
   professional: string[];
   premium: string[];
+};
+
+export type PlansDetailFeatures = {
+  name: string;
+  list: string[];
+};
+
+export type PlansDetailProps = {
+  id: string;
+  name: string;
+  price: string;
+  monthlyPrice: string;
+  button: string;
+  features: PlansDetailFeatures[];
 };
 
 export type MinskyFAQ = {
