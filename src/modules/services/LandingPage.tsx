@@ -1,6 +1,5 @@
 import {
   Accordion,
-  Box,
   Button,
   Card,
   Container,
@@ -283,27 +282,32 @@ export default function LandingPageContent() {
         >
           {imagesLinks.map((item, index) => {
             return (
-              <Box key={index} h={210} sx={{ position: "relative", overflow: "hidden" }}>
+              <Card
+                key={index}
+                h={210}
+                padding={0}
+                shadow="md"
+                radius="md"
+                sx={{ position: "relative", overflow: "hidden" }}
+              >
                 <Image
                   width={"100%"}
-                  /* height={"auto"} */
-                  radius={"md"}
                   src={item}
-                  alt={"photo"}
+                  alt={"landingpage example"}
                   styles={{
                     image: {
                       objectFit: "cover",
                       objectPosition: "top",
 
                       "&:hover": {
-                        transition: "transform 7s linear",
+                        transition: "transform 6s linear",
                         transform: "translateY(calc(-100% + 210px))",
                         /* objectPosition: "bottom", */
                       },
                     },
                   }}
                 />
-              </Box>
+              </Card>
             );
           })}
         </SimpleGrid>
