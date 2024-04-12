@@ -1,5 +1,6 @@
 import {
   Accordion,
+  Box,
   Button,
   Card,
   Container,
@@ -187,12 +188,12 @@ function Difference({ icon, title, description }: FeatureProps) {
 }
 
 const imagesLinks = [
-  "https://raw.githubusercontent.com/minskylab/landing-page/dev/src/assets/images/projects/WebPage1.png",
-  "https://raw.githubusercontent.com/minskylab/landing-page/dev/src/assets/images/projects/WebPage2.png",
-  "https://raw.githubusercontent.com/minskylab/landing-page/dev/src/assets/images/projects/WebPage3.png",
-  "https://raw.githubusercontent.com/minskylab/landing-page/dev/src/assets/images/projects/WebPage4.png",
-  "https://raw.githubusercontent.com/minskylab/landing-page/dev/src/assets/images/projects/WebPage5.png",
-  "https://raw.githubusercontent.com/minskylab/landing-page/dev/src/assets/images/projects/WebPage6.png",
+  "https://raw.githubusercontent.com/minskylab/landing-page/main/src/assets/images/projects/WebPage1.webp",
+  "https://raw.githubusercontent.com/minskylab/landing-page/main/src/assets/images/projects/WebPage2.webp",
+  "https://raw.githubusercontent.com/minskylab/landing-page/main/src/assets/images/projects/WebPage3.webp",
+  "https://raw.githubusercontent.com/minskylab/landing-page/main/src/assets/images/projects/WebPage4.webp",
+  "https://raw.githubusercontent.com/minskylab/landing-page/main/src/assets/images/projects/WebPage5.webp",
+  "https://raw.githubusercontent.com/minskylab/landing-page/main/src/assets/images/projects/WebPage6.webp",
 ];
 
 export default function LandingPageContent() {
@@ -282,25 +283,35 @@ export default function LandingPageContent() {
         >
           {imagesLinks.map((item, index) => {
             return (
-              <Image
-                key={index}
-                radius={"md"}
-                height={210}
-                src={item}
-                alt={"photo"}
-                styles={{
-                  image: {
-                    objectFit: "cover",
-                    objectPosition: "top",
-                  },
-                }}
-              />
+              <Box key={index} h={210} sx={{ position: "relative", overflow: "hidden" }}>
+                <Image
+                  width={"100%"}
+                  /* height={"auto"} */
+                  radius={"md"}
+                  src={item}
+                  alt={"photo"}
+                  styles={{
+                    image: {
+                      objectFit: "cover",
+                      objectPosition: "top",
+
+                      "&:hover": {
+                        transition: "transform 7s linear",
+                        transform: "translateY(calc(-100% + 210px))",
+                        /* objectPosition: "bottom", */
+                      },
+                    },
+                  }}
+                />
+              </Box>
             );
           })}
         </SimpleGrid>
       </Stack>
 
       <ScrollArea miw={800} type="never" className={`${classes.inner} ${classes.plansTable}`}>
+        <Title className={classes.titleProps}>{t("landingPage.pricing.title")}</Title>
+
         <SimpleGrid cols={4} px={"md"} py={"lg"} className={classes.pricingRow}>
           <Stack></Stack>
           {plans.map(({ id, name, price, monthlyPrice, button }: LandingPagePlans) => (
@@ -380,6 +391,7 @@ export default function LandingPageContent() {
       </ScrollArea>
 
       <Container size="sm" className={`${classes.inner} ${classes.plansCards}`}>
+        <Title className={classes.titleProps}>{t("landingPage.pricing.title")}</Title>
         <Stack spacing={"xl"}>
           {plansdetail.map(
             ({ id, name, price, monthlyPrice, button, features }: PlansDetailProps) => (
