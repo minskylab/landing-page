@@ -84,6 +84,7 @@
       "¡Crece a tu ritmo sin preocuparte!"
     ],
     "pricing": {
+      "title": "Planes a tu medida",
       "plans": [
         {
           "id": "Basic",

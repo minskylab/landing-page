@@ -84,6 +84,7 @@
       "Grow at your own pace without worries!"
     ],
     "pricing": {
+      "title": "Flexible plans to fit your needs",
       "plans": [
         {
           "id": "Basic",
