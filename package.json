@@ -24,7 +24,7 @@
     "@react-spring/three": "9.4.5",
     "@react-spring/web": "9.4.5",
     "@react-three/drei": "9.13.0",
-    "@react-three/fiber": "8.0.22",
+    "@react-three/fiber": "8.17.10",
     "cookies-next": "^2.1.2",
     "embla-carousel-autoplay": "^8.0.0-rc11",
     "embla-carousel-react": "^8.0.0-rc11",
