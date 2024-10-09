@@ -1336,9 +1336,9 @@
   integrity sha512-g2+tU63yTWmcVQKDGY0MV1PjjqgZtwM4rB1oVVi/v0brdZAcrcTV+04agKzWtvWroyFz6IqtT0MoZJA7PNyLVw==
 
 "@next/third-parties@^14.1.4":
-  version "14.1.4"
-  resolved "https://registry.yarnpkg.com/@next/third-parties/-/third-parties-14.1.4.tgz#a7d8243b7b55cf452630e5d42fc79d35d51f2ff5"
-  integrity sha512-e/kpEFq5/ZPhHkxpJkvhMfLp3OC6KCBou0/BV8BvgjXAPgEo6sa0ZXe0l4ZEb3wcA7NIEHIpqCmjU5Z7QAHcKQ==
+  version "14.2.15"
+  resolved "https://registry.yarnpkg.com/@next/third-parties/-/third-parties-14.2.15.tgz#becb2cf4f1ae2f451051923e406107cf57b28c59"
+  integrity sha512-15CvipE1p1GtlzVfbDfXPrAGIhzJJe75Yy6+GIBRTd36lu95BegRsUJwCxJYoKz47Q09stcU2gJDMduMGqrikw==
   dependencies:
     third-party-capital "1.0.20"
 
